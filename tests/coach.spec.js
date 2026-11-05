@@ -130,6 +130,41 @@ test('mocked gist GET merges weak count and a later mark PATCHes', async ({ page
   await expect(page.getByTestId('sync-status')).toHaveText('已同步');
 });
 
+test('stage B shows at most 5 examples and keeps a shorter list intact', async ({ page }) => {
+  const base = {
+    pos: 'n.', ipa: '/kæp/', gloss_zh: '上限', domain: 'life', track: 'life',
+    examples_stage_a: ['One [[cap check]] line.', 'Second stage A [[cap check]] line.']
+  };
+  const long = {
+    ...base, id: 'wlong', term: 'cap check',
+    examples_stage_b: [1, 2, 3, 4, 5, 6].map(n => `Example ${n} for [[cap check]].`)
+  };
+  await page.route('**/words.json', route => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify([long])
+  }));
+  await page.goto('/');
+  await expect(page.getByTestId('examples-a').locator('li')).toHaveCount(2);
+  await page.getByTestId('reveal').click();
+  await expect(page.getByTestId('examples-b').locator('li')).toHaveCount(5);
+  await expect(page.getByTestId('examples-b')).toContainText('Example 5');
+  await expect(page.getByTestId('examples-b')).not.toContainText('Example 6');
+
+  const short = {
+    ...base, id: 'wshort', term: 'short check',
+    examples_stage_b: [1, 2, 3].map(n => `Short ${n} for [[short check]].`)
+  };
+  await page.unroute('**/words.json');
+  await page.route('**/words.json', route => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify([short])
+  }));
+  await page.goto('/');
+  await page.getByTestId('reveal').click();
+  await expect(page.getByTestId('examples-b').locator('li')).toHaveCount(3);
+  await expect(page.getByTestId('examples-b')).toContainText('Short 3');
+});
+
 test('create private gist stores the returned id', async ({ page }) => {
   await page.route('https://api.github.com/gists', async route => {
     const body = JSON.parse(route.request().postData() || '{}');

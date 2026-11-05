@@ -9,6 +9,12 @@ Static H5 vocab coach. No build step. Hosted from the repo root on GitHub Pages:
 - `mode` is `all` or `review`. 复习 queues only weak and reinforce.
 - 特别需要 sets `needed`. 恢复上一个 pops the local undo stack (max 5).
 
+## Examples
+
+- Stage A shows one short example (`examples_stage_a`).
+- Stage B shows more examples, capped at **5** (`examples_stage_b` sliced at 5). Words with fewer than 5 stay as written; do not pad with duplicates.
+- The lexicon is not expanded in this change. Most entries still have 3 stage-B lines; a few have 4. The UI will show a 5th when the data has one.
+
 ## Sync
 
 Google Drive and Google OAuth are cancelled. Do not add Google Identity Services, the Drive API, an OAuth client id, or any Drive folder.

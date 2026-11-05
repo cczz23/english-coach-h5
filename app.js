@@ -183,17 +183,20 @@ function head(){const r=rec(cur.id);const n=r.seen;return `<div class="stage" da
 <div class="meta">${esc(cur.pos)} · <span data-testid="ipa">${esc(cur.ipa)}</span><span class="dom" data-testid="track">${({business:"商务",advanced:"高级",life:"生活"})[cur.track]||cur.domain}</span>${n>1?`<span class="badge" data-testid="seen-hint">已见过 ${n} 次</span>`:''}</div>`}
 function neededBtn(){const on=!!rec(cur.id).needed;return `<button type="button" class="needed-toggle${on?' on':''}" data-testid="needed" aria-pressed="${on?'true':'false'}"><span class="star">${on?'★':'☆'}</span> 特别需要</button>`}
 function bindNeeded(){const b=$('[data-testid=needed]');if(b)b.onclick=e=>{e.preventDefault();e.stopPropagation();toggleNeeded()}}
+/** Stage B (and Stage A) show at most 5 examples. Shorter lists stay as written. */
+const EX_MAX=5;
+function exList(list){return (list||[]).slice(0,EX_MAX).map(e=>`<li>${hl(e)}</li>`).join('')}
 function render(){stats();modeBtns();const app=$('#app');
  if(!cur&&state.mode==='review'){app.innerHTML=`<div class="card empty" data-testid="empty-review"><h2>📭 复习队列为空</h2><p>还没有标为「再巩固」或「还不熟」的词。</p><button class="primary" data-testid="back-all">回到全部</button></div>`;
   $('[data-testid=back-all]').onclick=()=>setMode('all');return;}
  if(!cur){app.innerHTML=`<div class="card empty" data-testid="empty"><h2>🎉 全部放掉了！</h2><p>队列已空，历史记录仍保留。</p><button class="ghost" data-testid="reset">重新练习全部</button></div>`;
   $('[data-testid=reset]').onclick=()=>{Object.values(state.items).forEach(r=>{if(r.status==='dropped')r.status=null});state.undo=[];state.log.push({id:null,term:null,action:'reset',ts:Date.now(),seen:0});save();next()};return;}
- if(stage==='A'){app.innerHTML=`<div class="card" data-testid="card-a">${head()}<ul data-testid="examples-a">${cur.examples_stage_a.map(e=>`<li>${hl(e)}</li>`).join('')}</ul>
+ if(stage==='A'){app.innerHTML=`<div class="card" data-testid="card-a">${head()}<ul data-testid="examples-a">${exList(cur.examples_stage_a)}</ul>
  <div class="actions row2 row"><button class="ghost" data-testid="skip">跳过</button><button class="primary" data-testid="reveal">查看释义</button></div></div>`;
   $('[data-testid=skip]').onclick=()=>act('skip_drop','dropped');
   $('[data-testid=reveal]').onclick=()=>{stage='B';log('reveal');save();render()};
  }else{app.innerHTML=`<div class="card" data-testid="card-b">${head()}<div class="gloss" data-testid="gloss">${esc(cur.gloss_zh)}</div>
- <ul data-testid="examples-b">${cur.examples_stage_b.map(e=>`<li>${hl(e)}</li>`).join('')}</ul>
+ <ul data-testid="examples-b">${exList(cur.examples_stage_b)}</ul>
  ${neededBtn()}
  <div class="actions row status-row"><button class="drop" data-testid="drop">先放掉</button><button class="reinforce" data-testid="reinforce">再巩固</button><button class="weak" data-testid="weak">还不熟</button></div></div>`;
   $('[data-testid=drop]').onclick=()=>act('drop','dropped');
