@@ -136,6 +136,7 @@ test('mocked CloudBase GET merges weak count and a later mark PATCHes', async ({
   await expect.poll(() => puts.length, { timeout: 5000 }).toBeGreaterThan(before);
   const body = puts[puts.length - 1];
   expect(body).toContain('"mode":"review"');
+  expect(body).toContain('"mix":1');
   expect(body).not.toContain('secret-key');
   await expect(page.getByTestId('sync-status')).toHaveText('已同步');
 });
@@ -334,3 +335,101 @@ test('create cloud record stores the returned doc id', async ({ page }) => {
   expect(cfg.publishableKey).toBe('secret-key');
   expect(await page.locator('body').innerText()).not.toContain('secret-key');
 });
+
+async function setMixPct(page, pct) {
+  await page.getByTestId('mix').evaluate((el, v) => {
+    el.value = String(v);
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+    el.dispatchEvent(new Event('change', { bubbles: true }));
+  }, pct);
+}
+
+test('mix slider persists on ec_state_v4 and snaps 新词 / 复习', async ({ page }) => {
+  await boot(page);
+  await expect(page.getByTestId('mix')).toHaveValue('50');
+  await setMixPct(page, 0);
+  await expect(page.getByTestId('mode-new')).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByTestId('mix-label')).toContainText('新词 100%');
+  const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('ec_state_v4')));
+  expect(stored.mix).toBe(0);
+  expect(stored.mode).toBe('all');
+  await page.reload();
+  await expect(page.getByTestId('term')).toBeVisible();
+  await expect(page.getByTestId('mix')).toHaveValue('0');
+  await page.getByTestId('mode-review').click();
+  await expect(page.getByTestId('empty-review')).toBeVisible();
+  const after = await page.evaluate(() => JSON.parse(localStorage.getItem('ec_state_v4')));
+  expect(after.mix).toBe(1);
+  expect(after.mode).toBe('review');
+});
+
+test('stubbed RNG follows slider mix: 0 is new-only, 1 is review-only', async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem('ec_state_v4', JSON.stringify({
+      v: 4, mode: 'all', mix: 0.5,
+      items: {
+        w001: { status: 'weak', seen: 2, needed: false, updated: 1 },
+        w003: { status: 'reinforce', seen: 1, needed: false, updated: 1 }
+      },
+      recent: [], log: [], undo: []
+    }));
+  });
+  await page.goto('/');
+  await expect(page.getByTestId('n-weak')).toHaveText('1');
+  const draws = await page.evaluate(() => {
+    const s = window.__ec.state();
+    const sample = mix => {
+      s.mix = mix;
+      s.mode = mix >= 1 ? 'review' : 'all';
+      window.__ec.rng = () => 0.99;
+      const out = [];
+      for (let i = 0; i < 12; i++) {
+        const w = window.__ec.pickNext();
+        out.push(w ? ((s.items[w.id] || {}).status ?? null) : null);
+      }
+      return out;
+    };
+    return { fresh: sample(0), review: sample(1) };
+  });
+  expect(draws.fresh.every(st => st == null)).toBe(true);
+  expect(draws.review.every(st => st === 'weak' || st === 'reinforce')).toBe(true);
+});
+
+test('生疏列表 is empty, then groups 还不熟 / 再巩固 and opens that card', async ({ page }) => {
+  await boot(page);
+  await page.getByTestId('weak-list-open').click();
+  await expect(page.getByTestId('weak-list')).toBeVisible();
+  await expect(page.getByTestId('weak-list-empty')).toBeVisible();
+  await page.getByTestId('weak-list-close').click();
+  await expect(page.getByTestId('weak-list')).toBeHidden();
+
+  await page.addInitScript(() => {
+    localStorage.setItem('ec_state_v4', JSON.stringify({
+      v: 4, mode: 'all', mix: 0.5,
+      items: {
+        w001: { status: 'weak', seen: 2, needed: true, updated: 1 },
+        w003: { status: 'reinforce', seen: 1, needed: false, updated: 1 },
+        w004: { status: 'dropped', seen: 1, needed: true, updated: 1 }
+      },
+      recent: [], log: [], undo: []
+    }));
+  });
+  await page.goto('/');
+  await expect(page.getByTestId('n-weak')).toHaveText('1');
+  await expect(page.getByTestId('n-reinforce')).toHaveText('1');
+  await page.getByTestId('weak-list-open').click();
+  await expect(page.getByTestId('weak-group-weak')).toHaveText('还不熟');
+  await expect(page.getByTestId('weak-group-reinforce')).toHaveText('再巩固');
+  await expect(page.getByTestId('weak-row')).toHaveCount(2);
+  await expect(page.getByTestId('weak-list')).toContainText('circle back');
+  await expect(page.getByTestId('weak-list')).toContainText('take it offline');
+  await expect(page.getByTestId('weak-list')).toContainText('回头');
+  await expect(page.locator('[data-testid=weak-row][data-id=w001]')).toContainText('★');
+  await expect(page.getByTestId('weak-list')).not.toContainText('push back');
+  await page.locator('[data-testid=weak-row][data-id=w001]').click();
+  await expect(page.getByTestId('weak-list')).toBeHidden();
+  await expect(page.getByTestId('term')).toContainText('circle back');
+  await expect(page.getByTestId('stage')).toHaveText('STAGE A');
+  await expect(page.getByTestId('card-a')).toBeVisible();
+});
+

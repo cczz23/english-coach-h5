@@ -1,12 +1,22 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>English Coach</title><link rel="stylesheet" href="style.css"></head>
-<body><header><div class="hdr-left"><h1>English Coach</h1>
-<div class="hdr-row"><div class="mode-seg" role="group" aria-label="模式"><button type="button" class="mode-btn on" data-testid="mode-all" aria-pressed="true">全部</button><button type="button" class="mode-btn" data-testid="mode-review" aria-pressed="false">复习</button></div>
-<button type="button" class="undo-btn" data-testid="undo" disabled>恢复上一个</button>
-<button type="button" class="undo-btn" data-testid="settings-open">设置</button></div>
+<body><header>
+<div class="hdr-top"><div class="hdr-left"><h1>English Coach</h1>
 <span id="sync-status" data-testid="sync-status" data-sync-status></span></div>
-<div id="stats" data-testid="stats"></div></header>
+<div id="stats" data-testid="stats"></div></div>
+<div class="mix-caption" data-testid="mix-label">新词 50%</div>
+<div class="mix-row" role="group" aria-label="新词与复习比例">
+<button type="button" class="mix-end" data-testid="mode-new" aria-pressed="false">新词</button>
+<input type="range" min="0" max="100" step="5" value="50" data-testid="mix" aria-label="新词与复习比例" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+<button type="button" class="mix-end" data-testid="mode-review" aria-pressed="false">复习</button>
+</div>
+<div class="hdr-row">
+<button type="button" class="undo-btn" data-testid="weak-list-open">生疏列表</button>
+<button type="button" class="undo-btn" data-testid="undo" disabled>恢复上一个</button>
+<button type="button" class="undo-btn" data-testid="settings-open">设置</button>
+</div>
+</header>
 <main id="app" data-testid="app">加载中…</main>
 <footer id="history" data-testid="history"></footer>
 <div id="settings" class="settings" data-testid="settings" hidden>
@@ -25,5 +35,13 @@
 <button type="button" class="ghost" data-testid="sync-clear">停止同步</button>
 </form>
 </div>
+<div id="weak-list" class="settings" data-testid="weak-list" hidden>
+<div class="sheet-panel">
+<h2>还不熟的词</h2>
+<div class="weak-list-body" data-testid="weak-list-body"></div>
+<button type="button" class="ghost" data-testid="weak-list-close">关闭</button>
+</div>
+</div>
 <script src="sync.js"></script>
+<script src="queue.js"></script>
 <script src="app.js"></script></body></html>
