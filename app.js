@@ -202,6 +202,11 @@ function bindNeeded(){const b=$('[data-testid=needed]');if(b)b.onclick=e=>{e.pre
 /** Stage B (and Stage A) show at most 5 examples. Shorter lists stay as written. */
 const EX_MAX=5;
 function exList(list){return (list||[]).slice(0,EX_MAX).map(e=>`<li>${hl(e)}</li>`).join('')}
+/** Optional 易混对比: 1–3 vs-notes on Stage B after 释义. Hidden when missing/empty. */
+function contrastBlock(w){
+ const list=Array.isArray(w&&w.contrast)?w.contrast.filter(c=>c&&c.vs&&String(c.note_zh||'').trim()):[];
+ if(!list.length)return '';
+ return `<div class="contrast" data-testid="contrast"><div class="contrast-h">易混对比</div><ul data-testid="contrast-list">${list.map(c=>`<li><span class="vs">vs ${esc(c.vs)}</span> — ${esc(c.note_zh)}</li>`).join('')}</ul></div>`}
 function render(){stats();modeBtns();const app=$('#app');
  if(!cur&&state.mode==='review'){app.innerHTML=`<div class="card empty" data-testid="empty-review"><h2>📭 复习队列为空</h2><p>还没有标为「再巩固」或「还不熟」的词。</p><button class="primary" data-testid="back-all">回到全部</button></div>`;
   $('[data-testid=back-all]').onclick=()=>setMode('all');return;}
@@ -212,6 +217,7 @@ function render(){stats();modeBtns();const app=$('#app');
   $('[data-testid=skip]').onclick=()=>act('skip_drop','dropped');
   $('[data-testid=reveal]').onclick=()=>{stage='B';log('reveal');save();render()};
  }else{app.innerHTML=`<div class="card" data-testid="card-b">${head()}<div class="gloss" data-testid="gloss">${esc(cur.gloss_zh)}</div>
+ ${contrastBlock(cur)}
  <ul data-testid="examples-b">${exList(cur.examples_stage_b)}</ul>
  ${neededBtn()}
  <div class="actions row status-row"><button class="drop" data-testid="drop">先放掉</button><button class="reinforce" data-testid="reinforce">再巩固</button><button class="weak" data-testid="weak">还不熟</button></div></div>`;

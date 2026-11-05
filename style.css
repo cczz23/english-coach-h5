@@ -10,6 +10,11 @@ main{flex:1;padding:16px;max-width:560px;width:100%;margin:0 auto}
 .needed-dot{font-size:18px;color:#d97706;line-height:1}
 .meta{color:#556;font-size:15px}.dom{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;background:#eef2ff;color:#4555c4;margin-left:6px}
 .gloss{font-size:20px;font-weight:600;margin:14px 0;color:#0b6b4f}
+.contrast{margin:0 0 12px;padding:10px 12px;background:#f6f7fb;border-radius:12px}
+.contrast-h{font-size:12px;color:#667;letter-spacing:.04em;font-weight:700;margin:0 0 4px}
+.contrast ul{margin:0;padding-left:0;list-style:none}
+.contrast li{margin:6px 0;font-size:13px;line-height:1.45;color:#334}
+.contrast .vs{font-weight:700;color:#1d2433}
 ul{padding-left:18px;margin:12px 0}li{margin:8px 0;line-height:1.5;font-size:16px}
 mark{background:#ffe58a;padding:0 2px;border-radius:3px;font-weight:600}
 .actions{display:grid;gap:10px;margin-top:18px}.row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.row2{grid-template-columns:1fr 1fr}

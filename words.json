@@ -897,7 +897,17 @@
    "We put each [[assumption]] in a footnote so the board could challenge it."
   ],
   "id": "w107",
-  "track": "business"
+  "track": "business",
+  "contrast": [
+   {
+    "vs": "guess",
+    "note_zh": "guess 是随口猜；assumption 是未加验证就当真、后面推理都踩在上面"
+   },
+   {
+    "vs": "premise",
+    "note_zh": "premise 是论证出发的前提；assumption 更常是没说出来、可能有误的默认"
+   }
+  ]
  },
  {
   "term": "trade-off",
@@ -1157,7 +1167,17 @@
    "Legal said the clause is [[feasible]] if we cap the liability."
   ],
   "id": "w120",
-  "track": "business"
+  "track": "business",
+  "contrast": [
+   {
+    "vs": "possible",
+    "note_zh": "possible 只是可能；feasible 强调以现有时间、钱、人手做得成"
+   },
+   {
+    "vs": "viable",
+    "note_zh": "viable 还要问长期能否活下去；feasible 先问眼下能不能做出来"
+   }
+  ]
  },
  {
   "term": "receipt",
@@ -1297,6 +1317,16 @@
    "His take on the movie was surprisingly [[nuanced]].",
    "Her note was [[nuanced]]: the idea held up, the rollout didn't.",
    "A [[nuanced]] reading of the lease still lets the landlord raise the fee."
+  ],
+  "contrast": [
+   {
+    "vs": "subtle",
+    "note_zh": "subtle 偏细微、不易察觉；nuanced 强调分得出层次，不把事情说成非黑即白"
+   },
+   {
+    "vs": "detailed",
+    "note_zh": "detailed 是细节多；nuanced 是判断有分寸，能照顾到例外和灰度"
+   }
   ]
  },
  {
@@ -1317,6 +1347,16 @@
    "Everything is [[contingent]] on the weather, honestly.",
    "The offer is [[contingent]] on my starting after the notice period.",
    "Outdoor seating this summer is [[contingent]] on the city permit."
+  ],
+  "contrast": [
+   {
+    "vs": "dependent",
+    "note_zh": "dependent 泛指依赖、靠着；contingent 强调「以某条件成立为前提」才发生"
+   },
+   {
+    "vs": "conditional",
+    "note_zh": "conditional 也是有条件；contingent 更常说交易/计划仍取决于尚未发生的那件事"
+   }
   ]
  },
  {
@@ -1337,6 +1377,16 @@
    "Gig workers often live a [[precarious]] life.",
    "Cash was so [[precarious]] they paid a vendor only after a wire cleared.",
    "The ladder felt [[precarious]] on the wet bathroom tile."
+  ],
+  "contrast": [
+   {
+    "vs": "dangerous",
+    "note_zh": "dangerous 是会伤人/出事；precarious 强调摇摇欲坠、随时可能垮掉的不稳定"
+   },
+   {
+    "vs": "risky",
+    "note_zh": "risky 是这步有风险；precarious 是眼下处境本身已经很薄、很不稳"
+   }
   ]
  },
  {
@@ -1357,6 +1407,16 @@
    "Price wasn't the [[salient]] factor for buyers.",
    "The [[salient]] gap between the bids is who owns the source code.",
    "In a long thread, the [[salient]] line was the one about Friday."
+  ],
+  "contrast": [
+   {
+    "vs": "important",
+    "note_zh": "important 是重要；salient 是在一堆信息里最扎眼、最该先抓住的那几点"
+   },
+   {
+    "vs": "obvious",
+    "note_zh": "obvious 是谁都看得出；salient 是对当前讨论最相关、最值得拎出来的"
+   }
   ]
  },
  {
@@ -1377,6 +1437,16 @@
    "Many voters are [[ambivalent]] rather than opposed.",
    "I'm [[ambivalent]] about the promotion: more pay, and a lot more travel.",
    "The committee stayed [[ambivalent]] until the retention chart came up."
+  ],
+  "contrast": [
+   {
+    "vs": "unsure",
+    "note_zh": "unsure 是不确定、没想好；ambivalent 是心里同时有两种相反的感觉（既想又怕）"
+   },
+   {
+    "vs": "confused",
+    "note_zh": "confused 是没搞懂；ambivalent 是两边都懂，只是感情/立场拉扯"
+   }
   ]
  },
  {
@@ -1397,6 +1467,16 @@
    "The government made a [[pragmatic]] compromise.",
    "The [[pragmatic]] move was to ship the manual export and automate it next quarter.",
    "He was [[pragmatic]] about the flat: a grim kitchen, ten minutes from the office."
+  ],
+  "contrast": [
+   {
+    "vs": "practical",
+    "note_zh": "中文都像「务实」：practical 偏这办法用得上、好操作；pragmatic 偏不纠结理想，按现实约束选能落地的那条"
+   },
+   {
+    "vs": "realistic",
+    "note_zh": "realistic 偏看法是否贴近现实；pragmatic 偏行动：先放下更理想的方案，选眼下能做成的"
+   }
   ]
  },
  {
@@ -1417,6 +1497,16 @@
    "We need a [[plausible]] story for investors.",
    "A [[plausible]] cause of the spike is the conference, not a new trend.",
    "The story stayed [[plausible]] until the timestamps didn't match."
+  ],
+  "contrast": [
+   {
+    "vs": "possible",
+    "note_zh": "possible 是可能发生；plausible 是听起来合理、值得认真考虑（未必真）"
+   },
+   {
+    "vs": "believable",
+    "note_zh": "believable 偏故事/说法让人信；plausible 常用于解释、预测是否说得通"
+   }
   ]
  },
  {
@@ -1437,6 +1527,16 @@
    "We only have a [[tenuous]] connection to that family.",
    "Our claim on that patent is [[tenuous]] without the lab notebooks.",
    "After the argument, the friendship felt [[tenuous]]."
+  ],
+  "contrast": [
+   {
+    "vs": "weak",
+    "note_zh": "weak 泛指弱；tenuous 强调联系/论据薄得几乎撑不住"
+   },
+   {
+    "vs": "fragile",
+    "note_zh": "fragile 是易碎、易坏；tenuous 更常形容关系、证据、控制权很不牢"
+   }
   ]
  },
  {
@@ -1457,6 +1557,16 @@
    "Travel has [[inherent]] uncertainty.",
    "There's an [[inherent]] tension between a fast close and a careful onboarding.",
    "Concentration risk is [[inherent]] when one hospital is half your revenue."
+  ],
+  "contrast": [
+   {
+    "vs": "natural",
+    "note_zh": "natural 泛指自然、天生；inherent 强调某事物本身就带有、去不掉的属性"
+   },
+   {
+    "vs": "built-in",
+    "note_zh": "built-in 口语里也说内置；inherent 更正式：风险/缺陷是结构里自带的"
+   }
   ]
  },
  {
@@ -1477,6 +1587,16 @@
    "Cycling to work is a [[viable]] option here.",
    "A smaller city is still [[viable]] if the clinics sit close together.",
    "The late bus makes walking home [[viable]] only until ten."
+  ],
+  "contrast": [
+   {
+    "vs": "possible",
+    "note_zh": "possible 只是有可能发生；viable 强调长期能运转、商业上站得住"
+   },
+   {
+    "vs": "feasible",
+    "note_zh": "feasible 偏技术/资源上做得成；viable 还要问能否持续、值不值得做"
+   }
   ]
  },
  {
@@ -1497,6 +1617,16 @@
    "There's no [[compelling]] reason to switch vendors.",
    "The quote was [[compelling]] because the nurse named the hours she got back.",
    "I didn't have a [[compelling]] reason to stay for a third interview."
+  ],
+  "contrast": [
+   {
+    "vs": "convincing",
+    "note_zh": "convincing 是论据足以让人接受；compelling 更强：有拉力，让人很难不理会"
+   },
+   {
+    "vs": "interesting",
+    "note_zh": "interesting 只是有意思；compelling 是内容/理由强到会推动你采取行动"
+   }
   ]
  },
  {
@@ -1517,6 +1647,16 @@
    "AI tools are fast becoming [[ubiquitous]] at work.",
    "Earbuds are [[ubiquitous]] on the morning train.",
    "Once the chat widget became [[ubiquitous]], the help desk stopped picking up."
+  ],
+  "contrast": [
+   {
+    "vs": "common",
+    "note_zh": "common 是常见、普通；ubiquitous 强调到处都是、几乎躲不开"
+   },
+   {
+    "vs": "popular",
+    "note_zh": "popular 是受欢迎；ubiquitous 不评价好坏，只说覆盖面已经铺开"
+   }
   ]
  },
  {
@@ -1537,6 +1677,16 @@
    "Staff resent [[arbitrary]] decisions from above.",
    "The seating chart felt [[arbitrary]]; nobody could say why table four existed.",
    "Don't ship an [[arbitrary]] character limit — tie it to the text-message cap."
+  ],
+  "contrast": [
+   {
+    "vs": "random",
+    "note_zh": "random 是无规律、碰巧；arbitrary 强调由人武断拍板、缺乏合理依据"
+   },
+   {
+    "vs": "unfair",
+    "note_zh": "unfair 是不公平；arbitrary 先说决策没标准，结果才常常显得不公平"
+   }
   ]
  },
  {
@@ -1557,6 +1707,16 @@
    "I appreciate [[candid]] feedback, even when it stings.",
    "I'll be [[candid]]: we missed the number, and the pipeline won't save the quarter.",
    "A [[candid]] note to the host beats disappearing on the dinner."
+  ],
+  "contrast": [
+   {
+    "vs": "honest",
+    "note_zh": "honest 是不撒谎、品行正直；candid 强调当面直言、不绕弯，哪怕不中听"
+   },
+   {
+    "vs": "frank",
+    "note_zh": "frank 也是直说；candid 更常用于反馈/访谈里「我把真实看法摊开」"
+   }
   ]
  },
  {
@@ -1577,6 +1737,16 @@
    "He planned the trip with [[meticulous]] care.",
    "The lab tech was [[meticulous]] about labeling every sample twice.",
    "[[Meticulous]] packing is why the camera survived the overhead bin."
+  ],
+  "contrast": [
+   {
+    "vs": "careful",
+    "note_zh": "careful 泛指小心；meticulous 强调对细节极度认真，几乎不放过差错"
+   },
+   {
+    "vs": "prudent",
+    "note_zh": "prudent 偏判断审慎、规避风险；meticulous 偏执行时把细节做到位"
+   }
   ]
  },
  {
@@ -1597,6 +1767,16 @@
    "She's [[resilient]] — she bounced back fast.",
    "The crew stayed [[resilient]] when the launch slipped and the press still came.",
    "Kids can be [[resilient]], and a new school in March is still a lot."
+  ],
+  "contrast": [
+   {
+    "vs": "tough",
+    "note_zh": "tough 偏能扛、强硬；resilient 强调受挫后能弹回来、恢复"
+   },
+   {
+    "vs": "strong",
+    "note_zh": "strong 泛指强；resilient 看的是冲击之后能不能回到可用状态"
+   }
   ]
  },
  {
@@ -1617,6 +1797,16 @@
    "Will this skill become [[obsolete]] in ten years?",
    "The pager system is [[obsolete]]; the ward uses the app now.",
    "That plugin went [[obsolete]] the week the browser dropped the old API."
+  ],
+  "contrast": [
+   {
+    "vs": "old",
+    "note_zh": "old 只是年代久；obsolete 是已被更好的东西取代、不再能用"
+   },
+   {
+    "vs": "outdated",
+    "note_zh": "outdated 是过时了；obsolete 更彻底：基本没人再采用、系统里也该淘汰"
+   }
   ]
  },
  {
@@ -1657,6 +1847,20 @@
    "It's [[prudent]] to book early in peak season.",
    "It was [[prudent]] to keep a month of payroll in a separate account.",
    "A [[prudent]] guest brings something small and doesn't rearrange the kitchen."
+  ],
+  "contrast": [
+   {
+    "vs": "careful",
+    "note_zh": "careful 泛指小心、避免出错；prudent 强调判断上的审慎、规避风险（决策/投资）"
+   },
+   {
+    "vs": "wise",
+    "note_zh": "wise 偏智慧、见识广；prudent 更具体：眼下这步是否稳妥、风险是否可控"
+   },
+   {
+    "vs": "meticulous",
+    "note_zh": "meticulous 偏细节一丝不苟；prudent 偏是否该做、怎么做更稳妥"
+   }
   ]
  },
  {
@@ -1677,6 +1881,16 @@
    "We untangled an [[intricate]] web of contracts.",
    "The signup flow is too [[intricate]] for a nurse with six minutes.",
    "He spent Sunday on an [[intricate]] model of the harbor bridge."
+  ],
+  "contrast": [
+   {
+    "vs": "complicated",
+    "note_zh": "complicated 是复杂难懂；intricate 强调零件/线索很多且彼此精细咬合"
+   },
+   {
+    "vs": "complex",
+    "note_zh": "complex 是有很多部分；intricate 还带精巧、要仔细拆才能看清"
+   }
   ]
  },
  {
@@ -1737,6 +1951,16 @@
    "Show the client something [[tangible]], like a prototype.",
    "A signed order is [[tangible]]; a verbal yes in the hallway is not.",
    "We wanted one [[tangible]] souvenir, not another tote from the booth."
+  ],
+  "contrast": [
+   {
+    "vs": "real",
+    "note_zh": "real 是真的存在；tangible 强调可感知、可量化的实在结果（不只口头）"
+   },
+   {
+    "vs": "concrete",
+    "note_zh": "concrete 偏具体、不抽象；tangible 更常说成果/收益能摸到、能数出来"
+   }
   ]
  },
  {
@@ -1777,6 +2001,16 @@
    "No one is truly [[indispensable]].",
    "A translator was [[indispensable]] in the Osaka meetings.",
    "That one spreadsheet is [[indispensable]]; the others are copies of it."
+  ],
+  "contrast": [
+   {
+    "vs": "necessary",
+    "note_zh": "necessary 是需要的；indispensable 是缺了就转不动、几乎无法替代"
+   },
+   {
+    "vs": "important",
+    "note_zh": "important 是重要；indispensable 是这个角色/工具拿掉业务就断"
+   }
   ]
  },
  {
@@ -1817,6 +2051,16 @@
    "She was too tired to be [[coherent]].",
    "The memo finally made a [[coherent]] case for closing the side product.",
    "After the second glass he was less [[coherent]] about how to get home."
+  ],
+  "contrast": [
+   {
+    "vs": "clear",
+    "note_zh": "clear 是清楚好懂；coherent 强调各部分逻辑连得上、不自相矛盾"
+   },
+   {
+    "vs": "logical",
+    "note_zh": "logical 是推理合理；coherent 还要求整段叙述前后是一条线"
+   }
   ]
  },
  {
@@ -1837,6 +2081,16 @@
    "It's a [[robust]] phone — survived many drops.",
    "We need a [[robust]] backup that isn't the same disk as production.",
    "Demand for evening clinic slots stayed [[robust]] through the holiday week."
+  ],
+  "contrast": [
+   {
+    "vs": "strong",
+    "note_zh": "strong 泛指强；robust 强调在压力/变化下仍稳、不易垮"
+   },
+   {
+    "vs": "solid",
+    "note_zh": "solid 是扎实可靠；robust 更强调扛得住异常、波动和压力测试"
+   }
   ]
  },
  {
@@ -1857,6 +2111,16 @@
    "What seems [[trivial]] to you may matter to her.",
    "The typo is [[trivial]]; the missing signature is not.",
    "To the chef, a cold plate is not a [[trivial]] complaint."
+  ],
+  "contrast": [
+   {
+    "vs": "unimportant",
+    "note_zh": "unimportant 是不重要；trivial 强调琐碎到不值得花时间（别被它绊住）"
+   },
+   {
+    "vs": "small",
+    "note_zh": "small 只是规模小；trivial 是对结果几乎没影响，处理优先级应很低"
+   }
   ]
  },
  {
@@ -1877,6 +2141,16 @@
    "Nothing was [[explicit]], but we got the hint.",
    "Please be [[explicit]] about whether the trip is reimbursed.",
    "The card is [[explicit]]: one hundred eighty degrees, twelve minutes, then rest."
+  ],
+  "contrast": [
+   {
+    "vs": "clear",
+    "note_zh": "clear 泛指清楚；explicit 是把话说死、不留含糊（规则、条款、指令）"
+   },
+   {
+    "vs": "implicit",
+    "note_zh": "implicit 是没明说但默认包含；explicit 是写在面上、双方没法装没看见"
+   }
   ]
  },
  {
@@ -1897,6 +2171,16 @@
    "His criticism was [[implicit]] but clear.",
    "The raise came with an [[implicit]] expectation of weekend launches.",
    "There was an [[implicit]] rule: you don't take the last dumpling."
+  ],
+  "contrast": [
+   {
+    "vs": "implied",
+    "note_zh": "implied 是被暗示出来的；implicit 强调没写明但默认在里面（规则、态度）"
+   },
+   {
+    "vs": "explicit",
+    "note_zh": "explicit 是明说；implicit 是双方心照不宣、没写进句子里"
+   }
   ]
  },
  {
@@ -1917,6 +2201,16 @@
    "Planting trees can [[mitigate]] urban heat.",
    "A staged rollout can [[mitigate]] the damage of a bad migration.",
    "Shade sails [[mitigate]] the heat over the schoolyard at lunch."
+  ],
+  "contrast": [
+   {
+    "vs": "reduce",
+    "note_zh": "reduce 是把数量降下来；mitigate 是减轻伤害/风险的严重程度（未必消除）"
+   },
+   {
+    "vs": "alleviate",
+    "note_zh": "alleviate 多用于痛苦、负担被缓解；mitigate 更常用于风险、损失"
+   }
   ]
  },
  {
@@ -1937,6 +2231,16 @@
    "Lack of sleep can [[undermine]] your health.",
    "Leaking the draft [[undermined]] the negotiation before the first meeting.",
    "Side comments in the channel can [[undermine]] a new lead faster than a missed target."
+  ],
+  "contrast": [
+   {
+    "vs": "weaken",
+    "note_zh": "weaken 泛指变弱；undermine 强调从内部/背后慢慢掏空信任或基础"
+   },
+   {
+    "vs": "damage",
+    "note_zh": "damage 是造成伤害；undermine 更隐蔽：看起来没打正面，实则把支撑抽掉"
+   }
   ]
  },
  {
@@ -2037,6 +2341,16 @@
    "The new road may [[alleviate]] traffic.",
    "A clearer menu would [[alleviate]] the questions stacking up at the counter.",
    "The scholarship [[alleviated]] the need to keep two jobs."
+  ],
+  "contrast": [
+   {
+    "vs": "relieve",
+    "note_zh": "relieve 泛指解除不适；alleviate 强调减轻但通常不是彻底治好"
+   },
+   {
+    "vs": "mitigate",
+    "note_zh": "mitigate 更常用于风险/冲击；alleviate 更常用于痛苦、压力、负担"
+   }
   ]
  },
  {
@@ -2057,6 +2371,16 @@
    "Tariffs may [[exacerbate]] inflation.",
    "Adding a second tool [[exacerbated]] the confusion instead of clearing it.",
    "The heat wave [[exacerbated]] the crush on the last train."
+  ],
+  "contrast": [
+   {
+    "vs": "worsen",
+    "note_zh": "worsen 是变糟；exacerbate 强调某个行为/因素把已有问题加剧了"
+   },
+   {
+    "vs": "aggravate",
+    "note_zh": "aggravate 口语里也说惹恼/加重；exacerbate 更正式，对象几乎总是问题本身"
+   }
   ]
  },
  {
@@ -2117,6 +2441,16 @@
    "She [[scrutinized]] his face for a reaction.",
    "The auditor will [[scrutinize]] which deals we counted in December.",
    "He [[scrutinized]] the menu for anything without dairy."
+  ],
+  "contrast": [
+   {
+    "vs": "check",
+    "note_zh": "check 是检查一下；scrutinize 是逐项盯着查、近乎不信任地审"
+   },
+   {
+    "vs": "examine",
+    "note_zh": "examine 是认真查看；scrutinize 强度更高，常带质疑、找漏洞"
+   }
   ]
  },
  {
@@ -2177,6 +2511,16 @@
    "Lack of data [[hindered]] our analysis.",
    "A twelve-step approval [[hinders]] a fix that should take an afternoon.",
    "Fog [[hindered]] the ferry, so we drove the long way around the bay."
+  ],
+  "contrast": [
+   {
+    "vs": "prevent",
+    "note_zh": "prevent 是拦住不让发生；hinder 是拖后腿、让进展变慢（未必阻止）"
+   },
+   {
+    "vs": "stop",
+    "note_zh": "stop 是停下；hinder 是造成阻力，事情可能仍在缓慢推进"
+   }
   ]
  },
  {
@@ -2217,6 +2561,16 @@
    "She refused to [[concede]] defeat.",
    "The founder [[conceded]] that the first pricing page confused buyers.",
    "I [[concede]] the trail was too long for the kids."
+  ],
+  "contrast": [
+   {
+    "vs": "admit",
+    "note_zh": "admit 是承认事实；concede 常带不情愿：承认对方有理，或输掉一点"
+   },
+   {
+    "vs": "agree",
+    "note_zh": "agree 是同意；concede 是让步式承认，并不等于整体站到对方那边"
+   }
   ]
  },
  {
@@ -2257,6 +2611,16 @@
    "The ethical [[dilemma]] isn't easy to resolve.",
    "The [[dilemma]] was whether to tell the clinic before we had a fix.",
    "Picking a school in a new city is a [[dilemma]], not a tidy spreadsheet."
+  ],
+  "contrast": [
+   {
+    "vs": "problem",
+    "note_zh": "problem 泛指问题；dilemma 是两难：选项都不舒服，必须选一个"
+   },
+   {
+    "vs": "issue",
+    "note_zh": "issue 是待处理的事项；dilemma 强调没有干净的好选择"
+   }
   ]
  },
  {
@@ -2297,6 +2661,16 @@
    "The movie has an interesting [[premise]].",
    "We rejected the [[premise]] that growth requires a larger sales team.",
    "The book's [[premise]] — a city that forgets one person a day — kept me reading."
+  ],
+  "contrast": [
+   {
+    "vs": "assumption",
+    "note_zh": "assumption 是未加验证就当真的假设；premise 是论证的起点，错了后面都不成立"
+   },
+   {
+    "vs": "idea",
+    "note_zh": "idea 泛指想法；premise 是整套推理/计划建立其上的那条前提"
+   }
   ]
  },
  {
@@ -2337,6 +2711,16 @@
    "There's a big [[discrepancy]] between price and value.",
    "There's a [[discrepancy]] between seats sold and seats that actually logged in.",
    "The scale showed a [[discrepancy]] after I moved it off the rug."
+  ],
+  "contrast": [
+   {
+    "vs": "difference",
+    "note_zh": "difference 泛指不同；discrepancy 是本该一致却对不上（数字、说法）"
+   },
+   {
+    "vs": "gap",
+    "note_zh": "gap 是差距/缺口；discrepancy 更指向两份记录之间的不一致"
+   }
   ]
  },
  {
@@ -2377,6 +2761,16 @@
    "This decision has [[implications]] for hiring.",
    "The [[implication]] of a usage cap is that the busiest clinic will call angry.",
    "I caught the [[implication]] and still asked her to say it in plain words."
+  ],
+  "contrast": [
+   {
+    "vs": "meaning",
+    "note_zh": "meaning 是字面意思；implication 是没说完的潜在含义或后果"
+   },
+   {
+    "vs": "consequence",
+    "note_zh": "consequence 是已经发生或明确的后果；implication 常还在「这意味着什么」"
+   }
   ]
  },
  {
@@ -2517,6 +2911,16 @@
    "Big [[caveat]] — I haven't tested this on iOS.",
    "One [[caveat]]: these figures leave out the pilot that hasn't been invoiced.",
    "[[Caveat]] before you take the trail — it's mud if it rained overnight."
+  ],
+  "contrast": [
+   {
+    "vs": "warning",
+    "note_zh": "warning 是提醒危险；caveat 是附加限制：可以用，但请注意这个条件"
+   },
+   {
+    "vs": "exception",
+    "note_zh": "exception 是例外；caveat 是先接受结论，再补一句但书"
+   }
   ]
  }
 ]
