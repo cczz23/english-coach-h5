@@ -55,7 +55,7 @@ async function runPush(){
  const snapshot=JSON.parse(JSON.stringify(state));
  setSyncStatus('同步中');
  try{
-  const result=await api.pushState(fetch,cfg.token,cfg.gistId,snapshot);
+  const result=await api.pushState(fetch,cfg,snapshot);
   if(!result.ok){syncFail(result);return}
   if(api.canonical(state)!==api.canonical(snapshot))return runPush();
   setSyncStatus('已同步');
@@ -69,7 +69,7 @@ async function pullRemote(){
  if(!api.isConfigured(cfg)){allowSync=true;setSyncStatus('');return}
  allowSync=false;setSyncStatus('同步中');
  try{
-  const result=await api.fetchRemote(fetch,cfg.token,cfg.gistId);
+  const result=await api.fetchRemote(fetch,cfg);
   if(gen!==pullGen)return;
   if(!result.ok){syncFail(result);return}
   if(result.state){
@@ -91,55 +91,64 @@ async function pullRemote(){
 }
 function bindSettings(){
  const panel=$('[data-testid=settings]');if(!panel)return;
- const tokenInput=$('[data-testid=sync-token]');
- const gistInput=$('[data-testid=sync-gist]');
+ const appIdInput=$('[data-testid=sync-app-id]');
+ const keyInput=$('[data-testid=sync-app-key]');
+ const serverInput=$('[data-testid=sync-server]');
+ const objectInput=$('[data-testid=sync-object-id]');
  const api=()=>syncApi();
+ function readForm(){
+  const prev=api().loadConfig(localStorage);
+  return {
+   appId:(appIdInput.value||prev.appId).trim(),
+   appKey:keyInput.value.trim()||prev.appKey,
+   serverURL:serverInput.value.trim(),
+   objectId:objectInput.value.trim()
+  };
+ }
  const open=()=>{
   const cfg=api().loadConfig(localStorage);
-  gistInput.value=cfg.gistId||'';
-  tokenInput.value='';
-  tokenInput.placeholder=cfg.token?'已保存（留空则不修改）':'ghp_…';
+  appIdInput.value=cfg.appId||'';
+  serverInput.value=cfg.serverURL||'';
+  objectInput.value=cfg.objectId||'';
+  keyInput.value='';
+  keyInput.placeholder=cfg.appKey?'已保存（留空则不修改）':'App Key';
   panel.hidden=false;
  };
  $('[data-testid=settings-open]').onclick=open;
  $('[data-testid=settings-close]').onclick=()=>{panel.hidden=true};
  $('[data-testid=settings-form]').onsubmit=e=>{
   e.preventDefault();
-  const prev=api().loadConfig(localStorage);
-  const token=tokenInput.value.trim()||prev.token;
-  const gistId=gistInput.value.trim();
-  if(!token&&!gistId){api().clearConfig(localStorage);setSyncStatus('');panel.hidden=true;return}
-  api().saveConfig(localStorage,{token,gistId});
-  tokenInput.value='';
+  const cfg=readForm();
+  if(!cfg.appId&&!cfg.appKey&&!cfg.serverURL&&!cfg.objectId){api().clearConfig(localStorage);setSyncStatus('');panel.hidden=true;return}
+  api().saveConfig(localStorage,cfg);
+  keyInput.value='';
   panel.hidden=true;
   if(api().isConfigured(api().loadConfig(localStorage)))pullRemote();
   else setSyncStatus('');
  };
  $('[data-testid=sync-clear]').onclick=()=>{
   api().clearConfig(localStorage);
-  tokenInput.value='';gistInput.value='';
-  tokenInput.placeholder='ghp_…';
+  appIdInput.value='';keyInput.value='';serverInput.value='';objectInput.value='';
+  keyInput.placeholder='App Key';
   setSyncStatus('');panel.hidden=true;
  };
  let creating=false;
  const createBtn=$('[data-testid=sync-create]');
- const createLabel=createBtn?createBtn.textContent:'创建 private gist';
+ const createLabel=createBtn?createBtn.textContent:'创建云端记录';
  createBtn.onclick=async(e)=>{
   if(e)e.preventDefault();
   if(creating)return;
-  const prev=api().loadConfig(localStorage);
-  const token=tokenInput.value.trim()||prev.token;
-  if(!token){setSyncStatus('请先填写 Token');return}
-  if(gistInput.value.trim())return;
+  const cfg=readForm();
+  if(!api().hasKeys(cfg)){setSyncStatus('请先填写 App ID 和 App Key');return}
   creating=true;createBtn.disabled=true;createBtn.textContent='创建中…';setSyncStatus('同步中');
   const snap=api().canonical(state);
   try{
-   const created=await api().createGist(fetch,token,state);
-   if(!created.ok||!created.gistId){syncFail(created);return}
-   gistInput.value=created.gistId;
-   api().saveConfig(localStorage,{token,gistId:created.gistId});
-   tokenInput.value='';
-   tokenInput.placeholder='已保存（留空则不修改）';
+   const created=await api().createRemote(fetch,cfg,state);
+   if(!created.ok||!created.objectId){syncFail(created);return}
+   objectInput.value=created.objectId;
+   api().saveConfig(localStorage,{appId:cfg.appId,appKey:cfg.appKey,serverURL:cfg.serverURL,objectId:created.objectId});
+   keyInput.value='';
+   keyInput.placeholder='已保存（留空则不修改）';
    allowSync=true;
    if(api().canonical(state)!==snap)scheduleSync();else setSyncStatus('已同步');
   }catch(err){syncFail(err)}

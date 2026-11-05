@@ -1,10 +1,13 @@
 /**
- * GitHub gist backup for English Coach.
+ * LeanCloud China backup for English Coach.
  * Progress itself stays in localStorage key ec_state_v4.
- * The token and gist id stay in a separate key, ec_sync_v1, and are never
- * written into the repo, words.json, or the learning-state file on purpose.
+ * App ID, App Key, server URL, and objectId stay in ec_lc_v1 on this device.
+ * They are never written into the repo, words.json, or the learning-state file.
+ * GitHub gist sync is not used: api.github.com is not reachable on a phone in
+ * China without a VPN. The site itself still loads from GitHub Pages.
  *
- * Merge rules (local = this device, remote = gist english-coach-state.json):
+ * Remote record: class ECState, one object, field `state` = ec_state_v4.
+ * Merge rules (local = this device, remote = that `state` object):
  * - Never replace one side with the other. A word that exists on only one
  *   side is kept. Log rows are unioned, not overwritten.
  * - Per word, `seen` (see count) is the higher of the two numbers.
@@ -30,9 +33,8 @@
   if (typeof module === 'object' && module.exports) module.exports = api;
   root.ECSync = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
-  const SYNC_KEY = 'ec_sync_v1';
-  const GIST_FILE = 'english-coach-state.json';
-  const API = 'https://api.github.com';
+  const SYNC_KEY = 'ec_lc_v1';
+  const CLASS_NAME = 'ECState';
 
   function ensureItem(r) {
     const src = r && typeof r === 'object' ? r : {};
@@ -160,28 +162,46 @@
     return out;
   }
 
+  function blankConfig() {
+    return { appId: '', appKey: '', serverURL: '', objectId: '' };
+  }
+
   function loadConfig(storage) {
     try {
       const o = JSON.parse(storage.getItem(SYNC_KEY) || 'null');
-      if (!o || typeof o !== 'object') return { token: '', gistId: '' };
-      return { token: String(o.token || ''), gistId: String(o.gistId || '') };
+      if (!o || typeof o !== 'object') return blankConfig();
+      return {
+        appId: String(o.appId || '').trim(),
+        appKey: String(o.appKey || ''),
+        serverURL: String(o.serverURL || '').trim(),
+        objectId: String(o.objectId || '').trim()
+      };
     } catch (e) {
-      return { token: '', gistId: '' };
+      return blankConfig();
     }
   }
 
   function saveConfig(storage, cfg) {
-    const token = String((cfg && cfg.token) || '');
-    const gistId = String((cfg && cfg.gistId) || '').trim();
-    storage.setItem(SYNC_KEY, JSON.stringify({ token, gistId }));
+    const next = {
+      appId: String((cfg && cfg.appId) || '').trim(),
+      appKey: String((cfg && cfg.appKey) || ''),
+      serverURL: String((cfg && cfg.serverURL) || '').trim(),
+      objectId: String((cfg && cfg.objectId) || '').trim()
+    };
+    storage.setItem(SYNC_KEY, JSON.stringify(next));
   }
 
   function clearConfig(storage) {
     storage.removeItem(SYNC_KEY);
   }
 
+  function hasKeys(cfg) {
+    return !!(cfg && String(cfg.appId || '').trim() && String(cfg.appKey || '').trim());
+  }
+
+  /** Pull/push need a record id. Create only needs the app keys. */
   function isConfigured(cfg) {
-    return !!(cfg && String(cfg.token || '').trim() && String(cfg.gistId || '').trim());
+    return hasKeys(cfg) && !!String(cfg.objectId || '').trim();
   }
 
   /** Short one-line failure: HTTP status, or 网络 when fetch throws / no status. */
@@ -191,67 +211,77 @@
     return '同步失败 · 网络';
   }
 
-  function headers(token) {
-    return {
-      Accept: 'application/vnd.github+json',
-      Authorization: 'Bearer ' + token,
-      'X-GitHub-Api-Version': '2022-11-28'
-    };
+  /**
+   * China north test host when the console server URL is left blank:
+   * https://<appId first 8 chars>.lc-cn-n1-shared.com
+   * Prefer the exact 服务器地址 copied from the LeanCloud console.
+   */
+  function apiBase(cfg) {
+    let host = String((cfg && cfg.serverURL) || '').trim();
+    if (!host) {
+      const prefix = String((cfg && cfg.appId) || '').slice(0, 8).toLowerCase();
+      host = 'https://' + prefix + '.lc-cn-n1-shared.com';
+    }
+    host = host.replace(/\/+$/, '').replace(/\/1\.1$/, '');
+    if (!/^https:\/\//i.test(host)) host = 'https://' + host.replace(/^http:\/\//i, '');
+    return host + '/1.1';
+  }
+
+  function lcHeaders(cfg, json) {
+    const headers = { 'X-LC-Id': cfg.appId, 'X-LC-Key': cfg.appKey };
+    if (json) headers['Content-Type'] = 'application/json';
+    return headers;
   }
 
   function isV4(parsed) {
     return !!(parsed && parsed.v === 4 && parsed.items && typeof parsed.items === 'object' && !Array.isArray(parsed.items));
   }
 
-  async function fetchRemote(fetchImpl, token, gistId) {
-    const res = await fetchImpl(API + '/gists/' + encodeURIComponent(gistId), { headers: headers(token) });
-    if (!res.ok) return { ok: false, status: res.status };
-    const data = await res.json();
-    const file = data && data.files && data.files[GIST_FILE];
-    if (!file) return { ok: true, state: null };
-    let content = file.content;
-    if (file.truncated && file.raw_url) {
-      const raw = await fetchImpl(file.raw_url, { headers: headers(token) });
-      if (!raw.ok) return { ok: false, status: raw.status };
-      content = await raw.text();
+  function readStateField(data) {
+    if (!data || data.state == null) return null;
+    let parsed = data.state;
+    if (typeof parsed === 'string') {
+      try { parsed = JSON.parse(parsed); } catch (e) { return null; }
     }
-    if (typeof content !== 'string' || !content) return { ok: true, state: null };
-    let parsed;
-    try { parsed = JSON.parse(content); } catch (e) { return { ok: false, status: 0 }; }
-    if (!isV4(parsed)) return { ok: true, state: null };
-    return { ok: true, state: parsed };
+    return isV4(parsed) ? parsed : null;
   }
 
-  async function pushState(fetchImpl, token, gistId, state) {
-    const res = await fetchImpl(API + '/gists/' + encodeURIComponent(gistId), {
-      method: 'PATCH',
-      headers: { ...headers(token), 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        files: { [GIST_FILE]: { content: JSON.stringify(normalizeState(state)) } }
-      })
+  function classUrl(cfg, objectId) {
+    const base = apiBase(cfg) + '/classes/' + CLASS_NAME;
+    return objectId ? base + '/' + encodeURIComponent(objectId) : base;
+  }
+
+  async function fetchRemote(fetchImpl, cfg) {
+    const res = await fetchImpl(classUrl(cfg, cfg.objectId), { headers: lcHeaders(cfg) });
+    if (!res.ok) return { ok: false, status: res.status };
+    const data = await res.json();
+    return { ok: true, state: readStateField(data) };
+  }
+
+  async function pushState(fetchImpl, cfg, state) {
+    const res = await fetchImpl(classUrl(cfg, cfg.objectId), {
+      method: 'PUT',
+      headers: lcHeaders(cfg, true),
+      body: JSON.stringify({ state: normalizeState(state) })
     });
     return { ok: !!res.ok, status: res.status };
   }
 
-  async function createGist(fetchImpl, token, state) {
-    const res = await fetchImpl(API + '/gists', {
+  async function createRemote(fetchImpl, cfg, state) {
+    const res = await fetchImpl(classUrl(cfg), {
       method: 'POST',
-      headers: { ...headers(token), 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        description: 'English Coach progress (ec_state_v4)',
-        public: false,
-        files: { [GIST_FILE]: { content: JSON.stringify(normalizeState(state)) } }
-      })
+      headers: lcHeaders(cfg, true),
+      body: JSON.stringify({ state: normalizeState(state) })
     });
     if (!res.ok) return { ok: false, status: res.status };
     const data = await res.json();
-    if (!data || !data.id) return { ok: false, status: res.status };
-    return { ok: true, gistId: String(data.id) };
+    if (!data || !data.objectId) return { ok: false, status: res.status || 0 };
+    return { ok: true, objectId: String(data.objectId) };
   }
 
   return {
     SYNC_KEY,
-    GIST_FILE,
+    CLASS_NAME,
     ensureItem,
     normalizeState,
     canonical,
@@ -259,10 +289,12 @@
     loadConfig,
     saveConfig,
     clearConfig,
+    hasKeys,
     isConfigured,
     failText,
+    apiBase,
     fetchRemote,
     pushState,
-    createGist
+    createRemote
   };
 });

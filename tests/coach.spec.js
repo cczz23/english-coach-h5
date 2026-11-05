@@ -61,38 +61,45 @@ test('review mode is empty until a weak or reinforce mark, then returns to 全�
   expect(status).toBe('reinforce');
 });
 
-test('settings save the token and gist id, and echo neither into the page', async ({ page }) => {
-  await page.route('https://api.github.com/**', route => route.fulfill({
-    status: 401, contentType: 'application/json', body: '{"message":"bad"}'
+test('settings save LeanCloud keys and do not echo the app key', async ({ page }) => {
+  await page.route('https://lc.test/**', route => route.fulfill({
+    status: 401, contentType: 'application/json', body: '{"code":401,"error":"bad"}'
   }));
   await boot(page);
   await page.getByTestId('settings-open').click();
-  await expect(page.getByTestId('sync-hint')).toContainText('token 只勾 gist；不要用账号密码；仅自己设备用。');
-  await expect(page.getByTestId('sync-hint')).toContainText('english-coach-state.json');
-  await page.getByTestId('sync-token').fill('ghp_example');
-  await page.getByTestId('sync-gist').fill('gist123');
+  await expect(page.getByTestId('sync-hint')).toContainText('不用 VPN');
+  await expect(page.getByTestId('sync-hint')).toContainText('ECState');
+  await page.getByTestId('sync-app-id').fill('abcdefgh');
+  await page.getByTestId('sync-app-key').fill('secret-key');
+  await page.getByTestId('sync-server').fill('https://lc.test');
+  await page.getByTestId('sync-object-id').fill('obj1');
   await page.getByTestId('sync-save').click();
   await expect(page.getByTestId('settings')).toBeHidden();
-  const cfg = await page.evaluate(() => JSON.parse(localStorage.getItem('ec_sync_v1')));
-  expect(cfg).toEqual({ token: 'ghp_example', gistId: 'gist123' });
-  await expect(page.locator('body')).not.toContainText('ghp_example');
+  const cfg = await page.evaluate(() => JSON.parse(localStorage.getItem('ec_lc_v1')));
+  expect(cfg).toEqual({ appId: 'abcdefgh', appKey: 'secret-key', serverURL: 'https://lc.test', objectId: 'obj1' });
+  await expect(page.locator('body')).not.toContainText('secret-key');
   await page.reload();
   await expect(page.getByTestId('term')).toBeVisible();
   await page.getByTestId('settings-open').click();
-  await expect(page.getByTestId('sync-gist')).toHaveValue('gist123');
-  await expect(page.getByTestId('sync-token')).toHaveValue('');
+  await expect(page.getByTestId('sync-app-id')).toHaveValue('abcdefgh');
+  await expect(page.getByTestId('sync-object-id')).toHaveValue('obj1');
+  await expect(page.getByTestId('sync-app-key')).toHaveValue('');
 });
 
 test('sync is skipped when unset', async ({ page }) => {
   let hits = 0;
-  await page.route('https://api.github.com/**', () => { hits += 1; });
+  await page.route('https://**/**', route => {
+    const url = route.request().url();
+    if (/leancloud|lc-cn-n1|lc\.test|api\.github\.com/i.test(url)) hits += 1;
+    return route.continue();
+  });
   await boot(page);
   await page.getByTestId('reveal').click();
   await page.waitForTimeout(900);
   expect(hits).toBe(0);
 });
 
-test('mocked gist GET merges weak count and a later mark PATCHes', async ({ page }) => {
+test('mocked LeanCloud GET merges weak count and a later mark PUTs', async ({ page }) => {
   const remote = {
     v: 4,
     mode: 'all',
@@ -101,33 +108,34 @@ test('mocked gist GET merges weak count and a later mark PATCHes', async ({ page
     log: [{ id: 'w001', term: 'circle back', action: 'weak', ts: 10, seen: 3 }],
     undo: []
   };
-  const patches = [];
-  await page.route('https://api.github.com/**', async route => {
+  const puts = [];
+  await page.route('https://lc.test/**', async route => {
     const req = route.request();
-    if (req.method() === 'PATCH') {
-      patches.push(req.postData() || '');
+    if (req.method() === 'PUT') {
+      puts.push(req.postData() || '');
       await route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
       return;
     }
     await route.fulfill({
       status: 200,
       contentType: 'application/json',
-      body: JSON.stringify({ files: { 'english-coach-state.json': { content: JSON.stringify(remote) } } })
+      body: JSON.stringify({ objectId: 'obj1', state: remote })
     });
   });
   await page.addInitScript(() => {
-    localStorage.setItem('ec_sync_v1', JSON.stringify({ token: 'ghp_example', gistId: 'gist123' }));
+    localStorage.setItem('ec_lc_v1', JSON.stringify({
+      appId: 'abcdefgh', appKey: 'secret-key', serverURL: 'https://lc.test', objectId: 'obj1'
+    }));
   });
   await page.goto('/');
   await expect(page.getByTestId('n-weak')).toHaveText('1');
   await expect(page.getByTestId('sync-status')).toHaveText('已同步', { timeout: 8000 });
-  const before = patches.length;
+  const before = puts.length;
   await page.getByTestId('mode-review').click();
-  await expect.poll(() => patches.length, { timeout: 5000 }).toBeGreaterThan(before);
-  const body = patches[patches.length - 1];
-  expect(body).toContain('english-coach-state.json');
-  expect(body).toContain('review');
-  expect(body).not.toContain('ghp_example');
+  await expect.poll(() => puts.length, { timeout: 5000 }).toBeGreaterThan(before);
+  const body = puts[puts.length - 1];
+  expect(body).toContain('"mode":"review"');
+  expect(body).not.toContain('secret-key');
   await expect(page.getByTestId('sync-status')).toHaveText('已同步');
 });
 
@@ -166,47 +174,52 @@ test('stage B shows at most 5 examples and keeps a shorter list intact', async (
   await expect(page.getByTestId('examples-b')).toContainText('Short 3');
 });
 
-test('failed create names the HTTP status and keeps the token', async ({ page }) => {
-  await page.route('https://api.github.com/gists', route => route.fulfill({
+test('failed create names the HTTP status and keeps the app key', async ({ page }) => {
+  await page.route('https://lc.test/**', route => route.fulfill({
     status: 401,
     contentType: 'application/json',
-    body: '{"message":"Bad credentials"}'
+    body: '{"code":401,"error":"Unauthorized."}'
   }));
   await boot(page);
   await page.getByTestId('settings-open').click();
-  await page.getByTestId('sync-token').fill('ghp_example');
+  await page.getByTestId('sync-app-id').fill('abcdefgh');
+  await page.getByTestId('sync-app-key').fill('secret-key');
+  await page.getByTestId('sync-server').fill('https://lc.test');
   await page.getByTestId('sync-create').click();
   await expect(page.getByTestId('sync-status')).toHaveText('同步失败 · 401');
   await expect(page.getByTestId('sync-status-panel')).toHaveText('同步失败 · 401');
   await expect(page.getByTestId('settings')).toBeVisible();
-  await expect(page.getByTestId('sync-token')).toHaveValue('ghp_example');
-  await expect(page.getByTestId('sync-gist')).toHaveValue('');
+  await expect(page.getByTestId('sync-app-key')).toHaveValue('secret-key');
+  await expect(page.getByTestId('sync-object-id')).toHaveValue('');
   await expect(page.getByTestId('sync-create')).toBeEnabled();
-  await expect(page.getByTestId('sync-create')).toHaveText('创建 private gist');
+  await expect(page.getByTestId('sync-create')).toHaveText('创建云端记录');
 });
 
-test('create with an empty token asks for the token', async ({ page }) => {
+test('create with empty keys asks for them', async ({ page }) => {
   await boot(page);
   await page.getByTestId('settings-open').click();
   await page.getByTestId('sync-create').click();
-  await expect(page.getByTestId('sync-status')).toHaveText('请先填写 Token');
+  await expect(page.getByTestId('sync-status')).toHaveText('请先填写 App ID 和 App Key');
   await expect(page.getByTestId('settings')).toBeVisible();
 });
 
-test('create private gist stores the returned id', async ({ page }) => {
-  await page.route('https://api.github.com/gists', async route => {
+test('create cloud record stores the returned objectId', async ({ page }) => {
+  await page.route('https://lc.test/**', async route => {
     const body = JSON.parse(route.request().postData() || '{}');
-    expect(body.public).toBe(false);
-    expect(body.files['english-coach-state.json']).toBeTruthy();
-    await route.fulfill({ status: 201, contentType: 'application/json', body: JSON.stringify({ id: 'created99' }) });
+    expect(body.state.v).toBe(4);
+    expect(route.request().method()).toBe('POST');
+    await route.fulfill({ status: 201, contentType: 'application/json', body: JSON.stringify({ objectId: 'created99' }) });
   });
   await boot(page);
   await page.getByTestId('settings-open').click();
-  await page.getByTestId('sync-token').fill('ghp_example');
+  await page.getByTestId('sync-app-id').fill('abcdefgh');
+  await page.getByTestId('sync-app-key').fill('secret-key');
+  await page.getByTestId('sync-server').fill('https://lc.test');
   await page.getByTestId('sync-create').click();
-  await expect(page.getByTestId('sync-gist')).toHaveValue('created99');
+  await expect(page.getByTestId('sync-object-id')).toHaveValue('created99');
   await expect(page.getByTestId('sync-status')).toHaveText('已同步');
-  const cfg = await page.evaluate(() => JSON.parse(localStorage.getItem('ec_sync_v1')));
-  expect(cfg).toEqual({ token: 'ghp_example', gistId: 'created99' });
-  expect(await page.locator('body').innerText()).not.toContain('ghp_example');
+  const cfg = await page.evaluate(() => JSON.parse(localStorage.getItem('ec_lc_v1')));
+  expect(cfg.objectId).toBe('created99');
+  expect(cfg.appKey).toBe('secret-key');
+  expect(await page.locator('body').innerText()).not.toContain('secret-key');
 });

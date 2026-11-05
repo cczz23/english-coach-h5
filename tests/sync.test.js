@@ -65,21 +65,27 @@ test('merge follows the latest mode log and does not drop either history', () =>
   assert.deepEqual(merged.undo, []);
 });
 
-test('settings save round-trips token and gist id; unset config does not sync', () => {
+test('settings save round-trips LeanCloud keys; unset config does not sync', () => {
   const storage = memStorage();
   assert.equal(ECSync.isConfigured(ECSync.loadConfig(storage)), false);
-  ECSync.saveConfig(storage, { token: 'ghp_example', gistId: ' abc123 ' });
+  ECSync.saveConfig(storage, {
+    appId: ' abcdefgh ',
+    appKey: 'secret-key',
+    serverURL: ' https://lc.test/ ',
+    objectId: ' obj1 '
+  });
   const cfg = ECSync.loadConfig(storage);
-  assert.deepEqual(cfg, { token: 'ghp_example', gistId: 'abc123' });
+  assert.deepEqual(cfg, { appId: 'abcdefgh', appKey: 'secret-key', serverURL: 'https://lc.test/', objectId: 'obj1' });
   assert.equal(ECSync.isConfigured(cfg), true);
-  assert.equal(ECSync.isConfigured({ token: 'ghp_example', gistId: '' }), false);
-  assert.equal(ECSync.isConfigured({ token: '', gistId: 'abc123' }), false);
+  assert.equal(ECSync.isConfigured({ appId: 'abcdefgh', appKey: 'secret-key', objectId: '' }), false);
+  assert.equal(ECSync.hasKeys({ appId: 'abcdefgh', appKey: 'secret-key' }), true);
   ECSync.clearConfig(storage);
-  assert.equal(ECSync.isConfigured(ECSync.loadConfig(storage)), false);
   assert.equal(storage.getItem(ECSync.SYNC_KEY), null);
+  assert.equal(ECSync.apiBase({ appId: 'AbCdEfGh9999', serverURL: '' }), 'https://abcdefgh.lc-cn-n1-shared.com/1.1');
+  assert.equal(ECSync.apiBase({ appId: 'abcdefgh', serverURL: 'https://lc.test/1.1/' }), 'https://lc.test/1.1');
 });
 
-test('mocked gist GET merges and PATCH sends the v4 file without the token', async () => {
+test('mocked LeanCloud GET merges and PUT sends v4 state without the app key', async () => {
   const remote = {
     v: 4,
     mode: 'all',
@@ -93,34 +99,35 @@ test('mocked gist GET merges and PATCH sends the v4 file without the token', asy
     items: { w001: { status: 'reinforce', seen: 5, needed: false, updated: 40 } },
     log: [{ id: 'w001', term: 'circle back', action: 'reinforce', ts: 40, seen: 5 }]
   };
-  let patched = null;
+  const cfg = { appId: 'abcdefgh', appKey: 'secret-key', serverURL: 'https://lc.test', objectId: 'obj1' };
+  let putBody = null;
   const fetchImpl = async (url, opts = {}) => {
-    assert.equal(opts.headers.Authorization, 'Bearer ghp_example');
-    assert.ok(!String(url).includes('ghp_example'));
-    if (opts.method === 'PATCH') {
-      patched = JSON.parse(opts.body);
+    assert.equal(opts.headers['X-LC-Id'], 'abcdefgh');
+    assert.equal(opts.headers['X-LC-Key'], 'secret-key');
+    assert.ok(!String(url).includes('secret-key'));
+    if (opts.method === 'PUT') {
+      putBody = JSON.parse(opts.body);
       return { ok: true, status: 200, json: async () => ({}), text: async () => '' };
     }
-    assert.match(url, /\/gists\/gist123$/);
+    assert.equal(url, 'https://lc.test/1.1/classes/ECState/obj1');
     return {
       ok: true,
       status: 200,
-      json: async () => ({ files: { 'english-coach-state.json': { content: JSON.stringify(remote) } } }),
+      json: async () => ({ objectId: 'obj1', state: remote }),
       text: async () => ''
     };
   };
-  const got = await ECSync.fetchRemote(fetchImpl, 'ghp_example', 'gist123');
+  const got = await ECSync.fetchRemote(fetchImpl, cfg);
   assert.equal(got.ok, true);
   const merged = ECSync.mergeState(local, got.state);
   assert.equal(merged.items.w001.status, 'reinforce');
   assert.equal(merged.items.w001.seen, 5);
   assert.equal(merged.items.w001.needed, false);
-  const pushed = await ECSync.pushState(fetchImpl, 'ghp_example', 'gist123', merged);
+  const pushed = await ECSync.pushState(fetchImpl, cfg, merged);
   assert.equal(pushed.ok, true);
-  const file = patched.files['english-coach-state.json'].content;
-  assert.equal(JSON.parse(file).items.w001.seen, 5);
-  assert.equal(JSON.parse(file).v, 4);
-  assert.ok(!file.includes('ghp_example'));
+  assert.equal(putBody.state.items.w001.seen, 5);
+  assert.equal(putBody.state.v, 4);
+  assert.ok(!JSON.stringify(putBody).includes('secret-key'));
 });
 
 test('failText uses HTTP status or 网络', () => {
@@ -130,19 +137,18 @@ test('failText uses HTTP status or 网络', () => {
   assert.equal(ECSync.failText(new TypeError('Failed to fetch')), '同步失败 · 网络');
 });
 
-test('create private gist returns the id and skipped sync stays a no-op when unset', async () => {
-  assert.equal(ECSync.isConfigured({ token: '', gistId: '' }), false);
+test('create LeanCloud object returns objectId and skips sync when unset', async () => {
+  assert.equal(ECSync.isConfigured({ appId: '', appKey: '', objectId: '' }), false);
   let posted = null;
   const fetchImpl = async (url, opts) => {
     assert.equal(opts.method, 'POST');
-    assert.match(url, /\/gists$/);
+    assert.equal(url, 'https://abcdefgh.lc-cn-n1-shared.com/1.1/classes/ECState');
     posted = JSON.parse(opts.body);
-    return { ok: true, status: 201, json: async () => ({ id: 'newgist1' }), text: async () => '' };
+    return { ok: true, status: 201, json: async () => ({ objectId: 'newobj1' }), text: async () => '' };
   };
-  const created = await ECSync.createGist(fetchImpl, 'ghp_example', { v: 4, items: {} });
+  const created = await ECSync.createRemote(fetchImpl, { appId: 'abcdefgh', appKey: 'secret-key', serverURL: '' }, { v: 4, items: {} });
   assert.equal(created.ok, true);
-  assert.equal(created.gistId, 'newgist1');
-  assert.equal(posted.public, false);
-  assert.ok(posted.files['english-coach-state.json'].content.includes('"v":4'));
-  assert.ok(!posted.files['english-coach-state.json'].content.includes('ghp_example'));
+  assert.equal(created.objectId, 'newobj1');
+  assert.equal(posted.state.v, 4);
+  assert.ok(!JSON.stringify(posted).includes('secret-key'));
 });

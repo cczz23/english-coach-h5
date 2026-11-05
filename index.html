@@ -12,10 +12,12 @@
 <div id="settings" class="settings" data-testid="settings" hidden>
 <form data-testid="settings-form">
 <h2>同步设置</h2>
-<label>GitHub Token<input type="password" name="token" data-testid="sync-token" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ghp_…"></label>
-<label>Gist ID<input type="text" name="gist" data-testid="sync-gist" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="留空后可创建"></label>
-<p class="hint" data-testid="sync-hint">token 只勾 gist；不要用账号密码；仅自己设备用。<br>若创建失败：打开 gist.github.com，新建 secret gist，文件名必须是 english-coach-state.json，粘贴 {"v":4,"mode":"all","items":{},"recent":[],"log":[],"undo":[]}，Create secret gist，从网址复制 id 填到 Gist ID，再点保存。</p>
-<button type="button" class="ghost" data-testid="sync-create">创建 private gist</button>
+<label>App ID<input type="text" name="appid" data-testid="sync-app-id" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="LeanCloud App ID"></label>
+<label>App Key<input type="password" name="appkey" data-testid="sync-app-key" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="App Key"></label>
+<label>服务器地址<input type="url" name="server" data-testid="sync-server" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://xxxx.lc-cn-n1-shared.com"></label>
+<label>记录 ID<input type="text" name="object" data-testid="sync-object-id" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="留空后点创建"></label>
+<p class="hint" data-testid="sync-hint">国内 LeanCloud，不用 VPN。只填 App Key，不要填 Master Key。Class 名必须是 ECState。服务器地址从控制台「应用凭证」复制；留空则用华北测试域名。记录 ID 留空时点创建云端记录。</p>
+<button type="button" class="ghost" data-testid="sync-create">创建云端记录</button>
 <p class="hint sync-msg" data-sync-status data-testid="sync-status-panel"></p>
 <div class="row2 row">
 <button type="submit" class="primary" data-testid="sync-save">保存</button>

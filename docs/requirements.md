@@ -17,18 +17,17 @@ Static H5 vocab coach. No build step. Hosted from the repo root on GitHub Pages:
 
 ## Sync
 
-Google Drive and Google OAuth are cancelled. Do not add Google Identity Services, the Drive API, an OAuth client id, or any Drive folder.
+Google Drive and Google OAuth are cancelled. GitHub gist sync is also cancelled for daily use: `api.github.com` does not load on a phone in China without a VPN.
 
-Backup is a **secret GitHub gist** owned by Chris:
+Backup is **LeanCloud China** (华北 / cn-n1). GitHub Pages still hosts the site.
 
-- File name: `english-coach-state.json` (same shape as `ec_state_v4`).
-- Credentials: a GitHub personal access token with gist access only, plus the gist id.
-- Stored only in localStorage key `ec_sync_v1` on the device. Never committed, never logged, never placed in `words.json` or the README as a real secret.
-- If `ec_sync_v1` is missing a token or a gist id, the app does not call GitHub and keeps working from localStorage.
-- On open, GET the gist and merge (see comments in `sync.js`): higher `seen`, newer per-word record, union of history, local undo stack kept.
-- After a mark, next card, undo, mode toggle, or needed toggle, wait ~650ms and PATCH the full state. Success shows 已同步. Failure shows 同步失败 · plus the HTTP status, or 同步失败 · 网络 when the request never completes. Never block the card flow.
-- 创建 private gist with no token says 请先填写 Token. A failed create leaves the settings panel open and does not clear the token just typed. The hint also describes creating the secret gist by hand on gist.github.com.
-- 创建 private gist POSTs a secret gist (`public: false`) when a token is present and the gist id field is empty, then stores the returned id.
+- Class `ECState`, one object. Field `state` is the `ec_state_v4` object.
+- Credentials live only in localStorage `ec_lc_v1`: App ID, App Key, optional server URL, objectId. Never committed, never logged, never the Master Key.
+- Server URL comes from 控制台 → 设置 → 应用凭证 → 服务器地址. If blank, the app calls `https://<AppId 前 8 位>.lc-cn-n1-shared.com` (the console’s China-north test host; no VPN).
+- If App ID, App Key, or objectId is missing, the app does not call LeanCloud and keeps working from localStorage.
+- On open, GET `/1.1/classes/ECState/{objectId}` and merge (`sync.js`): higher `seen`, newer per-word record, union of history, local undo stack kept.
+- After a mark, next card, undo, mode toggle, or needed toggle, wait ~650ms and PUT the full state. Success shows 已同步. Failure shows 同步失败 · plus the HTTP status, or 同步失败 · 网络. Never block the card flow.
+- 创建云端记录 POSTs the class when App ID and App Key are set, then saves the returned objectId. A failed create leaves the panel open and does not clear the key just typed. Missing keys say 请先填写 App ID 和 App Key.
 
 ## Out of scope
 
