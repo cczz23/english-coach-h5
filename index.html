@@ -3,8 +3,25 @@
 <title>English Coach</title><link rel="stylesheet" href="style.css"></head>
 <body><header><div class="hdr-left"><h1>English Coach</h1>
 <div class="hdr-row"><div class="mode-seg" role="group" aria-label="模式"><button type="button" class="mode-btn on" data-testid="mode-all" aria-pressed="true">全部</button><button type="button" class="mode-btn" data-testid="mode-review" aria-pressed="false">复习</button></div>
-<button type="button" class="undo-btn" data-testid="undo" disabled>恢复上一个</button></div></div>
+<button type="button" class="undo-btn" data-testid="undo" disabled>恢复上一个</button>
+<button type="button" class="undo-btn" data-testid="settings-open">设置</button></div>
+<span id="sync-status" data-testid="sync-status"></span></div>
 <div id="stats" data-testid="stats"></div></header>
 <main id="app" data-testid="app">加载中…</main>
 <footer id="history" data-testid="history"></footer>
+<div id="settings" class="settings" data-testid="settings" hidden>
+<form data-testid="settings-form">
+<h2>同步设置</h2>
+<label>GitHub Token<input type="password" name="token" data-testid="sync-token" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="ghp_…"></label>
+<label>Gist ID<input type="text" name="gist" data-testid="sync-gist" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="留空后可创建"></label>
+<p class="hint" data-testid="sync-hint">token 只勾 gist；不要用账号密码；仅自己设备用。</p>
+<button type="button" class="ghost" data-testid="sync-create">创建 private gist</button>
+<div class="row2 row">
+<button type="submit" class="primary" data-testid="sync-save">保存</button>
+<button type="button" class="ghost" data-testid="settings-close">关闭</button>
+</div>
+<button type="button" class="ghost" data-testid="sync-clear">停止同步</button>
+</form>
+</div>
+<script src="sync.js"></script>
 <script src="app.js"></script></body></html>

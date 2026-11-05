@@ -31,7 +31,111 @@ function migrateV3(){let o;try{o=JSON.parse(localStorage.getItem(V3))}catch(e){}
 function load(){try{state=JSON.parse(localStorage.getItem(KEY))}catch(e){}
  if(state&&state.items&&state.v===4){for(const id of Object.keys(state.items))state.items[id]=ensureItem(state.items[id]);withUndo(state);return}
  state=withUndo(migrateV3()||migrateV2()||migrateV1()||blank());save()}
-function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+let allowSync=false,syncTimer=null,chain=Promise.resolve();
+const SYNC_DEBOUNCE_MS=650;
+function syncApi(){return window.ECSync||null}
+function setSyncStatus(text){const el=$('[data-testid=sync-status]');if(el)el.textContent=text||''}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));if(allowSync)scheduleSync()}
+/** Debounce 650ms (within 500–800). Failures only update the status line. */
+function scheduleSync(){
+ if(!allowSync)return;const api=syncApi();if(!api)return;
+ const cfg=api.loadConfig(localStorage);if(!api.isConfigured(cfg))return;
+ clearTimeout(syncTimer);
+ syncTimer=setTimeout(()=>{chain=chain.then(()=>runPush()).catch(()=>{})},SYNC_DEBOUNCE_MS)}
+async function runPush(){
+ if(!allowSync)return;const api=syncApi();if(!api)return;
+ const cfg=api.loadConfig(localStorage);if(!api.isConfigured(cfg))return;
+ const snapshot=JSON.parse(JSON.stringify(state));
+ setSyncStatus('同步中');
+ try{
+  const result=await api.pushState(fetch,cfg.token,cfg.gistId,snapshot);
+  if(!result.ok){setSyncStatus('同步失败');return}
+  if(api.canonical(state)!==api.canonical(snapshot))return runPush();
+  setSyncStatus('已同步');
+ }catch(e){setSyncStatus('同步失败')}
+}
+let pullGen=0,wordsReady=false;
+async function pullRemote(){
+ const api=syncApi();const gen=++pullGen;
+ if(!api){allowSync=true;return}
+ const cfg=api.loadConfig(localStorage);
+ if(!api.isConfigured(cfg)){allowSync=true;setSyncStatus('');return}
+ allowSync=false;setSyncStatus('同步中');
+ try{
+  const result=await api.fetchRemote(fetch,cfg.token,cfg.gistId);
+  if(gen!==pullGen)return;
+  if(!result.ok){setSyncStatus('同步失败');return}
+  if(result.state){
+   const prevMode=state.mode;
+   state=api.mergeState(state,result.state);
+   withUndo(state);
+   for(const id of Object.keys(state.items))state.items[id]=ensureItem(state.items[id]);
+   localStorage.setItem(KEY,JSON.stringify(state));
+   const changed=api.canonical(state)!==api.canonical(result.state);
+   if(wordsReady&&prevMode!==state.mode)next();
+   else if(wordsReady)render();
+   allowSync=true;
+   if(changed)scheduleSync();else setSyncStatus('已同步');
+   return;
+  }
+  setSyncStatus('已同步');
+ }catch(e){if(gen===pullGen)setSyncStatus('同步失败')}
+ finally{if(gen===pullGen)allowSync=true}
+}
+function bindSettings(){
+ const panel=$('[data-testid=settings]');if(!panel)return;
+ const tokenInput=$('[data-testid=sync-token]');
+ const gistInput=$('[data-testid=sync-gist]');
+ const api=()=>syncApi();
+ const open=()=>{
+  const cfg=api().loadConfig(localStorage);
+  gistInput.value=cfg.gistId||'';
+  tokenInput.value='';
+  tokenInput.placeholder=cfg.token?'已保存（留空则不修改）':'ghp_…';
+  panel.hidden=false;
+ };
+ $('[data-testid=settings-open]').onclick=open;
+ $('[data-testid=settings-close]').onclick=()=>{panel.hidden=true};
+ $('[data-testid=settings-form]').onsubmit=e=>{
+  e.preventDefault();
+  const prev=api().loadConfig(localStorage);
+  const token=tokenInput.value.trim()||prev.token;
+  const gistId=gistInput.value.trim();
+  if(!token&&!gistId){api().clearConfig(localStorage);setSyncStatus('');panel.hidden=true;return}
+  api().saveConfig(localStorage,{token,gistId});
+  tokenInput.value='';
+  panel.hidden=true;
+  if(api().isConfigured(api().loadConfig(localStorage)))pullRemote();
+  else setSyncStatus('');
+ };
+ $('[data-testid=sync-clear]').onclick=()=>{
+  api().clearConfig(localStorage);
+  tokenInput.value='';gistInput.value='';
+  tokenInput.placeholder='ghp_…';
+  setSyncStatus('');panel.hidden=true;
+ };
+ let creating=false;
+ $('[data-testid=sync-create]').onclick=async()=>{
+  if(creating)return;
+  const prev=api().loadConfig(localStorage);
+  const token=tokenInput.value.trim()||prev.token;
+  if(!token){setSyncStatus('同步失败');return}
+  if(gistInput.value.trim())return;
+  creating=true;setSyncStatus('同步中');
+  const snap=api().canonical(state);
+  try{
+   const created=await api().createGist(fetch,token,state);
+   if(!created.ok||!created.gistId){setSyncStatus('同步失败');return}
+   gistInput.value=created.gistId;
+   api().saveConfig(localStorage,{token,gistId:created.gistId});
+   tokenInput.value='';
+   tokenInput.placeholder='已保存（留空则不修改）';
+   allowSync=true;
+   if(api().canonical(state)!==snap)scheduleSync();else setSyncStatus('已同步');
+  }catch(e){setSyncStatus('同步失败')}
+  finally{creating=false}
+ };
+}
 const rec=id=>state.items[id]||(state.items[id]={status:null,seen:0,needed:false});
 /** Weights: weak > reinforce > unseen > dropped(0). Both reinforce & weak resurface. */
 function weight(w){const r=state.items[w.id]||{};if(r.status==='dropped')return 0;
@@ -79,17 +183,20 @@ function head(){const r=rec(cur.id);const n=r.seen;return `<div class="stage" da
 <div class="meta">${esc(cur.pos)} · <span data-testid="ipa">${esc(cur.ipa)}</span><span class="dom" data-testid="track">${({business:"商务",advanced:"高级",life:"生活"})[cur.track]||cur.domain}</span>${n>1?`<span class="badge" data-testid="seen-hint">已见过 ${n} 次</span>`:''}</div>`}
 function neededBtn(){const on=!!rec(cur.id).needed;return `<button type="button" class="needed-toggle${on?' on':''}" data-testid="needed" aria-pressed="${on?'true':'false'}"><span class="star">${on?'★':'☆'}</span> 特别需要</button>`}
 function bindNeeded(){const b=$('[data-testid=needed]');if(b)b.onclick=e=>{e.preventDefault();e.stopPropagation();toggleNeeded()}}
+/** Stage B (and Stage A) show at most 5 examples. Shorter lists stay as written. */
+const EX_MAX=5;
+function exList(list){return (list||[]).slice(0,EX_MAX).map(e=>`<li>${hl(e)}</li>`).join('')}
 function render(){stats();modeBtns();const app=$('#app');
  if(!cur&&state.mode==='review'){app.innerHTML=`<div class="card empty" data-testid="empty-review"><h2>📭 复习队列为空</h2><p>还没有标为「再巩固」或「还不熟」的词。</p><button class="primary" data-testid="back-all">回到全部</button></div>`;
   $('[data-testid=back-all]').onclick=()=>setMode('all');return;}
  if(!cur){app.innerHTML=`<div class="card empty" data-testid="empty"><h2>🎉 全部放掉了！</h2><p>队列已空，历史记录仍保留。</p><button class="ghost" data-testid="reset">重新练习全部</button></div>`;
   $('[data-testid=reset]').onclick=()=>{Object.values(state.items).forEach(r=>{if(r.status==='dropped')r.status=null});state.undo=[];state.log.push({id:null,term:null,action:'reset',ts:Date.now(),seen:0});save();next()};return;}
- if(stage==='A'){app.innerHTML=`<div class="card" data-testid="card-a">${head()}<ul data-testid="examples-a">${cur.examples_stage_a.map(e=>`<li>${hl(e)}</li>`).join('')}</ul>
+ if(stage==='A'){app.innerHTML=`<div class="card" data-testid="card-a">${head()}<ul data-testid="examples-a">${exList(cur.examples_stage_a)}</ul>
  <div class="actions row2 row"><button class="ghost" data-testid="skip">跳过</button><button class="primary" data-testid="reveal">查看释义</button></div></div>`;
   $('[data-testid=skip]').onclick=()=>act('skip_drop','dropped');
   $('[data-testid=reveal]').onclick=()=>{stage='B';log('reveal');save();render()};
  }else{app.innerHTML=`<div class="card" data-testid="card-b">${head()}<div class="gloss" data-testid="gloss">${esc(cur.gloss_zh)}</div>
- <ul data-testid="examples-b">${cur.examples_stage_b.map(e=>`<li>${hl(e)}</li>`).join('')}</ul>
+ <ul data-testid="examples-b">${exList(cur.examples_stage_b)}</ul>
  ${neededBtn()}
  <div class="actions row status-row"><button class="drop" data-testid="drop">先放掉</button><button class="reinforce" data-testid="reinforce">再巩固</button><button class="weak" data-testid="weak">还不熟</button></div></div>`;
   $('[data-testid=drop]').onclick=()=>act('drop','dropped');
@@ -99,5 +206,7 @@ function render(){stats();modeBtns();const app=$('#app');
 load();
 const ub=$('[data-testid=undo]');if(ub)ub.onclick=()=>undo();
 for(const m of ['all','review']){const b=$(`[data-testid=mode-${m}]`);if(b)b.onclick=()=>setMode(m)}
-fetch('words.json').then(r=>r.json()).then(w=>{WORDS=w;window.__ec={words:WORDS,state:()=>state,weight,pickNext,undo,setMode,get mode(){return state.mode}};next()});
+bindSettings();
+pullRemote();
+fetch('words.json').then(r=>r.json()).then(w=>{WORDS=w;wordsReady=true;window.__ec={words:WORDS,state:()=>state,weight,pickNext,undo,setMode,mergeState:window.ECSync&&window.ECSync.mergeState,get mode(){return state.mode}};next()});
 })();

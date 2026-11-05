@@ -25,6 +25,14 @@ footer span{display:inline-block;margin:3px 4px 0 0;padding:3px 8px;border-radiu
 .empty{text-align:center;padding:30px 10px}
 
 .hdr-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;max-width:100%}
+#sync-status{font-size:12px;color:#667;min-height:1em}
+.settings[hidden]{display:none}
+.settings{position:fixed;inset:0;background:rgba(15,23,42,.35);z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.settings form{background:#fff;width:100%;max-width:560px;border-radius:16px 16px 0 0;padding:16px 16px 24px;display:flex;flex-direction:column;gap:10px}
+.settings h2{margin:0;font-size:16px}
+.settings label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:#334}
+.settings input{min-height:44px;border:1px solid #d6dbe6;border-radius:10px;padding:0 10px;font-size:16px}
+.settings .hint{margin:0;font-size:12px;color:#667;line-height:1.45}
 .mode-seg{display:inline-flex;background:#eef1f7;border-radius:10px;padding:2px}
 .mode-btn{min-height:44px;min-width:52px;padding:0 12px;font-size:13px;border-radius:8px;background:transparent;color:#556}
 .mode-btn.on{background:#3b5bfd;color:#fff}
