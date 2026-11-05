@@ -149,6 +149,67 @@ test('a real word shows one Stage A line and five Stage B scenes', async ({ page
   expect(marked).toBeGreaterThan(0);
 });
 
+test('Stage A to B to marks still works when the word has contrast', async ({ page }) => {
+  const word = {
+    id: 'w206', term: 'pragmatic', pos: 'adj.', ipa: '/præɡˈmætɪk/',
+    gloss_zh: '务实的', domain: 'both', track: 'advanced',
+    examples_stage_a: ['Let\'s take a [[pragmatic]] approach.'],
+    examples_stage_b: [
+      'A [[pragmatic]] fix now beats a perfect one next year.',
+      'She\'s idealistic but also very [[pragmatic]].'
+    ],
+    contrast: [
+      { vs: 'practical', note_zh: '中文都像「务实」：practical 偏这办法用得上、好操作；pragmatic 偏不纠结理想，按现实约束选能落地的那条' },
+      { vs: 'realistic', note_zh: 'realistic 偏看法是否贴近现实；pragmatic 偏行动' }
+    ]
+  };
+  await page.route('**/words.json', route => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify([word])
+  }));
+  await page.goto('/');
+  await expect(page.getByTestId('term')).toHaveText('pragmatic');
+  await expect(page.getByTestId('stage')).toHaveText('STAGE A');
+  await expect(page.getByTestId('contrast')).toHaveCount(0);
+  await page.getByTestId('reveal').click();
+  await expect(page.getByTestId('stage')).toHaveText('STAGE B');
+  await expect(page.getByTestId('gloss')).toBeVisible();
+  await expect(page.getByTestId('contrast')).toBeVisible();
+  await expect(page.getByTestId('contrast')).toContainText('易混对比');
+  await expect(page.getByTestId('contrast-list')).toContainText('vs practical');
+  await expect(page.getByTestId('contrast-list')).toContainText('务实');
+  await page.getByTestId('weak').click();
+  await expect(page.getByTestId('n-weak')).toHaveText('1');
+  await expect(page.getByTestId('stage')).toHaveText('STAGE A');
+  await expect(page.getByTestId('card-a')).toBeVisible();
+  await expect(page.getByTestId('contrast')).toHaveCount(0);
+});
+
+test('contrast block is hidden when the field is missing or empty', async ({ page }) => {
+  const base = {
+    pos: 'n.', ipa: '/kæp/', gloss_zh: '上限', domain: 'life', track: 'life',
+    examples_stage_a: ['One [[cap]] line.'],
+    examples_stage_b: ['Stage B [[cap]] line.']
+  };
+  await page.route('**/words.json', route => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify([{ ...base, id: 'wnone', term: 'no contrast' }])
+  }));
+  await page.goto('/');
+  await page.getByTestId('reveal').click();
+  await expect(page.getByTestId('gloss')).toBeVisible();
+  await expect(page.getByTestId('contrast')).toHaveCount(0);
+
+  await page.unroute('**/words.json');
+  await page.route('**/words.json', route => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify([{ ...base, id: 'wempty', term: 'empty contrast', contrast: [] }])
+  }));
+  await page.goto('/');
+  await page.getByTestId('reveal').click();
+  await expect(page.getByTestId('contrast')).toHaveCount(0);
+});
+
 test('stage B shows at most 5 examples and keeps a shorter list intact', async ({ page }) => {
   const base = {
     pos: 'n.', ipa: '/kæp/', gloss_zh: '上限', domain: 'life', track: 'life',
