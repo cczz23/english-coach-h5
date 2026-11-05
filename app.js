@@ -31,7 +31,111 @@ function migrateV3(){let o;try{o=JSON.parse(localStorage.getItem(V3))}catch(e){}
 function load(){try{state=JSON.parse(localStorage.getItem(KEY))}catch(e){}
  if(state&&state.items&&state.v===4){for(const id of Object.keys(state.items))state.items[id]=ensureItem(state.items[id]);withUndo(state);return}
  state=withUndo(migrateV3()||migrateV2()||migrateV1()||blank());save()}
-function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+let allowSync=false,syncTimer=null,chain=Promise.resolve();
+const SYNC_DEBOUNCE_MS=650;
+function syncApi(){return window.ECSync||null}
+function setSyncStatus(text){const el=$('[data-testid=sync-status]');if(el)el.textContent=text||''}
+function save(){localStorage.setItem(KEY,JSON.stringify(state));if(allowSync)scheduleSync()}
+/** Debounce 650ms (within 500–800). Failures only update the status line. */
+function scheduleSync(){
+ if(!allowSync)return;const api=syncApi();if(!api)return;
+ const cfg=api.loadConfig(localStorage);if(!api.isConfigured(cfg))return;
+ clearTimeout(syncTimer);
+ syncTimer=setTimeout(()=>{chain=chain.then(()=>runPush()).catch(()=>{})},SYNC_DEBOUNCE_MS)}
+async function runPush(){
+ if(!allowSync)return;const api=syncApi();if(!api)return;
+ const cfg=api.loadConfig(localStorage);if(!api.isConfigured(cfg))return;
+ const snapshot=JSON.parse(JSON.stringify(state));
+ setSyncStatus('同步中');
+ try{
+  const result=await api.pushState(fetch,cfg.token,cfg.gistId,snapshot);
+  if(!result.ok){setSyncStatus('同步失败');return}
+  if(api.canonical(state)!==api.canonical(snapshot))return runPush();
+  setSyncStatus('已同步');
+ }catch(e){setSyncStatus('同步失败')}
+}
+let pullGen=0,wordsReady=false;
+async function pullRemote(){
+ const api=syncApi();const gen=++pullGen;
+ if(!api){allowSync=true;return}
+ const cfg=api.loadConfig(localStorage);
+ if(!api.isConfigured(cfg)){allowSync=true;setSyncStatus('');return}
+ allowSync=false;setSyncStatus('同步中');
+ try{
+  const result=await api.fetchRemote(fetch,cfg.token,cfg.gistId);
+  if(gen!==pullGen)return;
+  if(!result.ok){setSyncStatus('同步失败');return}
+  if(result.state){
+   const prevMode=state.mode;
+   state=api.mergeState(state,result.state);
+   withUndo(state);
+   for(const id of Object.keys(state.items))state.items[id]=ensureItem(state.items[id]);
+   localStorage.setItem(KEY,JSON.stringify(state));
+   const changed=api.canonical(state)!==api.canonical(result.state);
+   if(wordsReady&&prevMode!==state.mode)next();
+   else if(wordsReady)render();
+   allowSync=true;
+   if(changed)scheduleSync();else setSyncStatus('已同步');
+   return;
+  }
+  setSyncStatus('已同步');
+ }catch(e){if(gen===pullGen)setSyncStatus('同步失败')}
+ finally{if(gen===pullGen)allowSync=true}
+}
+function bindSettings(){
+ const panel=$('[data-testid=settings]');if(!panel)return;
+ const tokenInput=$('[data-testid=sync-token]');
+ const gistInput=$('[data-testid=sync-gist]');
+ const api=()=>syncApi();
+ const open=()=>{
+  const cfg=api().loadConfig(localStorage);
+  gistInput.value=cfg.gistId||'';
+  tokenInput.value='';
+  tokenInput.placeholder=cfg.token?'已保存（留空则不修改）':'ghp_…';
+  panel.hidden=false;
+ };
+ $('[data-testid=settings-open]').onclick=open;
+ $('[data-testid=settings-close]').onclick=()=>{panel.hidden=true};
+ $('[data-testid=settings-form]').onsubmit=e=>{
+  e.preventDefault();
+  const prev=api().loadConfig(localStorage);
+  const token=tokenInput.value.trim()||prev.token;
+  const gistId=gistInput.value.trim();
+  if(!token&&!gistId){api().clearConfig(localStorage);setSyncStatus('');panel.hidden=true;return}
+  api().saveConfig(localStorage,{token,gistId});
+  tokenInput.value='';
+  panel.hidden=true;
+  if(api().isConfigured(api().loadConfig(localStorage)))pullRemote();
+  else setSyncStatus('');
+ };
+ $('[data-testid=sync-clear]').onclick=()=>{
+  api().clearConfig(localStorage);
+  tokenInput.value='';gistInput.value='';
+  tokenInput.placeholder='ghp_…';
+  setSyncStatus('');panel.hidden=true;
+ };
+ let creating=false;
+ $('[data-testid=sync-create]').onclick=async()=>{
+  if(creating)return;
+  const prev=api().loadConfig(localStorage);
+  const token=tokenInput.value.trim()||prev.token;
+  if(!token){setSyncStatus('同步失败');return}
+  if(gistInput.value.trim())return;
+  creating=true;setSyncStatus('同步中');
+  const snap=api().canonical(state);
+  try{
+   const created=await api().createGist(fetch,token,state);
+   if(!created.ok||!created.gistId){setSyncStatus('同步失败');return}
+   gistInput.value=created.gistId;
+   api().saveConfig(localStorage,{token,gistId:created.gistId});
+   tokenInput.value='';
+   tokenInput.placeholder='已保存（留空则不修改）';
+   allowSync=true;
+   if(api().canonical(state)!==snap)scheduleSync();else setSyncStatus('已同步');
+  }catch(e){setSyncStatus('同步失败')}
+  finally{creating=false}
+ };
+}
 const rec=id=>state.items[id]||(state.items[id]={status:null,seen:0,needed:false});
 /** Weights: weak > reinforce > unseen > dropped(0). Both reinforce & weak resurface. */
 function weight(w){const r=state.items[w.id]||{};if(r.status==='dropped')return 0;
@@ -99,5 +203,7 @@ function render(){stats();modeBtns();const app=$('#app');
 load();
 const ub=$('[data-testid=undo]');if(ub)ub.onclick=()=>undo();
 for(const m of ['all','review']){const b=$(`[data-testid=mode-${m}]`);if(b)b.onclick=()=>setMode(m)}
-fetch('words.json').then(r=>r.json()).then(w=>{WORDS=w;window.__ec={words:WORDS,state:()=>state,weight,pickNext,undo,setMode,get mode(){return state.mode}};next()});
+bindSettings();
+pullRemote();
+fetch('words.json').then(r=>r.json()).then(w=>{WORDS=w;wordsReady=true;window.__ec={words:WORDS,state:()=>state,weight,pickNext,undo,setMode,mergeState:window.ECSync&&window.ECSync.mergeState,get mode(){return state.mode}};next()});
 })();
