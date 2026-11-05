@@ -56,6 +56,18 @@ Chris decided to add a slider for mix probability between **新词** (unseen / u
 
 Not in this PR. When implemented: one mobile slider, persist the mix on `ec_state_v4` so CloudBase can sync it. Likely applies to 全部; 复习 stays weak/reinforce-only. Confirm that split with Chris at implementation time. `dropped` still stays out of the review pool. No new mark buttons.
 
+## 2026-11-05 — 混排滑条 + 生疏列表（本批实现）
+
+Chris asked to ship the decided mix slider now, and also a list of words he is not solid on (scan without sliding cards).
+
+Decisions:
+
+- Replace the 全部 / 复习 segmented control with one mobile slider: **新词** left (`mix=0`) ↔ **复习** right (`mix=1`). End labels snap to the ends so one-tap 复习 still exists. Middle is `P(review)=mix`.
+- **新词** = `status` empty / unmarked (same unseen pool as before). **复习** = `weak` + `reinforce` (same pool as old 复习 mode). `dropped` stays out. Ends do not fall back; middle falls back if the chosen pool is empty.
+- Persist `mix` on `ec_state_v4` (CloudBase sync / EJSON unwrap unchanged). `mode` is derived (`mix>=1` → `review`) so old mode logs still merge. Default `0.5`; old `mode=review` without mix → `1`.
+- Card-based 复习 stays (slider at 复习, including the empty-review screen). Do not add mark buttons or SRS.
+- New **生疏列表** button opens a sheet grouped 还不熟 then 再巩固, term + `gloss_zh`, ★ for 特别需要. Empty state when none. Tap a row opens that word’s Stage A card. Close without changing marks.
+
 ## 2026-11-05 — 间隔回访 / SRS（候选，不要实现）
 
 Discussed. Chris is still thinking. **Do not implement** until he commits.

@@ -17,9 +17,10 @@ GitHub Pages `https://cczz23.github.io/english-coach-h5/` 仍能打开页面，�
 | Tencent CloudBase 同步（取代 Drive / gist / LeanCloud） | 已上 main |
 | Stage B 每词 5 条不重复场景；`EX_MAX=5` | 已上 main |
 | 易混对比 `contrast` | 已上 main |
-| CloudBase Strict EJSON 数字展开（`$numberInt` 等） | **本 PR 实现** |
-| 日常入口改为云开发静态托管（github.io CORS 免费版被拦） | **本 PR 记入** |
-| **新词 / 复习混排滑条**（new↔review 抽卡概率） | **已决定做，尚未实现**（本 PR 不写代码） |
+| CloudBase Strict EJSON 数字展开（`$numberInt` 等） | 已上 main |
+| 日常入口改为云开发静态托管（github.io CORS 免费版被拦） | 已上 main |
+| **新词 / 复习混排滑条**（new↔review 抽卡概率） | **本 PR 实现** |
+| **生疏列表**（还不熟 / 再巩固，可点开卡片） | **本 PR 实现** |
 | **间隔回访 / SRS** | **讨论中，Chris 还在想；不要实现**（只记候选） |
 
 ---
@@ -56,14 +57,20 @@ GitHub Pages `https://cczz23.github.io/english-coach-h5/` 仍能打开页面，�
 
 全局：
 
-- `mode`：`all`（全部）或 `review`（复习）。复习只抽 `weak` 和 `reinforce`。
+- `mix`：0–1 的抽卡比例，写在 `ec_state_v4` 里，随 CloudBase 同步。**0 = 只抽新词，1 = 只抽复习**，中间按该比例掷骰子选池子。默认 `0.5`。旧数据没有 `mix` 时：`mode=review` → `1`，否则 `0.5`。
+- `mode`：由 `mix` 推导，兼容旧合并逻辑。`mix >= 1` → `review`，否则 `all`。
 - `recent`：最近出现过的 id，最多 10，用来少立刻重复。
-- `log`：操作历史。
-- `undo`：本地撤销栈，最多 5。**恢复上一个**只弹本机栈，不同步合并。
+- `log`：操作历史。滑条松手后记一条 `mix`（带当前比例）；若推导出的 mode 变了，再记 `mode_all` / `mode_review`。
+- `undo`：本地撤销栈，最多 5。**恢复上一个**只弹本机栈，不同步合并。滑条本身不进 undo。
 
-### 抽卡权重（当前，无 SRS）
+### 抽卡（当前，无 SRS）
 
-`dropped` 权重 0，不进队列。其余：weak > reinforce > unseen。`important_suggest` 和非 `life` domain 略加权。`review` 模式下池子只有 weak / reinforce。
+先按 `mix` 选池子，再在池子里用原权重抽：
+
+- **新词**：`status` 为空 / 未标记（队列里还能抽到的 unseen）。`dropped` 不进。
+- **复习**：已标 `weak` 或 `reinforce`，与旧「复习」模式同一池。
+- 滑条两端不回退到另一池（抽空则空状态）。中间若选中的池是空的，才用另一池，避免无卡可刷。
+- 池内权重不变：`dropped` 为 0；weak > reinforce > unseen。`important_suggest` 和非 `life` domain 略加权。最近出现过的 id 仍尽量避开。
 
 ### 迁移
 
@@ -111,8 +118,8 @@ https://regional-newt-d8ghvyg140f22c055-1404967840.tcloudbaseapp.com
 - 凭证只在本机 localStorage `ec_tcb_v1`：环境 ID、Publishable Key、文档 id。永不进仓库、不打日志、不放密钥 API Key。
 - 缺环境 ID、Publishable Key 或文档 id 时不请求 CloudBase，继续用 localStorage。
 - 打开时 GET `.../collections/ec_state/documents/{docId}`。CloudBase 文档 GET 是 **Strict EJSON**：`v` / `seen` 会变成 `{ "$numberInt": "4" }`，`updated` 会变成 `{ "$numberLong": "..." }`。`sync.js` 先 `fromExtendedJson` 展开再 `isV4` / 合并，否则 `parsed.v === 4` 失败、`readDocState` 返回 null，Pull 不合并远端，两边都显示「已同步」却各用各的 localStorage。
-- 合并：`seen` 取大；每词取较新记录；历史做并集；**本地 undo 栈保留**。
-- 标记、下一张、撤销、切模式、特别需要之后，等约 650ms，PATCH 该文档（`upsert: true`，字段 `state`）。成功显示「已同步」。失败显示「同步失败 · 」加 HTTP 状态，或「同步失败 · 网络」。不打断刷卡。
+- 合并：`seen` 取大；每词取较新记录；历史做并集；**本地 undo 栈保留**。`mix` / `mode` 跟最新的 `mix` / `mode_all` / `mode_review` log；没有这类 log 时跟较新的 per-word `updated` 那一侧。
+- 标记、下一张、撤销、切模式 / 滑条、特别需要之后，等约 650ms，PATCH 该文档（`upsert: true`，字段 `state`，含 `mix`）。成功显示「已同步」。失败显示「同步失败 · 」加 HTTP 状态，或「同步失败 · 网络」。不打断刷卡。
 - **创建或绑定**：没有记录 ID 时 POST 一篇，存 `insertedIds[0]`。已填记录 ID 则 PATCH upsert（另一部手机绑同一条）。失败时面板不关，刚打的 key 不清。缺字段提示「请先填写环境 ID 和 Publishable Key」。
 - 当前集合权限是控制台预设「读取全部数据，修改本人数据」。几部手机共用同一份 Publishable Key 时，同一 key 身份下这份 ACL 可能仍然够用（匿名登录关着也一样，请求都带这份 key）。不必为此改成 `{ "read": true, "write": true }`，除非出现 403。代码这次只修 Extended JSON。
 
@@ -129,21 +136,24 @@ https://regional-newt-d8ghvyg140f22c055-1404967840.tcloudbaseapp.com
 
 401 / 403 多半是集合规则过严，或误贴了密钥 API Key。
 
-## 已决定、待实现：新词 / 复习混排滑条
+## 新词 / 复习混排滑条（本 PR）
 
-**做。本 PR 不写代码。**
+顶栏用一条滑条取代原来的「全部 / 复习」二分开关，仍然能一键偏新词或偏复习：
 
-现在模式是二分：全部（新词 + 复习按权重）vs 复习（只 weak / reinforce）。Chris 要一条**滑条**，调「新词 ↔ 复习」的抽卡概率，而不是只能二选一。
+- 左端按钮 **新词**（`mix=0`）：只抽未见 / 未标的词（`status` 空）。抽空显示「没有新词了」。
+- 右端按钮 **复习**（`mix=1`）：只抽 `weak` + `reinforce`，和旧复习模式同一池。抽空仍是「复习队列为空」，卡片复习没去掉。
+- 中间：`P(复习) = mix`，`P(新词) = 1-mix`。选中的池为空时才落到另一池。
+- 拖动时只改标签；松手（`change`）才写入 `ec_state_v4.mix`、按需记 log、换下一张、650ms 后同步。
+- `dropped` 仍不进任一池。不要新标记按钮。不要为此改词库。
 
-草案（实现时再钉 UI 细节）：
+## 生疏列表（本 PR）
 
-- **新词**：`status` 为空 / 未标记（队列里还能抽到的 unseen）。
-- **复习**：已标 `weak` 或 `reinforce`。
-- 滑条偏新词 → 更常抽 unseen；偏复习 → 更常抽 weak/reinforce。
-- `dropped` 仍不进复习池。
-- 倾向：滑条作用在「全部」；「复习」仍只抽 weak/reinforce。是否保留二分开关，实现时和 Chris 确认。
-- 概率写入 `ec_state_v4`（随 CloudBase 同步）。不要为此改词库。
-- 移动端一条滑条即可，不要加新标记按钮。
+顶栏 **生疏列表** 打开底部列表，方便扫一眼还没掌握的词，不替代卡片复习。
+
+- 分组：**还不熟**（`weak`）在上，**再巩固**（`reinforce`）在下。标签与 Stage B 按钮一致。
+- 每行：词/短语 + `words.json` 的 `gloss_zh`。特别需要只在该行加 ★，不单独成组。
+- `dropped` 和未标记的词不出现。两边都空时显示「还没有标为「还不熟」或「再巩固」的词。」
+- 点一行打开该词 Stage A 卡片（计入 seen / recent）。关闭按钮收起列表。
 
 ## 候选、不要实现：间隔回访 / SRS
 
@@ -169,4 +179,4 @@ https://regional-newt-d8ghvyg140f22c055-1404967840.tcloudbaseapp.com
 - 改 GitHub Pages 的分支或目录（`main`，仓库根 `/`）。
 - Google Drive / Google OAuth；GitHub gist 日常同步；LeanCloud 日常同步。
 - 为同步工作扩词库。
-- 本 PR：混排滑条、SRS、改 `EX_MAX`、新标记按钮。
+- 本 PR：SRS、改 `EX_MAX`、新标记按钮。

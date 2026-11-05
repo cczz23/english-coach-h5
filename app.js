@@ -5,9 +5,15 @@ let WORDS=[],state,cur=null,stage='A';
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const hl=s=>esc(s).replace(/\[\[(.+?)\]\]/g,'<mark>$1</mark>');
-const blank=()=>({v:4,mode:'all',items:{},recent:[],log:[],undo:[]});
+const Q=()=>window.ECQueue;
+const blank=()=>({v:4,mode:'all',mix:Q().MIX_DEFAULT,items:{},recent:[],log:[],undo:[]});
 function ensureItem(r){const o={status:r.status??null,seen:r.seen||0,needed:!!r.needed};if(r.updated!=null)o.updated=r.updated;if(r.important!==undefined)o.important=r.important;return o}
-function withUndo(s){if(!Array.isArray(s.undo))s.undo=[];if(s.mode!=='review'&&s.mode!=='all')s.mode='all';return s}
+function withUndo(s){
+ if(!Array.isArray(s.undo))s.undo=[];
+ s.mix=Q().resolveMix(s);
+ s.mode=Q().modeFromMix(s.mix);
+ return s;
+}
 /** v1 → v4: mastered→dropped; shaky/unknown→weak (safer: treat as shortfall). */
 function migrateV1(){let o;try{o=JSON.parse(localStorage.getItem(V1))}catch(e){}if(!o||!o.marks)return null;
  const s=blank();for(const[id,r]of Object.entries(o.marks)){const st=r.status==='mastered'?'dropped':(r.status==='shaky'||r.status==='unknown')?'weak':null;s.items[id]={status:st,seen:r.seen||0,needed:false,important:r.important??null}}
@@ -73,13 +79,13 @@ async function pullRemote(){
   if(gen!==pullGen)return;
   if(!result.ok){syncFail(result);return}
   if(result.state){
-   const prevMode=state.mode;
+   const prevMode=state.mode,prevMix=state.mix;
    state=api.mergeState(state,result.state);
    withUndo(state);
    for(const id of Object.keys(state.items))state.items[id]=ensureItem(state.items[id]);
    localStorage.setItem(KEY,JSON.stringify(state));
    const changed=api.canonical(state)!==api.canonical(result.state);
-   if(wordsReady&&prevMode!==state.mode)next();
+   if(wordsReady&&(prevMode!==state.mode||prevMix!==state.mix))next();
    else if(wordsReady)render();
    allowSync=true;
    if(changed)scheduleSync();else setSyncStatus('已同步');
@@ -153,29 +159,51 @@ function bindSettings(){
  };
 }
 const rec=id=>state.items[id]||(state.items[id]={status:null,seen:0,needed:false});
+function rng(){return(window.__ec&&typeof window.__ec.rng==='function')?window.__ec.rng():Math.random()}
 /** Weights: weak > reinforce > unseen > dropped(0). Both reinforce & weak resurface. */
 function weight(w){const r=state.items[w.id]||{};if(r.status==='dropped')return 0;
  if(r.status==='weak'){let x=6+Math.min(r.seen||0,5)*0.5;if(w.domain!=='life')x+=1;if(w.important_suggest)x+=1;return x}
  if(r.status==='reinforce'){let x=3.5+Math.min(r.seen||0,5)*0.25;if(w.domain!=='life')x+=0.5;return x}
  return 2+(w.important_suggest?0.5:0);}
-function pickNext(){
- const rv=state.mode==='review';const pool=WORDS.filter(w=>{if(weight(w)<=0)return false;if(!rv)return true;const st=(state.items[w.id]||{}).status;return st==='weak'||st==='reinforce'});if(!pool.length)return null;
- const k=Math.min(4,pool.length-1);const recent=k>0?state.recent.slice(-k):[];
- let cand=pool.filter(w=>!recent.includes(w.id));if(!cand.length)cand=pool;
- if(cand.length>1&&cur){const c2=cand.filter(w=>w.id!==cur.id);if(c2.length)cand=c2}
- const tot=cand.reduce((a,w)=>a+weight(w),0);let x=Math.random()*tot;
- for(const w of cand){x-=weight(w);if(x<0)return w}return cand[cand.length-1];}
+function pickNext(){return Q().pickNext(WORDS,state,weight,rng,cur&&cur.id)}
 function log(action,extra){state.log.push(Object.assign({id:cur&&cur.id,term:cur&&cur.term,action,ts:Date.now(),seen:cur?rec(cur.id).seen:0},extra||{}))}
 function undoBtn(){const b=$('[data-testid=undo]');if(!b)return;const n=(state.undo||[]).length;b.disabled=!n;b.setAttribute('aria-disabled',n? 'false':'true');b.textContent=n?`恢复上一个`:`恢复上一个`}
 function stats(){const v=Object.values(state.items);const c=s=>v.filter(r=>r.status===s).length;const nNeeded=v.filter(r=>r.needed).length;
  $('#stats').innerHTML=`已放掉 <b data-testid="n-dropped">${c('dropped')}</b> · 再巩固 <b data-testid="n-reinforce">${c('reinforce')}</b> · 还不熟 <b data-testid="n-weak">${c('weak')}</b> · 特别需要 <b data-testid="n-needed">${nNeeded}</b> · 总数 <b data-testid="n-total">${WORDS.length}</b>`;
- const lab={skip_drop:'跳过',reveal:'看释义',drop:'放掉',reinforce:'巩固',weak:'不熟',keep:'再看',needed_on:'特别需要',needed_off:'取消特别需要',undo:'撤销'};
+ const lab={skip_drop:'跳过',reveal:'看释义',drop:'放掉',reinforce:'巩固',weak:'不熟',keep:'再看',needed_on:'特别需要',needed_off:'取消特别需要',undo:'撤销',mix:'混排'};
  $('#history').innerHTML=state.log.slice(-8).reverse().map(l=>`<span>${esc(l.term||'—')} · ${lab[l.action]||esc(l.action)}</span>`).join('');
  undoBtn();}
+function paintMix(mix){
+ const m=Q().clampMix(mix);
+ const pct=Math.round(m*100);
+ const fresh=100-pct;
+ const range=$('[data-testid=mix]');
+ if(range){
+  range.value=String(pct);
+  range.setAttribute('aria-valuenow',String(pct));
+  range.setAttribute('aria-valuetext',`新词 ${fresh}% · 复习 ${pct}%`);
+ }
+ const lab=$('[data-testid=mix-label]');
+ if(lab)lab.textContent=`新词 ${fresh}% · 复习 ${pct}%`;
+ const nBtn=$('[data-testid=mode-new]');
+ const rBtn=$('[data-testid=mode-review]');
+ if(nBtn){const on=m<=0;nBtn.classList.toggle('on',on);nBtn.setAttribute('aria-pressed',on?'true':'false')}
+ if(rBtn){const on=m>=1;rBtn.classList.toggle('on',on);rBtn.setAttribute('aria-pressed',on?'true':'false')}
+}
+function setMix(m){
+ const mix=Q().clampMix(m);
+ const prev=Q().resolveMix(state);
+ if(mix===prev){paintMix(mix);return}
+ const prevMode=state.mode;
+ state.mix=mix;
+ state.mode=Q().modeFromMix(mix);
+ const ts=Date.now();
+ if(prevMode!==state.mode)state.log.push({action:state.mode==='review'?'mode_review':'mode_all',id:null,term:null,ts,seen:0});
+ state.log.push({action:'mix',mix,id:null,term:null,ts,seen:0});
+ cur=null;save();next();
+}
+function setMode(m){if(m==='review')setMix(1);else if(m==='all')setMix(Q().MIX_DEFAULT)}
 function next(){cur=pickNext();stage='A';if(cur){state.recent.push(cur.id);state.recent=state.recent.slice(-10);rec(cur.id).seen++;save()}render();}
-function modeBtns(){for(const m of ['all','review']){const b=$(`[data-testid=mode-${m}]`);if(!b)continue;const on=state.mode===m;b.setAttribute('aria-pressed',on?'true':'false');b.classList.toggle('on',on)}}
-function setMode(m){if(m!=='all'&&m!=='review')return;if(state.mode===m){modeBtns();return}state.mode=m;cur=null;
- state.log.push({action:'mode_'+m,id:null,term:null,ts:Date.now(),seen:0});save();next()}
 function pushUndo(entry){withUndo(state);state.undo.push(entry);while(state.undo.length>UNDO_MAX)state.undo.shift()}
 /** Terminal actions that advance the queue — push undo snapshot then advance. */
 function act(action,status){
@@ -207,9 +235,40 @@ function contrastBlock(w){
  const list=Array.isArray(w&&w.contrast)?w.contrast.filter(c=>c&&c.vs&&String(c.note_zh||'').trim()):[];
  if(!list.length)return '';
  return `<div class="contrast" data-testid="contrast"><div class="contrast-h">易混对比</div><ul data-testid="contrast-list">${list.map(c=>`<li><span class="vs">vs ${esc(c.vs)}</span> — ${esc(c.note_zh)}</li>`).join('')}</ul></div>`}
-function render(){stats();modeBtns();const app=$('#app');
- if(!cur&&state.mode==='review'){app.innerHTML=`<div class="card empty" data-testid="empty-review"><h2>📭 复习队列为空</h2><p>还没有标为「再巩固」或「还不熟」的词。</p><button class="primary" data-testid="back-all">回到全部</button></div>`;
+function closeList(){const p=$('[data-testid=weak-list]');if(p)p.hidden=true}
+function openFromList(id){
+ closeList();
+ const w=WORDS.find(x=>x.id===id);
+ if(!w)return;
+ if(cur&&cur.id===id){stage='A';render();return}
+ cur=w;stage='A';
+ state.recent.push(id);state.recent=state.recent.slice(-10);rec(id).seen++;
+ save();render();
+}
+function openList(){
+ const p=$('[data-testid=weak-list]');
+ const body=$('[data-testid=weak-list-body]');
+ if(!p||!body)return;
+ const g=Q().listGroups(WORDS,state.items);
+ if(!g.weak.length&&!g.reinforce.length){
+  body.innerHTML=`<div class="empty-list" data-testid="weak-list-empty">还没有标为「还不熟」或「再巩固」的词。</div>`;
+ }else{
+  const row=r=>`<button type="button" class="weak-row" data-testid="weak-row" data-id="${esc(r.id)}"><span class="weak-row-term">${esc(r.term)}${r.needed?'<span class="needed-dot" title="特别需要">★</span>':''}</span><span class="weak-row-gloss">${esc(r.gloss_zh)}</span></button>`;
+  let html='';
+  if(g.weak.length)html+=`<div class="weak-h" data-testid="weak-group-weak">还不熟</div>${g.weak.map(row).join('')}`;
+  if(g.reinforce.length)html+=`<div class="weak-h" data-testid="weak-group-reinforce">再巩固</div>${g.reinforce.map(row).join('')}`;
+  body.innerHTML=html;
+  body.querySelectorAll('[data-testid=weak-row]').forEach(btn=>{
+   btn.onclick=()=>openFromList(btn.getAttribute('data-id'));
+  });
+ }
+ p.hidden=false;
+}
+function render(){stats();paintMix(state.mix);const app=$('#app');
+ if(!cur&&state.mix>=1){app.innerHTML=`<div class="card empty" data-testid="empty-review"><h2>📭 复习队列为空</h2><p>还没有标为「再巩固」或「还不熟」的词。</p><button class="primary" data-testid="back-all">回到全部</button></div>`;
   $('[data-testid=back-all]').onclick=()=>setMode('all');return;}
+ if(!cur&&state.mix<=0){app.innerHTML=`<div class="card empty" data-testid="empty-new"><h2>没有新词了</h2><p>未标记的词已经抽完。可以把滑条往「复习」拉，或打开生疏列表。</p><button class="primary" data-testid="go-review">去复习</button></div>`;
+  $('[data-testid=go-review]').onclick=()=>setMix(1);return;}
  if(!cur){app.innerHTML=`<div class="card empty" data-testid="empty"><h2>🎉 全部放掉了！</h2><p>队列已空，历史记录仍保留。</p><button class="ghost" data-testid="reset">重新练习全部</button></div>`;
   $('[data-testid=reset]').onclick=()=>{Object.values(state.items).forEach(r=>{if(r.status==='dropped')r.status=null});state.undo=[];state.log.push({id:null,term:null,action:'reset',ts:Date.now(),seen:0});save();next()};return;}
  if(stage==='A'){app.innerHTML=`<div class="card" data-testid="card-a">${head()}<ul data-testid="examples-a">${exList(cur.examples_stage_a)}</ul>
@@ -225,10 +284,21 @@ function render(){stats();modeBtns();const app=$('#app');
   $('[data-testid=reinforce]').onclick=()=>act('reinforce','reinforce');
   $('[data-testid=weak]').onclick=()=>act('weak','weak');
   bindNeeded();}}
+function bindMix(){
+ const mixEl=$('[data-testid=mix]');
+ if(mixEl){
+  mixEl.addEventListener('input',()=>paintMix(Number(mixEl.value)/100));
+  mixEl.addEventListener('change',()=>setMix(Number(mixEl.value)/100));
+ }
+ const nBtn=$('[data-testid=mode-new]');if(nBtn)nBtn.onclick=()=>setMix(0);
+ const rBtn=$('[data-testid=mode-review]');if(rBtn)rBtn.onclick=()=>setMix(1);
+ const openBtn=$('[data-testid=weak-list-open]');if(openBtn)openBtn.onclick=()=>openList();
+ const closeBtn=$('[data-testid=weak-list-close]');if(closeBtn)closeBtn.onclick=()=>closeList();
+}
 load();
 const ub=$('[data-testid=undo]');if(ub)ub.onclick=()=>undo();
-for(const m of ['all','review']){const b=$(`[data-testid=mode-${m}]`);if(b)b.onclick=()=>setMode(m)}
+bindMix();
 bindSettings();
 pullRemote();
-fetch('words.json').then(r=>r.json()).then(w=>{WORDS=w;wordsReady=true;window.__ec={words:WORDS,state:()=>state,weight,pickNext,undo,setMode,mergeState:window.ECSync&&window.ECSync.mergeState,get mode(){return state.mode}};next()});
+fetch('words.json').then(r=>r.json()).then(w=>{WORDS=w;wordsReady=true;window.__ec={words:WORDS,state:()=>state,weight,pickNext,undo,setMode,setMix,listGroups:()=>Q().listGroups(WORDS,state.items),mergeState:window.ECSync&&window.ECSync.mergeState,get mode(){return state.mode},get mix(){return state.mix},rng:null};next()});
 })();

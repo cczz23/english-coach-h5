@@ -27,8 +27,10 @@
  * - `undo` is NOT merged. Those entries are pre-images from this device's
  *   last few taps; applying the other device's snapshots would clobber the
  *   union above. The local undo stack is preserved as-is.
- * - `mode` follows the latest mode_all / mode_review log entry across both
- *   histories. If neither side logged a mode change, the side with the
+ * - `mode` follows the latest mode_all / mode_review / mix log entry across
+ *   both histories. A mix log also sets `mix` (0 = all 新词, 1 = all 复习).
+ *   mode_review implies mix=1; mode_all keeps the winning side's mix but
+ *   not 1. If neither side logged a mode/mix change, the side with the
  *   newer per-word `updated` wins; if that is also tied, this device wins.
  * - Migration bookkeeping (migratedFrom / migratedAt / migratedKeepTo /
  *   prevMigratedAt) keeps this device's value when set, otherwise the remote.
@@ -74,14 +76,36 @@
     return s && typeof s === 'object' && !Array.isArray(s) ? s : {};
   }
 
+  const MIX_DEFAULT = 0.5;
+
+  function clampMix(x) {
+    const n = Number(x);
+    if (!Number.isFinite(n)) return MIX_DEFAULT;
+    if (n <= 0) return 0;
+    if (n >= 1) return 1;
+    return Math.round(n * 100) / 100;
+  }
+
+  function resolveMix(s) {
+    const src = s && typeof s === 'object' ? s : {};
+    if (src.mix != null && src.mix !== '') return clampMix(src.mix);
+    return src.mode === 'review' ? 1 : MIX_DEFAULT;
+  }
+
+  function modeFromMix(mix) {
+    return clampMix(mix) >= 1 ? 'review' : 'all';
+  }
+
   function normalizeState(raw) {
     const s = asStateObject(raw);
     const items = {};
     const src = s.items && typeof s.items === 'object' && !Array.isArray(s.items) ? s.items : {};
     for (const id of Object.keys(src).sort()) items[id] = ensureItem(src[id]);
+    const mix = resolveMix(s);
     const out = {
       v: 4,
-      mode: s.mode === 'review' ? 'review' : 'all',
+      mode: modeFromMix(mix),
+      mix,
       items,
       recent: Array.isArray(s.recent) ? s.recent.slice(-10) : [],
       log: Array.isArray(s.log) ? s.log.filter(e => e && typeof e === 'object').map(e => ({ ...e })) : [],
@@ -156,14 +180,36 @@
     return out;
   }
 
-  function modeFromLogs(log) {
+  function latestMixModeLog(log) {
     let best = null;
     for (const e of log || []) {
-      if (e.action !== 'mode_all' && e.action !== 'mode_review') continue;
+      if (e.action !== 'mode_all' && e.action !== 'mode_review' && e.action !== 'mix') continue;
       if (!best || (e.ts || 0) >= (best.ts || 0)) best = e;
     }
-    if (!best) return null;
-    return best.action === 'mode_review' ? 'review' : 'all';
+    return best;
+  }
+
+  function mixModeFromWinner(L, R) {
+    const lu = maxItemUpdated(L.items);
+    const ru = maxItemUpdated(R.items);
+    const winner = ru > lu ? R : L;
+    const mix = resolveMix(winner);
+    return { mode: modeFromMix(mix), mix };
+  }
+
+  function mixModeFromLogs(best, L, R) {
+    if (!best) return mixModeFromWinner(L, R);
+    if (best.action === 'mix') {
+      const mix = clampMix(best.mix);
+      return { mode: modeFromMix(mix), mix };
+    }
+    if (best.action === 'mode_review') return { mode: 'review', mix: 1 };
+    const lu = maxLogTs(L.log);
+    const ru = maxLogTs(R.log);
+    let mix = ru > lu ? R.mix : L.mix;
+    if (mix >= 1) mix = MIX_DEFAULT;
+    mix = clampMix(mix);
+    return { mode: 'all', mix };
   }
 
   function mergeState(local, remote) {
@@ -173,15 +219,9 @@
     const items = {};
     for (const id of [...ids].sort()) items[id] = mergeItem(L.items[id], R.items[id]);
     const log = unionLog(L.log, R.log);
-    const fromLog = modeFromLogs(log);
-    let mode = fromLog;
-    if (!mode) {
-      const lu = maxItemUpdated(L.items);
-      const ru = maxItemUpdated(R.items);
-      mode = ru > lu ? R.mode : L.mode;
-    }
+    const { mode, mix } = mixModeFromLogs(latestMixModeLog(log), L, R);
     const recent = (maxLogTs(L.log) >= maxLogTs(R.log) ? L.recent : R.recent).slice(-10);
-    const out = { v: 4, mode, items, recent, log, undo: L.undo };
+    const out = { v: 4, mode, mix, items, recent, log, undo: L.undo };
     const meta = [
       ['migratedFrom', L.migratedFrom || R.migratedFrom],
       ['migratedAt', L.migratedAt || R.migratedAt],

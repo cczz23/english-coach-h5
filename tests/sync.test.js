@@ -47,6 +47,7 @@ test('merge keeps every word, the higher seen count, and the newer status', () =
   assert.deepEqual(merged.log.map(e => e.action), ['drop', 'weak']);
   assert.deepEqual(merged.undo, [{ id: 'w1' }]);
   assert.deepEqual(merged.recent, ['w1']);
+  assert.equal(merged.mix, 0.5);
 });
 
 test('merge follows the latest mode log and does not drop either history', () => {
@@ -60,9 +61,33 @@ test('merge follows the latest mode log and does not drop either history', () =>
   };
   const merged = ECSync.mergeState(local, remote);
   assert.equal(merged.mode, 'review');
+  assert.equal(merged.mix, 1);
   assert.equal(merged.log.length, 2);
   assert.deepEqual(merged.recent, ['w9']);
   assert.deepEqual(merged.undo, []);
+});
+
+test('merge follows the latest mix log and unwraps EJSON mix', () => {
+  const local = {
+    v: 4, mode: 'all', mix: 0.2, items: {}, recent: [], undo: [],
+    log: [{ action: 'mix', mix: 0.2, id: null, term: null, ts: 10, seen: 0 }]
+  };
+  const remote = {
+    v: 4, mode: 'all', mix: { $numberDouble: '0.8' }, items: {}, recent: [], undo: [],
+    log: [{ action: 'mix', mix: { $numberDouble: '0.8' }, id: null, term: null, ts: 30, seen: 0 }]
+  };
+  const merged = ECSync.mergeState(local, remote);
+  assert.equal(merged.mix, 0.8);
+  assert.equal(merged.mode, 'all');
+  const asReview = ECSync.mergeState(local, {
+    v: 4, mode: 'all', mix: 0.4, items: {}, recent: [], undo: [],
+    log: [{ action: 'mix', mix: 1, id: null, term: null, ts: 40, seen: 0 }]
+  });
+  assert.equal(asReview.mix, 1);
+  assert.equal(asReview.mode, 'review');
+  const fromOldMode = ECSync.normalizeState({ v: 4, mode: 'review', items: {} });
+  assert.equal(fromOldMode.mix, 1);
+  assert.equal(fromOldMode.mode, 'review');
 });
 
 test('settings save round-trips CloudBase keys; unset config does not sync', () => {
