@@ -61,36 +61,37 @@ test('review mode is empty until a weak or reinforce mark, then returns to 全�
   expect(status).toBe('reinforce');
 });
 
-test('settings save LeanCloud keys and do not echo the app key', async ({ page }) => {
-  await page.route('https://lc.test/**', route => route.fulfill({
-    status: 401, contentType: 'application/json', body: '{"code":401,"error":"bad"}'
+test('settings save CloudBase keys and do not echo the publishable key', async ({ page }) => {
+  await page.route('https://chris-env.api.tcloudbasegateway.com/**', route => route.fulfill({
+    status: 401, contentType: 'application/json', body: '{"code":"UNAUTHENTICATED"}'
   }));
   await boot(page);
   await page.getByTestId('settings-open').click();
   await expect(page.getByTestId('sync-hint')).toContainText('不用 VPN');
-  await expect(page.getByTestId('sync-hint')).toContainText('ECState');
-  await page.getByTestId('sync-app-id').fill('abcdefgh');
-  await page.getByTestId('sync-app-key').fill('secret-key');
-  await page.getByTestId('sync-server').fill('https://lc.test');
-  await page.getByTestId('sync-object-id').fill('obj1');
+  await expect(page.getByTestId('sync-hint')).toContainText('ec_state');
+  await expect(page.getByTestId('sync-hint')).toContainText('cczz23.github.io');
+  await expect(page.getByTestId('sync-app-id')).toHaveCount(0);
+  await page.getByTestId('sync-env').fill('chris-env');
+  await page.getByTestId('sync-publishable').fill('secret-key');
+  await page.getByTestId('sync-doc-id').fill('doc1');
   await page.getByTestId('sync-save').click();
   await expect(page.getByTestId('settings')).toBeHidden();
-  const cfg = await page.evaluate(() => JSON.parse(localStorage.getItem('ec_lc_v1')));
-  expect(cfg).toEqual({ appId: 'abcdefgh', appKey: 'secret-key', serverURL: 'https://lc.test', objectId: 'obj1' });
+  const cfg = await page.evaluate(() => JSON.parse(localStorage.getItem('ec_tcb_v1')));
+  expect(cfg).toEqual({ envId: 'chris-env', publishableKey: 'secret-key', docId: 'doc1' });
   await expect(page.locator('body')).not.toContainText('secret-key');
   await page.reload();
   await expect(page.getByTestId('term')).toBeVisible();
   await page.getByTestId('settings-open').click();
-  await expect(page.getByTestId('sync-app-id')).toHaveValue('abcdefgh');
-  await expect(page.getByTestId('sync-object-id')).toHaveValue('obj1');
-  await expect(page.getByTestId('sync-app-key')).toHaveValue('');
+  await expect(page.getByTestId('sync-env')).toHaveValue('chris-env');
+  await expect(page.getByTestId('sync-doc-id')).toHaveValue('doc1');
+  await expect(page.getByTestId('sync-publishable')).toHaveValue('');
 });
 
 test('sync is skipped when unset', async ({ page }) => {
   let hits = 0;
   await page.route('https://**/**', route => {
     const url = route.request().url();
-    if (/leancloud|lc-cn-n1|lc\.test|api\.github\.com/i.test(url)) hits += 1;
+    if (/leancloud|lc-cn-n1|tcloudbasegateway|api\.github\.com/i.test(url)) hits += 1;
     return route.continue();
   });
   await boot(page);
@@ -99,7 +100,7 @@ test('sync is skipped when unset', async ({ page }) => {
   expect(hits).toBe(0);
 });
 
-test('mocked LeanCloud GET merges weak count and a later mark PUTs', async ({ page }) => {
+test('mocked CloudBase GET merges weak count and a later mark PATCHes', async ({ page }) => {
   const remote = {
     v: 4,
     mode: 'all',
@@ -109,22 +110,22 @@ test('mocked LeanCloud GET merges weak count and a later mark PUTs', async ({ pa
     undo: []
   };
   const puts = [];
-  await page.route('https://lc.test/**', async route => {
+  await page.route('https://chris-env.api.tcloudbasegateway.com/**', async route => {
     const req = route.request();
-    if (req.method() === 'PUT') {
+    if (req.method() === 'PATCH') {
       puts.push(req.postData() || '');
-      await route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
+      await route.fulfill({ status: 200, contentType: 'application/json', body: '{"data":{"updated":1}}' });
       return;
     }
     await route.fulfill({
       status: 200,
       contentType: 'application/json',
-      body: JSON.stringify({ objectId: 'obj1', state: remote })
+      body: JSON.stringify({ data: { _id: 'doc1', state: remote } })
     });
   });
   await page.addInitScript(() => {
-    localStorage.setItem('ec_lc_v1', JSON.stringify({
-      appId: 'abcdefgh', appKey: 'secret-key', serverURL: 'https://lc.test', objectId: 'obj1'
+    localStorage.setItem('ec_tcb_v1', JSON.stringify({
+      envId: 'chris-env', publishableKey: 'secret-key', docId: 'doc1'
     }));
   });
   await page.goto('/');
@@ -174,52 +175,55 @@ test('stage B shows at most 5 examples and keeps a shorter list intact', async (
   await expect(page.getByTestId('examples-b')).toContainText('Short 3');
 });
 
-test('failed create names the HTTP status and keeps the app key', async ({ page }) => {
-  await page.route('https://lc.test/**', route => route.fulfill({
+test('failed create names the HTTP status and keeps the publishable key', async ({ page }) => {
+  await page.route('https://chris-env.api.tcloudbasegateway.com/**', route => route.fulfill({
     status: 401,
     contentType: 'application/json',
-    body: '{"code":401,"error":"Unauthorized."}'
+    body: '{"code":"UNAUTHENTICATED"}'
   }));
   await boot(page);
   await page.getByTestId('settings-open').click();
-  await page.getByTestId('sync-app-id').fill('abcdefgh');
-  await page.getByTestId('sync-app-key').fill('secret-key');
-  await page.getByTestId('sync-server').fill('https://lc.test');
+  await page.getByTestId('sync-env').fill('chris-env');
+  await page.getByTestId('sync-publishable').fill('secret-key');
   await page.getByTestId('sync-create').click();
   await expect(page.getByTestId('sync-status')).toHaveText('同步失败 · 401');
   await expect(page.getByTestId('sync-status-panel')).toHaveText('同步失败 · 401');
   await expect(page.getByTestId('settings')).toBeVisible();
-  await expect(page.getByTestId('sync-app-key')).toHaveValue('secret-key');
-  await expect(page.getByTestId('sync-object-id')).toHaveValue('');
+  await expect(page.getByTestId('sync-publishable')).toHaveValue('secret-key');
+  await expect(page.getByTestId('sync-doc-id')).toHaveValue('');
   await expect(page.getByTestId('sync-create')).toBeEnabled();
-  await expect(page.getByTestId('sync-create')).toHaveText('创建云端记录');
+  await expect(page.getByTestId('sync-create')).toHaveText('创建或绑定');
 });
 
 test('create with empty keys asks for them', async ({ page }) => {
   await boot(page);
   await page.getByTestId('settings-open').click();
   await page.getByTestId('sync-create').click();
-  await expect(page.getByTestId('sync-status')).toHaveText('请先填写 App ID 和 App Key');
+  await expect(page.getByTestId('sync-status')).toHaveText('请先填写环境 ID 和 Publishable Key');
   await expect(page.getByTestId('settings')).toBeVisible();
 });
 
-test('create cloud record stores the returned objectId', async ({ page }) => {
-  await page.route('https://lc.test/**', async route => {
+test('create cloud record stores the returned doc id', async ({ page }) => {
+  await page.route('https://chris-env.api.tcloudbasegateway.com/**', async route => {
     const body = JSON.parse(route.request().postData() || '{}');
-    expect(body.state.v).toBe(4);
+    expect(body.data[0].state.v).toBe(4);
     expect(route.request().method()).toBe('POST');
-    await route.fulfill({ status: 201, contentType: 'application/json', body: JSON.stringify({ objectId: 'created99' }) });
+    expect(route.request().headers()['authorization']).toBe('Bearer secret-key');
+    await route.fulfill({
+      status: 201,
+      contentType: 'application/json',
+      body: JSON.stringify({ data: { insertedIds: ['created99'] } })
+    });
   });
   await boot(page);
   await page.getByTestId('settings-open').click();
-  await page.getByTestId('sync-app-id').fill('abcdefgh');
-  await page.getByTestId('sync-app-key').fill('secret-key');
-  await page.getByTestId('sync-server').fill('https://lc.test');
+  await page.getByTestId('sync-env').fill('chris-env');
+  await page.getByTestId('sync-publishable').fill('secret-key');
   await page.getByTestId('sync-create').click();
-  await expect(page.getByTestId('sync-object-id')).toHaveValue('created99');
+  await expect(page.getByTestId('sync-doc-id')).toHaveValue('created99');
   await expect(page.getByTestId('sync-status')).toHaveText('已同步');
-  const cfg = await page.evaluate(() => JSON.parse(localStorage.getItem('ec_lc_v1')));
-  expect(cfg.objectId).toBe('created99');
-  expect(cfg.appKey).toBe('secret-key');
+  const cfg = await page.evaluate(() => JSON.parse(localStorage.getItem('ec_tcb_v1')));
+  expect(cfg.docId).toBe('created99');
+  expect(cfg.publishableKey).toBe('secret-key');
   expect(await page.locator('body').innerText()).not.toContain('secret-key');
 });

@@ -65,27 +65,30 @@ test('merge follows the latest mode log and does not drop either history', () =>
   assert.deepEqual(merged.undo, []);
 });
 
-test('settings save round-trips LeanCloud keys; unset config does not sync', () => {
+test('settings save round-trips CloudBase keys; unset config does not sync', () => {
   const storage = memStorage();
+  assert.equal(ECSync.SYNC_KEY, 'ec_tcb_v1');
+  assert.equal(ECSync.COLLECTION, 'ec_state');
   assert.equal(ECSync.isConfigured(ECSync.loadConfig(storage)), false);
   ECSync.saveConfig(storage, {
-    appId: ' abcdefgh ',
-    appKey: 'secret-key',
-    serverURL: ' https://lc.test/ ',
-    objectId: ' obj1 '
+    envId: ' chris-env ',
+    publishableKey: 'secret-key',
+    docId: ' doc1 '
   });
   const cfg = ECSync.loadConfig(storage);
-  assert.deepEqual(cfg, { appId: 'abcdefgh', appKey: 'secret-key', serverURL: 'https://lc.test/', objectId: 'obj1' });
+  assert.deepEqual(cfg, { envId: 'chris-env', publishableKey: 'secret-key', docId: 'doc1' });
   assert.equal(ECSync.isConfigured(cfg), true);
-  assert.equal(ECSync.isConfigured({ appId: 'abcdefgh', appKey: 'secret-key', objectId: '' }), false);
-  assert.equal(ECSync.hasKeys({ appId: 'abcdefgh', appKey: 'secret-key' }), true);
+  assert.equal(ECSync.isConfigured({ envId: 'chris-env', publishableKey: 'secret-key', docId: '' }), false);
+  assert.equal(ECSync.hasKeys({ envId: 'chris-env', publishableKey: 'secret-key' }), true);
   ECSync.clearConfig(storage);
   assert.equal(storage.getItem(ECSync.SYNC_KEY), null);
-  assert.equal(ECSync.apiBase({ appId: 'AbCdEfGh9999', serverURL: '' }), 'https://abcdefgh.lc-cn-n1-shared.com/1.1');
-  assert.equal(ECSync.apiBase({ appId: 'abcdefgh', serverURL: 'https://lc.test/1.1/' }), 'https://lc.test/1.1');
+  assert.equal(
+    ECSync.apiBase({ envId: 'chris-env' }),
+    'https://chris-env.api.tcloudbasegateway.com/v1/database/instances/(default)/databases/(default)'
+  );
 });
 
-test('mocked LeanCloud GET merges and PUT sends v4 state without the app key', async () => {
+test('mocked CloudBase GET merges and PATCH sends v4 state without the key', async () => {
   const remote = {
     v: 4,
     mode: 'all',
@@ -99,21 +102,21 @@ test('mocked LeanCloud GET merges and PUT sends v4 state without the app key', a
     items: { w001: { status: 'reinforce', seen: 5, needed: false, updated: 40 } },
     log: [{ id: 'w001', term: 'circle back', action: 'reinforce', ts: 40, seen: 5 }]
   };
-  const cfg = { appId: 'abcdefgh', appKey: 'secret-key', serverURL: 'https://lc.test', objectId: 'obj1' };
-  let putBody = null;
+  const cfg = { envId: 'chris-env', publishableKey: 'secret-key', docId: 'doc1' };
+  const docUrl = 'https://chris-env.api.tcloudbasegateway.com/v1/database/instances/(default)/databases/(default)/collections/ec_state/documents/doc1';
+  let patchBody = null;
   const fetchImpl = async (url, opts = {}) => {
-    assert.equal(opts.headers['X-LC-Id'], 'abcdefgh');
-    assert.equal(opts.headers['X-LC-Key'], 'secret-key');
+    assert.equal(opts.headers.Authorization, 'Bearer secret-key');
     assert.ok(!String(url).includes('secret-key'));
-    if (opts.method === 'PUT') {
-      putBody = JSON.parse(opts.body);
-      return { ok: true, status: 200, json: async () => ({}), text: async () => '' };
+    if (opts.method === 'PATCH') {
+      patchBody = JSON.parse(opts.body);
+      return { ok: true, status: 200, json: async () => ({ data: { updated: 1 } }), text: async () => '' };
     }
-    assert.equal(url, 'https://lc.test/1.1/classes/ECState/obj1');
+    assert.equal(url, docUrl);
     return {
       ok: true,
       status: 200,
-      json: async () => ({ objectId: 'obj1', state: remote }),
+      json: async () => ({ data: { _id: 'doc1', state: remote } }),
       text: async () => ''
     };
   };
@@ -125,9 +128,11 @@ test('mocked LeanCloud GET merges and PUT sends v4 state without the app key', a
   assert.equal(merged.items.w001.needed, false);
   const pushed = await ECSync.pushState(fetchImpl, cfg, merged);
   assert.equal(pushed.ok, true);
-  assert.equal(putBody.state.items.w001.seen, 5);
-  assert.equal(putBody.state.v, 4);
-  assert.ok(!JSON.stringify(putBody).includes('secret-key'));
+  assert.equal(patchBody.data.state.items.w001.seen, 5);
+  assert.equal(patchBody.data.state.v, 4);
+  assert.equal(patchBody.upsert, true);
+  assert.equal(patchBody.replaceMode, false);
+  assert.ok(!JSON.stringify(patchBody).includes('secret-key'));
 });
 
 test('failText uses HTTP status or 网络', () => {
@@ -137,18 +142,29 @@ test('failText uses HTTP status or 网络', () => {
   assert.equal(ECSync.failText(new TypeError('Failed to fetch')), '同步失败 · 网络');
 });
 
-test('create LeanCloud object returns objectId and skips sync when unset', async () => {
-  assert.equal(ECSync.isConfigured({ appId: '', appKey: '', objectId: '' }), false);
+test('create CloudBase document returns inserted id; existing id is bound with PATCH', async () => {
+  assert.equal(ECSync.isConfigured({ envId: '', publishableKey: '', docId: '' }), false);
   let posted = null;
   const fetchImpl = async (url, opts) => {
     assert.equal(opts.method, 'POST');
-    assert.equal(url, 'https://abcdefgh.lc-cn-n1-shared.com/1.1/classes/ECState');
+    assert.equal(url, 'https://chris-env.api.tcloudbasegateway.com/v1/database/instances/(default)/databases/(default)/collections/ec_state/documents');
     posted = JSON.parse(opts.body);
-    return { ok: true, status: 201, json: async () => ({ objectId: 'newobj1' }), text: async () => '' };
+    return { ok: true, status: 201, json: async () => ({ data: { insertedIds: ['created99'] } }), text: async () => '' };
   };
-  const created = await ECSync.createRemote(fetchImpl, { appId: 'abcdefgh', appKey: 'secret-key', serverURL: '' }, { v: 4, items: {} });
+  const created = await ECSync.createRemote(fetchImpl, { envId: 'chris-env', publishableKey: 'secret-key', docId: '' }, { v: 4, items: {} });
   assert.equal(created.ok, true);
-  assert.equal(created.objectId, 'newobj1');
-  assert.equal(posted.state.v, 4);
+  assert.equal(created.docId, 'created99');
+  assert.equal(posted.data[0].state.v, 4);
   assert.ok(!JSON.stringify(posted).includes('secret-key'));
+
+  let patched = null;
+  const bindFetch = async (url, opts) => {
+    assert.equal(opts.method, 'PATCH');
+    assert.ok(url.endsWith('/documents/existing1'));
+    patched = JSON.parse(opts.body);
+    return { ok: true, status: 200, json: async () => ({ data: { updated: 1 } }), text: async () => '' };
+  };
+  const bound = await ECSync.createRemote(bindFetch, { envId: 'chris-env', publishableKey: 'secret-key', docId: 'existing1' }, { v: 4, items: {} });
+  assert.equal(bound.docId, 'existing1');
+  assert.equal(patched.upsert, true);
 });

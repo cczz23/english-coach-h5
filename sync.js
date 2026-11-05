@@ -1,13 +1,16 @@
 /**
- * LeanCloud China backup for English Coach.
+ * Tencent CloudBase (云开发) backup for English Coach.
  * Progress itself stays in localStorage key ec_state_v4.
- * App ID, App Key, server URL, and objectId stay in ec_lc_v1 on this device.
- * They are never written into the repo, words.json, or the learning-state file.
- * GitHub gist sync is not used: api.github.com is not reachable on a phone in
- * China without a VPN. The site itself still loads from GitHub Pages.
+ * Env id, Publishable Key, and doc id stay in ec_tcb_v1 on this device.
+ * They are never written into the repo or words.json. Do not store a secret API Key.
  *
- * Remote record: class ECState, one object, field `state` = ec_state_v4.
- * Merge rules (local = this device, remote = that `state` object):
+ * The phone calls the mainland gateway
+ * https://{envId}.api.tcloudbasegateway.com (Shanghai). No VPN.
+ * Auth is the Publishable Key as Authorization: Bearer, the same way
+ * @cloudbase/js-sdk v3 sets an accessKey (no anonymous sign-in round trip).
+ * One document in collection ec_state; field `state` is the ec_state_v4 object.
+ *
+ * Merge rules (local = this device, remote = that `state` field):
  * - Never replace one side with the other. A word that exists on only one
  *   side is kept. Log rows are unioned, not overwritten.
  * - Per word, `seen` (see count) is the higher of the two numbers.
@@ -33,8 +36,8 @@
   if (typeof module === 'object' && module.exports) module.exports = api;
   root.ECSync = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
-  const SYNC_KEY = 'ec_lc_v1';
-  const CLASS_NAME = 'ECState';
+  const SYNC_KEY = 'ec_tcb_v1';
+  const COLLECTION = 'ec_state';
 
   function ensureItem(r) {
     const src = r && typeof r === 'object' ? r : {};
@@ -163,7 +166,7 @@
   }
 
   function blankConfig() {
-    return { appId: '', appKey: '', serverURL: '', objectId: '' };
+    return { envId: '', publishableKey: '', docId: '' };
   }
 
   function loadConfig(storage) {
@@ -171,10 +174,9 @@
       const o = JSON.parse(storage.getItem(SYNC_KEY) || 'null');
       if (!o || typeof o !== 'object') return blankConfig();
       return {
-        appId: String(o.appId || '').trim(),
-        appKey: String(o.appKey || ''),
-        serverURL: String(o.serverURL || '').trim(),
-        objectId: String(o.objectId || '').trim()
+        envId: String(o.envId || '').trim(),
+        publishableKey: String(o.publishableKey || ''),
+        docId: String(o.docId || '').trim()
       };
     } catch (e) {
       return blankConfig();
@@ -182,13 +184,11 @@
   }
 
   function saveConfig(storage, cfg) {
-    const next = {
-      appId: String((cfg && cfg.appId) || '').trim(),
-      appKey: String((cfg && cfg.appKey) || ''),
-      serverURL: String((cfg && cfg.serverURL) || '').trim(),
-      objectId: String((cfg && cfg.objectId) || '').trim()
-    };
-    storage.setItem(SYNC_KEY, JSON.stringify(next));
+    storage.setItem(SYNC_KEY, JSON.stringify({
+      envId: String((cfg && cfg.envId) || '').trim(),
+      publishableKey: String((cfg && cfg.publishableKey) || ''),
+      docId: String((cfg && cfg.docId) || '').trim()
+    }));
   }
 
   function clearConfig(storage) {
@@ -196,12 +196,12 @@
   }
 
   function hasKeys(cfg) {
-    return !!(cfg && String(cfg.appId || '').trim() && String(cfg.appKey || '').trim());
+    return !!(cfg && String(cfg.envId || '').trim() && String(cfg.publishableKey || '').trim());
   }
 
-  /** Pull/push need a record id. Create only needs the app keys. */
+  /** Pull/push need a document id. Create only needs the env and key. */
   function isConfigured(cfg) {
-    return hasKeys(cfg) && !!String(cfg.objectId || '').trim();
+    return hasKeys(cfg) && !!String(cfg.docId || '').trim();
   }
 
   /** Short one-line failure: HTTP status, or 网络 when fetch throws / no status. */
@@ -211,24 +211,14 @@
     return '同步失败 · 网络';
   }
 
-  /**
-   * China north test host when the console server URL is left blank:
-   * https://<appId first 8 chars>.lc-cn-n1-shared.com
-   * Prefer the exact 服务器地址 copied from the LeanCloud console.
-   */
+  /** Mainland gateway. International envs use api.intl and are not the phone path. */
   function apiBase(cfg) {
-    let host = String((cfg && cfg.serverURL) || '').trim();
-    if (!host) {
-      const prefix = String((cfg && cfg.appId) || '').slice(0, 8).toLowerCase();
-      host = 'https://' + prefix + '.lc-cn-n1-shared.com';
-    }
-    host = host.replace(/\/+$/, '').replace(/\/1\.1$/, '');
-    if (!/^https:\/\//i.test(host)) host = 'https://' + host.replace(/^http:\/\//i, '');
-    return host + '/1.1';
+    const envId = String((cfg && cfg.envId) || '').trim();
+    return 'https://' + envId + '.api.tcloudbasegateway.com/v1/database/instances/(default)/databases/(default)';
   }
 
-  function lcHeaders(cfg, json) {
-    const headers = { 'X-LC-Id': cfg.appId, 'X-LC-Key': cfg.appKey };
+  function tcbHeaders(cfg, json) {
+    const headers = { Authorization: 'Bearer ' + cfg.publishableKey };
     if (json) headers['Content-Type'] = 'application/json';
     return headers;
   }
@@ -246,42 +236,77 @@
     return isV4(parsed) ? parsed : null;
   }
 
-  function classUrl(cfg, objectId) {
-    const base = apiBase(cfg) + '/classes/' + CLASS_NAME;
-    return objectId ? base + '/' + encodeURIComponent(objectId) : base;
+  function readDocState(body) {
+    if (!body || typeof body !== 'object') return null;
+    const data = body.data;
+    if (Array.isArray(data)) return readStateField(data[0]);
+    if (data && Array.isArray(data.list)) return readStateField(data.list[0]);
+    if (data && typeof data === 'object' && data.state != null) return readStateField(data);
+    return readStateField(body);
+  }
+
+  function collectionUrl(cfg, docId) {
+    const base = apiBase(cfg) + '/collections/' + COLLECTION + '/documents';
+    return docId ? base + '/' + encodeURIComponent(docId) : base;
+  }
+
+  function pickDocId(body) {
+    if (!body || typeof body !== 'object') return '';
+    const data = body.data && typeof body.data === 'object' ? body.data : body;
+    const ids = data.insertedIds || body.insertedIds;
+    if (Array.isArray(ids) && ids.length) return String(ids[0]);
+    if (data._id) return String(data._id);
+    if (data.id) return String(data.id);
+    if (data.upsert_id) return String(data.upsert_id);
+    return '';
   }
 
   async function fetchRemote(fetchImpl, cfg) {
-    const res = await fetchImpl(classUrl(cfg, cfg.objectId), { headers: lcHeaders(cfg) });
+    const res = await fetchImpl(collectionUrl(cfg, cfg.docId), { headers: tcbHeaders(cfg) });
     if (!res.ok) return { ok: false, status: res.status };
     const data = await res.json();
-    return { ok: true, state: readStateField(data) };
+    return { ok: true, state: readDocState(data) };
   }
 
   async function pushState(fetchImpl, cfg, state) {
-    const res = await fetchImpl(classUrl(cfg, cfg.objectId), {
-      method: 'PUT',
-      headers: lcHeaders(cfg, true),
-      body: JSON.stringify({ state: normalizeState(state) })
+    const res = await fetchImpl(collectionUrl(cfg, cfg.docId), {
+      method: 'PATCH',
+      headers: tcbHeaders(cfg, true),
+      body: JSON.stringify({
+        data: { state: normalizeState(state) },
+        replaceMode: false,
+        upsert: true
+      })
     });
     return { ok: !!res.ok, status: res.status };
   }
 
   async function createRemote(fetchImpl, cfg, state) {
-    const res = await fetchImpl(classUrl(cfg), {
+    const payload = { state: normalizeState(state) };
+    if (cfg.docId) {
+      const res = await fetchImpl(collectionUrl(cfg, cfg.docId), {
+        method: 'PATCH',
+        headers: tcbHeaders(cfg, true),
+        body: JSON.stringify({ data: payload, replaceMode: false, upsert: true })
+      });
+      if (!res.ok) return { ok: false, status: res.status };
+      return { ok: true, docId: cfg.docId };
+    }
+    const res = await fetchImpl(collectionUrl(cfg), {
       method: 'POST',
-      headers: lcHeaders(cfg, true),
-      body: JSON.stringify({ state: normalizeState(state) })
+      headers: tcbHeaders(cfg, true),
+      body: JSON.stringify({ data: [payload] })
     });
     if (!res.ok) return { ok: false, status: res.status };
     const data = await res.json();
-    if (!data || !data.objectId) return { ok: false, status: res.status || 0 };
-    return { ok: true, objectId: String(data.objectId) };
+    const docId = pickDocId(data);
+    if (!docId) return { ok: false, status: res.status || 0 };
+    return { ok: true, docId };
   }
 
   return {
     SYNC_KEY,
-    CLASS_NAME,
+    COLLECTION,
     ensureItem,
     normalizeState,
     canonical,

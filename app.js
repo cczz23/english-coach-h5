@@ -91,27 +91,24 @@ async function pullRemote(){
 }
 function bindSettings(){
  const panel=$('[data-testid=settings]');if(!panel)return;
- const appIdInput=$('[data-testid=sync-app-id]');
- const keyInput=$('[data-testid=sync-app-key]');
- const serverInput=$('[data-testid=sync-server]');
- const objectInput=$('[data-testid=sync-object-id]');
+ const envInput=$('[data-testid=sync-env]');
+ const keyInput=$('[data-testid=sync-publishable]');
+ const docInput=$('[data-testid=sync-doc-id]');
  const api=()=>syncApi();
  function readForm(){
   const prev=api().loadConfig(localStorage);
   return {
-   appId:(appIdInput.value||prev.appId).trim(),
-   appKey:keyInput.value.trim()||prev.appKey,
-   serverURL:serverInput.value.trim(),
-   objectId:objectInput.value.trim()
+   envId:(envInput.value||prev.envId).trim(),
+   publishableKey:keyInput.value.trim()||prev.publishableKey,
+   docId:docInput.value.trim()
   };
  }
  const open=()=>{
   const cfg=api().loadConfig(localStorage);
-  appIdInput.value=cfg.appId||'';
-  serverInput.value=cfg.serverURL||'';
-  objectInput.value=cfg.objectId||'';
+  envInput.value=cfg.envId||'';
+  docInput.value=cfg.docId||'';
   keyInput.value='';
-  keyInput.placeholder=cfg.appKey?'已保存（留空则不修改）':'App Key';
+  keyInput.placeholder=cfg.publishableKey?'已保存（留空则不修改）':'Publishable Key';
   panel.hidden=false;
  };
  $('[data-testid=settings-open]').onclick=open;
@@ -119,7 +116,7 @@ function bindSettings(){
  $('[data-testid=settings-form]').onsubmit=e=>{
   e.preventDefault();
   const cfg=readForm();
-  if(!cfg.appId&&!cfg.appKey&&!cfg.serverURL&&!cfg.objectId){api().clearConfig(localStorage);setSyncStatus('');panel.hidden=true;return}
+  if(!cfg.envId&&!cfg.publishableKey&&!cfg.docId){api().clearConfig(localStorage);setSyncStatus('');panel.hidden=true;return}
   api().saveConfig(localStorage,cfg);
   keyInput.value='';
   panel.hidden=true;
@@ -128,25 +125,25 @@ function bindSettings(){
  };
  $('[data-testid=sync-clear]').onclick=()=>{
   api().clearConfig(localStorage);
-  appIdInput.value='';keyInput.value='';serverInput.value='';objectInput.value='';
-  keyInput.placeholder='App Key';
+  envInput.value='';keyInput.value='';docInput.value='';
+  keyInput.placeholder='Publishable Key';
   setSyncStatus('');panel.hidden=true;
  };
  let creating=false;
  const createBtn=$('[data-testid=sync-create]');
- const createLabel=createBtn?createBtn.textContent:'创建云端记录';
+ const createLabel=createBtn?createBtn.textContent:'创建或绑定';
  createBtn.onclick=async(e)=>{
   if(e)e.preventDefault();
   if(creating)return;
   const cfg=readForm();
-  if(!api().hasKeys(cfg)){setSyncStatus('请先填写 App ID 和 App Key');return}
+  if(!api().hasKeys(cfg)){setSyncStatus('请先填写环境 ID 和 Publishable Key');return}
   creating=true;createBtn.disabled=true;createBtn.textContent='创建中…';setSyncStatus('同步中');
   const snap=api().canonical(state);
   try{
    const created=await api().createRemote(fetch,cfg,state);
-   if(!created.ok||!created.objectId){syncFail(created);return}
-   objectInput.value=created.objectId;
-   api().saveConfig(localStorage,{appId:cfg.appId,appKey:cfg.appKey,serverURL:cfg.serverURL,objectId:created.objectId});
+   if(!created.ok||!created.docId){syncFail(created);return}
+   docInput.value=created.docId;
+   api().saveConfig(localStorage,{envId:cfg.envId,publishableKey:cfg.publishableKey,docId:created.docId});
    keyInput.value='';
    keyInput.placeholder='已保存（留空则不修改）';
    allowSync=true;
