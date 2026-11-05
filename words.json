@@ -1,0 +1,2275 @@
+[
+ {
+  "id": "w001",
+  "term": "circle back",
+  "pos": "phr. v.",
+  "ipa": "/ˈsɝːkəl ˈbæk/",
+  "gloss_zh": "（会后/稍后）回头再跟进、再讨论",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "Let me [[circle back]] on that after the call."
+  ],
+  "examples_stage_b": [
+   "Good question — can I [[circle back]] to you with the exact numbers by Friday?",
+   "We ran out of time, so let's [[circle back]] on pricing next week.",
+   "I'll [[circle back]] once legal has reviewed the term sheet.",
+   "I'll [[circle back]] with the landlord about the lease and text you."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w003",
+  "term": "take it offline",
+  "pos": "phr.",
+  "ipa": "/teɪk ɪt ˌɔːfˈlaɪn/",
+  "gloss_zh": "会后单独聊（不占用大家时间）",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "Happy to [[take it offline]] after the meeting."
+  ],
+  "examples_stage_b": [
+   "That's a detailed question — mind if we [[take it offline]]?",
+   "Let's [[take it offline]]; I don't want to hold up the agenda.",
+   "You two should [[take it offline]] and report back.",
+   "Can we [[take it offline]]? Grab coffee tomorrow?"
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w004",
+  "term": "push back (on)",
+  "pos": "phr. v.",
+  "ipa": "/ˈpʊʃ ˈbæk/",
+  "gloss_zh": "提出异议、反对（委婉）",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "I'd [[push back]] a little on that assumption."
+  ],
+  "examples_stage_b": [
+   "I want to [[push back]] gently on the 40% growth assumption.",
+   "The investor [[pushed back on]] the liquidation preference.",
+   "Don't be afraid to [[push back]] if the timeline isn't realistic.",
+   "My kid always [[pushes back]] on bedtime."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w005",
+  "term": "ballpark (figure)",
+  "pos": "n./adj.",
+  "ipa": "/ˈbɔːlpɑːrk/",
+  "gloss_zh": "大致的估计数字",
+  "important_suggest": true,
+  "domain": "both",
+  "examples_stage_a": [
+   "Can you give me a [[ballpark]]?"
+  ],
+  "examples_stage_b": [
+   "Just a [[ballpark]] — are we talking $2M or $10M?",
+   "A [[ballpark figure]] is fine; we'll refine it later.",
+   "Your estimate is in the right [[ballpark]].",
+   "What's the [[ballpark]] for a kitchen remodel around here?"
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w006",
+  "term": "bandwidth",
+  "pos": "n.",
+  "ipa": "/ˈbændwɪdθ/",
+  "gloss_zh": "（人的）精力、余力",
+  "important_suggest": false,
+  "domain": "business",
+  "examples_stage_a": [
+   "I don't have the [[bandwidth]] this week."
+  ],
+  "examples_stage_b": [
+   "Does your team have the [[bandwidth]] to take on another pilot?",
+   "We're short on [[bandwidth]] until the launch.",
+   "I'd love to help, but I'm out of [[bandwidth]] right now."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w007",
+  "term": "runway",
+  "pos": "n.",
+  "ipa": "/ˈrʌnweɪ/",
+  "gloss_zh": "（创业公司）现金可支撑的月数",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "We have about 18 months of [[runway]]."
+  ],
+  "examples_stage_b": [
+   "After this round, our [[runway]] extends to Q2 2028.",
+   "Cutting burn by 20% buys us six more months of [[runway]].",
+   "Investors want to see at least 24 months of [[runway]].",
+   "How much [[runway]] do you have at current burn?"
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w008",
+  "term": "burn rate",
+  "pos": "n.",
+  "ipa": "/ˈbɝːn reɪt/",
+  "gloss_zh": "（每月）烧钱速度",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "Our monthly [[burn rate]] is around $300K."
+  ],
+  "examples_stage_b": [
+   "What's your current [[burn rate]], and how does it scale with hiring?",
+   "We brought the [[burn rate]] down without slowing growth.",
+   "A high [[burn rate]] is fine if unit economics are improving."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w009",
+  "term": "term sheet",
+  "pos": "n.",
+  "ipa": "/ˈtɝːm ʃiːt/",
+  "gloss_zh": "投资条款清单（非约束性）",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "We just signed the [[term sheet]]."
+  ],
+  "examples_stage_b": [
+   "We received two [[term sheets]] and are comparing the governance terms.",
+   "The [[term sheet]] includes a 1x non-participating preference.",
+   "Don't announce anything until the [[term sheet]] is signed."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w010",
+  "term": "due diligence",
+  "pos": "n.",
+  "ipa": "/ˌduː ˈdɪlɪdʒəns/",
+  "gloss_zh": "尽职调查",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "They're still doing [[due diligence]]."
+  ],
+  "examples_stage_b": [
+   "Legal [[due diligence]] should wrap up in about three weeks.",
+   "We'll set up a data room for [[due diligence]].",
+   "Do your [[due diligence]] before signing a lease."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w011",
+  "term": "lowball",
+  "pos": "v./n.",
+  "ipa": "/ˈloʊbɔːl/",
+  "gloss_zh": "故意压低报价",
+  "important_suggest": true,
+  "domain": "both",
+  "examples_stage_a": [
+   "They tried to [[lowball]] us."
+  ],
+  "examples_stage_b": [
+   "Their first offer was a [[lowball]], so we countered at 15% higher.",
+   "Don't [[lowball]] them — you'll damage trust early.",
+   "The dealer [[lowballed]] my trade-in."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w012",
+  "term": "meet (sb) halfway",
+  "pos": "phr.",
+  "ipa": "/miːt ˌhæfˈweɪ/",
+  "gloss_zh": "各让一步、折中",
+  "important_suggest": true,
+  "domain": "both",
+  "examples_stage_a": [
+   "Can we [[meet halfway]] on price?"
+  ],
+  "examples_stage_b": [
+   "If you can [[meet us halfway]] on the payment terms, we can sign today.",
+   "We [[met halfway]] at a 12-month exclusivity period.",
+   "OK, I'll [[meet you halfway]] — $50 and it's yours."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w013",
+  "term": "walk-away point",
+  "pos": "n.",
+  "ipa": "/ˈwɔːk əˌweɪ pɔɪnt/",
+  "gloss_zh": "谈判底线（低于即放弃）",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "Know your [[walk-away point]] before you negotiate."
+  ],
+  "examples_stage_b": [
+   "Our [[walk-away point]] is a pre-money of $40M.",
+   "Never reveal your [[walk-away point]] early.",
+   "Below that number we're at our [[walk-away point]]."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w015",
+  "term": "sweeten the deal",
+  "pos": "phr.",
+  "ipa": "/ˈswiːtən ðə diːl/",
+  "gloss_zh": "加码使交易更有吸引力",
+  "important_suggest": false,
+  "domain": "both",
+  "examples_stage_a": [
+   "They added equity to [[sweeten the deal]]."
+  ],
+  "examples_stage_b": [
+   "To [[sweeten the deal]], we can include six months of free support.",
+   "They [[sweetened the deal]] with a signing bonus.",
+   "Throw in the dessert and you've [[sweetened the deal]]."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w016",
+  "term": "leverage",
+  "pos": "n./v.",
+  "ipa": "/ˈlevərɪdʒ/",
+  "gloss_zh": "谈判筹码；利用",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "We don't have much [[leverage]] here."
+  ],
+  "examples_stage_b": [
+   "Having a competing offer gives us real [[leverage]].",
+   "We can [[leverage]] our distribution partners to scale faster.",
+   "Once they need us more than we need them, the [[leverage]] shifts."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w017",
+  "term": "on the same page",
+  "pos": "phr.",
+  "ipa": "/ɑːn ðə seɪm peɪdʒ/",
+  "gloss_zh": "意见一致、理解同步",
+  "important_suggest": false,
+  "domain": "both",
+  "examples_stage_a": [
+   "Just to make sure we're [[on the same page]]..."
+  ],
+  "examples_stage_b": [
+   "Before we move on, are we all [[on the same page]] about the scope?",
+   "Let me recap so we're [[on the same page]].",
+   "My wife and I aren't [[on the same page]] about the trip."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w019",
+  "term": "that's a fair point",
+  "pos": "phr.",
+  "ipa": "/ðæts ə fer pɔɪnt/",
+  "gloss_zh": "有道理（认可后再回应）",
+  "important_suggest": false,
+  "domain": "business",
+  "examples_stage_a": [
+   "[[That's a fair point]], but here's the context."
+  ],
+  "examples_stage_b": [
+   "[[That's a fair point]] — let me explain why we chose this market first.",
+   "[[That's a fair point]]; we haven't stress-tested that scenario.",
+   "Okay, [[that's a fair point]]. I'll check the reviews first."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w020",
+  "term": "what I'm hearing is",
+  "pos": "phr.",
+  "ipa": "/wʌt aɪm ˈhɪrɪŋ ɪz/",
+  "gloss_zh": "我理解你的意思是……（复述确认）",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "So [[what I'm hearing is]] timing matters most."
+  ],
+  "examples_stage_b": [
+   "[[What I'm hearing is]] that price isn't the blocker — integration is.",
+   "So [[what I'm hearing is]], you'd invest if we hit $1M ARR?",
+   "[[What I'm hearing is]] you need more time; that's fine."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w022",
+  "term": "headwinds / tailwinds",
+  "pos": "n.",
+  "ipa": "/ˈhedwɪndz/",
+  "gloss_zh": "不利/有利的外部因素",
+  "important_suggest": false,
+  "domain": "business",
+  "examples_stage_a": [
+   "We're facing some macro [[headwinds]]."
+  ],
+  "examples_stage_b": [
+   "Rising rates are a [[headwind]] for our customers' budgets.",
+   "AI adoption is a huge [[tailwind]] for us.",
+   "Despite [[headwinds]], we grew 3x year over year."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w023",
+  "term": "moat",
+  "pos": "n.",
+  "ipa": "/moʊt/",
+  "gloss_zh": "护城河（竞争壁垒）",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "What's your [[moat]]?"
+  ],
+  "examples_stage_b": [
+   "Our [[moat]] is proprietary data from 2,000 clinics.",
+   "Investors asked whether network effects create a real [[moat]].",
+   "Speed alone isn't a [[moat]]."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w024",
+  "term": "traction",
+  "pos": "n.",
+  "ipa": "/ˈtrækʃən/",
+  "gloss_zh": "（产品/业务的）初步成效、增长势头",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "We're seeing early [[traction]] in Japan."
+  ],
+  "examples_stage_b": [
+   "Show me [[traction]] — revenue, retention, or engagement.",
+   "The idea is great, but they don't have [[traction]] yet.",
+   "The proposal is gaining [[traction]] with the board."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w026",
+  "term": "loop in",
+  "pos": "phr. v.",
+  "ipa": "/luːp ɪn/",
+  "gloss_zh": "把某人拉进来（抄送/参与）",
+  "important_suggest": false,
+  "domain": "business",
+  "examples_stage_a": [
+   "I'll [[loop in]] our CFO."
+  ],
+  "examples_stage_b": [
+   "Let me [[loop in]] Sarah — she owns the partnership.",
+   "Please [[loop me in]] on the next thread.",
+   "Thanks for [[looping me in]]."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w027",
+  "term": "heads-up",
+  "pos": "n.",
+  "ipa": "/ˈhedz ʌp/",
+  "gloss_zh": "提前提醒、打个招呼",
+  "important_suggest": false,
+  "domain": "both",
+  "examples_stage_a": [
+   "Just a [[heads-up]], I'll be late."
+  ],
+  "examples_stage_b": [
+   "Quick [[heads-up]]: the investor update goes out tomorrow.",
+   "Thanks for the [[heads-up]] about the delay.",
+   "[[Heads-up]] — the restaurant is cash only."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w028",
+  "term": "follow up (on)",
+  "pos": "phr. v.",
+  "ipa": "/ˈfɑːloʊ ʌp/",
+  "gloss_zh": "跟进",
+  "important_suggest": false,
+  "domain": "business",
+  "examples_stage_a": [
+   "I'm just [[following up on]] my last email."
+  ],
+  "examples_stage_b": [
+   "Just [[following up on]] our conversation from Tuesday.",
+   "I'll [[follow up]] with a summary and next steps.",
+   "Did the doctor's office ever [[follow up]]?"
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w029",
+  "term": "next steps",
+  "pos": "n.",
+  "ipa": "/nekst steps/",
+  "gloss_zh": "下一步安排（会议结尾常用）",
+  "important_suggest": false,
+  "domain": "business",
+  "examples_stage_a": [
+   "What are the [[next steps]]?"
+  ],
+  "examples_stage_b": [
+   "Before we wrap, can we align on [[next steps]]?",
+   "[[Next steps]]: we send the deck, you intro us to the partner.",
+   "Great call — I'll send [[next steps]] by EOD."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w032",
+  "term": "rain check",
+  "pos": "n.",
+  "ipa": "/ˈreɪn tʃek/",
+  "gloss_zh": "改天再约（婉拒）",
+  "important_suggest": false,
+  "domain": "life",
+  "examples_stage_a": [
+   "Can I take a [[rain check]]?"
+  ],
+  "examples_stage_b": [
+   "I'm wiped — can I take a [[rain check]] on drinks?",
+   "Sure, [[rain check]]! Next week works.",
+   "Let's take a [[rain check]] on the call; something urgent came up."
+  ],
+  "track": "life"
+ },
+ {
+  "id": "w034",
+  "term": "for here or to go",
+  "pos": "phr.",
+  "ipa": "/fɔːr hɪr ɔːr tə ɡoʊ/",
+  "gloss_zh": "堂食还是外带？",
+  "important_suggest": false,
+  "domain": "life",
+  "examples_stage_a": [
+   "Is that [[for here or to go]]?"
+  ],
+  "examples_stage_b": [
+   "Is that [[for here or to go]]? — To go, please.",
+   "They always ask [[for here or to go]] at Chipotle.",
+   "[[For here or to go]]? — For here, thanks."
+  ],
+  "track": "life"
+ },
+ {
+  "id": "w035",
+  "term": "split the check",
+  "pos": "phr.",
+  "ipa": "/splɪt ðə tʃek/",
+  "gloss_zh": "分开结账/AA",
+  "important_suggest": false,
+  "domain": "life",
+  "examples_stage_a": [
+   "Can we [[split the check]]?"
+  ],
+  "examples_stage_b": [
+   "Could we [[split the check]] three ways?",
+   "Want to [[split the check]], or is this on the company?",
+   "They [[split the check]] evenly, even though I only had a salad."
+  ],
+  "track": "life"
+ },
+ {
+  "id": "w037",
+  "term": "I'll grab the check",
+  "pos": "phr.",
+  "ipa": "/aɪl ɡræb ðə tʃek/",
+  "gloss_zh": "我来买单",
+  "important_suggest": false,
+  "domain": "both",
+  "examples_stage_a": [
+   "Please, [[I'll grab the check]]."
+  ],
+  "examples_stage_b": [
+   "You flew all the way here — [[I'll grab the check]].",
+   "No no, [[I'll grab the check]] this time.",
+   "[[I'll grab the check]]; we'll expense it."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w038",
+  "term": "I'm all set",
+  "pos": "phr.",
+  "ipa": "/aɪm ɔːl set/",
+  "gloss_zh": "我这边好了/不需要了",
+  "important_suggest": true,
+  "domain": "life",
+  "examples_stage_a": [
+   "Anything else? — [[I'm all set]], thanks."
+  ],
+  "examples_stage_b": [
+   "Can I get you anything else? — No, [[I'm all set]].",
+   "Do you need help finding anything? — [[I'm all set]], thanks.",
+   "[[I'm all set]] for the meeting — slides are uploaded."
+  ],
+  "track": "life"
+ },
+ {
+  "id": "w040",
+  "term": "swing by",
+  "pos": "phr. v.",
+  "ipa": "/swɪŋ baɪ/",
+  "gloss_zh": "顺路去一下",
+  "important_suggest": false,
+  "domain": "life",
+  "examples_stage_a": [
+   "I'll [[swing by]] after work."
+  ],
+  "examples_stage_b": [
+   "Can you [[swing by]] Target on the way home?",
+   "I'll [[swing by]] your office around 2.",
+   "[[Swing by]] our booth if you have a minute."
+  ],
+  "track": "life"
+ },
+ {
+  "id": "w042",
+  "term": "no worries",
+  "pos": "phr.",
+  "ipa": "/noʊ ˈwɝːiz/",
+  "gloss_zh": "没事/不客气",
+  "important_suggest": false,
+  "domain": "life",
+  "examples_stage_a": [
+   "Sorry I'm late. — [[No worries]]."
+  ],
+  "examples_stage_b": [
+   "Thanks for waiting! — [[No worries]].",
+   "[[No worries]] if you can't make it.",
+   "[[No worries]], we can reschedule the call."
+  ],
+  "track": "life"
+ },
+ {
+  "id": "w044",
+  "term": "layover",
+  "pos": "n.",
+  "ipa": "/ˈleɪoʊvər/",
+  "gloss_zh": "转机停留",
+  "important_suggest": false,
+  "domain": "life",
+  "examples_stage_a": [
+   "I have a two-hour [[layover]] in Denver."
+  ],
+  "examples_stage_b": [
+   "My [[layover]] in Chicago got extended because of weather.",
+   "Is a 45-minute [[layover]] enough at JFK?",
+   "I worked through emails during my [[layover]]."
+  ],
+  "track": "life"
+ },
+ {
+  "id": "w047",
+  "term": "small talk",
+  "pos": "n.",
+  "ipa": "/smɔːl tɔːk/",
+  "gloss_zh": "寒暄闲聊",
+  "important_suggest": false,
+  "domain": "both",
+  "examples_stage_a": [
+   "I'm not great at [[small talk]]."
+  ],
+  "examples_stage_b": [
+   "A bit of [[small talk]] before the pitch helps break the ice.",
+   "Weather and sports are safe [[small talk]] topics.",
+   "Skip the [[small talk]] — let's get to the numbers."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w050",
+  "term": "deal-breaker",
+  "pos": "n.",
+  "ipa": "/ˈdiːl ˌbreɪkər/",
+  "gloss_zh": "导致谈不成的关键条件",
+  "important_suggest": true,
+  "domain": "both",
+  "examples_stage_a": [
+   "Is that a [[deal-breaker]] for you?"
+  ],
+  "examples_stage_b": [
+   "Exclusivity in all markets would be a [[deal-breaker]].",
+   "Is the vesting schedule a [[deal-breaker]], or just a preference?",
+   "No parking is a [[deal-breaker]] for this apartment."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w051",
+  "term": "contingent on",
+  "pos": "adj. phr.",
+  "ipa": "/kənˈtɪndʒənt ɑːn/",
+  "gloss_zh": "取决于、以……为条件",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "The offer is [[contingent on]] board approval."
+  ],
+  "examples_stage_b": [
+   "Our commitment is [[contingent on]] a lead investor.",
+   "The second tranche is [[contingent on]] hitting milestones.",
+   "The purchase is [[contingent on]] the inspection."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w052",
+  "term": "ramp up",
+  "pos": "phr. v.",
+  "ipa": "/ræmp ʌp/",
+  "gloss_zh": "逐步加大/提速",
+  "important_suggest": false,
+  "domain": "business",
+  "examples_stage_a": [
+   "We're [[ramping up]] hiring."
+  ],
+  "examples_stage_b": [
+   "We'll [[ramp up]] sales once the product is stable.",
+   "It takes new reps three months to [[ramp up]].",
+   "Production is [[ramping up]] ahead of the holidays."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w053",
+  "term": "give or take",
+  "pos": "phr.",
+  "ipa": "/ɡɪv ɔːr teɪk/",
+  "gloss_zh": "大约、上下浮动",
+  "important_suggest": false,
+  "domain": "both",
+  "examples_stage_a": [
+   "Twenty minutes, [[give or take]]."
+  ],
+  "examples_stage_b": [
+   "We'll close in six weeks, [[give or take]].",
+   "It's $5M ARR, [[give or take]] a few hundred K.",
+   "The drive is an hour, [[give or take]]."
+  ],
+  "track": "business"
+ },
+ {
+  "id": "w054",
+  "term": "off the top of my head",
+  "pos": "phr.",
+  "ipa": "/ɔːf ðə tɑːp əv maɪ hed/",
+  "gloss_zh": "不假思索地、凭印象（未查证）",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "[[Off the top of my head]], about 30%."
+  ],
+  "examples_stage_b": [
+   "[[Off the top of my head]], our CAC is around $800, but I'll confirm.",
+   "I don't know [[off the top of my head]] — let me check.",
+   "[[Off the top of my head]], there's a good ramen place on 5th."
+  ],
+  "track": "business"
+ },
+ {
+  "term": "agenda",
+  "pos": "n.",
+  "ipa": "/əˈdʒendə/",
+  "gloss_zh": "议程",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "What’s on the [[agenda]] today?"
+  ],
+  "examples_stage_b": [
+   "I’ll send the [[agenda]] before the meeting.",
+   "Let’s stick to the [[agenda]] — we only have 30 minutes.",
+   "Can we add hiring to the [[agenda]]?"
+  ],
+  "id": "w101",
+  "track": "business"
+ },
+ {
+  "term": "stakeholder",
+  "pos": "n.",
+  "ipa": "/ˈsteɪkˌhoʊldər/",
+  "gloss_zh": "利益相关方",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "We need buy-in from every [[stakeholder]]."
+  ],
+  "examples_stage_b": [
+   "Who are the key [[stakeholder]]s on the customer side?",
+   "Let’s update the [[stakeholder]]s after the pilot.",
+   "Each [[stakeholder]] has a different priority."
+  ],
+  "id": "w102",
+  "track": "business"
+ },
+ {
+  "term": "align",
+  "pos": "v.",
+  "ipa": "/əˈlaɪn/",
+  "gloss_zh": "（使）一致、对齐",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "Let’s [[align]] on the goals first."
+  ],
+  "examples_stage_b": [
+   "Are we [[align]]ed on the timeline?",
+   "I want to [[align]] with finance before we commit.",
+   "Our incentives are [[align]]ed with yours."
+  ],
+  "id": "w103",
+  "track": "business"
+ },
+ {
+  "term": "clarify",
+  "pos": "v.",
+  "ipa": "/ˈklærəˌfaɪ/",
+  "gloss_zh": "澄清、说明",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "Could you [[clarify]] what you mean by “scale”?"
+  ],
+  "examples_stage_b": [
+   "Just to [[clarify]], is that number monthly or annual?",
+   "Let me [[clarify]] my earlier point.",
+   "Can you [[clarify]] the payment terms?"
+  ],
+  "id": "w104",
+  "track": "business"
+ },
+ {
+  "term": "elaborate",
+  "pos": "v.",
+  "ipa": "/ɪˈlæbəˌreɪt/",
+  "gloss_zh": "详细说明",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "Could you [[elaborate]] on that?"
+  ],
+  "examples_stage_b": [
+   "Can you [[elaborate]] on how you acquire users?",
+   "I’d like to [[elaborate]] on the second risk.",
+   "He didn’t [[elaborate]], so I asked a follow-up."
+  ],
+  "id": "w105",
+  "track": "business"
+ },
+ {
+  "term": "concern",
+  "pos": "n.",
+  "ipa": "/kənˈsɝːn/",
+  "gloss_zh": "顾虑、担忧",
+  "important_suggest": true,
+  "domain": "both",
+  "examples_stage_a": [
+   "My main [[concern]] is the timeline."
+  ],
+  "examples_stage_b": [
+   "That’s a fair [[concern]] — let me address it.",
+   "Investors raised [[concern]]s about churn.",
+   "Do you have any other [[concern]]s?"
+  ],
+  "id": "w106",
+  "track": "business"
+ },
+ {
+  "term": "assumption",
+  "pos": "n.",
+  "ipa": "/əˈsʌmpʃən/",
+  "gloss_zh": "假设、前提",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "What’s the key [[assumption]] behind this forecast?"
+  ],
+  "examples_stage_b": [
+   "Our [[assumption]] is 5% monthly growth.",
+   "That [[assumption]] seems a bit aggressive.",
+   "Let’s test that [[assumption]] with real data."
+  ],
+  "id": "w107",
+  "track": "business"
+ },
+ {
+  "term": "trade-off",
+  "pos": "n.",
+  "ipa": "/ˈtreɪd ɔːf/",
+  "gloss_zh": "权衡、取舍",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "There’s a [[trade-off]] between speed and quality."
+  ],
+  "examples_stage_b": [
+   "What’s the [[trade-off]] if we launch early?",
+   "Every option has a [[trade-off]].",
+   "We accepted the [[trade-off]] to save cost."
+  ],
+  "id": "w108",
+  "track": "business"
+ },
+ {
+  "term": "priority",
+  "pos": "n.",
+  "ipa": "/praɪˈɔːrəti/",
+  "gloss_zh": "优先事项",
+  "important_suggest": true,
+  "domain": "both",
+  "examples_stage_a": [
+   "Our top [[priority]] this quarter is retention."
+  ],
+  "examples_stage_b": [
+   "Let’s set [[priority]]ies for next week.",
+   "Hiring is not a [[priority]] right now.",
+   "Safety is our first [[priority]]."
+  ],
+  "id": "w109",
+  "track": "business"
+ },
+ {
+  "term": "deadline",
+  "pos": "n.",
+  "ipa": "/ˈdedlaɪn/",
+  "gloss_zh": "截止日期",
+  "important_suggest": true,
+  "domain": "both",
+  "examples_stage_a": [
+   "The [[deadline]] is Friday."
+  ],
+  "examples_stage_b": [
+   "Can we push the [[deadline]] to Monday?",
+   "We’re going to miss the [[deadline]].",
+   "The tax [[deadline]] is next month."
+  ],
+  "id": "w110",
+  "track": "business"
+ },
+ {
+  "term": "milestone",
+  "pos": "n.",
+  "ipa": "/ˈmaɪlstoʊn/",
+  "gloss_zh": "里程碑、关键节点",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "The next [[milestone]] is our beta launch."
+  ],
+  "examples_stage_b": [
+   "Funding is tied to hitting each [[milestone]].",
+   "We reached a big [[milestone]]: 10k users.",
+   "What [[milestone]]s do you expect in 18 months?"
+  ],
+  "id": "w111",
+  "track": "business"
+ },
+ {
+  "term": "valuation",
+  "pos": "n.",
+  "ipa": "/ˌvæljuˈeɪʃən/",
+  "gloss_zh": "估值",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "What [[valuation]] are you raising at?"
+  ],
+  "examples_stage_b": [
+   "The [[valuation]] feels high for this stage.",
+   "We agreed on a pre-money [[valuation]] of 20 million.",
+   "A lower [[valuation]] means more dilution."
+  ],
+  "id": "w112",
+  "track": "business"
+ },
+ {
+  "term": "dilution",
+  "pos": "n.",
+  "ipa": "/daɪˈluːʃən/",
+  "gloss_zh": "（股权）稀释",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "How much [[dilution]] are founders taking?"
+  ],
+  "examples_stage_b": [
+   "This round means about 20% [[dilution]].",
+   "We want to limit [[dilution]] before Series A.",
+   "Option pools add more [[dilution]]."
+  ],
+  "id": "w113",
+  "track": "business"
+ },
+ {
+  "term": "churn",
+  "pos": "n./v.",
+  "ipa": "/tʃɝːn/",
+  "gloss_zh": "客户流失（率）",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "Our monthly [[churn]] is about 3%."
+  ],
+  "examples_stage_b": [
+   "High [[churn]] is a red flag for investors.",
+   "Why do customers [[churn]] after month two?",
+   "We cut [[churn]] by improving onboarding."
+  ],
+  "id": "w114",
+  "track": "business"
+ },
+ {
+  "term": "revenue",
+  "pos": "n.",
+  "ipa": "/ˈrevəˌnuː/",
+  "gloss_zh": "收入、营收",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "What’s your annual [[revenue]]?"
+  ],
+  "examples_stage_b": [
+   "Most of our [[revenue]] comes from enterprise.",
+   "[[revenue]] grew 40% year over year.",
+   "Are you [[revenue]]-positive yet?"
+  ],
+  "id": "w115",
+  "track": "business"
+ },
+ {
+  "term": "margin",
+  "pos": "n.",
+  "ipa": "/ˈmɑːrdʒɪn/",
+  "gloss_zh": "利润率",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "Gross [[margin]] is around 70%."
+  ],
+  "examples_stage_b": [
+   "Hardware has thinner [[margin]]s.",
+   "How will you improve [[margin]]s at scale?",
+   "The [[margin]] on this deal is too low."
+  ],
+  "id": "w116",
+  "track": "business"
+ },
+ {
+  "term": "scalable",
+  "pos": "adj.",
+  "ipa": "/ˈskeɪləbəl/",
+  "gloss_zh": "可规模化的",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "Is this model [[scalable]]?"
+  ],
+  "examples_stage_b": [
+   "Manual onboarding isn’t [[scalable]].",
+   "We built a [[scalable]] sales process.",
+   "Investors want a [[scalable]] business."
+  ],
+  "id": "w117",
+  "track": "business"
+ },
+ {
+  "term": "proposal",
+  "pos": "n.",
+  "ipa": "/prəˈpoʊzəl/",
+  "gloss_zh": "提案、方案",
+  "important_suggest": true,
+  "domain": "business",
+  "examples_stage_a": [
+   "I’ll send over a [[proposal]] tomorrow."
+  ],
+  "examples_stage_b": [
+   "We reviewed your [[proposal]] internally.",
+   "Can you revise the [[proposal]] with new pricing?",
+   "The board approved the [[proposal]]."
+  ],
+  "id": "w118",
+  "track": "business"
+ },
+ {
+  "term": "compromise",
+  "pos": "n./v.",
+  "ipa": "/ˈkɑːmprəˌmaɪz/",
+  "gloss_zh": "妥协、折中",
+  "important_suggest": true,
+  "domain": "both",
+  "examples_stage_a": [
+   "Can we find a [[compromise]]?"
+  ],
+  "examples_stage_b": [
+   "We’re willing to [[compromise]] on price.",
+   "The final deal was a [[compromise]].",
+   "I don’t want to [[compromise]] on quality."
+  ],
+  "id": "w119",
+  "track": "business"
+ },
+ {
+  "term": "feasible",
+  "pos": "adj.",
+  "ipa": "/ˈfiːzəbəl/",
+  "gloss_zh": "可行的",
+  "important_suggest": false,
+  "domain": "business",
+  "examples_stage_a": [
+   "Is that timeline [[feasible]]?"
+  ],
+  "examples_stage_b": [
+   "It’s technically [[feasible]] but expensive.",
+   "We need a [[feasible]] plan by Monday.",
+   "Is it [[feasible]] to launch in two markets?"
+  ],
+  "id": "w120",
+  "track": "business"
+ },
+ {
+  "term": "receipt",
+  "pos": "n.",
+  "ipa": "/rɪˈsiːt/",
+  "gloss_zh": "收据、小票",
+  "important_suggest": false,
+  "domain": "life",
+  "examples_stage_a": [
+   "Can I get a [[receipt]], please?"
+  ],
+  "examples_stage_b": [
+   "Keep the [[receipt]] in case you return it.",
+   "I need the [[receipt]] for my expense report.",
+   "The [[receipt]] is in the bag."
+  ],
+  "id": "w121",
+  "track": "life"
+ },
+ {
+  "term": "refund",
+  "pos": "n./v.",
+  "ipa": "/ˈriːfʌnd/",
+  "gloss_zh": "退款",
+  "important_suggest": false,
+  "domain": "life",
+  "examples_stage_a": [
+   "I’d like a [[refund]], please."
+  ],
+  "examples_stage_b": [
+   "They gave me a full [[refund]].",
+   "How long does the [[refund]] take?",
+   "Can you [[refund]] it to my card?"
+  ],
+  "id": "w122",
+  "track": "life"
+ },
+ {
+  "term": "reservation",
+  "pos": "n.",
+  "ipa": "/ˌrezərˈveɪʃən/",
+  "gloss_zh": "预订",
+  "important_suggest": false,
+  "domain": "life",
+  "examples_stage_a": [
+   "I have a [[reservation]] under Zhang."
+  ],
+  "examples_stage_b": [
+   "Do we need a [[reservation]] for dinner?",
+   "I’d like to change my [[reservation]] to 7 pm.",
+   "Your [[reservation]] is confirmed."
+  ],
+  "id": "w123",
+  "track": "life"
+ },
+ {
+  "term": "appointment",
+  "pos": "n.",
+  "ipa": "/əˈpɔɪntmənt/",
+  "gloss_zh": "预约（看病、办事）",
+  "important_suggest": false,
+  "domain": "life",
+  "examples_stage_a": [
+   "I have a doctor’s [[appointment]] at 3."
+  ],
+  "examples_stage_b": [
+   "Can I make an [[appointment]] for next week?",
+   "I need to cancel my [[appointment]].",
+   "Do I need an [[appointment]] or can I walk in?"
+  ],
+  "id": "w124",
+  "track": "life"
+ },
+ {
+  "term": "allergic",
+  "pos": "adj.",
+  "ipa": "/əˈlɝːdʒɪk/",
+  "gloss_zh": "过敏的",
+  "important_suggest": false,
+  "domain": "life",
+  "examples_stage_a": [
+   "I’m [[allergic]] to peanuts."
+  ],
+  "examples_stage_b": [
+   "Is anyone [[allergic]] to shellfish?",
+   "Are you [[allergic]] to any medication?",
+   "My son is [[allergic]] to cats."
+  ],
+  "id": "w125",
+  "track": "life"
+ },
+ {
+  "term": "available",
+  "pos": "adj.",
+  "ipa": "/əˈveɪləbəl/",
+  "gloss_zh": "有空的；可用的",
+  "important_suggest": false,
+  "domain": "both",
+  "examples_stage_a": [
+   "Are you [[available]] on Tuesday?"
+  ],
+  "examples_stage_b": [
+   "Is this seat [[available]]?",
+   "I’m [[available]] after 4 pm.",
+   "Is a room [[available]] for tonight?"
+  ],
+  "id": "w126",
+  "track": "business"
+ },
+ {
+  "id": "w201",
+  "term": "nuanced",
+  "pos": "adj.",
+  "ipa": "/ˈnuːɑːnst/",
+  "gloss_zh": "细致入微的；有分寸的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "She gave a [[nuanced]] answer."
+  ],
+  "examples_stage_b": [
+   "The report offers a [[nuanced]] view of the risks.",
+   "We need a more [[nuanced]] approach than 'cut costs'.",
+   "His take on the movie was surprisingly [[nuanced]]."
+  ]
+ },
+ {
+  "id": "w202",
+  "term": "contingent",
+  "pos": "adj.",
+  "ipa": "/kənˈtɪndʒənt/",
+  "gloss_zh": "取决于……的；视情况而定的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The deal is [[contingent]] on board approval."
+  ],
+  "examples_stage_b": [
+   "Our move is [[contingent]] on whether I get the visa.",
+   "Funding is [[contingent]] upon hitting Q3 targets.",
+   "Everything is [[contingent]] on the weather, honestly."
+  ]
+ },
+ {
+  "id": "w203",
+  "term": "precarious",
+  "pos": "adj.",
+  "ipa": "/prɪˈkeriəs/",
+  "gloss_zh": "不稳定的；岌岌可危的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Their finances are [[precarious]]."
+  ],
+  "examples_stage_b": [
+   "The startup is in a [[precarious]] position after the layoffs.",
+   "He balanced the cup in a [[precarious]] spot.",
+   "Gig workers often live a [[precarious]] life."
+  ]
+ },
+ {
+  "id": "w204",
+  "term": "salient",
+  "pos": "adj.",
+  "ipa": "/ˈseɪliənt/",
+  "gloss_zh": "显著的；最重要的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Let me summarize the [[salient]] points."
+  ],
+  "examples_stage_b": [
+   "The most [[salient]] issue is cash flow.",
+   "She picked out the [[salient]] details from a long email.",
+   "Price wasn't the [[salient]] factor for buyers."
+  ]
+ },
+ {
+  "id": "w205",
+  "term": "ambivalent",
+  "pos": "adj.",
+  "ipa": "/æmˈbɪvələnt/",
+  "gloss_zh": "矛盾的；心情复杂的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I'm [[ambivalent]] about moving."
+  ],
+  "examples_stage_b": [
+   "Investors remain [[ambivalent]] about the merger.",
+   "She felt [[ambivalent]] about leaving her hometown.",
+   "Many voters are [[ambivalent]] rather than opposed."
+  ]
+ },
+ {
+  "id": "w206",
+  "term": "pragmatic",
+  "pos": "adj.",
+  "ipa": "/præɡˈmætɪk/",
+  "gloss_zh": "务实的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Let's take a [[pragmatic]] approach."
+  ],
+  "examples_stage_b": [
+   "A [[pragmatic]] fix now beats a perfect one next year.",
+   "She's idealistic but also very [[pragmatic]].",
+   "The government made a [[pragmatic]] compromise."
+  ]
+ },
+ {
+  "id": "w207",
+  "term": "plausible",
+  "pos": "adj.",
+  "ipa": "/ˈplɑːzəbəl/",
+  "gloss_zh": "貌似合理的；说得通的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "That's a [[plausible]] explanation."
+  ],
+  "examples_stage_b": [
+   "It's [[plausible]] that demand will recover by spring.",
+   "His excuse sounded [[plausible]] at first.",
+   "We need a [[plausible]] story for investors."
+  ]
+ },
+ {
+  "id": "w208",
+  "term": "tenuous",
+  "pos": "adj.",
+  "ipa": "/ˈtenjuəs/",
+  "gloss_zh": "站不住脚的；微弱的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The link is [[tenuous]] at best."
+  ],
+  "examples_stage_b": [
+   "The evidence for that claim is [[tenuous]].",
+   "Their hold on the market is increasingly [[tenuous]].",
+   "We only have a [[tenuous]] connection to that family."
+  ]
+ },
+ {
+  "id": "w209",
+  "term": "inherent",
+  "pos": "adj.",
+  "ipa": "/ɪnˈhɪrənt/",
+  "gloss_zh": "固有的；内在的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "There's [[inherent]] risk in any investment."
+  ],
+  "examples_stage_b": [
+   "Conflict is [[inherent]] in any partnership.",
+   "The design has an [[inherent]] flaw.",
+   "Travel has [[inherent]] uncertainty."
+  ]
+ },
+ {
+  "id": "w210",
+  "term": "viable",
+  "pos": "adj.",
+  "ipa": "/ˈvaɪəbəl/",
+  "gloss_zh": "可行的；能存活的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Is this plan [[viable]]?"
+  ],
+  "examples_stage_b": [
+   "Remote-first is a [[viable]] model for us.",
+   "The product isn't commercially [[viable]] yet.",
+   "Cycling to work is a [[viable]] option here."
+  ]
+ },
+ {
+  "id": "w211",
+  "term": "compelling",
+  "pos": "adj.",
+  "ipa": "/kəmˈpelɪŋ/",
+  "gloss_zh": "令人信服的；引人入胜的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "She made a [[compelling]] case."
+  ],
+  "examples_stage_b": [
+   "The data is [[compelling]] enough to proceed.",
+   "It's a [[compelling]] read — I finished it in a day.",
+   "There's no [[compelling]] reason to switch vendors."
+  ]
+ },
+ {
+  "id": "w212",
+  "term": "ubiquitous",
+  "pos": "adj.",
+  "ipa": "/juːˈbɪkwɪtəs/",
+  "gloss_zh": "无处不在的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Smartphones are [[ubiquitous]] now."
+  ],
+  "examples_stage_b": [
+   "QR codes became [[ubiquitous]] during the pandemic.",
+   "Coffee chains are [[ubiquitous]] in this city.",
+   "AI tools are fast becoming [[ubiquitous]] at work."
+  ]
+ },
+ {
+  "id": "w213",
+  "term": "arbitrary",
+  "pos": "adj.",
+  "ipa": "/ˈɑːrbətreri/",
+  "gloss_zh": "任意的；武断的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "That rule feels [[arbitrary]]."
+  ],
+  "examples_stage_b": [
+   "The deadline seems [[arbitrary]] — can we move it?",
+   "Pick an [[arbitrary]] number to start.",
+   "Staff resent [[arbitrary]] decisions from above."
+  ]
+ },
+ {
+  "id": "w214",
+  "term": "candid",
+  "pos": "adj.",
+  "ipa": "/ˈkændɪd/",
+  "gloss_zh": "坦率的；直言的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Thanks for being so [[candid]]."
+  ],
+  "examples_stage_b": [
+   "Can I be [[candid]] about the proposal?",
+   "She gave a [[candid]] interview about burnout.",
+   "I appreciate [[candid]] feedback, even when it stings."
+  ]
+ },
+ {
+  "id": "w215",
+  "term": "meticulous",
+  "pos": "adj.",
+  "ipa": "/məˈtɪkjələs/",
+  "gloss_zh": "一丝不苟的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "He's [[meticulous]] about details."
+  ],
+  "examples_stage_b": [
+   "Her notes are [[meticulous]].",
+   "The audit requires [[meticulous]] record-keeping.",
+   "He planned the trip with [[meticulous]] care."
+  ]
+ },
+ {
+  "id": "w216",
+  "term": "resilient",
+  "pos": "adj.",
+  "ipa": "/rɪˈzɪliənt/",
+  "gloss_zh": "有韧性的；能迅速恢复的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Kids are surprisingly [[resilient]]."
+  ],
+  "examples_stage_b": [
+   "Our supply chain needs to be more [[resilient]].",
+   "The economy proved [[resilient]] despite rate hikes.",
+   "She's [[resilient]] — she bounced back fast."
+  ]
+ },
+ {
+  "id": "w217",
+  "term": "obsolete",
+  "pos": "adj.",
+  "ipa": "/ˌɑːbsəˈliːt/",
+  "gloss_zh": "过时的；被淘汰的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "That software is [[obsolete]]."
+  ],
+  "examples_stage_b": [
+   "Fax machines are nearly [[obsolete]].",
+   "New rules made the old contract [[obsolete]].",
+   "Will this skill become [[obsolete]] in ten years?"
+  ]
+ },
+ {
+  "id": "w218",
+  "term": "conducive",
+  "pos": "adj.",
+  "ipa": "/kənˈduːsɪv/",
+  "gloss_zh": "有助于……的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Noise isn't [[conducive]] to focus."
+  ],
+  "examples_stage_b": [
+   "An open office isn't [[conducive]] to deep work.",
+   "Low rates are [[conducive]] to investment.",
+   "The quiet café is [[conducive]] to reading."
+  ]
+ },
+ {
+  "id": "w219",
+  "term": "prudent",
+  "pos": "adj.",
+  "ipa": "/ˈpruːdənt/",
+  "gloss_zh": "审慎的；精明的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "It's [[prudent]] to keep some cash."
+  ],
+  "examples_stage_b": [
+   "It would be [[prudent]] to wait for the audit.",
+   "A [[prudent]] investor diversifies.",
+   "It's [[prudent]] to book early in peak season."
+  ]
+ },
+ {
+  "id": "w220",
+  "term": "intricate",
+  "pos": "adj.",
+  "ipa": "/ˈɪntrɪkət/",
+  "gloss_zh": "错综复杂的；精细的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The plot is [[intricate]]."
+  ],
+  "examples_stage_b": [
+   "The tax rules are [[intricate]].",
+   "She wore an [[intricate]] silver necklace.",
+   "We untangled an [[intricate]] web of contracts."
+  ]
+ },
+ {
+  "id": "w221",
+  "term": "elusive",
+  "pos": "adj.",
+  "ipa": "/iˈluːsɪv/",
+  "gloss_zh": "难以捉摸的；难以达到的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Success remains [[elusive]]."
+  ],
+  "examples_stage_b": [
+   "Profitability has proved [[elusive]] so far.",
+   "The perfect work-life balance feels [[elusive]].",
+   "The cause of the bug was [[elusive]] for days."
+  ]
+ },
+ {
+  "id": "w222",
+  "term": "profound",
+  "pos": "adj.",
+  "ipa": "/prəˈfaʊnd/",
+  "gloss_zh": "深刻的；深远的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "It had a [[profound]] effect on me."
+  ],
+  "examples_stage_b": [
+   "AI will have [[profound]] implications for jobs.",
+   "She made a [[profound]] observation.",
+   "The trip left a [[profound]] impression on him."
+  ]
+ },
+ {
+  "id": "w223",
+  "term": "tangible",
+  "pos": "adj.",
+  "ipa": "/ˈtændʒəbəl/",
+  "gloss_zh": "切实的；有形的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "We need [[tangible]] results."
+  ],
+  "examples_stage_b": [
+   "The new policy brought [[tangible]] benefits.",
+   "There's no [[tangible]] evidence yet.",
+   "Show the client something [[tangible]], like a prototype."
+  ]
+ },
+ {
+  "id": "w224",
+  "term": "superficial",
+  "pos": "adj.",
+  "ipa": "/ˌsuːpərˈfɪʃəl/",
+  "gloss_zh": "肤浅的；表面的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "That's a [[superficial]] reading."
+  ],
+  "examples_stage_b": [
+   "The changes were merely [[superficial]].",
+   "He only has a [[superficial]] knowledge of finance.",
+   "Don't judge people on [[superficial]] things."
+  ]
+ },
+ {
+  "id": "w225",
+  "term": "indispensable",
+  "pos": "adj.",
+  "ipa": "/ˌɪndɪˈspensəbəl/",
+  "gloss_zh": "不可或缺的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "She's [[indispensable]] to the team."
+  ],
+  "examples_stage_b": [
+   "Good data is [[indispensable]] for this decision.",
+   "A power bank is [[indispensable]] when traveling.",
+   "No one is truly [[indispensable]]."
+  ]
+ },
+ {
+  "id": "w226",
+  "term": "unprecedented",
+  "pos": "adj.",
+  "ipa": "/ʌnˈpresɪdentɪd/",
+  "gloss_zh": "前所未有的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "This is [[unprecedented]]."
+  ],
+  "examples_stage_b": [
+   "Demand reached [[unprecedented]] levels.",
+   "The company faces [[unprecedented]] competition.",
+   "We saw [[unprecedented]] heat this summer."
+  ]
+ },
+ {
+  "id": "w227",
+  "term": "coherent",
+  "pos": "adj.",
+  "ipa": "/koʊˈhɪrənt/",
+  "gloss_zh": "连贯的；条理清楚的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "We need a [[coherent]] strategy."
+  ],
+  "examples_stage_b": [
+   "His argument wasn't very [[coherent]].",
+   "Put these ideas into a [[coherent]] plan.",
+   "She was too tired to be [[coherent]]."
+  ]
+ },
+ {
+  "id": "w228",
+  "term": "robust",
+  "pos": "adj.",
+  "ipa": "/roʊˈbʌst/",
+  "gloss_zh": "稳健的；强劲的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The results are [[robust]]."
+  ],
+  "examples_stage_b": [
+   "We need a [[robust]] testing process.",
+   "Sales remained [[robust]] in Q2.",
+   "It's a [[robust]] phone — survived many drops."
+  ]
+ },
+ {
+  "id": "w229",
+  "term": "trivial",
+  "pos": "adj.",
+  "ipa": "/ˈtrɪviəl/",
+  "gloss_zh": "琐碎的；微不足道的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "It's a [[trivial]] issue."
+  ],
+  "examples_stage_b": [
+   "Don't waste the meeting on [[trivial]] details.",
+   "The fix is [[trivial]] — five minutes.",
+   "What seems [[trivial]] to you may matter to her."
+  ]
+ },
+ {
+  "id": "w230",
+  "term": "explicit",
+  "pos": "adj.",
+  "ipa": "/ɪkˈsplɪsɪt/",
+  "gloss_zh": "明确的；直白的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Be [[explicit]] about expectations."
+  ],
+  "examples_stage_b": [
+   "The contract makes the terms [[explicit]].",
+   "She gave [[explicit]] instructions.",
+   "Nothing was [[explicit]], but we got the hint."
+  ]
+ },
+ {
+  "id": "w231",
+  "term": "implicit",
+  "pos": "adj.",
+  "ipa": "/ɪmˈplɪsɪt/",
+  "gloss_zh": "含蓄的；隐含的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "There was an [[implicit]] agreement."
+  ],
+  "examples_stage_b": [
+   "There's [[implicit]] pressure to work late.",
+   "Trust is [[implicit]] in this relationship.",
+   "His criticism was [[implicit]] but clear."
+  ]
+ },
+ {
+  "id": "w232",
+  "term": "mitigate",
+  "pos": "v.",
+  "ipa": "/ˈmɪtɪɡeɪt/",
+  "gloss_zh": "减轻；缓解",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "How can we [[mitigate]] the risk?"
+  ],
+  "examples_stage_b": [
+   "Insurance helps [[mitigate]] losses.",
+   "We hedged to [[mitigate]] currency risk.",
+   "Planting trees can [[mitigate]] urban heat."
+  ]
+ },
+ {
+  "id": "w233",
+  "term": "undermine",
+  "pos": "v.",
+  "ipa": "/ˌʌndərˈmaɪn/",
+  "gloss_zh": "削弱；暗中破坏",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Don't [[undermine]] your own argument."
+  ],
+  "examples_stage_b": [
+   "Constant delays [[undermine]] client trust.",
+   "He felt his manager [[undermined]] him in front of others.",
+   "Lack of sleep can [[undermine]] your health."
+  ]
+ },
+ {
+  "id": "w234",
+  "term": "reconcile",
+  "pos": "v.",
+  "ipa": "/ˈrekənsaɪl/",
+  "gloss_zh": "调和；使一致；对账",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "It's hard to [[reconcile]] the two views."
+  ],
+  "examples_stage_b": [
+   "We need to [[reconcile]] these accounts by Friday.",
+   "How do you [[reconcile]] ambition with family life?",
+   "They finally [[reconciled]] after years apart."
+  ]
+ },
+ {
+  "id": "w235",
+  "term": "advocate",
+  "pos": "v.",
+  "ipa": "/ˈædvəkeɪt/",
+  "gloss_zh": "提倡；主张",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I [[advocate]] a phased rollout."
+  ],
+  "examples_stage_b": [
+   "She [[advocates]] for flexible hours.",
+   "Experts [[advocate]] regular breaks from screens.",
+   "He [[advocated]] a cautious approach."
+  ]
+ },
+ {
+  "id": "w236",
+  "term": "attribute",
+  "pos": "v.",
+  "ipa": "/əˈtrɪbjuːt/",
+  "gloss_zh": "把……归因于",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "They [[attribute]] the drop to weather."
+  ],
+  "examples_stage_b": [
+   "Analysts [[attribute]] the rally to rate cuts.",
+   "She [[attributes]] her success to good mentors.",
+   "The quote is often [[attributed]] to Einstein."
+  ]
+ },
+ {
+  "id": "w237",
+  "term": "discern",
+  "pos": "v.",
+  "ipa": "/dɪˈsɜːrn/",
+  "gloss_zh": "辨别；觉察出",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "It's hard to [[discern]] a pattern."
+  ],
+  "examples_stage_b": [
+   "Can you [[discern]] any trend in the data?",
+   "I couldn't [[discern]] what he really wanted.",
+   "Readers should [[discern]] fact from opinion."
+  ]
+ },
+ {
+  "id": "w238",
+  "term": "alleviate",
+  "pos": "v.",
+  "ipa": "/əˈliːvieɪt/",
+  "gloss_zh": "缓解；减轻（痛苦/压力）",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "This should [[alleviate]] the pain."
+  ],
+  "examples_stage_b": [
+   "Hiring two more people will [[alleviate]] the workload.",
+   "Exercise can [[alleviate]] stress.",
+   "The new road may [[alleviate]] traffic."
+  ]
+ },
+ {
+  "id": "w239",
+  "term": "exacerbate",
+  "pos": "v.",
+  "ipa": "/ɪɡˈzæsərbeɪt/",
+  "gloss_zh": "使恶化；加剧",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Don't [[exacerbate]] the problem."
+  ],
+  "examples_stage_b": [
+   "Price hikes [[exacerbated]] customer churn.",
+   "Stress can [[exacerbate]] insomnia.",
+   "Tariffs may [[exacerbate]] inflation."
+  ]
+ },
+ {
+  "id": "w240",
+  "term": "substantiate",
+  "pos": "v.",
+  "ipa": "/səbˈstænʃieɪt/",
+  "gloss_zh": "证实；拿出证据支持",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Can you [[substantiate]] that claim?"
+  ],
+  "examples_stage_b": [
+   "We need data to [[substantiate]] the forecast.",
+   "He couldn't [[substantiate]] the allegations.",
+   "Please [[substantiate]] your expenses with receipts."
+  ]
+ },
+ {
+  "id": "w241",
+  "term": "articulate",
+  "pos": "v.",
+  "ipa": "/ɑːrˈtɪkjəleɪt/",
+  "gloss_zh": "清楚表达",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "She can [[articulate]] complex ideas."
+  ],
+  "examples_stage_b": [
+   "Try to [[articulate]] what you actually need.",
+   "He struggled to [[articulate]] his feelings.",
+   "A good PM can [[articulate]] the vision clearly."
+  ]
+ },
+ {
+  "id": "w242",
+  "term": "scrutinize",
+  "pos": "v.",
+  "ipa": "/ˈskruːtənaɪz/",
+  "gloss_zh": "仔细审查",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Regulators will [[scrutinize]] the deal."
+  ],
+  "examples_stage_b": [
+   "Please [[scrutinize]] the contract before signing.",
+   "Every expense will be [[scrutinized]].",
+   "She [[scrutinized]] his face for a reaction."
+  ]
+ },
+ {
+  "id": "w243",
+  "term": "deteriorate",
+  "pos": "v.",
+  "ipa": "/dɪˈtɪriəreɪt/",
+  "gloss_zh": "恶化；变坏",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "His health began to [[deteriorate]]."
+  ],
+  "examples_stage_b": [
+   "Relations between the teams [[deteriorated]].",
+   "Margins will [[deteriorate]] if costs keep rising.",
+   "The weather [[deteriorated]] by afternoon."
+  ]
+ },
+ {
+  "id": "w244",
+  "term": "foster",
+  "pos": "v.",
+  "ipa": "/ˈfɑːstər/",
+  "gloss_zh": "培养；促进",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "We want to [[foster]] collaboration."
+  ],
+  "examples_stage_b": [
+   "Good managers [[foster]] a culture of trust.",
+   "Travel can [[foster]] understanding between cultures.",
+   "The program [[fosters]] young talent."
+  ]
+ },
+ {
+  "id": "w245",
+  "term": "hinder",
+  "pos": "v.",
+  "ipa": "/ˈhɪndər/",
+  "gloss_zh": "阻碍；妨碍",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Bad weather [[hindered]] the rescue."
+  ],
+  "examples_stage_b": [
+   "Red tape [[hinders]] innovation.",
+   "Noise can [[hinder]] concentration.",
+   "Lack of data [[hindered]] our analysis."
+  ]
+ },
+ {
+  "id": "w246",
+  "term": "circumvent",
+  "pos": "v.",
+  "ipa": "/ˌsɜːrkəmˈvent/",
+  "gloss_zh": "规避；绕过",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "They tried to [[circumvent]] the rules."
+  ],
+  "examples_stage_b": [
+   "Some firms [[circumvent]] sanctions via third countries.",
+   "We found a way to [[circumvent]] the bottleneck.",
+   "Don't [[circumvent]] the approval process."
+  ]
+ },
+ {
+  "id": "w247",
+  "term": "concede",
+  "pos": "v.",
+  "ipa": "/kənˈsiːd/",
+  "gloss_zh": "（勉强）承认；让步",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I [[concede]] that you have a point."
+  ],
+  "examples_stage_b": [
+   "He [[conceded]] the plan had flaws.",
+   "We [[conceded]] on price to close the deal.",
+   "She refused to [[concede]] defeat."
+  ]
+ },
+ {
+  "id": "w248",
+  "term": "speculate",
+  "pos": "v.",
+  "ipa": "/ˈspekjəleɪt/",
+  "gloss_zh": "推测；投机",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I'd rather not [[speculate]]."
+  ],
+  "examples_stage_b": [
+   "Analysts [[speculate]] about a possible merger.",
+   "We can only [[speculate]] about why he left.",
+   "He lost money [[speculating]] on crypto."
+  ]
+ },
+ {
+  "id": "w249",
+  "term": "dilemma",
+  "pos": "n.",
+  "ipa": "/dɪˈlemə/",
+  "gloss_zh": "两难；困境",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I'm facing a [[dilemma]]."
+  ],
+  "examples_stage_b": [
+   "It's a classic [[dilemma]]: growth or profit.",
+   "She faced the [[dilemma]] of career versus family.",
+   "The ethical [[dilemma]] isn't easy to resolve."
+  ]
+ },
+ {
+  "id": "w250",
+  "term": "paradox",
+  "pos": "n.",
+  "ipa": "/ˈperədɑːks/",
+  "gloss_zh": "悖论；矛盾现象",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "It's a strange [[paradox]]."
+  ],
+  "examples_stage_b": [
+   "The [[paradox]] is that more choice makes people less happy.",
+   "There's a [[paradox]] in saving money by spending more.",
+   "Remote work creates a [[paradox]] of freedom and isolation."
+  ]
+ },
+ {
+  "id": "w251",
+  "term": "premise",
+  "pos": "n.",
+  "ipa": "/ˈpremɪs/",
+  "gloss_zh": "前提",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The [[premise]] is flawed."
+  ],
+  "examples_stage_b": [
+   "The whole plan rests on the [[premise]] that rates will fall.",
+   "I disagree with your basic [[premise]].",
+   "The movie has an interesting [[premise]]."
+  ]
+ },
+ {
+  "id": "w252",
+  "term": "trajectory",
+  "pos": "n.",
+  "ipa": "/trəˈdʒektəri/",
+  "gloss_zh": "轨迹；发展走向",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Look at the growth [[trajectory]]."
+  ],
+  "examples_stage_b": [
+   "Her career [[trajectory]] is impressive.",
+   "The company is on an upward [[trajectory]].",
+   "Small choices can change your life's [[trajectory]]."
+  ]
+ },
+ {
+  "id": "w253",
+  "term": "discrepancy",
+  "pos": "n.",
+  "ipa": "/dɪˈskrepənsi/",
+  "gloss_zh": "差异；不一致",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "There's a [[discrepancy]] in the numbers."
+  ],
+  "examples_stage_b": [
+   "We found a [[discrepancy]] between the invoice and the PO.",
+   "Explain the [[discrepancy]] in your two statements.",
+   "There's a big [[discrepancy]] between price and value."
+  ]
+ },
+ {
+  "id": "w254",
+  "term": "consensus",
+  "pos": "n.",
+  "ipa": "/kənˈsensəs/",
+  "gloss_zh": "共识",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "We reached a [[consensus]]."
+  ],
+  "examples_stage_b": [
+   "There's no [[consensus]] on the timeline yet.",
+   "The [[consensus]] among economists is a mild slowdown.",
+   "Let's build [[consensus]] before the board meeting."
+  ]
+ },
+ {
+  "id": "w255",
+  "term": "implication",
+  "pos": "n.",
+  "ipa": "/ˌɪmplɪˈkeɪʃən/",
+  "gloss_zh": "含义；（潜在）影响",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "What are the [[implications]]?"
+  ],
+  "examples_stage_b": [
+   "Think about the legal [[implications]].",
+   "The [[implication]] was that I'd made a mistake.",
+   "This decision has [[implications]] for hiring."
+  ]
+ },
+ {
+  "id": "w256",
+  "term": "bias",
+  "pos": "n.",
+  "ipa": "/ˈbaɪəs/",
+  "gloss_zh": "偏见；偏向",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Watch out for confirmation [[bias]]."
+  ],
+  "examples_stage_b": [
+   "The survey has a sampling [[bias]].",
+   "We all have unconscious [[bias]].",
+   "The article shows a clear [[bias]] toward the company."
+  ]
+ },
+ {
+  "id": "w257",
+  "term": "integrity",
+  "pos": "n.",
+  "ipa": "/ɪnˈteɡrəti/",
+  "gloss_zh": "诚信；完整性",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "He's a man of [[integrity]]."
+  ],
+  "examples_stage_b": [
+   "Data [[integrity]] is critical for this audit.",
+   "She refused the bribe, showing real [[integrity]].",
+   "Cracks threatened the bridge's structural [[integrity]]."
+  ]
+ },
+ {
+  "id": "w258",
+  "term": "autonomy",
+  "pos": "n.",
+  "ipa": "/ɔːˈtɑːnəmi/",
+  "gloss_zh": "自主权；自治",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I value [[autonomy]] at work."
+  ],
+  "examples_stage_b": [
+   "Give the team more [[autonomy]] over decisions.",
+   "Teenagers crave [[autonomy]].",
+   "The region was granted greater [[autonomy]]."
+  ]
+ },
+ {
+  "id": "w259",
+  "term": "incentive",
+  "pos": "n.",
+  "ipa": "/ɪnˈsentɪv/",
+  "gloss_zh": "激励；诱因",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "There's little [[incentive]] to change."
+  ],
+  "examples_stage_b": [
+   "Tax breaks are an [[incentive]] to invest.",
+   "We need better [[incentives]] for the sales team.",
+   "Free shipping is a strong [[incentive]] to buy."
+  ]
+ },
+ {
+  "id": "w260",
+  "term": "scrutiny",
+  "pos": "n.",
+  "ipa": "/ˈskruːtəni/",
+  "gloss_zh": "审查；仔细观察",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The deal is under [[scrutiny]]."
+  ],
+  "examples_stage_b": [
+   "The CEO's pay came under public [[scrutiny]].",
+   "The plan won't survive close [[scrutiny]].",
+   "Celebrities live under constant [[scrutiny]]."
+  ]
+ },
+ {
+  "id": "w261",
+  "term": "complacency",
+  "pos": "n.",
+  "ipa": "/kəmˈpleɪsənsi/",
+  "gloss_zh": "自满；安于现状",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "[[Complacency]] is dangerous."
+  ],
+  "examples_stage_b": [
+   "Strong sales led to [[complacency]].",
+   "There's no room for [[complacency]] in security.",
+   "After the win, [[complacency]] set in."
+  ]
+ },
+ {
+  "id": "w262",
+  "term": "caveat",
+  "pos": "n.",
+  "ipa": "/ˈkæviæt/",
+  "gloss_zh": "附加说明；警告",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "One [[caveat]]: the data is preliminary."
+  ],
+  "examples_stage_b": [
+   "I agree, with one [[caveat]].",
+   "The offer comes with several [[caveats]].",
+   "Big [[caveat]] — I haven't tested this on iOS."
+  ]
+ }
+]
