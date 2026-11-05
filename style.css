@@ -23,3 +23,9 @@ button{min-height:52px;font-size:16px;border:0;border-radius:12px;cursor:pointer
 footer{padding:8px 16px 20px;max-width:560px;width:100%;margin:0 auto;font-size:13px;color:#667}
 footer span{display:inline-block;margin:3px 4px 0 0;padding:3px 8px;border-radius:10px;background:#fff}
 .empty{text-align:center;padding:30px 10px}
+
+.hdr-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;max-width:100%}
+.mode-seg{display:inline-flex;background:#eef1f7;border-radius:10px;padding:2px}
+.mode-btn{min-height:44px;min-width:52px;padding:0 12px;font-size:13px;border-radius:8px;background:transparent;color:#556}
+.mode-btn.on{background:#3b5bfd;color:#fff}
+html,body{overflow-x:hidden}

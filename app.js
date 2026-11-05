@@ -5,9 +5,9 @@ let WORDS=[],state,cur=null,stage='A';
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const hl=s=>esc(s).replace(/\[\[(.+?)\]\]/g,'<mark>$1</mark>');
-const blank=()=>({v:4,items:{},recent:[],log:[],undo:[]});
+const blank=()=>({v:4,mode:'all',items:{},recent:[],log:[],undo:[]});
 function ensureItem(r){const o={status:r.status??null,seen:r.seen||0,needed:!!r.needed};if(r.updated!=null)o.updated=r.updated;if(r.important!==undefined)o.important=r.important;return o}
-function withUndo(s){if(!Array.isArray(s.undo))s.undo=[];return s}
+function withUndo(s){if(!Array.isArray(s.undo))s.undo=[];if(s.mode!=='review'&&s.mode!=='all')s.mode='all';return s}
 /** v1 → v4: mastered→dropped; shaky/unknown→weak (safer: treat as shortfall). */
 function migrateV1(){let o;try{o=JSON.parse(localStorage.getItem(V1))}catch(e){}if(!o||!o.marks)return null;
  const s=blank();for(const[id,r]of Object.entries(o.marks)){const st=r.status==='mastered'?'dropped':(r.status==='shaky'||r.status==='unknown')?'weak':null;s.items[id]={status:st,seen:r.seen||0,needed:false,important:r.important??null}}
@@ -30,7 +30,7 @@ function migrateV3(){let o;try{o=JSON.parse(localStorage.getItem(V3))}catch(e){}
  if(o.migratedKeepTo)s.migratedKeepTo=o.migratedKeepTo;if(o.migratedAt)s.prevMigratedAt=o.migratedAt;return s;}
 function load(){try{state=JSON.parse(localStorage.getItem(KEY))}catch(e){}
  if(state&&state.items&&state.v===4){for(const id of Object.keys(state.items))state.items[id]=ensureItem(state.items[id]);withUndo(state);return}
- state=migrateV3()||migrateV2()||migrateV1()||blank();save()}
+ state=withUndo(migrateV3()||migrateV2()||migrateV1()||blank());save()}
 function save(){localStorage.setItem(KEY,JSON.stringify(state))}
 const rec=id=>state.items[id]||(state.items[id]={status:null,seen:0,needed:false});
 /** Weights: weak > reinforce > unseen > dropped(0). Both reinforce & weak resurface. */
@@ -39,7 +39,7 @@ function weight(w){const r=state.items[w.id]||{};if(r.status==='dropped')return 
  if(r.status==='reinforce'){let x=3.5+Math.min(r.seen||0,5)*0.25;if(w.domain!=='life')x+=0.5;return x}
  return 2+(w.important_suggest?0.5:0);}
 function pickNext(){
- const pool=WORDS.filter(w=>weight(w)>0);if(!pool.length)return null;
+ const rv=state.mode==='review';const pool=WORDS.filter(w=>{if(weight(w)<=0)return false;if(!rv)return true;const st=(state.items[w.id]||{}).status;return st==='weak'||st==='reinforce'});if(!pool.length)return null;
  const k=Math.min(4,pool.length-1);const recent=k>0?state.recent.slice(-k):[];
  let cand=pool.filter(w=>!recent.includes(w.id));if(!cand.length)cand=pool;
  if(cand.length>1&&cur){const c2=cand.filter(w=>w.id!==cur.id);if(c2.length)cand=c2}
@@ -53,6 +53,9 @@ function stats(){const v=Object.values(state.items);const c=s=>v.filter(r=>r.sta
  $('#history').innerHTML=state.log.slice(-8).reverse().map(l=>`<span>${esc(l.term||'—')} · ${lab[l.action]||esc(l.action)}</span>`).join('');
  undoBtn();}
 function next(){cur=pickNext();stage='A';if(cur){state.recent.push(cur.id);state.recent=state.recent.slice(-10);rec(cur.id).seen++;save()}render();}
+function modeBtns(){for(const m of ['all','review']){const b=$(`[data-testid=mode-${m}]`);if(!b)continue;const on=state.mode===m;b.setAttribute('aria-pressed',on?'true':'false');b.classList.toggle('on',on)}}
+function setMode(m){if(m!=='all'&&m!=='review')return;if(state.mode===m){modeBtns();return}state.mode=m;cur=null;
+ state.log.push({action:'mode_'+m,id:null,term:null,ts:Date.now(),seen:0});save();next()}
 function pushUndo(entry){withUndo(state);state.undo.push(entry);while(state.undo.length>UNDO_MAX)state.undo.shift()}
 /** Terminal actions that advance the queue — push undo snapshot then advance. */
 function act(action,status){
@@ -76,7 +79,9 @@ function head(){const r=rec(cur.id);const n=r.seen;return `<div class="stage" da
 <div class="meta">${esc(cur.pos)} · <span data-testid="ipa">${esc(cur.ipa)}</span><span class="dom" data-testid="track">${({business:"商务",advanced:"高级",life:"生活"})[cur.track]||cur.domain}</span>${n>1?`<span class="badge" data-testid="seen-hint">已见过 ${n} 次</span>`:''}</div>`}
 function neededBtn(){const on=!!rec(cur.id).needed;return `<button type="button" class="needed-toggle${on?' on':''}" data-testid="needed" aria-pressed="${on?'true':'false'}"><span class="star">${on?'★':'☆'}</span> 特别需要</button>`}
 function bindNeeded(){const b=$('[data-testid=needed]');if(b)b.onclick=e=>{e.preventDefault();e.stopPropagation();toggleNeeded()}}
-function render(){stats();const app=$('#app');
+function render(){stats();modeBtns();const app=$('#app');
+ if(!cur&&state.mode==='review'){app.innerHTML=`<div class="card empty" data-testid="empty-review"><h2>📭 复习队列为空</h2><p>还没有标为「再巩固」或「还不熟」的词。</p><button class="primary" data-testid="back-all">回到全部</button></div>`;
+  $('[data-testid=back-all]').onclick=()=>setMode('all');return;}
  if(!cur){app.innerHTML=`<div class="card empty" data-testid="empty"><h2>🎉 全部放掉了！</h2><p>队列已空，历史记录仍保留。</p><button class="ghost" data-testid="reset">重新练习全部</button></div>`;
   $('[data-testid=reset]').onclick=()=>{Object.values(state.items).forEach(r=>{if(r.status==='dropped')r.status=null});state.undo=[];state.log.push({id:null,term:null,action:'reset',ts:Date.now(),seen:0});save();next()};return;}
  if(stage==='A'){app.innerHTML=`<div class="card" data-testid="card-a">${head()}<ul data-testid="examples-a">${cur.examples_stage_a.map(e=>`<li>${hl(e)}</li>`).join('')}</ul>
@@ -93,5 +98,6 @@ function render(){stats();const app=$('#app');
   bindNeeded();}}
 load();
 const ub=$('[data-testid=undo]');if(ub)ub.onclick=()=>undo();
-fetch('words.json').then(r=>r.json()).then(w=>{WORDS=w;window.__ec={words:WORDS,state:()=>state,weight,pickNext,undo};next()});
+for(const m of ['all','review']){const b=$(`[data-testid=mode-${m}]`);if(b)b.onclick=()=>setMode(m)}
+fetch('words.json').then(r=>r.json()).then(w=>{WORDS=w;window.__ec={words:WORDS,state:()=>state,weight,pickNext,undo,setMode,get mode(){return state.mode}};next()});
 })();
