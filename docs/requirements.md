@@ -1,8 +1,10 @@
 # English Coach 需求（单一事实源）
 
-Chris Zhang 的个人英语词汇教练。静态 H5，无构建步骤。打开 `index.html` 或线上：
+Chris Zhang 的个人英语词汇教练。静态 H5，无构建步骤。打开 `index.html` 或线上（云开发静态托管，pgdoc 环境）：
 
-https://cczz23.github.io/english-coach-h5/
+https://regional-newt-d8ghvyg140f22c055-1404967840.tcloudbaseapp.com
+
+GitHub Pages `https://cczz23.github.io/english-coach-h5/` 仍能打开页面，但免费版拦了 github.io CORS，不能当日常同步入口。
 
 本文是产品与实现的单一事实源。决策经过写在 `docs/transcript.md`。
 
@@ -14,7 +16,9 @@ https://cczz23.github.io/english-coach-h5/
 | --- | --- |
 | Tencent CloudBase 同步（取代 Drive / gist / LeanCloud） | 已上 main |
 | Stage B 每词 5 条不重复场景；`EX_MAX=5` | 已上 main |
-| **易混对比** `contrast` | **本 PR 实现** |
+| 易混对比 `contrast` | 已上 main |
+| CloudBase Strict EJSON 数字展开（`$numberInt` 等） | **本 PR 实现** |
+| 日常入口改为云开发静态托管（github.io CORS 免费版被拦） | **本 PR 记入** |
 | **新词 / 复习混排滑条**（new↔review 抽卡概率） | **已决定做，尚未实现**（本 PR 不写代码） |
 | **间隔回访 / SRS** | **讨论中，Chris 还在想；不要实现**（只记候选） |
 
@@ -74,7 +78,7 @@ https://cczz23.github.io/english-coach-h5/
 - 每条是该 track 下不同场景，不是近义改写。`both` 可以一条工作、一条日常。目标词放在 `[[highlight]]` 里。
 - 不要为凑数复制句子。不要改 `EX_MAX`。
 
-## 易混对比（本 PR）
+## 易混对比
 
 给容易和日常近义词搅在一起的**高级词**写 1–3 条对比。宁缺毋滥。典型：*pragmatic* vs *practical* 中文都像「务实」，但用法不同。
 
@@ -97,33 +101,33 @@ Optional 字段：
 
 Google Drive、Google OAuth、GitHub gist、LeanCloud **都不是**日常方案。`api.github.com` 在国内手机上无 VPN 不可用。Chris 选了腾讯云开发。
 
-备份是 **Tencent CloudBase 云开发**（国内上海）。站点仍在 GitHub Pages。手机请求 `https://{envId}.api.tcloudbasegateway.com`，头 `Authorization: Bearer <Publishable Key>`，与 `@cloudbase/js-sdk` v3 的 accessKey 相同。不用匿名登录，也不用打开匿名登录。客户端不调 LeanCloud。
+备份是 **Tencent CloudBase 云开发**（国内上海，当前 pgdoc 环境）。日常站点是云开发静态托管：
+
+https://regional-newt-d8ghvyg140f22c055-1404967840.tcloudbaseapp.com
+
+不要用 GitHub Pages 当同步入口：免费版安全来源 / CORS 拦了 `cczz23.github.io`。手机请求 `https://{envId}.api.tcloudbasegateway.com`，头 `Authorization: Bearer <Publishable Key>`，与 `@cloudbase/js-sdk` v3 的 accessKey 相同。不用匿名登录，也不用打开匿名登录。客户端不调 LeanCloud。
 
 - 集合 `ec_state`，一篇文档。字段 `state` 就是 `ec_state_v4`。
 - 凭证只在本机 localStorage `ec_tcb_v1`：环境 ID、Publishable Key、文档 id。永不进仓库、不打日志、不放密钥 API Key。
 - 缺环境 ID、Publishable Key 或文档 id 时不请求 CloudBase，继续用 localStorage。
-- 打开时 GET `.../collections/ec_state/documents/{docId}`，在 `sync.js` 里合并：`seen` 取大；每词取较新记录；历史做并集；**本地 undo 栈保留**。
+- 打开时 GET `.../collections/ec_state/documents/{docId}`。CloudBase 文档 GET 是 **Strict EJSON**：`v` / `seen` 会变成 `{ "$numberInt": "4" }`，`updated` 会变成 `{ "$numberLong": "..." }`。`sync.js` 先 `fromExtendedJson` 展开再 `isV4` / 合并，否则 `parsed.v === 4` 失败、`readDocState` 返回 null，Pull 不合并远端，两边都显示「已同步」却各用各的 localStorage。
+- 合并：`seen` 取大；每词取较新记录；历史做并集；**本地 undo 栈保留**。
 - 标记、下一张、撤销、切模式、特别需要之后，等约 650ms，PATCH 该文档（`upsert: true`，字段 `state`）。成功显示「已同步」。失败显示「同步失败 · 」加 HTTP 状态，或「同步失败 · 网络」。不打断刷卡。
 - **创建或绑定**：没有记录 ID 时 POST 一篇，存 `insertedIds[0]`。已填记录 ID 则 PATCH upsert（另一部手机绑同一条）。失败时面板不关，刚打的 key 不清。缺字段提示「请先填写环境 ID 和 Publishable Key」。
+- 当前集合权限是控制台预设「读取全部数据，修改本人数据」。几部手机共用同一份 Publishable Key 时，同一 key 身份下这份 ACL 可能仍然够用（匿名登录关着也一样，请求都带这份 key）。不必为此改成 `{ "read": true, "write": true }`，除非出现 403。代码这次只修 Extended JSON。
 
 ### 一次即可：CloudBase 控制台
 
 1. 打开 https://tcb.cloud.tencent.com ，建**上海**国内环境。复制环境 ID（`cloud1-…`）。国际环境不行：本应用只打国内网关。
-2. 环境配置 → 安全来源：加 `cczz23.github.io`（不要 `https://`）。等几分钟。域名未生效时浏览器侧会显示「同步失败 · 网络」。
+2. 环境配置 → 安全来源：加静态托管域名 `regional-newt-d8ghvyg140f22c055-1404967840.tcloudbaseapp.com`（不要 `https://`）。免费版不要指望 `cczz23.github.io` CORS 能过。等几分钟。域名未生效时浏览器侧会显示「同步失败 · 网络」。
 3. 环境配置 → API Key → 建 **Publishable Key**（可发布密钥），复制一次。密钥 API Key 不要进页面。
 4. 文档型数据库 → 建集合 **`ec_state`**。
-5. 该集合 → 权限设置 → 自定义安全规则：
+5. 该集合权限当前是「读取全部数据，修改本人数据」。共用同一份 Publishable Key 时通常够用。不要用「仅创建者可读写」（会按登录拆开进度）。若写失败 403，再改自定义 `{ "read": true, "write": true }`。匿名登录保持关闭。
 
-```json
-{ "read": true, "write": true }
-```
-
-不要用「仅创建者可读写」。Publishable Key 是 Chris 几部手机共用的一份客户端凭证；创建者规则会把进度按登录拆开。匿名登录保持关闭。
-
-6. 强刷 https://cczz23.github.io/english-coach-h5/ → 设置 → 贴环境 ID 和 Publishable Key → 记录 ID 留空 → 创建或绑定。状态变「已同步」，id 会填上。
+6. 强刷 https://regional-newt-d8ghvyg140f22c055-1404967840.tcloudbaseapp.com → 设置 → 贴环境 ID 和 Publishable Key → 记录 ID 留空 → 创建或绑定。状态变「已同步」，id 会填上。
 7. 另一台设备：同一环境 ID、同一 key、那条记录 ID，然后保存。
 
-401 / 403 多半是集合规则不是上面这条自定义规则，或误贴了密钥 API Key。
+401 / 403 多半是集合规则过严，或误贴了密钥 API Key。
 
 ## 已决定、待实现：新词 / 复习混排滑条
 

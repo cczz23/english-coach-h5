@@ -28,7 +28,8 @@ Chris chose 云开发 so sync stays inside mainland China without a VPN. LeanClo
 
 - One document in collection `ec_state`, field `state` = `ec_state_v4`.
 - Auth is a Publishable Key sent as `Authorization: Bearer`, matching CloudBase Web SDK v3 `accessKey`. Anonymous login is not required and is left off. The secret API Key never goes in the client.
-- Browser calls need security domain `cczz23.github.io`. The collection uses a custom rule `{ "read": true, "write": true }` so every phone with the same key shares one record. 仅创建者可读写 would split devices.
+- Daily site is CloudBase static hosting on the pgdoc env: `https://regional-newt-d8ghvyg140f22c055-1404967840.tcloudbaseapp.com`. github.io CORS is blocked on the free tier, so Pages is not the sync origin.
+- Browser calls need that static-hosting domain in 安全来源. Collection ACL is currently 读取全部数据，修改本人数据; a shared Publishable Key (anon off) may still be enough for every phone with the same key. 仅创建者可读写 would split devices. Do not retune ACL in this change.
 - Settings store env id, Publishable Key, and doc id in `ec_tcb_v1`. 创建或绑定 creates the document or upserts an existing id. Merge rules are unchanged. Unset settings stay local-only.
 
 ## 2026-11-05 — Examples max is 5
@@ -67,3 +68,13 @@ Candidate sketch only:
 - 可选：当天少抽同一词；特别需要 `needed` 缩短间隔
 
 Current queue stays weight-random with no calendar due dates.
+
+## 2026-11-05 — CloudBase static hosting + Extended JSON unwrap
+
+pgdoc env. Daily URL is CloudBase static hosting
+https://regional-newt-d8ghvyg140f22c055-1404967840.tcloudbaseapp.com
+because github.io CORS is blocked on the free tier.
+
+CloudBase document GET returns Strict EJSON (`"v": {"$numberInt": "4"}`, `"seen": {"$numberInt": "1"}`, `"updated": {"$numberLong": "..."}`). `isV4` required `parsed.v === 4`, so `readDocState` returned null, pull skipped the merge, and each device kept its own localStorage while push still showed 已同步. Unwrap `$numberInt` / `$numberLong` / `$numberDouble` before `isV4` / `normalizeState` / merge.
+
+Collection ACL stays 读取全部数据，修改本人数据. Shared Publishable Key + this ACL may still be OK for same-key clients; this change does not retune ACL.

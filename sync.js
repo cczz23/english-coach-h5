@@ -9,6 +9,8 @@
  * Auth is the Publishable Key as Authorization: Bearer, the same way
  * @cloudbase/js-sdk v3 sets an accessKey (no anonymous sign-in round trip).
  * One document in collection ec_state; field `state` is the ec_state_v4 object.
+ * CloudBase GET bodies are Strict EJSON, so ints/longs arrive as
+ * { "$numberInt": "4" } / { "$numberLong": "..." }. Unwrap before v === 4.
  *
  * Merge rules (local = this device, remote = that `state` field):
  * - Never replace one side with the other. A word that exists on only one
@@ -47,8 +49,33 @@
     return o;
   }
 
+  function unwrapEjsonNumber(raw) {
+    const n = Number(raw);
+    return Number.isFinite(n) ? n : raw;
+  }
+
+  /** Strict EJSON number wrappers → JS numbers. Recursive; does not mutate input. */
+  function fromExtendedJson(value) {
+    if (Array.isArray(value)) return value.map(fromExtendedJson);
+    if (!value || typeof value !== 'object') return value;
+    const keys = Object.keys(value);
+    if (keys.length === 1) {
+      if (keys[0] === '$numberInt' || keys[0] === '$numberLong' || keys[0] === '$numberDouble') {
+        return unwrapEjsonNumber(fromExtendedJson(value[keys[0]]));
+      }
+    }
+    const out = {};
+    for (const k of keys) out[k] = fromExtendedJson(value[k]);
+    return out;
+  }
+
+  function asStateObject(raw) {
+    const s = fromExtendedJson(raw);
+    return s && typeof s === 'object' && !Array.isArray(s) ? s : {};
+  }
+
   function normalizeState(raw) {
-    const s = raw && typeof raw === 'object' ? raw : {};
+    const s = asStateObject(raw);
     const items = {};
     const src = s.items && typeof s.items === 'object' && !Array.isArray(s.items) ? s.items : {};
     for (const id of Object.keys(src).sort()) items[id] = ensureItem(src[id]);
@@ -224,7 +251,8 @@
   }
 
   function isV4(parsed) {
-    return !!(parsed && parsed.v === 4 && parsed.items && typeof parsed.items === 'object' && !Array.isArray(parsed.items));
+    const s = asStateObject(parsed);
+    return !!(s && s.v === 4 && s.items && typeof s.items === 'object' && !Array.isArray(s.items));
   }
 
   function readStateField(data) {
@@ -233,6 +261,7 @@
     if (typeof parsed === 'string') {
       try { parsed = JSON.parse(parsed); } catch (e) { return null; }
     }
+    parsed = fromExtendedJson(parsed);
     return isV4(parsed) ? parsed : null;
   }
 
@@ -308,6 +337,7 @@
     SYNC_KEY,
     COLLECTION,
     ensureItem,
+    fromExtendedJson,
     normalizeState,
     canonical,
     mergeState,
