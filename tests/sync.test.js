@@ -135,6 +135,112 @@ test('mocked CloudBase GET merges and PATCH sends v4 state without the key', asy
   assert.ok(!JSON.stringify(patchBody).includes('secret-key'));
 });
 
+function extInt(n) {
+  return { $numberInt: String(n) };
+}
+function extLong(n) {
+  return { $numberLong: String(n) };
+}
+function extDouble(n) {
+  return { $numberDouble: String(n) };
+}
+
+test('fromExtendedJson unwraps CloudBase $numberInt / $numberLong / $numberDouble', () => {
+  const wrapped = {
+    v: extInt(4),
+    seen: extInt(1),
+    updated: extLong(1730800000000),
+    weight: extDouble(2.5),
+    items: { w1: { seen: extInt(9), needed: false } },
+    log: [{ ts: extLong(100), seen: extInt(2) }]
+  };
+  const got = ECSync.fromExtendedJson(wrapped);
+  assert.equal(got.v, 4);
+  assert.equal(got.seen, 1);
+  assert.equal(got.updated, 1730800000000);
+  assert.equal(got.weight, 2.5);
+  assert.equal(got.items.w1.seen, 9);
+  assert.equal(got.items.w1.needed, false);
+  assert.equal(got.log[0].ts, 100);
+  assert.equal(got.log[0].seen, 2);
+  assert.equal(ECSync.fromExtendedJson(4), 4);
+  assert.deepEqual(ECSync.fromExtendedJson({ v: 4 }), { v: 4 });
+  assert.equal(ECSync.fromExtendedJson(null), null);
+});
+
+test('CloudBase GET Extended JSON is accepted and merged', async () => {
+  const remote = {
+    v: extInt(4),
+    mode: 'all',
+    items: {
+      w001: {
+        status: 'weak',
+        seen: extInt(1),
+        needed: false,
+        updated: extLong(10)
+      },
+      remoteOnly: {
+        status: 'weak',
+        seen: extInt(4),
+        needed: false,
+        updated: extLong(80)
+      }
+    },
+    recent: [],
+    log: [{
+      id: 'w001',
+      term: 'circle back',
+      action: 'weak',
+      ts: extLong(10),
+      seen: extInt(1)
+    }],
+    undo: []
+  };
+  const local = {
+    v: 4, mode: 'all', recent: [], undo: [],
+    items: { w001: { status: 'reinforce', seen: 5, needed: false, updated: 40 } },
+    log: [{ id: 'w001', term: 'circle back', action: 'reinforce', ts: 40, seen: 5 }]
+  };
+  const cfg = { envId: 'chris-env', publishableKey: 'secret-key', docId: 'doc1' };
+  const fetchImpl = async () => ({
+    ok: true,
+    status: 200,
+    json: async () => ({ data: { _id: 'doc1', state: remote } })
+  });
+  const got = await ECSync.fetchRemote(fetchImpl, cfg);
+  assert.equal(got.ok, true);
+  assert.ok(got.state);
+  assert.equal(got.state.v, 4);
+  assert.equal(typeof got.state.v, 'number');
+  assert.equal(got.state.items.w001.seen, 1);
+  assert.equal(typeof got.state.items.w001.seen, 'number');
+  assert.equal(got.state.items.w001.updated, 10);
+  assert.equal(got.state.log[0].ts, 10);
+
+  const mergedFromFetch = ECSync.mergeState(local, got.state);
+  assert.equal(mergedFromFetch.items.w001.status, 'reinforce');
+  assert.equal(mergedFromFetch.items.w001.seen, 5);
+  assert.equal(mergedFromFetch.items.remoteOnly.seen, 4);
+  assert.equal(mergedFromFetch.log.length, 2);
+
+  const mergedDirect = ECSync.mergeState(local, remote);
+  assert.equal(mergedDirect.items.w001.status, 'reinforce');
+  assert.equal(mergedDirect.items.w001.seen, 5);
+  assert.equal(mergedDirect.items.w001.updated, 40);
+  assert.equal(mergedDirect.items.remoteOnly.status, 'weak');
+  assert.equal(mergedDirect.items.remoteOnly.seen, 4);
+  assert.equal(mergedDirect.log.length, 2);
+
+  const stringFetch = async () => ({
+    ok: true,
+    status: 200,
+    json: async () => ({ data: { _id: 'doc1', state: JSON.stringify(remote) } })
+  });
+  const fromString = await ECSync.fetchRemote(stringFetch, cfg);
+  assert.equal(fromString.state.v, 4);
+  assert.equal(fromString.state.items.w001.seen, 1);
+});
+
 test('failText uses HTTP status or 网络', () => {
   assert.equal(ECSync.failText({ ok: false, status: 401 }), '同步失败 · 401');
   assert.equal(ECSync.failText({ ok: false, status: 403 }), '同步失败 · 403');

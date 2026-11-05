@@ -69,7 +69,7 @@ test('settings save CloudBase keys and do not echo the publishable key', async (
   await page.getByTestId('settings-open').click();
   await expect(page.getByTestId('sync-hint')).toContainText('不用 VPN');
   await expect(page.getByTestId('sync-hint')).toContainText('ec_state');
-  await expect(page.getByTestId('sync-hint')).toContainText('cczz23.github.io');
+  await expect(page.getByTestId('sync-hint')).toContainText('静态托管');
   await expect(page.getByTestId('sync-app-id')).toHaveCount(0);
   await page.getByTestId('sync-env').fill('chris-env');
   await page.getByTestId('sync-publishable').fill('secret-key');
@@ -138,6 +138,43 @@ test('mocked CloudBase GET merges weak count and a later mark PATCHes', async ({
   expect(body).toContain('"mode":"review"');
   expect(body).not.toContain('secret-key');
   await expect(page.getByTestId('sync-status')).toHaveText('已同步');
+});
+
+test('CloudBase GET Extended JSON still merges remote seen counts', async ({ page }) => {
+  const remote = {
+    v: { $numberInt: '4' },
+    mode: 'all',
+    items: {
+      w001: {
+        status: 'weak',
+        seen: { $numberInt: '1' },
+        needed: false,
+        updated: { $numberLong: '10' }
+      }
+    },
+    recent: [],
+    log: [{ id: 'w001', term: 'circle back', action: 'weak', ts: { $numberLong: '10' }, seen: { $numberInt: '1' } }],
+    undo: []
+  };
+  await page.route('https://chris-env.api.tcloudbasegateway.com/**', async route => {
+    if (route.request().method() === 'PATCH') {
+      await route.fulfill({ status: 200, contentType: 'application/json', body: '{"data":{"updated":1}}' });
+      return;
+    }
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({ data: { _id: 'doc1', state: remote } })
+    });
+  });
+  await page.addInitScript(() => {
+    localStorage.setItem('ec_tcb_v1', JSON.stringify({
+      envId: 'chris-env', publishableKey: 'secret-key', docId: 'doc1'
+    }));
+  });
+  await page.goto('/');
+  await expect(page.getByTestId('n-weak')).toHaveText('1');
+  await expect(page.getByTestId('sync-status')).toHaveText('已同步', { timeout: 8000 });
 });
 
 test('a real word shows one Stage A line and five Stage B scenes', async ({ page }) => {
