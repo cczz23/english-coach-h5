@@ -31,4 +31,8 @@ Chris chose 云开发 so sync stays inside mainland China without a VPN. LeanClo
 
 ## 2026-11-05 — Examples max is 5
 
-Stage B (and any other example list) is capped at 5 sentences instead of an implicit 3. Stage A stays a single short example. Existing `words.json` entries with fewer than 5 examples are unchanged; quality is not padded with duplicates.
+Stage B (and any other example list) is capped at 5 sentences instead of an implicit 3. Stage A stays a single short example. At the time, most entries still had 3 stage-B lines.
+
+## 2026-11-05 — Every word now has 5 Stage B scenes
+
+Chris asked for five quality scenes on every word, not a slice over a short list. All 126 entries gained lines: 121 went from 3 to 5, and 5 (circle back, take it offline, push back, ballpark, runway) went from 4 to 5. That is 247 new sentences. Stage A is still one short line. Each new line is a different scene in the word's track, with the target inside `[[highlight]]`, not a rephrase of a line already on the card.

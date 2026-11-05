@@ -11,9 +11,9 @@ Static H5 vocab coach. No build step. Hosted from the repo root on GitHub Pages:
 
 ## Examples
 
-- Stage A shows one short example (`examples_stage_a`).
-- Stage B shows more examples, capped at **5** (`examples_stage_b` sliced at 5). Words with fewer than 5 stay as written; do not pad with duplicates.
-- The lexicon is not expanded in this change. Most entries still have 3 stage-B lines; a few have 4. The UI will show a 5th when the data has one.
+- Stage A stays one short line (`examples_stage_a`).
+- Every word in `words.json` has **5** Stage B scenes (`examples_stage_b`). The UI still slices at 5.
+- New lines are separate scenes in the word's track (business, advanced, or life). A `both` domain may mix a work scene and an everyday one. They are not near-duplicates of the lines already there, and the target stays inside `[[highlight]]`.
 
 ## Sync
 

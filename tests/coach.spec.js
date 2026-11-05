@@ -140,6 +140,15 @@ test('mocked CloudBase GET merges weak count and a later mark PATCHes', async ({
   await expect(page.getByTestId('sync-status')).toHaveText('已同步');
 });
 
+test('a real word shows one Stage A line and five Stage B scenes', async ({ page }) => {
+  await boot(page);
+  await expect(page.getByTestId('examples-a').locator('li')).toHaveCount(1);
+  await page.getByTestId('reveal').click();
+  await expect(page.getByTestId('examples-b').locator('li')).toHaveCount(5);
+  const marked = await page.getByTestId('examples-b').locator('mark').count();
+  expect(marked).toBeGreaterThan(0);
+});
+
 test('stage B shows at most 5 examples and keeps a shorter list intact', async ({ page }) => {
   const base = {
     pos: 'n.', ipa: '/kæp/', gloss_zh: '上限', domain: 'life', track: 'life',

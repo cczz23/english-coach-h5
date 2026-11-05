@@ -14,7 +14,8 @@
    "Good question — can I [[circle back]] to you with the exact numbers by Friday?",
    "We ran out of time, so let's [[circle back]] on pricing next week.",
    "I'll [[circle back]] once legal has reviewed the term sheet.",
-   "I'll [[circle back]] with the landlord about the lease and text you."
+   "I'll [[circle back]] with the landlord about the lease and text you.",
+   "The recruiter promised to [[circle back]] after the hiring panel votes on Thursday."
   ],
   "track": "business"
  },
@@ -33,7 +34,8 @@
    "That's a detailed question — mind if we [[take it offline]]?",
    "Let's [[take it offline]]; I don't want to hold up the agenda.",
    "You two should [[take it offline]] and report back.",
-   "Can we [[take it offline]]? Grab coffee tomorrow?"
+   "Can we [[take it offline]]? Grab coffee tomorrow?",
+   "This pricing exception shouldn't sit on a group thread — let's [[take it offline]] with finance."
   ],
   "track": "business"
  },
@@ -52,7 +54,8 @@
    "I want to [[push back]] gently on the 40% growth assumption.",
    "The investor [[pushed back on]] the liquidation preference.",
    "Don't be afraid to [[push back]] if the timeline isn't realistic.",
-   "My kid always [[pushes back]] on bedtime."
+   "My kid always [[pushes back]] on bedtime.",
+   "The design lead [[pushed back on]] shipping three features in one sprint."
   ],
   "track": "business"
  },
@@ -71,7 +74,8 @@
    "Just a [[ballpark]] — are we talking $2M or $10M?",
    "A [[ballpark figure]] is fine; we'll refine it later.",
    "Your estimate is in the right [[ballpark]].",
-   "What's the [[ballpark]] for a kitchen remodel around here?"
+   "What's the [[ballpark]] for a kitchen remodel around here?",
+   "A [[ballpark]] for the conference booth is twelve thousand, before flights."
   ],
   "track": "business"
  },
@@ -89,7 +93,9 @@
   "examples_stage_b": [
    "Does your team have the [[bandwidth]] to take on another pilot?",
    "We're short on [[bandwidth]] until the launch.",
-   "I'd love to help, but I'm out of [[bandwidth]] right now."
+   "I'd love to help, but I'm out of [[bandwidth]] right now.",
+   "Support is at capacity; we don't have [[bandwidth]] for a custom integration this month.",
+   "Can product spare any [[bandwidth]] to sit in on the customer workshop?"
   ],
   "track": "business"
  },
@@ -108,7 +114,8 @@
    "After this round, our [[runway]] extends to Q2 2028.",
    "Cutting burn by 20% buys us six more months of [[runway]].",
    "Investors want to see at least 24 months of [[runway]].",
-   "How much [[runway]] do you have at current burn?"
+   "How much [[runway]] do you have at current burn?",
+   "If the enterprise renewal slips, [[runway]] gets tight before we can raise again."
   ],
   "track": "business"
  },
@@ -126,7 +133,9 @@
   "examples_stage_b": [
    "What's your current [[burn rate]], and how does it scale with hiring?",
    "We brought the [[burn rate]] down without slowing growth.",
-   "A high [[burn rate]] is fine if unit economics are improving."
+   "A high [[burn rate]] is fine if unit economics are improving.",
+   "Payroll is most of the [[burn rate]], so a hiring freeze shows up within a month.",
+   "The board asked whether the [[burn rate]] still falls if we open a second office."
   ],
   "track": "business"
  },
@@ -144,7 +153,9 @@
   "examples_stage_b": [
    "We received two [[term sheets]] and are comparing the governance terms.",
    "The [[term sheet]] includes a 1x non-participating preference.",
-   "Don't announce anything until the [[term sheet]] is signed."
+   "Don't announce anything until the [[term sheet]] is signed.",
+   "Counsel marked up the [[term sheet]] overnight and flagged the pro-rata right.",
+   "A signed [[term sheet]] is not a closed round — the wire still has to land."
   ],
   "track": "business"
  },
@@ -162,7 +173,9 @@
   "examples_stage_b": [
    "Legal [[due diligence]] should wrap up in about three weeks.",
    "We'll set up a data room for [[due diligence]].",
-   "Do your [[due diligence]] before signing a lease."
+   "Do your [[due diligence]] before signing a lease.",
+   "Customer references are part of [[due diligence]], not a last-minute courtesy.",
+   "[[Due diligence]] turned up an unpaid tax lien the seller had not mentioned."
   ],
   "track": "business"
  },
@@ -180,7 +193,9 @@
   "examples_stage_b": [
    "Their first offer was a [[lowball]], so we countered at 15% higher.",
    "Don't [[lowball]] them — you'll damage trust early.",
-   "The dealer [[lowballed]] my trade-in."
+   "The dealer [[lowballed]] my trade-in.",
+   "The acquirer [[lowballed]] the earn-out, hoping we would blink before quarter-end.",
+   "Pricing the car too low only invited a stack of [[lowball]] messages."
   ],
   "track": "business"
  },
@@ -198,7 +213,9 @@
   "examples_stage_b": [
    "If you can [[meet us halfway]] on the payment terms, we can sign today.",
    "We [[met halfway]] at a 12-month exclusivity period.",
-   "OK, I'll [[meet you halfway]] — $50 and it's yours."
+   "OK, I'll [[meet you halfway]] — $50 and it's yours.",
+   "Procurement asked us to [[meet them halfway]] on the implementation fee.",
+   "We [[met halfway]]: they dropped exclusivity, and we shortened the pilot."
   ],
   "track": "business"
  },
@@ -216,7 +233,9 @@
   "examples_stage_b": [
    "Our [[walk-away point]] is a pre-money of $40M.",
    "Never reveal your [[walk-away point]] early.",
-   "Below that number we're at our [[walk-away point]]."
+   "Below that number we're at our [[walk-away point]].",
+   "Write the [[walk-away point]] down before the call so you don't bargain with yourself.",
+   "Once they demanded a board seat, we were past our [[walk-away point]]."
   ],
   "track": "business"
  },
@@ -234,7 +253,9 @@
   "examples_stage_b": [
    "To [[sweeten the deal]], we can include six months of free support.",
    "They [[sweetened the deal]] with a signing bonus.",
-   "Throw in the dessert and you've [[sweetened the deal]]."
+   "Throw in the dessert and you've [[sweetened the deal]].",
+   "They [[sweetened the deal]] by covering the first year of implementation.",
+   "A later start date [[sweetened the deal]] for a team that was already overloaded."
   ],
   "track": "business"
  },
@@ -252,7 +273,9 @@
   "examples_stage_b": [
    "Having a competing offer gives us real [[leverage]].",
    "We can [[leverage]] our distribution partners to scale faster.",
-   "Once they need us more than we need them, the [[leverage]] shifts."
+   "Once they need us more than we need them, the [[leverage]] shifts.",
+   "We [[leveraged]] the hospital case studies to win the clinic group.",
+   "With no second bidder, we had almost no [[leverage]] on price."
   ],
   "track": "business"
  },
@@ -270,7 +293,9 @@
   "examples_stage_b": [
    "Before we move on, are we all [[on the same page]] about the scope?",
    "Let me recap so we're [[on the same page]].",
-   "My wife and I aren't [[on the same page]] about the trip."
+   "My wife and I aren't [[on the same page]] about the trip.",
+   "The kickoff note exists so we're [[on the same page]] before anyone writes code.",
+   "Sales and support aren't [[on the same page]] about what the enterprise plan includes."
   ],
   "track": "business"
  },
@@ -288,7 +313,9 @@
   "examples_stage_b": [
    "[[That's a fair point]] — let me explain why we chose this market first.",
    "[[That's a fair point]]; we haven't stress-tested that scenario.",
-   "Okay, [[that's a fair point]]. I'll check the reviews first."
+   "Okay, [[that's a fair point]]. I'll check the reviews first.",
+   "[[That's a fair point]] about support load — I'll add a line for it in the model.",
+   "[[That's a fair point]]. I was treating a one-week spike like a trend."
   ],
   "track": "business"
  },
@@ -306,7 +333,9 @@
   "examples_stage_b": [
    "[[What I'm hearing is]] that price isn't the blocker — integration is.",
    "So [[what I'm hearing is]], you'd invest if we hit $1M ARR?",
-   "[[What I'm hearing is]] you need more time; that's fine."
+   "[[What I'm hearing is]] you need more time; that's fine.",
+   "[[What I'm hearing is]] the pilot worked, but procurement still has to approve the vendor.",
+   "[[What I'm hearing is]] you want a smaller scope, not a lower price."
   ],
   "track": "business"
  },
@@ -324,7 +353,9 @@
   "examples_stage_b": [
    "Rising rates are a [[headwind]] for our customers' budgets.",
    "AI adoption is a huge [[tailwind]] for us.",
-   "Despite [[headwinds]], we grew 3x year over year."
+   "Despite [[headwinds]], we grew 3x year over year.",
+   "A weaker dollar was a [[tailwind]] for the overseas contracts.",
+   "The permit delay is a [[headwind]] nobody put in last year's plan."
   ],
   "track": "business"
  },
@@ -342,7 +373,9 @@
   "examples_stage_b": [
    "Our [[moat]] is proprietary data from 2,000 clinics.",
    "Investors asked whether network effects create a real [[moat]].",
-   "Speed alone isn't a [[moat]]."
+   "Speed alone isn't a [[moat]].",
+   "Switching costs, not the logo, are the [[moat]] the buyer actually paid for.",
+   "A brand campaign is not a [[moat]] if a customer can leave in a week."
   ],
   "track": "business"
  },
@@ -360,7 +393,9 @@
   "examples_stage_b": [
    "Show me [[traction]] — revenue, retention, or engagement.",
    "The idea is great, but they don't have [[traction]] yet.",
-   "The proposal is gaining [[traction]] with the board."
+   "The proposal is gaining [[traction]] with the board.",
+   "The clinic pilot is the first real [[traction]]; the waitlist is not.",
+   "[[Traction]] in one city doesn't prove the playbook works in three."
   ],
   "track": "business"
  },
@@ -378,7 +413,9 @@
   "examples_stage_b": [
    "Let me [[loop in]] Sarah — she owns the partnership.",
    "Please [[loop me in]] on the next thread.",
-   "Thanks for [[looping me in]]."
+   "Thanks for [[looping me in]].",
+   "[[Loop in]] the solutions engineer before you promise a custom report.",
+   "I [[looped in]] legal when the customer asked to keep the data in-region."
   ],
   "track": "business"
  },
@@ -396,7 +433,9 @@
   "examples_stage_b": [
    "Quick [[heads-up]]: the investor update goes out tomorrow.",
    "Thanks for the [[heads-up]] about the delay.",
-   "[[Heads-up]] — the restaurant is cash only."
+   "[[Heads-up]] — the restaurant is cash only.",
+   "[[Heads-up]]: the demo environment resets every night at nine.",
+   "Thanks for the [[heads-up]] — I took the board deck off the public link."
   ],
   "track": "business"
  },
@@ -414,7 +453,9 @@
   "examples_stage_b": [
    "Just [[following up on]] our conversation from Tuesday.",
    "I'll [[follow up]] with a summary and next steps.",
-   "Did the doctor's office ever [[follow up]]?"
+   "Did the doctor's office ever [[follow up]]?",
+   "Please [[follow up]] with the clinic after the two-week trial ends.",
+   "I [[followed up on]] the unsigned order; their accounts team had the wrong PO number."
   ],
   "track": "business"
  },
@@ -432,7 +473,9 @@
   "examples_stage_b": [
    "Before we wrap, can we align on [[next steps]]?",
    "[[Next steps]]: we send the deck, you intro us to the partner.",
-   "Great call — I'll send [[next steps]] by EOD."
+   "Great call — I'll send [[next steps]] by EOD.",
+   "The only [[next steps]] I want in the notes are an owner and a date.",
+   "We left without [[next steps]], and the thread went quiet for a month."
   ],
   "track": "business"
  },
@@ -450,7 +493,9 @@
   "examples_stage_b": [
    "I'm wiped — can I take a [[rain check]] on drinks?",
    "Sure, [[rain check]]! Next week works.",
-   "Let's take a [[rain check]] on the call; something urgent came up."
+   "Let's take a [[rain check]] on the call; something urgent came up.",
+   "It's pouring — [[rain check]] on the park, and let's try the museum instead.",
+   "I already promised my sister Sunday, so I'll take a [[rain check]] on brunch."
   ],
   "track": "life"
  },
@@ -468,7 +513,9 @@
   "examples_stage_b": [
    "Is that [[for here or to go]]? — To go, please.",
    "They always ask [[for here or to go]] at Chipotle.",
-   "[[For here or to go]]? — For here, thanks."
+   "[[For here or to go]]? — For here, thanks.",
+   "The barista held up the cup: [[for here or to go]]?",
+   "I answered [[for here or to go]] too fast and got a paper cup I didn't want."
   ],
   "track": "life"
  },
@@ -486,7 +533,9 @@
   "examples_stage_b": [
    "Could we [[split the check]] three ways?",
    "Want to [[split the check]], or is this on the company?",
-   "They [[split the check]] evenly, even though I only had a salad."
+   "They [[split the check]] evenly, even though I only had a salad.",
+   "The app let us [[split the check]] by dish, so I only paid for the noodles.",
+   "Let's not [[split the check]] to the cent — I'll cover the tip."
   ],
   "track": "life"
  },
@@ -504,7 +553,9 @@
   "examples_stage_b": [
    "You flew all the way here — [[I'll grab the check]].",
    "No no, [[I'll grab the check]] this time.",
-   "[[I'll grab the check]]; we'll expense it."
+   "[[I'll grab the check]]; we'll expense it.",
+   "You hosted the whole weekend — [[I'll grab the check]] tonight.",
+   "[[I'll grab the check]] before the server comes back; you paid the last two dinners."
   ],
   "track": "business"
  },
@@ -522,7 +573,9 @@
   "examples_stage_b": [
    "Can I get you anything else? — No, [[I'm all set]].",
    "Do you need help finding anything? — [[I'm all set]], thanks.",
-   "[[I'm all set]] for the meeting — slides are uploaded."
+   "[[I'm all set]] for the meeting — slides are uploaded.",
+   "The nurse offered a wheelchair. [[I'm all set]] — I can walk.",
+   "More coffee? — [[I'm all set]], thanks. I still have to drive."
   ],
   "track": "life"
  },
@@ -540,7 +593,9 @@
   "examples_stage_b": [
    "Can you [[swing by]] Target on the way home?",
    "I'll [[swing by]] your office around 2.",
-   "[[Swing by]] our booth if you have a minute."
+   "[[Swing by]] our booth if you have a minute.",
+   "[[Swing by]] the pharmacy; the prescription is ready under your name.",
+   "I'll [[swing by]] the front desk and leave the spare key."
   ],
   "track": "life"
  },
@@ -558,7 +613,9 @@
   "examples_stage_b": [
    "Thanks for waiting! — [[No worries]].",
    "[[No worries]] if you can't make it.",
-   "[[No worries]], we can reschedule the call."
+   "[[No worries]], we can reschedule the call.",
+   "Sorry I missed your text. — [[No worries]], I figured you were on the train.",
+   "[[No worries]] about the plate — the sink is right there."
   ],
   "track": "life"
  },
@@ -576,7 +633,9 @@
   "examples_stage_b": [
    "My [[layover]] in Chicago got extended because of weather.",
    "Is a 45-minute [[layover]] enough at JFK?",
-   "I worked through emails during my [[layover]]."
+   "I worked through emails during my [[layover]].",
+   "A two-hour [[layover]] in Seoul was enough to stretch and get noodles.",
+   "I missed the connection, and the airline rebooked me with a [[layover]] in Dallas."
   ],
   "track": "life"
  },
@@ -594,7 +653,9 @@
   "examples_stage_b": [
    "A bit of [[small talk]] before the pitch helps break the ice.",
    "Weather and sports are safe [[small talk]] topics.",
-   "Skip the [[small talk]] — let's get to the numbers."
+   "Skip the [[small talk]] — let's get to the numbers.",
+   "He started with [[small talk]] about the delayed flight, then asked about the round.",
+   "I'm useless at wedding [[small talk]], so I asked who made the cake."
   ],
   "track": "business"
  },
@@ -612,7 +673,9 @@
   "examples_stage_b": [
    "Exclusivity in all markets would be a [[deal-breaker]].",
    "Is the vesting schedule a [[deal-breaker]], or just a preference?",
-   "No parking is a [[deal-breaker]] for this apartment."
+   "No parking is a [[deal-breaker]] for this apartment.",
+   "A non-compete that covers the whole industry is a [[deal-breaker]] for me.",
+   "Smoke in the hallway was a [[deal-breaker]]; we left the apartment showing."
   ],
   "track": "business"
  },
@@ -630,7 +693,9 @@
   "examples_stage_b": [
    "Our commitment is [[contingent on]] a lead investor.",
    "The second tranche is [[contingent on]] hitting milestones.",
-   "The purchase is [[contingent on]] the inspection."
+   "The purchase is [[contingent on]] the inspection.",
+   "The offer is [[contingent on]] a background check and a June start.",
+   "Shipping this quarter is [[contingent on]] the chip order clearing customs."
   ],
   "track": "business"
  },
@@ -648,7 +713,9 @@
   "examples_stage_b": [
    "We'll [[ramp up]] sales once the product is stable.",
    "It takes new reps three months to [[ramp up]].",
-   "Production is [[ramping up]] ahead of the holidays."
+   "Production is [[ramping up]] ahead of the holidays.",
+   "We'll [[ramp up]] hiring only after the first ten customers renew.",
+   "Ad spend is [[ramping up]] now that the landing page actually converts."
   ],
   "track": "business"
  },
@@ -666,7 +733,9 @@
   "examples_stage_b": [
    "We'll close in six weeks, [[give or take]].",
    "It's $5M ARR, [[give or take]] a few hundred K.",
-   "The drive is an hour, [[give or take]]."
+   "The drive is an hour, [[give or take]].",
+   "The remodel took four months, [[give or take]] a week for the cabinets.",
+   "Headcount should land near forty, [[give or take]] the two open roles."
   ],
   "track": "business"
  },
@@ -684,7 +753,9 @@
   "examples_stage_b": [
    "[[Off the top of my head]], our CAC is around $800, but I'll confirm.",
    "I don't know [[off the top of my head]] — let me check.",
-   "[[Off the top of my head]], there's a good ramen place on 5th."
+   "[[Off the top of my head]], there's a good ramen place on 5th.",
+   "[[Off the top of my head]], the contract renews in March — I'll pull the PDF.",
+   "[[Off the top of my head]] the clinic opens at eight, but check the door."
   ],
   "track": "business"
  },
@@ -701,7 +772,9 @@
   "examples_stage_b": [
    "I’ll send the [[agenda]] before the meeting.",
    "Let’s stick to the [[agenda]] — we only have 30 minutes.",
-   "Can we add hiring to the [[agenda]]?"
+   "Can we add hiring to the [[agenda]]?",
+   "She printed the [[agenda]] and wrote a time box beside each topic.",
+   "If it isn't on the [[agenda]], it waits for the parking-lot list at the end."
   ],
   "id": "w101",
   "track": "business"
@@ -719,7 +792,9 @@
   "examples_stage_b": [
    "Who are the key [[stakeholder]]s on the customer side?",
    "Let’s update the [[stakeholder]]s after the pilot.",
-   "Each [[stakeholder]] has a different priority."
+   "Each [[stakeholder]] has a different priority.",
+   "The city is a [[stakeholder]] here — the permit sits with them, not the buyer.",
+   "We listed every [[stakeholder]] who can say no, including the security team."
   ],
   "id": "w102",
   "track": "business"
@@ -737,7 +812,9 @@
   "examples_stage_b": [
    "Are we [[align]]ed on the timeline?",
    "I want to [[align]] with finance before we commit.",
-   "Our incentives are [[align]]ed with yours."
+   "Our incentives are [[align]]ed with yours.",
+   "Let's [[align]] on the success metric before the pilot starts, not after.",
+   "Marketing and product [[aligned]] on one launch date instead of two."
   ],
   "id": "w103",
   "track": "business"
@@ -755,7 +832,9 @@
   "examples_stage_b": [
    "Just to [[clarify]], is that number monthly or annual?",
    "Let me [[clarify]] my earlier point.",
-   "Can you [[clarify]] the payment terms?"
+   "Can you [[clarify]] the payment terms?",
+   "Can you [[clarify]] whether 'users' means seats or companies?",
+   "I [[clarified]] in the email that the discount ends Friday."
   ],
   "id": "w104",
   "track": "business"
@@ -773,7 +852,9 @@
   "examples_stage_b": [
    "Can you [[elaborate]] on how you acquire users?",
    "I’d like to [[elaborate]] on the second risk.",
-   "He didn’t [[elaborate]], so I asked a follow-up."
+   "He didn’t [[elaborate]], so I asked a follow-up.",
+   "Would you [[elaborate]] on why the second cohort stayed longer?",
+   "The slide is one line; I'll [[elaborate]] when we get to questions."
   ],
   "id": "w105",
   "track": "business"
@@ -791,7 +872,9 @@
   "examples_stage_b": [
    "That’s a fair [[concern]] — let me address it.",
    "Investors raised [[concern]]s about churn.",
-   "Do you have any other [[concern]]s?"
+   "Do you have any other [[concern]]s?",
+   "My [[concern]] is that clinic staff won't have time to log every visit.",
+   "The parents' main [[concern]] was the late bus, not the homework."
   ],
   "id": "w106",
   "track": "business"
@@ -809,7 +892,9 @@
   "examples_stage_b": [
    "Our [[assumption]] is 5% monthly growth.",
    "That [[assumption]] seems a bit aggressive.",
-   "Let’s test that [[assumption]] with real data."
+   "Let’s test that [[assumption]] with real data.",
+   "The model breaks if that renewal [[assumption]] is off by ten points.",
+   "We put each [[assumption]] in a footnote so the board could challenge it."
   ],
   "id": "w107",
   "track": "business"
@@ -827,7 +912,9 @@
   "examples_stage_b": [
    "What’s the [[trade-off]] if we launch early?",
    "Every option has a [[trade-off]].",
-   "We accepted the [[trade-off]] to save cost."
+   "We accepted the [[trade-off]] to save cost.",
+   "The [[trade-off]] is shipping this month versus a rewrite in six.",
+   "The cheaper vendor was a [[trade-off]] we later felt in support tickets."
   ],
   "id": "w108",
   "track": "business"
@@ -845,7 +932,9 @@
   "examples_stage_b": [
    "Let’s set [[priority]]ies for next week.",
    "Hiring is not a [[priority]] right now.",
-   "Safety is our first [[priority]]."
+   "Safety is our first [[priority]].",
+   "Sleep is a higher [[priority]] than one more late meeting this week.",
+   "If everything is a [[priority]], the on-call queue will show you what isn't."
   ],
   "id": "w109",
   "track": "business"
@@ -863,7 +952,9 @@
   "examples_stage_b": [
    "Can we push the [[deadline]] to Monday?",
    "We’re going to miss the [[deadline]].",
-   "The tax [[deadline]] is next month."
+   "The tax [[deadline]] is next month.",
+   "The grant [[deadline]] is Friday at noon, not midnight.",
+   "We made the [[deadline]] only because legal returned the draft overnight."
   ],
   "id": "w110",
   "track": "business"
@@ -881,7 +972,9 @@
   "examples_stage_b": [
    "Funding is tied to hitting each [[milestone]].",
    "We reached a big [[milestone]]: 10k users.",
-   "What [[milestone]]s do you expect in 18 months?"
+   "What [[milestone]]s do you expect in 18 months?",
+   "The next [[milestone]] is ten paying clinics, not another prototype.",
+   "Missing the integration [[milestone]] pushes the hospital go-live into winter."
   ],
   "id": "w111",
   "track": "business"
@@ -899,7 +992,9 @@
   "examples_stage_b": [
    "The [[valuation]] feels high for this stage.",
    "We agreed on a pre-money [[valuation]] of 20 million.",
-   "A lower [[valuation]] means more dilution."
+   "A lower [[valuation]] means more dilution.",
+   "They defended the [[valuation]] with a revenue multiple, not a story.",
+   "A lower [[valuation]] on this round would reset the strike for new hires."
   ],
   "id": "w112",
   "track": "business"
@@ -917,7 +1012,9 @@
   "examples_stage_b": [
    "This round means about 20% [[dilution]].",
    "We want to limit [[dilution]] before Series A.",
-   "Option pools add more [[dilution]]."
+   "Option pools add more [[dilution]].",
+   "The founders modeled [[dilution]] through the next round before they signed.",
+   "The option refresh added [[dilution]] that wasn't on the first slide."
   ],
   "id": "w113",
   "track": "business"
@@ -935,7 +1032,9 @@
   "examples_stage_b": [
    "High [[churn]] is a red flag for investors.",
    "Why do customers [[churn]] after month two?",
-   "We cut [[churn]] by improving onboarding."
+   "We cut [[churn]] by improving onboarding.",
+   "Annual plans [[churn]] less than month-to-month ones in this segment.",
+   "We called every account that [[churned]] in March and heard the same onboarding complaint."
   ],
   "id": "w114",
   "track": "business"
@@ -953,7 +1052,9 @@
   "examples_stage_b": [
    "Most of our [[revenue]] comes from enterprise.",
    "[[revenue]] grew 40% year over year.",
-   "Are you [[revenue]]-positive yet?"
+   "Are you [[revenue]]-positive yet?",
+   "Services [[revenue]] is hiding how small the software line still is.",
+   "Book the [[revenue]] when the clinic goes live, not when the contract is signed."
   ],
   "id": "w115",
   "track": "business"
@@ -971,7 +1072,9 @@
   "examples_stage_b": [
    "Hardware has thinner [[margin]]s.",
    "How will you improve [[margin]]s at scale?",
-   "The [[margin]] on this deal is too low."
+   "The [[margin]] on this deal is too low.",
+   "Gross [[margin]] improved once we stopped customizing every install.",
+   "A high software [[margin]] still thins out if support hours are unlimited."
   ],
   "id": "w116",
   "track": "business"
@@ -989,7 +1092,9 @@
   "examples_stage_b": [
    "Manual onboarding isn’t [[scalable]].",
    "We built a [[scalable]] sales process.",
-   "Investors want a [[scalable]] business."
+   "Investors want a [[scalable]] business.",
+   "A founder-led sale isn't [[scalable]] past the first twenty accounts.",
+   "We rebuilt onboarding so it was [[scalable]] without an engineer on every call."
   ],
   "id": "w117",
   "track": "business"
@@ -1007,7 +1112,9 @@
   "examples_stage_b": [
    "We reviewed your [[proposal]] internally.",
    "Can you revise the [[proposal]] with new pricing?",
-   "The board approved the [[proposal]]."
+   "The board approved the [[proposal]].",
+   "The [[proposal]] never said who owns the data after the pilot.",
+   "I sent a one-page [[proposal]] instead of a forty-slide deck."
   ],
   "id": "w118",
   "track": "business"
@@ -1025,7 +1132,9 @@
   "examples_stage_b": [
    "We’re willing to [[compromise]] on price.",
    "The final deal was a [[compromise]].",
-   "I don’t want to [[compromise]] on quality."
+   "I don’t want to [[compromise]] on quality.",
+   "We [[compromised]] on where the logo sits and held the price.",
+   "Sharing a room was the [[compromise]] that made the trip possible."
   ],
   "id": "w119",
   "track": "business"
@@ -1043,7 +1152,9 @@
   "examples_stage_b": [
    "It’s technically [[feasible]] but expensive.",
    "We need a [[feasible]] plan by Monday.",
-   "Is it [[feasible]] to launch in two markets?"
+   "Is it [[feasible]] to launch in two markets?",
+   "A three-city launch isn't [[feasible]] with two people on support.",
+   "Legal said the clause is [[feasible]] if we cap the liability."
   ],
   "id": "w120",
   "track": "business"
@@ -1061,7 +1172,9 @@
   "examples_stage_b": [
    "Keep the [[receipt]] in case you return it.",
    "I need the [[receipt]] for my expense report.",
-   "The [[receipt]] is in the bag."
+   "The [[receipt]] is in the bag.",
+   "The [[receipt]] faded in the sun, so I photographed it at the register.",
+   "They wouldn't take the sweater back without a [[receipt]]."
   ],
   "id": "w121",
   "track": "life"
@@ -1079,7 +1192,9 @@
   "examples_stage_b": [
    "They gave me a full [[refund]].",
    "How long does the [[refund]] take?",
-   "Can you [[refund]] it to my card?"
+   "Can you [[refund]] it to my card?",
+   "The airline [[refunded]] the bag fee after the carousel jammed.",
+   "Ask for the [[refund]] on the original card, not as store credit."
   ],
   "id": "w122",
   "track": "life"
@@ -1097,7 +1212,9 @@
   "examples_stage_b": [
    "Do we need a [[reservation]] for dinner?",
    "I’d like to change my [[reservation]] to 7 pm.",
-   "Your [[reservation]] is confirmed."
+   "Your [[reservation]] is confirmed.",
+   "The hotel had my [[reservation]] under the old spelling of my name.",
+   "We made a [[reservation]] for six and walked in as seven."
   ],
   "id": "w123",
   "track": "life"
@@ -1115,7 +1232,9 @@
   "examples_stage_b": [
    "Can I make an [[appointment]] for next week?",
    "I need to cancel my [[appointment]].",
-   "Do I need an [[appointment]] or can I walk in?"
+   "Do I need an [[appointment]] or can I walk in?",
+   "The clinic texted a reminder the morning of the [[appointment]].",
+   "I moved the [[appointment]] to Thursday so I could make school pickup."
   ],
   "id": "w124",
   "track": "life"
@@ -1133,7 +1252,9 @@
   "examples_stage_b": [
    "Is anyone [[allergic]] to shellfish?",
    "Are you [[allergic]] to any medication?",
-   "My son is [[allergic]] to cats."
+   "My son is [[allergic]] to cats.",
+   "The menu flagged the salad for anyone [[allergic]] to peanuts.",
+   "I'm [[allergic]] to penicillin — it's on the form I gave the nurse."
   ],
   "id": "w125",
   "track": "life"
@@ -1151,7 +1272,9 @@
   "examples_stage_b": [
    "Is this seat [[available]]?",
    "I’m [[available]] after 4 pm.",
-   "Is a room [[available]] for tonight?"
+   "Is a room [[available]] for tonight?",
+   "Is the conference room [[available]], or did sales already book it?",
+   "That size isn't [[available]] until next month; this one ships Friday."
   ],
   "id": "w126",
   "track": "business"
@@ -1171,7 +1294,9 @@
   "examples_stage_b": [
    "The report offers a [[nuanced]] view of the risks.",
    "We need a more [[nuanced]] approach than 'cut costs'.",
-   "His take on the movie was surprisingly [[nuanced]]."
+   "His take on the movie was surprisingly [[nuanced]].",
+   "Her note was [[nuanced]]: the idea held up, the rollout didn't.",
+   "A [[nuanced]] reading of the lease still lets the landlord raise the fee."
   ]
  },
  {
@@ -1189,7 +1314,9 @@
   "examples_stage_b": [
    "Our move is [[contingent]] on whether I get the visa.",
    "Funding is [[contingent]] upon hitting Q3 targets.",
-   "Everything is [[contingent]] on the weather, honestly."
+   "Everything is [[contingent]] on the weather, honestly.",
+   "The offer is [[contingent]] on my starting after the notice period.",
+   "Outdoor seating this summer is [[contingent]] on the city permit."
   ]
  },
  {
@@ -1207,7 +1334,9 @@
   "examples_stage_b": [
    "The startup is in a [[precarious]] position after the layoffs.",
    "He balanced the cup in a [[precarious]] spot.",
-   "Gig workers often live a [[precarious]] life."
+   "Gig workers often live a [[precarious]] life.",
+   "Cash was so [[precarious]] they paid a vendor only after a wire cleared.",
+   "The ladder felt [[precarious]] on the wet bathroom tile."
   ]
  },
  {
@@ -1225,7 +1354,9 @@
   "examples_stage_b": [
    "The most [[salient]] issue is cash flow.",
    "She picked out the [[salient]] details from a long email.",
-   "Price wasn't the [[salient]] factor for buyers."
+   "Price wasn't the [[salient]] factor for buyers.",
+   "The [[salient]] gap between the bids is who owns the source code.",
+   "In a long thread, the [[salient]] line was the one about Friday."
   ]
  },
  {
@@ -1243,7 +1374,9 @@
   "examples_stage_b": [
    "Investors remain [[ambivalent]] about the merger.",
    "She felt [[ambivalent]] about leaving her hometown.",
-   "Many voters are [[ambivalent]] rather than opposed."
+   "Many voters are [[ambivalent]] rather than opposed.",
+   "I'm [[ambivalent]] about the promotion: more pay, and a lot more travel.",
+   "The committee stayed [[ambivalent]] until the retention chart came up."
   ]
  },
  {
@@ -1261,7 +1394,9 @@
   "examples_stage_b": [
    "A [[pragmatic]] fix now beats a perfect one next year.",
    "She's idealistic but also very [[pragmatic]].",
-   "The government made a [[pragmatic]] compromise."
+   "The government made a [[pragmatic]] compromise.",
+   "The [[pragmatic]] move was to ship the manual export and automate it next quarter.",
+   "He was [[pragmatic]] about the flat: a grim kitchen, ten minutes from the office."
   ]
  },
  {
@@ -1279,7 +1414,9 @@
   "examples_stage_b": [
    "It's [[plausible]] that demand will recover by spring.",
    "His excuse sounded [[plausible]] at first.",
-   "We need a [[plausible]] story for investors."
+   "We need a [[plausible]] story for investors.",
+   "A [[plausible]] cause of the spike is the conference, not a new trend.",
+   "The story stayed [[plausible]] until the timestamps didn't match."
   ]
  },
  {
@@ -1297,7 +1434,9 @@
   "examples_stage_b": [
    "The evidence for that claim is [[tenuous]].",
    "Their hold on the market is increasingly [[tenuous]].",
-   "We only have a [[tenuous]] connection to that family."
+   "We only have a [[tenuous]] connection to that family.",
+   "Our claim on that patent is [[tenuous]] without the lab notebooks.",
+   "After the argument, the friendship felt [[tenuous]]."
   ]
  },
  {
@@ -1315,7 +1454,9 @@
   "examples_stage_b": [
    "Conflict is [[inherent]] in any partnership.",
    "The design has an [[inherent]] flaw.",
-   "Travel has [[inherent]] uncertainty."
+   "Travel has [[inherent]] uncertainty.",
+   "There's an [[inherent]] tension between a fast close and a careful onboarding.",
+   "Concentration risk is [[inherent]] when one hospital is half your revenue."
   ]
  },
  {
@@ -1333,7 +1474,9 @@
   "examples_stage_b": [
    "Remote-first is a [[viable]] model for us.",
    "The product isn't commercially [[viable]] yet.",
-   "Cycling to work is a [[viable]] option here."
+   "Cycling to work is a [[viable]] option here.",
+   "A smaller city is still [[viable]] if the clinics sit close together.",
+   "The late bus makes walking home [[viable]] only until ten."
   ]
  },
  {
@@ -1351,7 +1494,9 @@
   "examples_stage_b": [
    "The data is [[compelling]] enough to proceed.",
    "It's a [[compelling]] read — I finished it in a day.",
-   "There's no [[compelling]] reason to switch vendors."
+   "There's no [[compelling]] reason to switch vendors.",
+   "The quote was [[compelling]] because the nurse named the hours she got back.",
+   "I didn't have a [[compelling]] reason to stay for a third interview."
   ]
  },
  {
@@ -1369,7 +1514,9 @@
   "examples_stage_b": [
    "QR codes became [[ubiquitous]] during the pandemic.",
    "Coffee chains are [[ubiquitous]] in this city.",
-   "AI tools are fast becoming [[ubiquitous]] at work."
+   "AI tools are fast becoming [[ubiquitous]] at work.",
+   "Earbuds are [[ubiquitous]] on the morning train.",
+   "Once the chat widget became [[ubiquitous]], the help desk stopped picking up."
   ]
  },
  {
@@ -1387,7 +1534,9 @@
   "examples_stage_b": [
    "The deadline seems [[arbitrary]] — can we move it?",
    "Pick an [[arbitrary]] number to start.",
-   "Staff resent [[arbitrary]] decisions from above."
+   "Staff resent [[arbitrary]] decisions from above.",
+   "The seating chart felt [[arbitrary]]; nobody could say why table four existed.",
+   "Don't ship an [[arbitrary]] character limit — tie it to the text-message cap."
   ]
  },
  {
@@ -1405,7 +1554,9 @@
   "examples_stage_b": [
    "Can I be [[candid]] about the proposal?",
    "She gave a [[candid]] interview about burnout.",
-   "I appreciate [[candid]] feedback, even when it stings."
+   "I appreciate [[candid]] feedback, even when it stings.",
+   "I'll be [[candid]]: we missed the number, and the pipeline won't save the quarter.",
+   "A [[candid]] note to the host beats disappearing on the dinner."
   ]
  },
  {
@@ -1423,7 +1574,9 @@
   "examples_stage_b": [
    "Her notes are [[meticulous]].",
    "The audit requires [[meticulous]] record-keeping.",
-   "He planned the trip with [[meticulous]] care."
+   "He planned the trip with [[meticulous]] care.",
+   "The lab tech was [[meticulous]] about labeling every sample twice.",
+   "[[Meticulous]] packing is why the camera survived the overhead bin."
   ]
  },
  {
@@ -1441,7 +1594,9 @@
   "examples_stage_b": [
    "Our supply chain needs to be more [[resilient]].",
    "The economy proved [[resilient]] despite rate hikes.",
-   "She's [[resilient]] — she bounced back fast."
+   "She's [[resilient]] — she bounced back fast.",
+   "The crew stayed [[resilient]] when the launch slipped and the press still came.",
+   "Kids can be [[resilient]], and a new school in March is still a lot."
   ]
  },
  {
@@ -1459,7 +1614,9 @@
   "examples_stage_b": [
    "Fax machines are nearly [[obsolete]].",
    "New rules made the old contract [[obsolete]].",
-   "Will this skill become [[obsolete]] in ten years?"
+   "Will this skill become [[obsolete]] in ten years?",
+   "The pager system is [[obsolete]]; the ward uses the app now.",
+   "That plugin went [[obsolete]] the week the browser dropped the old API."
   ]
  },
  {
@@ -1477,7 +1634,9 @@
   "examples_stage_b": [
    "An open office isn't [[conducive]] to deep work.",
    "Low rates are [[conducive]] to investment.",
-   "The quiet café is [[conducive]] to reading."
+   "The quiet café is [[conducive]] to reading.",
+   "A shared kitchen isn't [[conducive]] to a confidential board call.",
+   "A same-day deadline is rarely [[conducive]] to a careful memo."
   ]
  },
  {
@@ -1495,7 +1654,9 @@
   "examples_stage_b": [
    "It would be [[prudent]] to wait for the audit.",
    "A [[prudent]] investor diversifies.",
-   "It's [[prudent]] to book early in peak season."
+   "It's [[prudent]] to book early in peak season.",
+   "It was [[prudent]] to keep a month of payroll in a separate account.",
+   "A [[prudent]] guest brings something small and doesn't rearrange the kitchen."
   ]
  },
  {
@@ -1513,7 +1674,9 @@
   "examples_stage_b": [
    "The tax rules are [[intricate]].",
    "She wore an [[intricate]] silver necklace.",
-   "We untangled an [[intricate]] web of contracts."
+   "We untangled an [[intricate]] web of contracts.",
+   "The signup flow is too [[intricate]] for a nurse with six minutes.",
+   "He spent Sunday on an [[intricate]] model of the harbor bridge."
   ]
  },
  {
@@ -1531,7 +1694,9 @@
   "examples_stage_b": [
    "Profitability has proved [[elusive]] so far.",
    "The perfect work-life balance feels [[elusive]].",
-   "The cause of the bug was [[elusive]] for days."
+   "The cause of the bug was [[elusive]] for days.",
+   "A straight answer from the vendor stayed [[elusive]] all week.",
+   "Sleep was [[elusive]] the night before the hearing."
   ]
  },
  {
@@ -1549,7 +1714,9 @@
   "examples_stage_b": [
    "AI will have [[profound]] implications for jobs.",
    "She made a [[profound]] observation.",
-   "The trip left a [[profound]] impression on him."
+   "The trip left a [[profound]] impression on him.",
+   "Losing the anchor hospital had a [[profound]] effect on the roadmap.",
+   "The note from her teacher was short and [[profound]]."
   ]
  },
  {
@@ -1567,7 +1734,9 @@
   "examples_stage_b": [
    "The new policy brought [[tangible]] benefits.",
    "There's no [[tangible]] evidence yet.",
-   "Show the client something [[tangible]], like a prototype."
+   "Show the client something [[tangible]], like a prototype.",
+   "A signed order is [[tangible]]; a verbal yes in the hallway is not.",
+   "We wanted one [[tangible]] souvenir, not another tote from the booth."
   ]
  },
  {
@@ -1585,7 +1754,9 @@
   "examples_stage_b": [
    "The changes were merely [[superficial]].",
    "He only has a [[superficial]] knowledge of finance.",
-   "Don't judge people on [[superficial]] things."
+   "Don't judge people on [[superficial]] things.",
+   "The redesign was [[superficial]] — new colors, the same broken checkout.",
+   "A [[superficial]] apology didn't fix the double charge on the card."
   ]
  },
  {
@@ -1603,7 +1774,9 @@
   "examples_stage_b": [
    "Good data is [[indispensable]] for this decision.",
    "A power bank is [[indispensable]] when traveling.",
-   "No one is truly [[indispensable]]."
+   "No one is truly [[indispensable]].",
+   "A translator was [[indispensable]] in the Osaka meetings.",
+   "That one spreadsheet is [[indispensable]]; the others are copies of it."
   ]
  },
  {
@@ -1621,7 +1794,9 @@
   "examples_stage_b": [
    "Demand reached [[unprecedented]] levels.",
    "The company faces [[unprecedented]] competition.",
-   "We saw [[unprecedented]] heat this summer."
+   "We saw [[unprecedented]] heat this summer.",
+   "The outage was [[unprecedented]]: four regions failed in the same hour.",
+   "She got an [[unprecedented]] stack of applications for a single seat."
   ]
  },
  {
@@ -1639,7 +1814,9 @@
   "examples_stage_b": [
    "His argument wasn't very [[coherent]].",
    "Put these ideas into a [[coherent]] plan.",
-   "She was too tired to be [[coherent]]."
+   "She was too tired to be [[coherent]].",
+   "The memo finally made a [[coherent]] case for closing the side product.",
+   "After the second glass he was less [[coherent]] about how to get home."
   ]
  },
  {
@@ -1657,7 +1834,9 @@
   "examples_stage_b": [
    "We need a [[robust]] testing process.",
    "Sales remained [[robust]] in Q2.",
-   "It's a [[robust]] phone — survived many drops."
+   "It's a [[robust]] phone — survived many drops.",
+   "We need a [[robust]] backup that isn't the same disk as production.",
+   "Demand for evening clinic slots stayed [[robust]] through the holiday week."
   ]
  },
  {
@@ -1675,7 +1854,9 @@
   "examples_stage_b": [
    "Don't waste the meeting on [[trivial]] details.",
    "The fix is [[trivial]] — five minutes.",
-   "What seems [[trivial]] to you may matter to her."
+   "What seems [[trivial]] to you may matter to her.",
+   "The typo is [[trivial]]; the missing signature is not.",
+   "To the chef, a cold plate is not a [[trivial]] complaint."
   ]
  },
  {
@@ -1693,7 +1874,9 @@
   "examples_stage_b": [
    "The contract makes the terms [[explicit]].",
    "She gave [[explicit]] instructions.",
-   "Nothing was [[explicit]], but we got the hint."
+   "Nothing was [[explicit]], but we got the hint.",
+   "Please be [[explicit]] about whether the trip is reimbursed.",
+   "The card is [[explicit]]: one hundred eighty degrees, twelve minutes, then rest."
   ]
  },
  {
@@ -1711,7 +1894,9 @@
   "examples_stage_b": [
    "There's [[implicit]] pressure to work late.",
    "Trust is [[implicit]] in this relationship.",
-   "His criticism was [[implicit]] but clear."
+   "His criticism was [[implicit]] but clear.",
+   "The raise came with an [[implicit]] expectation of weekend launches.",
+   "There was an [[implicit]] rule: you don't take the last dumpling."
   ]
  },
  {
@@ -1729,7 +1914,9 @@
   "examples_stage_b": [
    "Insurance helps [[mitigate]] losses.",
    "We hedged to [[mitigate]] currency risk.",
-   "Planting trees can [[mitigate]] urban heat."
+   "Planting trees can [[mitigate]] urban heat.",
+   "A staged rollout can [[mitigate]] the damage of a bad migration.",
+   "Shade sails [[mitigate]] the heat over the schoolyard at lunch."
   ]
  },
  {
@@ -1747,7 +1934,9 @@
   "examples_stage_b": [
    "Constant delays [[undermine]] client trust.",
    "He felt his manager [[undermined]] him in front of others.",
-   "Lack of sleep can [[undermine]] your health."
+   "Lack of sleep can [[undermine]] your health.",
+   "Leaking the draft [[undermined]] the negotiation before the first meeting.",
+   "Side comments in the channel can [[undermine]] a new lead faster than a missed target."
   ]
  },
  {
@@ -1765,7 +1954,9 @@
   "examples_stage_b": [
    "We need to [[reconcile]] these accounts by Friday.",
    "How do you [[reconcile]] ambition with family life?",
-   "They finally [[reconciled]] after years apart."
+   "They finally [[reconciled]] after years apart.",
+   "We couldn't [[reconcile]] the CRM count with what billing exported.",
+   "She was trying to [[reconcile]] the job in another city with staying near her parents."
   ]
  },
  {
@@ -1783,7 +1974,9 @@
   "examples_stage_b": [
    "She [[advocates]] for flexible hours.",
    "Experts [[advocate]] regular breaks from screens.",
-   "He [[advocated]] a cautious approach."
+   "He [[advocated]] a cautious approach.",
+   "The union [[advocates]] paid training time, not only a longer shift.",
+   "I [[advocate]] writing the decision down so we don't argue it again next month."
   ]
  },
  {
@@ -1801,7 +1994,9 @@
   "examples_stage_b": [
    "Analysts [[attribute]] the rally to rate cuts.",
    "She [[attributes]] her success to good mentors.",
-   "The quote is often [[attributed]] to Einstein."
+   "The quote is often [[attributed]] to Einstein.",
+   "The write-up [[attributed]] the outage to a config push, not the database.",
+   "Don't [[attribute]] the quiet table to rudeness; people were just tired."
   ]
  },
  {
@@ -1819,7 +2014,9 @@
   "examples_stage_b": [
    "Can you [[discern]] any trend in the data?",
    "I couldn't [[discern]] what he really wanted.",
-   "Readers should [[discern]] fact from opinion."
+   "Readers should [[discern]] fact from opinion.",
+   "From the transcript you can [[discern]] who actually owns the decision.",
+   "I couldn't [[discern]] whether the smile was polite or pleased."
   ]
  },
  {
@@ -1837,7 +2034,9 @@
   "examples_stage_b": [
    "Hiring two more people will [[alleviate]] the workload.",
    "Exercise can [[alleviate]] stress.",
-   "The new road may [[alleviate]] traffic."
+   "The new road may [[alleviate]] traffic.",
+   "A clearer menu would [[alleviate]] the questions stacking up at the counter.",
+   "The scholarship [[alleviated]] the need to keep two jobs."
   ]
  },
  {
@@ -1855,7 +2054,9 @@
   "examples_stage_b": [
    "Price hikes [[exacerbated]] customer churn.",
    "Stress can [[exacerbate]] insomnia.",
-   "Tariffs may [[exacerbate]] inflation."
+   "Tariffs may [[exacerbate]] inflation.",
+   "Adding a second tool [[exacerbated]] the confusion instead of clearing it.",
+   "The heat wave [[exacerbated]] the crush on the last train."
   ]
  },
  {
@@ -1873,7 +2074,9 @@
   "examples_stage_b": [
    "We need data to [[substantiate]] the forecast.",
    "He couldn't [[substantiate]] the allegations.",
-   "Please [[substantiate]] your expenses with receipts."
+   "Please [[substantiate]] your expenses with receipts.",
+   "Bring the logs that [[substantiate]] a four-hour outage, not a screenshot of a chat.",
+   "A story doesn't [[substantiate]] the leave; the clinic form does."
   ]
  },
  {
@@ -1891,7 +2094,9 @@
   "examples_stage_b": [
    "Try to [[articulate]] what you actually need.",
    "He struggled to [[articulate]] his feelings.",
-   "A good PM can [[articulate]] the vision clearly."
+   "A good PM can [[articulate]] the vision clearly.",
+   "She [[articulated]] the risk in one sentence the board repeated later.",
+   "I couldn't [[articulate]] why the flat felt wrong until I timed the commute."
   ]
  },
  {
@@ -1909,7 +2114,9 @@
   "examples_stage_b": [
    "Please [[scrutinize]] the contract before signing.",
    "Every expense will be [[scrutinized]].",
-   "She [[scrutinized]] his face for a reaction."
+   "She [[scrutinized]] his face for a reaction.",
+   "The auditor will [[scrutinize]] which deals we counted in December.",
+   "He [[scrutinized]] the menu for anything without dairy."
   ]
  },
  {
@@ -1927,7 +2134,9 @@
   "examples_stage_b": [
    "Relations between the teams [[deteriorated]].",
    "Margins will [[deteriorate]] if costs keep rising.",
-   "The weather [[deteriorated]] by afternoon."
+   "The weather [[deteriorated]] by afternoon.",
+   "Night-shift response times [[deteriorated]] after they outsourced the desk.",
+   "The paint [[deteriorated]] along the window that leaked all winter."
   ]
  },
  {
@@ -1945,7 +2154,9 @@
   "examples_stage_b": [
    "Good managers [[foster]] a culture of trust.",
    "Travel can [[foster]] understanding between cultures.",
-   "The program [[fosters]] young talent."
+   "The program [[fosters]] young talent.",
+   "Office hours [[foster]] the questions people won't type into a channel.",
+   "The Saturday program [[fosters]] kids who would otherwise stop at chapter two."
   ]
  },
  {
@@ -1963,7 +2174,9 @@
   "examples_stage_b": [
    "Red tape [[hinders]] innovation.",
    "Noise can [[hinder]] concentration.",
-   "Lack of data [[hindered]] our analysis."
+   "Lack of data [[hindered]] our analysis.",
+   "A twelve-step approval [[hinders]] a fix that should take an afternoon.",
+   "Fog [[hindered]] the ferry, so we drove the long way around the bay."
   ]
  },
  {
@@ -1981,7 +2194,9 @@
   "examples_stage_b": [
    "Some firms [[circumvent]] sanctions via third countries.",
    "We found a way to [[circumvent]] the bottleneck.",
-   "Don't [[circumvent]] the approval process."
+   "Don't [[circumvent]] the approval process.",
+   "They tried to [[circumvent]] procurement by calling the CEO directly.",
+   "A side door let guests [[circumvent]] the crowd in the lobby."
   ]
  },
  {
@@ -1999,7 +2214,9 @@
   "examples_stage_b": [
    "He [[conceded]] the plan had flaws.",
    "We [[conceded]] on price to close the deal.",
-   "She refused to [[concede]] defeat."
+   "She refused to [[concede]] defeat.",
+   "The founder [[conceded]] that the first pricing page confused buyers.",
+   "I [[concede]] the trail was too long for the kids."
   ]
  },
  {
@@ -2017,7 +2234,9 @@
   "examples_stage_b": [
    "Analysts [[speculate]] about a possible merger.",
    "We can only [[speculate]] about why he left.",
-   "He lost money [[speculating]] on crypto."
+   "He lost money [[speculating]] on crypto.",
+   "I won't [[speculate]] on the record about why the CFO left.",
+   "Neighbors [[speculated]] that the empty shop would become a bakery."
   ]
  },
  {
@@ -2035,7 +2254,9 @@
   "examples_stage_b": [
    "It's a classic [[dilemma]]: growth or profit.",
    "She faced the [[dilemma]] of career versus family.",
-   "The ethical [[dilemma]] isn't easy to resolve."
+   "The ethical [[dilemma]] isn't easy to resolve.",
+   "The [[dilemma]] was whether to tell the clinic before we had a fix.",
+   "Picking a school in a new city is a [[dilemma]], not a tidy spreadsheet."
   ]
  },
  {
@@ -2053,7 +2274,9 @@
   "examples_stage_b": [
    "The [[paradox]] is that more choice makes people less happy.",
    "There's a [[paradox]] in saving money by spending more.",
-   "Remote work creates a [[paradox]] of freedom and isolation."
+   "Remote work creates a [[paradox]] of freedom and isolation.",
+   "The [[paradox]] of the tool is that it saves an hour and creates another meeting.",
+   "It's a [[paradox]] that the quietest person in the room wrote the sharpest note."
   ]
  },
  {
@@ -2071,7 +2294,9 @@
   "examples_stage_b": [
    "The whole plan rests on the [[premise]] that rates will fall.",
    "I disagree with your basic [[premise]].",
-   "The movie has an interesting [[premise]]."
+   "The movie has an interesting [[premise]].",
+   "We rejected the [[premise]] that growth requires a larger sales team.",
+   "The book's [[premise]] — a city that forgets one person a day — kept me reading."
   ]
  },
  {
@@ -2089,7 +2314,9 @@
   "examples_stage_b": [
    "Her career [[trajectory]] is impressive.",
    "The company is on an upward [[trajectory]].",
-   "Small choices can change your life's [[trajectory]]."
+   "Small choices can change your life's [[trajectory]].",
+   "Losing one hospital can bend the year's [[trajectory]].",
+   "Night classes shifted his [[trajectory]] more than the name of the degree."
   ]
  },
  {
@@ -2107,7 +2334,9 @@
   "examples_stage_b": [
    "We found a [[discrepancy]] between the invoice and the PO.",
    "Explain the [[discrepancy]] in your two statements.",
-   "There's a big [[discrepancy]] between price and value."
+   "There's a big [[discrepancy]] between price and value.",
+   "There's a [[discrepancy]] between seats sold and seats that actually logged in.",
+   "The scale showed a [[discrepancy]] after I moved it off the rug."
   ]
  },
  {
@@ -2125,7 +2354,9 @@
   "examples_stage_b": [
    "There's no [[consensus]] on the timeline yet.",
    "The [[consensus]] among economists is a mild slowdown.",
-   "Let's build [[consensus]] before the board meeting."
+   "Let's build [[consensus]] before the board meeting.",
+   "We still lack [[consensus]] on charging per clinic or per seat.",
+   "The family reached a [[consensus]]: the holiday stays at grandma's."
   ]
  },
  {
@@ -2143,7 +2374,9 @@
   "examples_stage_b": [
    "Think about the legal [[implications]].",
    "The [[implication]] was that I'd made a mistake.",
-   "This decision has [[implications]] for hiring."
+   "This decision has [[implications]] for hiring.",
+   "The [[implication]] of a usage cap is that the busiest clinic will call angry.",
+   "I caught the [[implication]] and still asked her to say it in plain words."
   ]
  },
  {
@@ -2161,7 +2394,9 @@
   "examples_stage_b": [
    "The survey has a sampling [[bias]].",
    "We all have unconscious [[bias]].",
-   "The article shows a clear [[bias]] toward the company."
+   "The article shows a clear [[bias]] toward the company.",
+   "Survivorship [[bias]] made the case studies look cleaner than the full list.",
+   "The playlist has a [[bias]] toward one decade and almost nothing newer."
   ]
  },
  {
@@ -2179,7 +2414,9 @@
   "examples_stage_b": [
    "Data [[integrity]] is critical for this audit.",
    "She refused the bribe, showing real [[integrity]].",
-   "Cracks threatened the bridge's structural [[integrity]]."
+   "Cracks threatened the bridge's structural [[integrity]].",
+   "We protected the [[integrity]] of the audit log even when it made the team look slow.",
+   "He edited the photo so hard it lost any [[integrity]]."
   ]
  },
  {
@@ -2197,7 +2434,9 @@
   "examples_stage_b": [
    "Give the team more [[autonomy]] over decisions.",
    "Teenagers crave [[autonomy]].",
-   "The region was granted greater [[autonomy]]."
+   "The region was granted greater [[autonomy]].",
+   "The squad has [[autonomy]] on the stack, not on the promise we made the hospital.",
+   "Moving out was about [[autonomy]], not about disliking the roommates."
   ]
  },
  {
@@ -2215,7 +2454,9 @@
   "examples_stage_b": [
    "Tax breaks are an [[incentive]] to invest.",
    "We need better [[incentives]] for the sales team.",
-   "Free shipping is a strong [[incentive]] to buy."
+   "Free shipping is a strong [[incentive]] to buy.",
+   "A renewal discount is a weak [[incentive]] if the app still crashes on rounds.",
+   "The stamp card was enough of an [[incentive]] to come back for a fifth coffee."
   ]
  },
  {
@@ -2233,7 +2474,9 @@
   "examples_stage_b": [
    "The CEO's pay came under public [[scrutiny]].",
    "The plan won't survive close [[scrutiny]].",
-   "Celebrities live under constant [[scrutiny]]."
+   "Celebrities live under constant [[scrutiny]].",
+   "The pricing page will draw more [[scrutiny]] than the about page.",
+   "A second advisor put the thesis topic under fresh [[scrutiny]]."
   ]
  },
  {
@@ -2251,7 +2494,9 @@
   "examples_stage_b": [
    "Strong sales led to [[complacency]].",
    "There's no room for [[complacency]] in security.",
-   "After the win, [[complacency]] set in."
+   "After the win, [[complacency]] set in.",
+   "Early praise bred [[complacency]], and the second release slipped.",
+   "A quiet month is no excuse for [[complacency]] in a clinic's infection log."
   ]
  },
  {
@@ -2269,7 +2514,9 @@
   "examples_stage_b": [
    "I agree, with one [[caveat]].",
    "The offer comes with several [[caveats]].",
-   "Big [[caveat]] — I haven't tested this on iOS."
+   "Big [[caveat]] — I haven't tested this on iOS.",
+   "One [[caveat]]: these figures leave out the pilot that hasn't been invoiced.",
+   "[[Caveat]] before you take the trail — it's mud if it rained overnight."
   ]
  }
 ]
