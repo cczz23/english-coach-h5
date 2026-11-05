@@ -184,6 +184,13 @@
     return !!(cfg && String(cfg.token || '').trim() && String(cfg.gistId || '').trim());
   }
 
+  /** Short one-line failure: HTTP status, or 网络 when fetch throws / no status. */
+  function failText(err) {
+    const status = err && typeof err.status === 'number' ? err.status : 0;
+    if (status > 0) return '同步失败 · ' + status;
+    return '同步失败 · 网络';
+  }
+
   function headers(token) {
     return {
       Accept: 'application/vnd.github+json',
@@ -253,6 +260,7 @@
     saveConfig,
     clearConfig,
     isConfigured,
+    failText,
     fetchRemote,
     pushState,
     createGist

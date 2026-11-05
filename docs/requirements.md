@@ -26,7 +26,8 @@ Backup is a **secret GitHub gist** owned by Chris:
 - Stored only in localStorage key `ec_sync_v1` on the device. Never committed, never logged, never placed in `words.json` or the README as a real secret.
 - If `ec_sync_v1` is missing a token or a gist id, the app does not call GitHub and keeps working from localStorage.
 - On open, GET the gist and merge (see comments in `sync.js`): higher `seen`, newer per-word record, union of history, local undo stack kept.
-- After a mark, next card, undo, mode toggle, or needed toggle, wait ~650ms and PATCH the full state. Show 已同步 or 同步失败. Never block the card flow.
+- After a mark, next card, undo, mode toggle, or needed toggle, wait ~650ms and PATCH the full state. Success shows 已同步. Failure shows 同步失败 · plus the HTTP status, or 同步失败 · 网络 when the request never completes. Never block the card flow.
+- 创建 private gist with no token says 请先填写 Token. A failed create leaves the settings panel open and does not clear the token just typed. The hint also describes creating the secret gist by hand on gist.github.com.
 - 创建 private gist POSTs a secret gist (`public: false`) when a token is present and the gist id field is empty, then stores the returned id.
 
 ## Out of scope

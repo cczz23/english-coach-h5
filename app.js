@@ -34,7 +34,14 @@ function load(){try{state=JSON.parse(localStorage.getItem(KEY))}catch(e){}
 let allowSync=false,syncTimer=null,chain=Promise.resolve();
 const SYNC_DEBOUNCE_MS=650;
 function syncApi(){return window.ECSync||null}
-function setSyncStatus(text){const el=$('[data-testid=sync-status]');if(el)el.textContent=text||''}
+function setSyncStatus(text){
+ const t=text||'';
+ document.querySelectorAll('[data-sync-status]').forEach(el=>{
+  el.textContent=t;
+  el.classList.toggle('is-fail',t.indexOf('同步失败')===0||t.indexOf('请先填写')===0);
+ });
+}
+function syncFail(err){const api=syncApi();setSyncStatus(api&&api.failText?api.failText(err):'同步失败 · 网络')}
 function save(){localStorage.setItem(KEY,JSON.stringify(state));if(allowSync)scheduleSync()}
 /** Debounce 650ms (within 500–800). Failures only update the status line. */
 function scheduleSync(){
@@ -49,10 +56,10 @@ async function runPush(){
  setSyncStatus('同步中');
  try{
   const result=await api.pushState(fetch,cfg.token,cfg.gistId,snapshot);
-  if(!result.ok){setSyncStatus('同步失败');return}
+  if(!result.ok){syncFail(result);return}
   if(api.canonical(state)!==api.canonical(snapshot))return runPush();
   setSyncStatus('已同步');
- }catch(e){setSyncStatus('同步失败')}
+ }catch(e){syncFail(e)}
 }
 let pullGen=0,wordsReady=false;
 async function pullRemote(){
@@ -64,7 +71,7 @@ async function pullRemote(){
  try{
   const result=await api.fetchRemote(fetch,cfg.token,cfg.gistId);
   if(gen!==pullGen)return;
-  if(!result.ok){setSyncStatus('同步失败');return}
+  if(!result.ok){syncFail(result);return}
   if(result.state){
    const prevMode=state.mode;
    state=api.mergeState(state,result.state);
@@ -79,7 +86,7 @@ async function pullRemote(){
    return;
   }
   setSyncStatus('已同步');
- }catch(e){if(gen===pullGen)setSyncStatus('同步失败')}
+ }catch(e){if(gen===pullGen)syncFail(e)}
  finally{if(gen===pullGen)allowSync=true}
 }
 function bindSettings(){
@@ -115,25 +122,28 @@ function bindSettings(){
   setSyncStatus('');panel.hidden=true;
  };
  let creating=false;
- $('[data-testid=sync-create]').onclick=async()=>{
+ const createBtn=$('[data-testid=sync-create]');
+ const createLabel=createBtn?createBtn.textContent:'创建 private gist';
+ createBtn.onclick=async(e)=>{
+  if(e)e.preventDefault();
   if(creating)return;
   const prev=api().loadConfig(localStorage);
   const token=tokenInput.value.trim()||prev.token;
-  if(!token){setSyncStatus('同步失败');return}
+  if(!token){setSyncStatus('请先填写 Token');return}
   if(gistInput.value.trim())return;
-  creating=true;setSyncStatus('同步中');
+  creating=true;createBtn.disabled=true;createBtn.textContent='创建中…';setSyncStatus('同步中');
   const snap=api().canonical(state);
   try{
    const created=await api().createGist(fetch,token,state);
-   if(!created.ok||!created.gistId){setSyncStatus('同步失败');return}
+   if(!created.ok||!created.gistId){syncFail(created);return}
    gistInput.value=created.gistId;
    api().saveConfig(localStorage,{token,gistId:created.gistId});
    tokenInput.value='';
    tokenInput.placeholder='已保存（留空则不修改）';
    allowSync=true;
    if(api().canonical(state)!==snap)scheduleSync();else setSyncStatus('已同步');
-  }catch(e){setSyncStatus('同步失败')}
-  finally{creating=false}
+  }catch(err){syncFail(err)}
+  finally{creating=false;createBtn.disabled=false;createBtn.textContent=createLabel}
  };
 }
 const rec=id=>state.items[id]||(state.items[id]={status:null,seen:0,needed:false});

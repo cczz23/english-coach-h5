@@ -123,6 +123,13 @@ test('mocked gist GET merges and PATCH sends the v4 file without the token', asy
   assert.ok(!file.includes('ghp_example'));
 });
 
+test('failText uses HTTP status or 网络', () => {
+  assert.equal(ECSync.failText({ ok: false, status: 401 }), '同步失败 · 401');
+  assert.equal(ECSync.failText({ ok: false, status: 403 }), '同步失败 · 403');
+  assert.equal(ECSync.failText({ ok: false, status: 0 }), '同步失败 · 网络');
+  assert.equal(ECSync.failText(new TypeError('Failed to fetch')), '同步失败 · 网络');
+});
+
 test('create private gist returns the id and skipped sync stays a no-op when unset', async () => {
   assert.equal(ECSync.isConfigured({ token: '', gistId: '' }), false);
   let posted = null;

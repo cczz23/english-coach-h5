@@ -67,7 +67,8 @@ test('settings save the token and gist id, and echo neither into the page', asyn
   }));
   await boot(page);
   await page.getByTestId('settings-open').click();
-  await expect(page.getByTestId('sync-hint')).toHaveText('token 只勾 gist；不要用账号密码；仅自己设备用。');
+  await expect(page.getByTestId('sync-hint')).toContainText('token 只勾 gist；不要用账号密码；仅自己设备用。');
+  await expect(page.getByTestId('sync-hint')).toContainText('english-coach-state.json');
   await page.getByTestId('sync-token').fill('ghp_example');
   await page.getByTestId('sync-gist').fill('gist123');
   await page.getByTestId('sync-save').click();
@@ -163,6 +164,33 @@ test('stage B shows at most 5 examples and keeps a shorter list intact', async (
   await page.getByTestId('reveal').click();
   await expect(page.getByTestId('examples-b').locator('li')).toHaveCount(3);
   await expect(page.getByTestId('examples-b')).toContainText('Short 3');
+});
+
+test('failed create names the HTTP status and keeps the token', async ({ page }) => {
+  await page.route('https://api.github.com/gists', route => route.fulfill({
+    status: 401,
+    contentType: 'application/json',
+    body: '{"message":"Bad credentials"}'
+  }));
+  await boot(page);
+  await page.getByTestId('settings-open').click();
+  await page.getByTestId('sync-token').fill('ghp_example');
+  await page.getByTestId('sync-create').click();
+  await expect(page.getByTestId('sync-status')).toHaveText('同步失败 · 401');
+  await expect(page.getByTestId('sync-status-panel')).toHaveText('同步失败 · 401');
+  await expect(page.getByTestId('settings')).toBeVisible();
+  await expect(page.getByTestId('sync-token')).toHaveValue('ghp_example');
+  await expect(page.getByTestId('sync-gist')).toHaveValue('');
+  await expect(page.getByTestId('sync-create')).toBeEnabled();
+  await expect(page.getByTestId('sync-create')).toHaveText('创建 private gist');
+});
+
+test('create with an empty token asks for the token', async ({ page }) => {
+  await boot(page);
+  await page.getByTestId('settings-open').click();
+  await page.getByTestId('sync-create').click();
+  await expect(page.getByTestId('sync-status')).toHaveText('请先填写 Token');
+  await expect(page.getByTestId('settings')).toBeVisible();
 });
 
 test('create private gist stores the returned id', async ({ page }) => {
