@@ -13,6 +13,40 @@ function tokens(line) {
   );
 }
 
+test('every word has usage speak or rw, and rw has 1–2 sayInstead', () => {
+  assert.equal(words.length, 126);
+  const speakExamples = ['circle back', 'heads-up', 'traction', 'pragmatic', 'plausible'];
+  const rwExamples = {
+    precarious: ['unstable', 'shaky'],
+    tenuous: ['weak', 'thin'],
+    elusive: ['hard to pin down', 'slippery'],
+    ubiquitous: ['everywhere', 'all over'],
+    exacerbate: ['make worse', 'worsen']
+  };
+  const byTerm = new Map(words.map(w => [w.term, w]));
+  for (const term of speakExamples) {
+    assert.equal(byTerm.get(term).usage, 'speak', term);
+    assert.ok(byTerm.get(term).sayInstead == null, term + ' omits sayInstead');
+  }
+  for (const [term, alts] of Object.entries(rwExamples)) {
+    assert.equal(byTerm.get(term).usage, 'rw', term);
+    assert.deepEqual(byTerm.get(term).sayInstead, alts, term);
+  }
+  for (const w of words) {
+    assert.ok(w.usage === 'speak' || w.usage === 'rw', w.id + ' usage');
+    if (w.usage === 'rw') {
+      assert.ok(Array.isArray(w.sayInstead), w.id + ' sayInstead');
+      assert.ok(w.sayInstead.length >= 1 && w.sayInstead.length <= 2, w.id + ' sayInstead count');
+      for (const alt of w.sayInstead) {
+        assert.equal(typeof alt, 'string', w.id);
+        assert.ok(alt.trim().length > 0, w.id + ' empty alternative');
+      }
+    } else {
+      assert.ok(w.sayInstead == null || (Array.isArray(w.sayInstead) && w.sayInstead.length === 0), w.id + ' speak sayInstead');
+    }
+  }
+});
+
 test('every word has one Stage A line and five distinct Stage B scenes', () => {
   assert.equal(words.length, 126);
   for (const w of words) {

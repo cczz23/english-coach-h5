@@ -90,3 +90,13 @@ because github.io CORS is blocked on the free tier.
 CloudBase document GET returns Strict EJSON (`"v": {"$numberInt": "4"}`, `"seen": {"$numberInt": "1"}`, `"updated": {"$numberLong": "..."}`). `isV4` required `parsed.v === 4`, so `readDocState` returned null, pull skipped the merge, and each device kept its own localStorage while push still showed 已同步. Unwrap `$numberInt` / `$numberLong` / `$numberDouble` before `isV4` / `normalizeState` / merge.
 
 Collection ACL stays 读取全部数据，修改本人数据. Shared Publishable Key + this ACL may still be OK for same-key clients; this change does not retune ACL.
+
+## 2026-11-06 — 用法标签：说 / 读写
+
+Chris practices as an investor: meetings, negotiation, phone, plus reading. Two labels only. Do not add a third. Do not delete words. The tag guides what to practice out loud and how to add words later.
+
+- `usage: "speak"` → badge **说**. He would willingly say it in a meeting, a negotiation, on the phone, or in casual talk. It should sound natural, not like an essay. If he would say it out loud, tag 说 even when it also shows up in writing. Examples: pragmatic, circle back, heads-up, traction, plausible. Business phrases and high-frequency meeting words are 说. If a business term is one he would use in an IC or VC meeting and the call is close, prefer 说.
+- `usage: "rw"` → badge **读写**. Mainly for email, memos, reports, news, or for understanding someone else's formal speech. He needs to recognize it, and he would normally say a simpler word instead. Examples: tenuous, precarious, elusive, ubiquitous, exacerbate. Formal advanced adjectives and abstract verbs that feel essay-like go here.
+- `sayInstead`: string array, **rw only**, 1–2 spoken alternatives he would actually say (English lemmas or short phrases). precarious → unstable / shaky; tenuous → weak / thin. Omit the field on 说 words (or leave it empty).
+- `contrast` / 易混对比 stays. Usage is a separate field and a separate line on the card.
+- UI: Stage A and Stage B show the badge next to the track chip. On Stage B, when usage is rw and `sayInstead` is non-empty, show one compact line under the gloss: 「想说时用：unstable / shaky」. 生疏列表 shows the same badge on each row. No new filter in this change. A later 「先练说」 filter (speak only) can sit on top of this field. Queue, marks, `EX_MAX`, and sync stay as they are.

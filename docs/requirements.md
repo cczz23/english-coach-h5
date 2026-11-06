@@ -19,9 +19,10 @@ GitHub Pages `https://cczz23.github.io/english-coach-h5/` 仍能打开页面，�
 | 易混对比 `contrast` | 已上 main |
 | CloudBase Strict EJSON 数字展开（`$numberInt` 等） | 已上 main |
 | 日常入口改为云开发静态托管（github.io CORS 免费版被拦） | 已上 main |
-| **新词 / 复习混排滑条**（new↔review 抽卡概率） | **本 PR 实现** |
-| **生疏列表**（还不熟 / 再巩固，可点开卡片） | **本 PR 实现** |
+| **新词 / 复习混排滑条**（new↔review 抽卡概率） | **已上 main** |
+| **生疏列表**（还不熟 / 再巩固，可点开卡片） | **已上 main** |
 | **间隔回访 / SRS** | **讨论中，Chris 还在想；不要实现**（只记候选） |
+| **用法标签 说 / 读写**（`usage` + `sayInstead`） | **本 PR 实现** |
 
 ---
 
@@ -29,13 +30,13 @@ GitHub Pages `https://cczz23.github.io/english-coach-h5/` 仍能打开页面，�
 
 - 数据：`words.json`。当前 126 词。
 - `track`：`business` / `advanced` / `life`。`domain` 可为 `business` / `life` / `both`。
-- 每词：`id`, `term`, `pos`, `ipa`, `gloss_zh`, `examples_stage_a`, `examples_stage_b`，以及可选 `important_suggest`, `contrast`。
-- 不在同步工作里加词条。易混对比只给已有词加 optional 字段，不加新 lemma。
+- 每词：`id`, `term`, `pos`, `ipa`, `gloss_zh`, `examples_stage_a`, `examples_stage_b`，`usage`（`speak` | `rw`），以及可选 `important_suggest`, `contrast`, `sayInstead`。
+- 不删词。用法标签只排练习优先级，也给以后扩词库一个口径。不在同步工作里加词条。易混对比只给已有词加 optional 字段，不加新 lemma。
 
 ## 学习流 Stage A → B
 
-1. **Stage A**：只给词、音标、track、一条短例句。没有释义。按钮：跳过 / 查看释义。
-2. **查看释义** → **Stage B**：中文释义、可选「易混对比」、最多 5 条例句、特别需要、三态标记。
+1. **Stage A**：词、音标、track、用法徽章（说 / 读写）、一条短例句。没有释义，也没有「想说时用」。按钮：跳过 / 查看释义。
+2. **查看释义** → **Stage B**：中文释义、读写词的「想说时用」、可选「易混对比」、最多 5 条例句、特别需要、三态标记。用法徽章仍在。
 3. 标记后进入下一张卡，仍从 Stage A 开始。
 4. 跳过 = 先放掉（`dropped`），计入 undo。
 
@@ -103,6 +104,40 @@ Optional 字段：
 - 两边都在词库时，互补各写一条，不强求对称（如 prudent ↔ meticulous，viable ↔ feasible）。
 - UI：Stage B、释义之后、例句之前。标题「易混对比」，行如 `vs practical — …`。没有 `contrast` 或空数组则整块不渲染。
 - 只是内容：不加标记按钮，不改 `EX_MAX`，不改同步 / `ec_state_v4`。
+- 和用法标签分开。有 `contrast` 的词照旧显示「易混对比」；`usage` 不替代它。
+
+## 用法：说 / 读写（本 PR）
+
+只有两档，不要发明第三档。给 Chris（投资人；开会 + 阅读）标「开口会不会说」，不删任何词。
+
+| 键 `usage` | 卡片徽章 | 什么时候用 |
+| --- | --- | --- |
+| `speak` | **说** | 他愿意在会议、谈判、电话或闲聊里说出口，听着自然，不像作文。书面里也会出现，仍标说。例：pragmatic, circle back, heads-up, traction, plausible。 |
+| `rw` | **读写** | 主要出现在邮件、备忘、报告、新闻，或用来听懂别人的正式说法。他需要认得，但自己开口通常会换一个更简单的词。例：tenuous, precarious, elusive, ubiquitous, exacerbate。 |
+
+口径：
+
+- 他愿意说出口（哪怕书面也常见）→ **说**。
+- 开口时他通常会换更简单的词 → **读写**。
+- 拿不准、又是他在 IC / VC 会上会说的商务词 → **说**。
+- 商务套话、会上高频词 → **说**。书面腔的高级形容词、抽象动词 → **读写**，并写 `sayInstead`。
+
+`sayInstead`：只给 **读写**。1–2 个他真的会说的口语替代（英文 lemma 或短语）。例：precarious → `unstable` / `shaky`；tenuous → `weak` / `thin`。**说** 不写这个字段（省略或空数组）。
+
+字段：
+
+```json
+"usage": "rw",
+"sayInstead": ["unstable", "shaky"]
+```
+
+UI：
+
+- Stage A 和 Stage B 的词卡，音标那一行、track 旁边，小徽章「说」或「读写」。
+- `usage` 为 `rw` 且 `sayInstead` 非空时，Stage B 在释义和易混对比之间加一行：「想说时用：unstable / shaky」。手机上保持一行、不另开大块。
+- 生疏列表每一行同样显示这个徽章。
+- 本 PR 不加筛选。以后可以加「先练说」（只抽 `usage=speak`）。
+- 不改抽卡、不改标记按钮、不改 `EX_MAX`、不改同步。
 
 ## 同步：Tencent CloudBase（已上 main）
 
@@ -151,7 +186,7 @@ https://regional-newt-d8ghvyg140f22c055-1404967840.tcloudbaseapp.com
 顶栏 **生疏列表** 打开底部列表，方便扫一眼还没掌握的词，不替代卡片复习。
 
 - 分组：**还不熟**（`weak`）在上，**再巩固**（`reinforce`）在下。标签与 Stage B 按钮一致。
-- 每行：词/短语 + `words.json` 的 `gloss_zh`。特别需要只在该行加 ★，不单独成组。
+- 每行：词/短语 + 用法徽章（说 / 读写）+ `words.json` 的 `gloss_zh`。特别需要只在该行加 ★，不单独成组。
 - `dropped` 和未标记的词不出现。两边都空时显示「还没有标为「还不熟」或「再巩固」的词。」
 - 点一行打开该词 Stage A 卡片（计入 seen / recent）。关闭按钮收起列表。
 
@@ -179,4 +214,4 @@ https://regional-newt-d8ghvyg140f22c055-1404967840.tcloudbaseapp.com
 - 改 GitHub Pages 的分支或目录（`main`，仓库根 `/`）。
 - Google Drive / Google OAuth；GitHub gist 日常同步；LeanCloud 日常同步。
 - 为同步工作扩词库。
-- 本 PR：SRS、改 `EX_MAX`、新标记按钮。
+- 本 PR：SRS、改 `EX_MAX`、新标记按钮、用法筛选（「先练说」只记在上面，不实现）。

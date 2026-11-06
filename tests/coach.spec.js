@@ -180,8 +180,10 @@ test('CloudBase GET Extended JSON still merges remote seen counts', async ({ pag
 
 test('a real word shows one Stage A line and five Stage B scenes', async ({ page }) => {
   await boot(page);
+  await expect(page.getByTestId('usage')).toHaveText(/^(说|读写)$/);
   await expect(page.getByTestId('examples-a').locator('li')).toHaveCount(1);
   await page.getByTestId('reveal').click();
+  await expect(page.getByTestId('usage')).toHaveText(/^(说|读写)$/);
   await expect(page.getByTestId('examples-b').locator('li')).toHaveCount(5);
   const marked = await page.getByTestId('examples-b').locator('mark').count();
   expect(marked).toBeGreaterThan(0);
@@ -221,6 +223,67 @@ test('Stage A to B to marks still works when the word has contrast', async ({ pa
   await expect(page.getByTestId('stage')).toHaveText('STAGE A');
   await expect(page.getByTestId('card-a')).toBeVisible();
   await expect(page.getByTestId('contrast')).toHaveCount(0);
+});
+
+test('usage badge is on both stages; 想说时用 only for rw with alternatives', async ({ page }) => {
+  const base = {
+    pos: 'adj.', ipa: '/test/', gloss_zh: '释义', domain: 'both', track: 'advanced',
+    examples_stage_a: ['A [[sample]] line.'],
+    examples_stage_b: ['B [[sample]] line.']
+  };
+  await page.route('**/words.json', route => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify([
+      { ...base, id: 'rw1', term: 'precarious', usage: 'rw', sayInstead: ['unstable', 'shaky'], contrast: [{ vs: 'dangerous', note_zh: '危险是会出事' }] },
+      { ...base, id: 'sp1', term: 'pragmatic', usage: 'speak' }
+    ])
+  }));
+  await page.goto('/');
+  await expect(page.getByTestId('term')).toBeVisible();
+  const term = (await page.getByTestId('term').innerText()).trim();
+  if (term === 'precarious') {
+    await expect(page.getByTestId('usage')).toHaveText('读写');
+    await expect(page.getByTestId('say-instead')).toHaveCount(0);
+    await page.getByTestId('reveal').click();
+    await expect(page.getByTestId('usage')).toHaveText('读写');
+    await expect(page.getByTestId('say-instead')).toHaveText('想说时用：unstable / shaky');
+    await expect(page.getByTestId('contrast')).toBeVisible();
+    await page.getByTestId('drop').click();
+    await expect(page.getByTestId('term')).toHaveText('pragmatic');
+    await expect(page.getByTestId('usage')).toHaveText('说');
+    await page.getByTestId('reveal').click();
+    await expect(page.getByTestId('say-instead')).toHaveCount(0);
+  } else {
+    await expect(page.getByTestId('term')).toHaveText('pragmatic');
+    await expect(page.getByTestId('usage')).toHaveText('说');
+    await expect(page.getByTestId('say-instead')).toHaveCount(0);
+    await page.getByTestId('reveal').click();
+    await expect(page.getByTestId('say-instead')).toHaveCount(0);
+    await page.getByTestId('drop').click();
+    await expect(page.getByTestId('term')).toHaveText('precarious');
+    await expect(page.getByTestId('usage')).toHaveText('读写');
+    await page.getByTestId('reveal').click();
+    await expect(page.getByTestId('say-instead')).toHaveText('想说时用：unstable / shaky');
+    await expect(page.getByTestId('contrast')).toContainText('vs dangerous');
+  }
+});
+
+test('读写 with an empty sayInstead shows the badge and hides the line', async ({ page }) => {
+  await page.route('**/words.json', route => route.fulfill({
+    contentType: 'application/json',
+    body: JSON.stringify([{
+      id: 'rwempty', term: 'tenuous', pos: 'adj.', ipa: '/x/', gloss_zh: '微弱',
+      domain: 'both', track: 'advanced', usage: 'rw', sayInstead: [],
+      examples_stage_a: ['A [[tenuous]] line.'],
+      examples_stage_b: ['B [[tenuous]] line.']
+    }])
+  }));
+  await page.goto('/');
+  await expect(page.getByTestId('usage')).toHaveText('读写');
+  await page.getByTestId('reveal').click();
+  await expect(page.getByTestId('usage')).toHaveText('读写');
+  await expect(page.getByTestId('say-instead')).toHaveCount(0);
+  await expect(page.getByTestId('gloss')).toHaveText('微弱');
 });
 
 test('contrast block is hidden when the field is missing or empty', async ({ page }) => {
@@ -425,6 +488,8 @@ test('生疏列表 is empty, then groups 还不熟 / 再巩固 and opens that ca
   await expect(page.getByTestId('weak-list')).toContainText('take it offline');
   await expect(page.getByTestId('weak-list')).toContainText('回头');
   await expect(page.locator('[data-testid=weak-row][data-id=w001]')).toContainText('★');
+  await expect(page.locator('[data-testid=weak-row][data-id=w001] [data-testid=weak-usage]')).toHaveText('说');
+  await expect(page.locator('[data-testid=weak-row][data-id=w003] [data-testid=weak-usage]')).toHaveText('说');
   await expect(page.getByTestId('weak-list')).not.toContainText('push back');
   await page.locator('[data-testid=weak-row][data-id=w001]').click();
   await expect(page.getByTestId('weak-list')).toBeHidden();

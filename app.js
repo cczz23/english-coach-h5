@@ -223,8 +223,21 @@ function undo(){
  state.log.push({id:entry.id,term:entry.term,action:'undo',ts:Date.now(),seen:r.seen,undone:entry.action});
  cur=WORDS.find(w=>w.id===entry.id)||null;stage='A';save();render()}
 function toggleNeeded(){const r=rec(cur.id);r.needed=!r.needed;r.updated=Date.now();log(r.needed?'needed_on':'needed_off');save();render()}
+/** 说 = he'd say it; 读写 = recognize it, say something plainer. */
+function usageMark(u,testid){
+ const id=testid||'usage';
+ if(u==='speak')return `<span class="usage usage-speak" data-testid="${id}" title="开口会说">说</span>`;
+ if(u==='rw')return `<span class="usage usage-rw" data-testid="${id}" title="读写认得出，开口换个说法">读写</span>`;
+ return '';
+}
+function sayInsteadLine(w){
+ if(!w||w.usage!=='rw'||!Array.isArray(w.sayInstead))return '';
+ const alts=w.sayInstead.map(s=>String(s||'').trim()).filter(Boolean).slice(0,2);
+ if(!alts.length)return '';
+ return `<div class="say-instead" data-testid="say-instead"><span class="say-instead-h">想说时用：</span>${esc(alts.join(' / '))}</div>`;
+}
 function head(){const r=rec(cur.id);const n=r.seen;return `<div class="stage" data-testid="stage">STAGE ${stage}</div><div class="term" data-testid="term" data-id="${cur.id}">${esc(cur.term)}${r.needed?'<span class="needed-dot" data-testid="needed-dot" title="特别需要">★</span>':''}</div>
-<div class="meta">${esc(cur.pos)} · <span data-testid="ipa">${esc(cur.ipa)}</span><span class="dom" data-testid="track">${({business:"商务",advanced:"高级",life:"生活"})[cur.track]||cur.domain}</span>${n>1?`<span class="badge" data-testid="seen-hint">已见过 ${n} 次</span>`:''}</div>`}
+<div class="meta">${esc(cur.pos)} · <span data-testid="ipa">${esc(cur.ipa)}</span><span class="dom" data-testid="track">${({business:"商务",advanced:"高级",life:"生活"})[cur.track]||cur.domain}</span>${usageMark(cur.usage)}${n>1?`<span class="badge" data-testid="seen-hint">已见过 ${n} 次</span>`:''}</div>`}
 function neededBtn(){const on=!!rec(cur.id).needed;return `<button type="button" class="needed-toggle${on?' on':''}" data-testid="needed" aria-pressed="${on?'true':'false'}"><span class="star">${on?'★':'☆'}</span> 特别需要</button>`}
 function bindNeeded(){const b=$('[data-testid=needed]');if(b)b.onclick=e=>{e.preventDefault();e.stopPropagation();toggleNeeded()}}
 /** Stage B (and Stage A) show at most 5 examples. Shorter lists stay as written. */
@@ -253,7 +266,7 @@ function openList(){
  if(!g.weak.length&&!g.reinforce.length){
   body.innerHTML=`<div class="empty-list" data-testid="weak-list-empty">还没有标为「还不熟」或「再巩固」的词。</div>`;
  }else{
-  const row=r=>`<button type="button" class="weak-row" data-testid="weak-row" data-id="${esc(r.id)}"><span class="weak-row-term">${esc(r.term)}${r.needed?'<span class="needed-dot" title="特别需要">★</span>':''}</span><span class="weak-row-gloss">${esc(r.gloss_zh)}</span></button>`;
+  const row=r=>`<button type="button" class="weak-row" data-testid="weak-row" data-id="${esc(r.id)}"><span class="weak-row-term">${esc(r.term)}${usageMark(r.usage,'weak-usage')}${r.needed?'<span class="needed-dot" title="特别需要">★</span>':''}</span><span class="weak-row-gloss">${esc(r.gloss_zh)}</span></button>`;
   let html='';
   if(g.weak.length)html+=`<div class="weak-h" data-testid="weak-group-weak">还不熟</div>${g.weak.map(row).join('')}`;
   if(g.reinforce.length)html+=`<div class="weak-h" data-testid="weak-group-reinforce">再巩固</div>${g.reinforce.map(row).join('')}`;
@@ -276,6 +289,7 @@ function render(){stats();paintMix(state.mix);const app=$('#app');
   $('[data-testid=skip]').onclick=()=>act('skip_drop','dropped');
   $('[data-testid=reveal]').onclick=()=>{stage='B';log('reveal');save();render()};
  }else{app.innerHTML=`<div class="card" data-testid="card-b">${head()}<div class="gloss" data-testid="gloss">${esc(cur.gloss_zh)}</div>
+ ${sayInsteadLine(cur)}
  ${contrastBlock(cur)}
  <ul data-testid="examples-b">${exList(cur.examples_stage_b)}</ul>
  ${neededBtn()}
