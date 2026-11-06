@@ -100,3 +100,19 @@ Chris practices as an investor: meetings, negotiation, phone, plus reading. Two 
 - `sayInstead`: string array, **rw only**, 1–2 spoken alternatives he would actually say (English lemmas or short phrases). precarious → unstable / shaky; tenuous → weak / thin. Omit the field on 说 words (or leave it empty).
 - `contrast` / 易混对比 stays. Usage is a separate field and a separate line on the card.
 - UI: Stage A and Stage B show the badge next to the track chip. On Stage B, when usage is rw and `sayInstead` is non-empty, show one compact line under the gloss: 「想说时用：unstable / shaky」. 生疏列表 shows the same badge on each row. No new filter in this change. A later 「先练说」 filter (speak only) can sit on top of this field. Queue, marks, `EX_MAX`, and sync stay as they are.
+
+## 2026-11-06 — Lexicon batch from progress gaps
+
+Chris said the previous 126-word batch is finished. Same-day CloudBase snapshot (about 2026-11-06 20:32 Asia/Shanghai): 118 items with a record, weak 19, reinforce 31, dropped 64, needed 44. The weak set is mostly formal adjectives and verbs he is not activating (salient, prudent, plausible, coherent, exacerbate, hinder, circumvent, and similar), plus a few business speak items (traction, lowball, off the top of my head). Reinforce clusters around meeting language he does want (take it offline, contingent on, nuanced, pragmatic, premise, discrepancy).
+
+Decision: do not re-add any existing term. Add 50 adjacent new entries, ids `w263`–`w312`, stable thereafter. No SRS. `EX_MAX` stays 5. Each new entry has one Stage A line and five distinct Stage B scenes.
+
+| track / usage | count | why these |
+| --- | --- | --- |
+| business / speak | 24 | IC, diligence, negotiation, and running a meeting: upside, downside, conviction, thesis, red flag, non-starter, dig into, flag, bottleneck, ownership, sync up, net-net, park that, get up to speed, unit economics, go-to-market, dry powder, follow-on, pro rata, underwrite, path to profitability, optionality, soft commit, liquidation preference. Unsure IC/VC terms were tagged speak. |
+| advanced / speak | 18 | Mid-advanced words he can say in a discussion: material, incremental, nascent, differentiated, sticky, durable, secular, anecdotal, substantive, tentative, skeptical, concise, deliberate, fragmented, saturated, commoditized, catalyst, overhang. Confusable ones carry `contrast` against a basic near-synonym (important, new, different, short, careful, and so on). |
+| advanced / rw | 8 | Formal memo, contract, and speech recognition, each with 1–2 `sayInstead` lines: idiosyncratic, pertinent, preclude, consequential, unequivocal, protracted, notwithstanding, bolster. |
+
+Lexicon after this batch: 176 words. Tracks: business 76, advanced 88, life 12. Usage: speak 140, rw 36. Old ids, sentences, and usage tags were left as they were. Business entries use `domain: business`; advanced entries use `domain: both`.
+
+Consciously skipped as near-duplicates of words already in the file, or of a term kept in this batch: hard commit (soft commit only, with a contrast against a firm yes), DRI (ownership covers who drives it), timebox, call out (too close to flag), unblock (too close to bottleneck), momentum (near traction / trajectory), defensibility (near moat), alignment (align is already there), data room (a slice of due diligence), capacity (near bandwidth), deep dive (near dig into), marginal / materially (same size band as material and incremental). No new slang and no new life entries. Upside and downside were both kept: they are opposites, not two ways to say the same thing. red flag (noun) and flag (verb) were both kept on purpose.
