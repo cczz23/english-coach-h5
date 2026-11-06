@@ -49,7 +49,7 @@ test('splitPools: new is unmarked, review is weak+reinforce, dropped is out', ()
 test('listGroups keeps 还不熟 / 再巩固, drops dropped, marks 特别需要', () => {
   const words = [
     word('w2', { term: 'zeta', gloss_zh: 'Z' }),
-    word('w1', { term: 'alpha', gloss_zh: 'A' }),
+    word('w1', { term: 'alpha', gloss_zh: 'A', usage: 'rw' }),
     word('w3', { term: 'mid', gloss_zh: 'M' }),
     word('w4', { term: 'gone', gloss_zh: 'G' })
   ];
@@ -64,6 +64,8 @@ test('listGroups keeps 还不熟 / 再巩固, drops dropped, marks 特别需要'
   assert.equal(g.weak[0].term, 'alpha');
   assert.equal(g.weak[0].needed, true);
   assert.equal(g.weak[0].gloss_zh, 'A');
+  assert.equal(g.weak[0].usage, 'rw');
+  assert.equal(g.weak[1].usage, '');
   assert.deepEqual(g.reinforce.map(r => r.id), ['w3']);
   assert.equal(g.reinforce[0].status, 'reinforce');
   assert.ok(!g.weak.some(r => r.id === 'w4'));

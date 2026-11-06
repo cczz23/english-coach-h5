@@ -74,6 +74,7 @@
         id: w.id,
         term: w.term || '',
         gloss_zh: w.gloss_zh || '',
+        usage: w.usage === 'speak' || w.usage === 'rw' ? w.usage : '',
         needed: !!r.needed,
         status: st
       };
