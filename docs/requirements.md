@@ -10,7 +10,7 @@ GitHub Pages `https://cczz23.github.io/english-coach-h5/` 仍能打开页面，�
 
 面向手机 H5、中文释义。场景保持商务 / 高级通用，不加俚语。词库 tracks：`business` + `advanced`（+ `life` 若有）。
 
-## 2026-11-05 决策一览
+## 决策一览
 
 | 项 | 状态 |
 | --- | --- |
@@ -23,15 +23,32 @@ GitHub Pages `https://cczz23.github.io/english-coach-h5/` 仍能打开页面，�
 | **生疏列表**（还不熟 / 再巩固，可点开卡片） | **已上 main** |
 | **间隔回访 / SRS** | **讨论中，Chris 还在想；不要实现**（只记候选） |
 | **用法标签 说 / 读写**（`usage` + `sayInstead`） | **本 PR 实现** |
+| **词库按进度缺口再扩 50 条**（`w263`–`w312`） | **2026-11-06 本批** |
 
 ---
 
 ## 词库
 
-- 数据：`words.json`。当前 126 词。
-- `track`：`business` / `advanced` / `life`。`domain` 可为 `business` / `life` / `both`。
+- 数据：`words.json`。当前 176 词（2026-11-06 在原 126 条上加了 50 条，id `w263`–`w312`）。
+- `track`：`business` / `advanced` / `life`。`domain` 可为 `business` / `life` / `both`。商务轨 `domain` 用 `business`；高级轨用 `both`。
 - 每词：`id`, `term`, `pos`, `ipa`, `gloss_zh`, `examples_stage_a`, `examples_stage_b`，`usage`（`speak` | `rw`），以及可选 `important_suggest`, `contrast`, `sayInstead`。
-- 不删词。用法标签只排练习优先级，也给以后扩词库一个口径。不在同步工作里加词条。易混对比只给已有词加 optional 字段，不加新 lemma。
+- 不删旧词，不改旧 id。用法标签只排练习优先级。同步那次改动本身不加词条；扩词是单独决定，见下。易混对比是可选字段，新旧词都可以有。
+
+### 2026-11-06 扩批（进度缺口的相邻新词）
+
+Chris 说上一批 126 词已经练完。同一天 CloudBase 进度大约是：118 条有记录，还不熟 19、再巩固 31、先放掉 64、特别需要 44。还不熟的词里，一大半是正式形容词和动词（salient、prudent、plausible、coherent、exacerbate、hinder、circumvent 等），商务开口词只有少数（traction、lowball、off the top of my head）。再巩固里则是会上真用得上的说法（take it offline、contingent on、nuanced、pragmatic、premise、discrepancy）。
+
+本批**不回加**这些旧词，按相邻缺口新写 50 条。旧词的 id、例句、用法都不改。没有 SRS，没有改 `EX_MAX`。
+
+| 轨 / 用法 | 条数 | 选词口径 |
+| --- | --- | --- |
+| business / speak | 24 | IC、尽调、谈判、开会推进：upside、downside、conviction、thesis、red flag、non-starter、dig into、flag、bottleneck、ownership、sync up、net-net、park that、get up to speed、unit economics、go-to-market、dry powder、follow-on、pro rata、underwrite、path to profitability、optionality、soft commit、liquidation preference |
+| advanced / speak | 18 | 开会愿意说出口的中高阶词：material、incremental、nascent、differentiated、sticky、durable、secular、anecdotal、substantive、tentative、skeptical、concise、deliberate、fragmented、saturated、commoditized、catalyst、overhang。容易和 important / new / different / short / careful 搅在一起的，写了 `contrast` |
+| advanced / rw | 8 | 备忘、条款、正式发言里要认得、开口会换简单说法的：idiosyncratic、pertinent、preclude、consequential、unequivocal、protracted、notwithstanding、bolster。每条 1–2 个 `sayInstead` |
+
+全库 176：business 76、advanced 88、life 12；speak 140、rw 36。
+
+刻意没加、避免和已有词叠义：hard commit（只留 soft commit，对比里点明 a firm yes）、DRI（用 ownership）、timebox、call out（与 flag 太近）、unblock（与 bottleneck 太近）、momentum（靠近 traction / trajectory）、defensibility（靠近 moat）、alignment（已有 align）、data room（due diligence 的一小块）、capacity（靠近 bandwidth）、deep dive（靠近 dig into）、marginal / materially（和 material、incremental 挤在一档「大不大」里）。不加俚语，不加 life。
 
 ## 学习流 Stage A → B
 
