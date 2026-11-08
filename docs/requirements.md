@@ -23,13 +23,14 @@ GitHub Pages `https://cczz23.github.io/english-coach-h5/` 仍能打开页面，�
 | **生疏列表**（还不熟 / 再巩固，可点开卡片） | **已上 main** |
 | **间隔回访 / SRS** | **讨论中，Chris 还在想；不要实现**（只记候选） |
 | **用法标签 说 / 读写**（`usage` + `sayInstead`） | **本 PR 实现** |
-| **词库按进度缺口再扩 50 条**（`w263`–`w312`） | **2026-11-06 本批** |
+| **词库按进度缺口再扩 50 条**（`w263`–`w312`） | **2026-11-06** |
+| **词库第三批：开口能用的中高阶词**（`w313`–`w362`） | **2026-11-08 本批** |
 
 ---
 
 ## 词库
 
-- 数据：`words.json`。当前 176 词（2026-11-06 在原 126 条上加了 50 条，id `w263`–`w312`）。
+- 数据：`words.json`。当前 226 词（2026-11-06 加了 `w263`–`w312`；2026-11-08 加了 `w313`–`w362`）。
 - `track`：`business` / `advanced` / `life`。`domain` 可为 `business` / `life` / `both`。商务轨 `domain` 用 `business`；高级轨用 `both`。
 - 每词：`id`, `term`, `pos`, `ipa`, `gloss_zh`, `examples_stage_a`, `examples_stage_b`，`usage`（`speak` | `rw`），以及可选 `important_suggest`, `contrast`, `sayInstead`。
 - 不删旧词，不改旧 id。用法标签只排练习优先级。同步那次改动本身不加词条；扩词是单独决定，见下。易混对比是可选字段，新旧词都可以有。
@@ -49,6 +50,22 @@ Chris 说上一批 126 词已经练完。同一天 CloudBase 进度大约是：1
 全库 176：business 76、advanced 88、life 12；speak 140、rw 36。
 
 刻意没加、避免和已有词叠义：hard commit（只留 soft commit，对比里点明 a firm yes）、DRI（用 ownership）、timebox、call out（与 flag 太近）、unblock（与 bottleneck 太近）、momentum（靠近 traction / trajectory）、defensibility（靠近 moat）、alignment（已有 align）、data room（due diligence 的一小块）、capacity（靠近 bandwidth）、deep dive（靠近 dig into）、marginal / materially（和 material、incremental 挤在一档「大不大」里）。不加俚语，不加 life。
+
+### 2026-11-08 扩批（开口能用的中高阶词）
+
+Chris 说上一批到 `w312` 已经练完。这一批**不回加**旧词，包括当时还不熟的那些（traction、salient、prudent、plausible 等）。他要的变化是配比：多一些「高级、但会上愿意自己说」的词，少一些只适合读写的正式词。上一批 advanced / rw 放了 8 条；这一批压到 5 条。拿不准、又是 IC 或 VC 会上会说的，标**说**。
+
+不加俚语，不加 life。没有 SRS，没有改 `EX_MAX`，不改旧词的 id、例句和用法。
+
+| 轨 / 用法 | 条数 | 选词口径 |
+| --- | --- | --- |
+| business / speak | 21 | 情形、估值和模型上开口就用的：base case、bull case、bear case、pre-money、post-money、step-up、write-down、lock-up、liquidity、concentration risk、gross margin、contribution margin、payback、take rate、pro forma、working assumption、lean in、carve-out、bake in、scrub、sanity-check。和 upside / downside、margin、assumption 会混的，写了 `contrast` |
+| advanced / speak | 24 | 会上能主动说的判断和打法：decisive、assertive、measured、blunt、directional、preliminary、qualitative、quantitative、structural、cyclical、disciplined、selective、defensive、opportunistic、single-threaded、wedge、beachhead、land-and-expand、flywheel、network effect、switching cost、compounding、second-order、devil's advocate。cyclical 对着已有的 secular；blunt 对着 candid |
+| advanced / rw | 5 | 备忘、条款、报道里要认得，开口会换说法：immaterial、nominal、onerous、specious、perfunctory。每条 1–2 个 `sayInstead` |
+
+全库 226：business 97、advanced 117、life 12；speak 185、rw 41。
+
+刻意没加：upside case / downside case（和已有的 upside、downside 太近；情形用 base / bull / bear）、frank（candid 的对比里已经有）、indicative（留 directional：「treat it as directional」）、provisional（靠近 tentative / preliminary）、actionable（太泛，不单列）、aggressive（投资语境有用，但容易听成没礼貌；defensive / opportunistic / assertive 把姿势分开了）、steelman / strawman（不如 devil's advocate 像他会说的）、first-principles（口号）、illustrative（靠近 anecdotal）、attach rate / mix shift / price realization（这一批已经有 gross margin、contribution margin、payback、take rate，不再堆指标）、workstream（靠近 ownership）、multi-threaded（用 single-threaded 带出反面）、locked-in / captive（switching cost 是他真会说的那句）、accretive（容易说不清 accretive to 什么）、albeit / pursuant（连接词和法律套话，这一批的读写名额给了 immaterial、nominal、onerous、specious、perfunctory）。上一批没加的 hard commit、momentum、defensibility、deep dive、call out、alignment 仍然不加。
 
 ## 学习流 Stage A → B
 

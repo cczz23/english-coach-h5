@@ -14,7 +14,7 @@ function tokens(line) {
 }
 
 test('every word has usage speak or rw, and rw has 1–2 sayInstead', () => {
-  assert.equal(words.length, 176);
+  assert.equal(words.length, 226);
   const speakExamples = ['circle back', 'heads-up', 'traction', 'pragmatic', 'plausible'];
   const rwExamples = {
     precarious: ['unstable', 'shaky'],
@@ -32,11 +32,25 @@ test('every word has usage speak or rw, and rw has 1–2 sayInstead', () => {
     assert.equal(byTerm.get(term).usage, 'rw', term);
     assert.deepEqual(byTerm.get(term).sayInstead, alts, term);
   }
-  const added = words.filter(w => Number(String(w.id).slice(1)) >= 263);
+  const added = words.filter(w => {
+    const n = Number(String(w.id).slice(1));
+    return n >= 263 && n <= 312;
+  });
   assert.equal(added.length, 50);
   const tally = {};
   for (const w of added) tally[w.track + '/' + w.usage] = (tally[w.track + '/' + w.usage] || 0) + 1;
   assert.deepEqual(tally, { 'business/speak': 24, 'advanced/speak': 18, 'advanced/rw': 8 });
+  const batch3 = words.filter(w => Number(String(w.id).slice(1)) >= 313);
+  assert.equal(batch3.length, 50);
+  assert.deepEqual(batch3.map(w => w.id), Array.from({ length: 50 }, (_, i) => 'w' + (313 + i)));
+  const tally3 = {};
+  for (const w of batch3) {
+    assert.notEqual(w.track, 'life', w.id);
+    assert.equal(w.domain, w.track === 'business' ? 'business' : 'both', w.id + ' domain');
+    tally3[w.track + '/' + w.usage] = (tally3[w.track + '/' + w.usage] || 0) + 1;
+  }
+  assert.deepEqual(tally3, { 'business/speak': 21, 'advanced/speak': 24, 'advanced/rw': 5 });
+  assert.equal(new Set(words.map(w => w.term)).size, words.length);
   for (const w of words) {
     assert.ok(w.usage === 'speak' || w.usage === 'rw', w.id + ' usage');
     if (w.usage === 'rw') {
@@ -53,7 +67,7 @@ test('every word has usage speak or rw, and rw has 1–2 sayInstead', () => {
 });
 
 test('every word has one Stage A line and five distinct Stage B scenes', () => {
-  assert.equal(words.length, 176);
+  assert.equal(words.length, 226);
   for (const w of words) {
     assert.equal(w.examples_stage_a.length, 1, w.id + ' stage A');
     assert.equal(w.examples_stage_b.length, 5, w.id + ' stage B');
