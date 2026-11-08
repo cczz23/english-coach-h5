@@ -4622,5 +4622,1471 @@
    "support",
    "back up"
   ]
+ },
+ {
+  "id": "w313",
+  "term": "base case",
+  "pos": "n.",
+  "ipa": "/ˈbeɪs ˌkeɪs/",
+  "gloss_zh": "基准情形；不靠英雄假设、你拿去承销的那一档",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "The [[base case]] does not need a second factory."
+  ],
+  "examples_stage_b": [
+   "Underwrite the [[base case]] off renewals you have seen, not pipeline you like.",
+   "If the [[base case]] already misses our hurdle, the optimistic tab is entertainment.",
+   "I want the [[base case]] in the first five lines of the memo.",
+   "The founder's plan is a hope; my [[base case]] cuts price and slips the hospital by a quarter.",
+   "We can discuss upside after the [[base case]] survives a boring year."
+  ],
+  "contrast": [
+   {
+    "vs": "upside",
+    "note_zh": "upside 是向上的空间；base case 是你默认拿去承销的那一档，不靠英雄式假设"
+   },
+   {
+    "vs": "bull case",
+    "note_zh": "bull case 是好的那档，你还愿意辩护；base case 是你真拿去定价的主情形"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w314",
+  "term": "bull case",
+  "pos": "n.",
+  "ipa": "/ˈbʊl ˌkeɪs/",
+  "gloss_zh": "乐观情形；好，而且你还愿意为之辩护",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "The [[bull case]] is a second buyer in autos, not a higher price."
+  ],
+  "examples_stage_b": [
+   "A [[bull case]] that needs three miracles is a wish.",
+   "I will defend this [[bull case]] in the partner meeting: the plant rollout repeats, and yield holds.",
+   "Don't build a [[bull case]] by stretching every cell a little.",
+   "Even this [[bull case]] has to name who signs the purchase order.",
+   "At today's entry price, the [[bull case]] still returns less than we told LPs."
+  ],
+  "contrast": [
+   {
+    "vs": "upside",
+    "note_zh": "upside 是「还有好处」这一侧；bull case 是一套还能自圆其说的乐观情形，带数字、你愿意当众辩护"
+   },
+   {
+    "vs": "base case",
+    "note_zh": "base case 是主情形；bull case 要额外的好事发生，但不能靠奇迹"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w315",
+  "term": "bear case",
+  "pos": "n.",
+  "ipa": "/ˈber ˌkeɪs/",
+  "gloss_zh": "悲观情形；差，但仍然说得通",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "Walk me through the [[bear case]] before we talk ownership."
+  ],
+  "examples_stage_b": [
+   "The [[bear case]] is a stalled renewal, not the company going to zero.",
+   "If you can't say the [[bear case]] out loud, you don't own the risk.",
+   "Her [[bear case]] includes a down round, not just a slower logo pace.",
+   "That [[bear case]] still makes the fund money, which is why I'm still listening.",
+   "A [[bear case]] that is secretly your real forecast means the memo is flattering us."
+  ],
+  "contrast": [
+   {
+    "vs": "downside",
+    "note_zh": "downside 是向下的风险、坏的那一面；bear case 是你愿意写进备忘的悲观情形，不是灾难幻想"
+   },
+   {
+    "vs": "base case",
+    "note_zh": "base case 是你拿去定价的主情形；bear case 更差，但必须仍然说得通"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w316",
+  "term": "pre-money",
+  "pos": "n.",
+  "ipa": "/ˌpriː ˈmʌni/",
+  "gloss_zh": "投前估值；新钱进来之前这家公司值多少",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "Is 80 the [[pre-money]]?"
+  ],
+  "examples_stage_b": [
+   "Confirm the option pool sits inside the [[pre-money]], or the dilution is worse than the slide.",
+   "The founder quoted a [[pre-money]]; translate it into our ownership before Thursday.",
+   "A high [[pre-money]] and a tiny check leaves us as decoration on the cap table.",
+   "That [[pre-money]] quietly assumes a note converts at a cap we have not read.",
+   "I can defend the team and still hate the [[pre-money]]."
+  ],
+  "contrast": [
+   {
+    "vs": "post-money",
+    "note_zh": "pre-money 是新钱进来之前的公司价值；post-money 把这轮新钱算进去。粗算 post-money ≈ pre-money + 新进来的钱"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w317",
+  "term": "post-money",
+  "pos": "n.",
+  "ipa": "/ˌpoʊst ˈmʌni/",
+  "gloss_zh": "投后估值；这轮新钱算进去之后值多少",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "Our check over the [[post-money]] is the ownership."
+  ],
+  "examples_stage_b": [
+   "She said [[post-money]] and the room heard the other price, so the ownership math was wrong for an hour.",
+   "On a 100 [[post-money]], fifteen from us is fifteen percent only if the pool is already in.",
+   "Don't compare this [[post-money]] to last round's number until you know which one last round quoted.",
+   "I care whether the next buyer can clear this [[post-money]], not whether the headline flatters us.",
+   "Put last round and this [[post-money]] on one line so the step is visible."
+  ],
+  "contrast": [
+   {
+    "vs": "pre-money",
+    "note_zh": "post-money 含这轮新钱；pre-money 不含。用支票除以 post-money，才是你大概的股比"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w318",
+  "term": "step-up",
+  "pos": "n.",
+  "ipa": "/ˈstep ˌʌp/",
+  "gloss_zh": "估值抬升；相对上一轮高出多少",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "The [[step-up]] from the seed is hard to defend."
+  ],
+  "examples_stage_b": [
+   "A 3x [[step-up]] in eighteen months needs more than two new logos.",
+   "I can live with a modest [[step-up]] if we are buying ownership, not a headline.",
+   "Insiders anchoring the [[step-up]] is not an outside lead agreeing to it.",
+   "The [[step-up]] shrinks once you count the notes converting at a discount.",
+   "What operating fact changed to justify that [[step-up]]?"
+  ],
+  "contrast": [
+   {
+    "vs": "valuation",
+    "note_zh": "valuation 是这一轮的价格；step-up 是相对上一轮抬了多少，不是价格本身"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w319",
+  "term": "write-down",
+  "pos": "n.",
+  "ipa": "/ˈraɪt ˌdaʊn/",
+  "gloss_zh": "减值；把持仓的账面价值调低",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "We may take a [[write-down]] if the round prices below our mark."
+  ],
+  "examples_stage_b": [
+   "The [[write-down]] was one holding, not a view on the whole book.",
+   "I would rather book the [[write-down]] now than defend a mark the next round will embarrass.",
+   "The auditors asked whether that [[write-down]] belonged in December.",
+   "A flat round with harsh terms can force a [[write-down]] even when the headline price does not fall.",
+   "Don't bury a [[write-down]] under 'portfolio movement' in the letter to LPs."
+  ],
+  "contrast": [
+   {
+    "vs": "loss",
+    "note_zh": "loss 是已经亏掉的钱；write-down 是把账面持仓调低，股份往往还在，未必已经卖出"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w320",
+  "term": "lock-up",
+  "pos": "n.",
+  "ipa": "/ˈlɑːk ˌʌp/",
+  "gloss_zh": "锁定期；这段时间里这些股份不能卖",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "The [[lock-up]] runs eighteen months after listing."
+  ],
+  "examples_stage_b": [
+   "A short [[lock-up]] on a large holder is how a listing starts with selling pressure.",
+   "Employees asked whether the [[lock-up]] binds the tender, or only a public listing.",
+   "I want the [[lock-up]] written down, not as a hallway promise from the founder.",
+   "When the [[lock-up]] ends, expect some early angels to sell into whatever window exists.",
+   "Counsel is marking which holders sit outside the [[lock-up]]."
+  ],
+  "contrast": [
+   {
+    "vs": "overhang",
+    "note_zh": "lock-up 是合同里那段不能卖的期限；overhang 是这件事（或诉讼、大额旧股）还没落地就已经压着价格或决策"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w321",
+  "term": "liquidity",
+  "pos": "n.",
+  "ipa": "/lɪˈkwɪdəti/",
+  "gloss_zh": "变现能力；这笔资产多久、能不能变成现金",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "There is no [[liquidity]] here until a sale."
+  ],
+  "examples_stage_b": [
+   "Secondary [[liquidity]] for early employees is a conversation, not a path you can model.",
+   "I don't want our only [[liquidity]] to depend on one IPO window.",
+   "The new investor asked about [[liquidity]] on the pref before raising the check.",
+   "A tender is [[liquidity]] for holders; it does not mean the business is healthy.",
+   "Tighter credit changed what strategics will pay. Their own [[liquidity]] got tighter too."
+  ],
+  "contrast": [
+   {
+    "vs": "dry powder",
+    "note_zh": "dry powder 是基金还没投出、可以调用的钱；liquidity 是一个仓位或资产能不能变成现金、要多久"
+   },
+   {
+    "vs": "cash",
+    "note_zh": "cash 是账上已经是现金；liquidity 是变现的难易，现金本身只是最容易的那一端"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w322",
+  "term": "concentration risk",
+  "pos": "n.",
+  "ipa": "/ˌkɑːnsənˈtreɪʃən ˌrɪsk/",
+  "gloss_zh": "集中度风险；太押在一个名字上，它一倒就伤到整盘",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "One buyer at forty percent of revenue is [[concentration risk]]."
+  ],
+  "examples_stage_b": [
+   "The fund's [[concentration risk]] sits in a single robotics name we have already marked up twice.",
+   "I will not add while [[concentration risk]] is this high and the plant has no second site.",
+   "Geographic [[concentration risk]] showed up when three hospitals folded into one procurement office.",
+   "Put [[concentration risk]] on its own line in the memo, above the team slide.",
+   "Calling it focus does not shrink the [[concentration risk]] if that one logo leaves."
+  ],
+  "contrast": [
+   {
+    "vs": "focus",
+    "note_zh": "focus 是你故意收窄、打得深；concentration risk 是集中到一个名字或买家，它出问题会伤到整盘"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w323",
+  "term": "gross margin",
+  "pos": "n.",
+  "ipa": "/ˌɡroʊs ˈmɑːrdʒɪn/",
+  "gloss_zh": "毛利率；收入减去销货成本之后还剩多少",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[Gross margin]] fell because the build did not get cheaper."
+  ],
+  "examples_stage_b": [
+   "Don't fold services into [[gross margin]] and then ask for a software multiple.",
+   "A hospital discount that blows through [[gross margin]] is a pricing problem.",
+   "I want [[gross margin]] by product line, not one blended boast.",
+   "If [[gross margin]] only works in the Shanghai plant, say that before Thursday.",
+   "The bridge should show what moved [[gross margin]]: mix, price, or scrap."
+  ],
+  "contrast": [
+   {
+    "vs": "margin",
+    "note_zh": "margin 没说是哪一层；gross margin 专指收入减去销货成本，还没扣销售、研发和管理"
+   },
+   {
+    "vs": "contribution margin",
+    "note_zh": "gross margin 扣销货成本；contribution margin 扣可变成本，看还剩多少去盖固定成本。两边口径不同，不要混着比"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w324",
+  "term": "contribution margin",
+  "pos": "n.",
+  "ipa": "/ˌkɑːntrəˈbjuːʃən ˈmɑːrdʒɪn/",
+  "gloss_zh": "边际贡献；扣掉可变成本后，还剩多少去盖固定成本",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[Contribution margin]] turns positive only after install."
+  ],
+  "examples_stage_b": [
+   "If [[contribution margin]] is thin, four more sellers make the loss wider.",
+   "Walk through [[contribution margin]] per robot before anyone quotes a blended percentage.",
+   "The board packet buried [[contribution margin]] under a chart that still counts free pilots.",
+   "I can live with a slow ramp when [[contribution margin]] on the paid cohort is already healthy.",
+   "Support hours belong in [[contribution margin]]; leaving them out is how a 'software' logo stays unprofitable."
+  ],
+  "contrast": [
+   {
+    "vs": "gross margin",
+    "note_zh": "gross margin 扣的是销货成本；contribution margin 扣可变成本（常含实施、支持、渠道），看这一单还剩多少去盖固定开销"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w325",
+  "term": "payback",
+  "pos": "n.",
+  "ipa": "/ˈpeɪbæk/",
+  "gloss_zh": "回本周期；多久把获客或安装成本赚回来",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "What's the [[payback]] on a new logo?"
+  ],
+  "examples_stage_b": [
+   "Fourteen months of [[payback]] is acceptable on a hospital sale; four years is not.",
+   "[[Payback]] blows out if an installer still camps on site for a month.",
+   "Split [[payback]] by channel. The partner motion looks cheap until you add support.",
+   "A pretty logo with no [[payback]] is a reference, not a business.",
+   "Count [[payback]] from the first invoice, not from the day a pilot was signed."
+  ],
+  "contrast": [
+   {
+    "vs": "unit economics",
+    "note_zh": "unit economics 是单客或单笔整套合不合算；payback 是其中一问：多久把获客或安装成本赚回来"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w326",
+  "term": "take rate",
+  "pos": "n.",
+  "ipa": "/ˈteɪk ˌreɪt/",
+  "gloss_zh": "抽成比例；平台从流过的交易额里留下的那一截",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "What [[take rate]] do they keep on each order?"
+  ],
+  "examples_stage_b": [
+   "A twelve percent [[take rate]] works only if the merchant still earns after ads and returns.",
+   "The [[take rate]] slid once a larger marketplace threatened to clone the listing.",
+   "I care how the [[take rate]] is collected — on the invoice, or quietly inside payments.",
+   "Don't applaud volume if the [[take rate]] only holds for the first wave of sellers.",
+   "[[Take rate]] expanded because they added payments, not because they raised the fee."
+  ],
+  "contrast": [
+   {
+    "vs": "margin",
+    "note_zh": "take rate 是从流过的交易额里抽走的比例；margin 是抽完、再扣成本之后还剩多少利润。抽成高不等于赚得多"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w327",
+  "term": "pro forma",
+  "pos": "adj.",
+  "ipa": "/ˌproʊ ˈfɔːrmə/",
+  "gloss_zh": "按假设调整过的；还不是已经发生的账面",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "Show [[pro forma]] margin with the deal in, and without it."
+  ],
+  "examples_stage_b": [
+   "The [[pro forma]] headcount assumes an acqui-hire we have not signed.",
+   "I will not underwrite a [[pro forma]] synergy that starts in month one.",
+   "[[Pro forma]] revenue that adds churn back does not belong in the model.",
+   "Label the column [[pro forma]] so nobody reads it as booked.",
+   "On a [[pro forma]] basis the plant looks fine; on cash it does not."
+  ],
+  "contrast": [
+   {
+    "vs": "actual",
+    "note_zh": "actual 是已经发生的；pro forma 是按假设调过的，比如把收购并进来，或把一次性费用拿掉"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w328",
+  "term": "working assumption",
+  "pos": "n.",
+  "ipa": "/ˌwɝːkɪŋ əˈsʌmpʃən/",
+  "gloss_zh": "工作假设；眼下先按这个往下做，以后可以改",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "Our [[working assumption]] is that IC sits on the 18th."
+  ],
+  "examples_stage_b": [
+   "Label the [[working assumption]] on churn so a reader can swap it.",
+   "I'm fine proceeding on that [[working assumption]], and I want it revisited after the plant visit.",
+   "Three people are carrying three [[working assumption]]s about who actually has budget.",
+   "The [[working assumption]] on close is June; slip it and the cash math changes.",
+   "Don't let a [[working assumption]] turn into a fact halfway down the note."
+  ],
+  "contrast": [
+   {
+    "vs": "assumption",
+    "note_zh": "assumption 是一个假设；working assumption 是眼下先按它往下做、标明白、以后可以换掉的那条"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w329",
+  "term": "lean in",
+  "pos": "phr. v.",
+  "ipa": "/ˌliːn ˈɪn/",
+  "gloss_zh": "往前站；在这个价格或这件事上更愿意支持",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "I'd [[lean in]] if the cohort holds through December."
+  ],
+  "examples_stage_b": [
+   "Two partners [[lean in]]; the third wants the audit before a vote.",
+   "I don't [[lean in]] just because the round is moving fast.",
+   "She will [[lean in]] on the technical pair and stay cold on the sales hire.",
+   "He [[leans in]] when the buyer is a plant manager and the science is still ugly.",
+   "I [[lean in]] to leading this one, not to a small check beside a fund that will not do the work."
+  ],
+  "contrast": [
+   {
+    "vs": "soft commit",
+    "note_zh": "soft commit 是还没走内部流程的口头倾向；lean in 是你这个人更愿意往前站，可以已经在说「我站这边」"
+   },
+   {
+    "vs": "conviction",
+    "note_zh": "conviction 是你有多确信；lean in 是你愿意往前站一步。可以 lean in 而确信还没那么满"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w330",
+  "term": "carve-out",
+  "pos": "n.",
+  "ipa": "/ˈkɑːrv ˌaʊt/",
+  "gloss_zh": "从整体里切出来单独处理的一块",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "We need a reserve [[carve-out]] for the follow-on."
+  ],
+  "examples_stage_b": [
+   "The parent will sell a [[carve-out]], not the whole division.",
+   "I want a [[carve-out]] from the pool so new hires are not funding an old promise.",
+   "Model the China JV as a [[carve-out]], or it swamps the US numbers.",
+   "Counsel marked a [[carve-out]] so a sale under five million does not need every consent.",
+   "Without that [[carve-out]], the participating preference eats the common on a modest exit."
+  ],
+  "contrast": [
+   {
+    "vs": "exception",
+    "note_zh": "exception 是破例、开一个口子；carve-out 是从整体里切出一块，让它单独适用另一套规则，或单独成为一笔资产"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w331",
+  "term": "bake in",
+  "pos": "phr. v.",
+  "ipa": "/ˌbeɪk ˈɪn/",
+  "gloss_zh": "嵌进模型或方案里；后面的数已经把它算上了",
+  "important_suggest": false,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[Bake in]] a slower hospital ramp before IC."
+  ],
+  "examples_stage_b": [
+   "The model only works if you [[bake in]] the founder's unpaid selling time.",
+   "Don't [[bake in]] a second factory until the first has a full quarter of output.",
+   "I [[baked in]] the audit cost and the round still clears our hurdle.",
+   "If legal fees are not [[baked in]], the use of proceeds is a story.",
+   "[[Bake in]] the renewal discount before you show me the return."
+  ],
+  "contrast": [
+   {
+    "vs": "assume",
+    "note_zh": "assume 是先当作真；bake in 是写进模型或方案里，后面的数字已经把它算进去了"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w332",
+  "term": "scrub",
+  "pos": "v.",
+  "ipa": "/skrʌb/",
+  "gloss_zh": "把数字清一遍；去掉重复、一次性和对不上的",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[Scrub]] the pipeline before it hits the memo."
+  ],
+  "examples_stage_b": [
+   "Have her [[scrub]] any logo with no live user in ninety days.",
+   "I [[scrubbed]] the bridge and two 'expansions' were prepaid services.",
+   "Please [[scrub]] one-time installation fees out of the run-rate.",
+   "[[Scrub]] the cap table for side letters before we debate who owns what.",
+   "A figure nobody has [[scrubbed]] does not belong on slide one."
+  ],
+  "contrast": [
+   {
+    "vs": "dig into",
+    "note_zh": "dig into 是往原因里钻；scrub 是把数字滤一遍，去掉重复、一次性和对不上的"
+   },
+   {
+    "vs": "sanity-check",
+    "note_zh": "sanity-check 是快速看离谱不离谱；scrub 是认真清一遍，花的时间更长"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w333",
+  "term": "sanity-check",
+  "pos": "v.",
+  "ipa": "/ˈsænəti ˌtʃek/",
+  "gloss_zh": "快速核对；先看这个数离谱不离谱",
+  "important_suggest": false,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "Can we [[sanity-check]] the cohort before Thursday?"
+  ],
+  "examples_stage_b": [
+   "[[Sanity-check]] the market slide against how many plants actually buy this tool.",
+   "I [[sanity-checked]] hiring against cash. It breaks in month fourteen.",
+   "Ask finance to [[sanity-check]] the wire amount against the cap table, not against the email.",
+   "[[Sanity-check]] whether 'forty percent growth' is more logos or higher price.",
+   "The early bars are three customers. [[Sanity-check]] that before anyone says 'pattern'."
+  ],
+  "contrast": [
+   {
+    "vs": "scrub",
+    "note_zh": "sanity-check 是快看一眼算不算离谱；scrub 是把账认真清一遍。先 sanity-check，过不了就不必 scrub"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w334",
+  "term": "decisive",
+  "pos": "adj.",
+  "ipa": "/dɪˈsaɪsɪv/",
+  "gloss_zh": "敢拍板的；把事情定下来，不悬着",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Be [[decisive]] on price. The rest can wait."
+  ],
+  "examples_stage_b": [
+   "A [[decisive]] no on Tuesday saves the founder a month of pretend momentum.",
+   "The board was briefed and not [[decisive]], so the search drifted.",
+   "I want a [[decisive]] call on whether we lead or we follow.",
+   "She is [[decisive]] once the evidence is in, and slow while it is still stories.",
+   "Once the customer calls agree, be [[decisive]]. Don't open another loop."
+  ],
+  "contrast": [
+   {
+    "vs": "confident",
+    "note_zh": "confident 是你觉得有把握；decisive 是你把决定做了，事情不再悬着。有把握却不拍板，就不算 decisive"
+   },
+   {
+    "vs": "assertive",
+    "note_zh": "assertive 是把立场说清楚；decisive 是把板拍了。可以很 assertive，会还是没散"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w335",
+  "term": "assertive",
+  "pos": "adj.",
+  "ipa": "/əˈsɝːtɪv/",
+  "gloss_zh": "立场清楚的；说得坚定，但不压人",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Be [[assertive]] on the pool, not apologetic."
+  ],
+  "examples_stage_b": [
+   "An [[assertive]] question about churn is not an attack.",
+   "He was [[assertive]] with the banker and polite with the founder. That split was right.",
+   "I want the memo [[assertive]] about what would make us pass.",
+   "[[Assertive]] does not mean you raise your voice.",
+   "She got the protective provisions by being [[assertive]] early, before the draft hardened."
+  ],
+  "contrast": [
+   {
+    "vs": "pushy",
+    "note_zh": "pushy 是逼人、不给空间；assertive 是立场清楚、语气坚定，但不压对方"
+   },
+   {
+    "vs": "decisive",
+    "note_zh": "decisive 是拍板；assertive 是把看法说清楚。会可以很 assertive，决定仍留到下周"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w336",
+  "term": "measured",
+  "pos": "adj.",
+  "ipa": "/ˈmeʒərd/",
+  "gloss_zh": "有分寸的；语气和步调收着，不冲",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Keep the tone [[measured]] when you deliver the no."
+  ],
+  "examples_stage_b": [
+   "A [[measured]] note to LPs beats a victory lap we have to walk back.",
+   "He stayed [[measured]] while the founder talked past the risks.",
+   "I want a [[measured]] recommendation: lead, follow, or pass, and the reason.",
+   "[[Measured]] is not vague. You can be calm and still be specific.",
+   "The email should sound [[measured]] even where the conclusion is a pass."
+  ],
+  "contrast": [
+   {
+    "vs": "careful",
+    "note_zh": "careful 是怕出错；measured 是语气和步调有控制，可以照样把硬结论说出来"
+   },
+   {
+    "vs": "blunt",
+    "note_zh": "blunt 是不垫软话；measured 是收着说。同一个 no，可以 measured，也可以 blunt"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w337",
+  "term": "blunt",
+  "pos": "adj.",
+  "ipa": "/blʌnt/",
+  "gloss_zh": "直说的；不垫软话，可以偏硬",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I'll be [[blunt]]: this price does not work for us."
+  ],
+  "examples_stage_b": [
+   "A [[blunt]] pass is kinder than three weeks of soft maybes.",
+   "She was [[blunt]] about the sales hire and careful about the science.",
+   "Give me the [[blunt]] version in the room, and a calmer version in the LP letter.",
+   "[[Blunt]] comments on the deck saved Thursday from a fuzzy story.",
+   "[[Blunt]] is not careless. Cut the cushion, keep the facts."
+  ],
+  "contrast": [
+   {
+    "vs": "candid",
+    "note_zh": "candid 是把真实看法摊开，可以仍然客气；blunt 是不垫软话，听着更硬"
+   },
+   {
+    "vs": "rude",
+    "note_zh": "rude 是不礼貌；blunt 是选择不包装，目的是让判断更清楚"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w338",
+  "term": "directional",
+  "pos": "adj.",
+  "ipa": "/dəˈrekʃənəl/",
+  "gloss_zh": "只表方向的；量级对就行，不是精确数",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Treat the forecast as [[directional]]."
+  ],
+  "examples_stage_b": [
+   "A [[directional]] read is enough for a first meeting and not enough for a term sheet.",
+   "The interviews are [[directional]]: buyers care about uptime, not about which model sits underneath.",
+   "Give me [[directional]] confidence on margin — up, flat, or down — before false precision.",
+   "I marked those cells [[directional]] so nobody wires a decision off them.",
+   "If the only support is [[directional]], say that in the opening paragraph."
+  ],
+  "contrast": [
+   {
+    "vs": "precise",
+    "note_zh": "precise 是准数；directional 只表示方向和量级，不能当最终数字拿去投票"
+   },
+   {
+    "vs": "preliminary",
+    "note_zh": "preliminary 是还早、以后会改；directional 是精度问题：箭头对，位数不可信。一个数可以又早又只是 directional"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w339",
+  "term": "preliminary",
+  "pos": "adj.",
+  "ipa": "/prɪˈlɪmɪˌneri/",
+  "gloss_zh": "初步的；还早，结论以后会改",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "This is a [[preliminary]] read, not a recommendation."
+  ],
+  "examples_stage_b": [
+   "The [[preliminary]] cap table is missing the notes. Don't quote ownership from it.",
+   "I have a [[preliminary]] yes, and I still want two customer calls.",
+   "[[Preliminary]] notes from the plant: yield is real, the data hookup is not.",
+   "Stamp the model [[preliminary]] until finance ties out revenue.",
+   "A [[preliminary]] draft can anchor a conversation. It should not leak as a promise."
+  ],
+  "contrast": [
+   {
+    "vs": "tentative",
+    "note_zh": "tentative 是还没承诺、可以收回；preliminary 是阶段还早，数字和判断以后会改。可以很早，但方向你已经认"
+   },
+   {
+    "vs": "final",
+    "note_zh": "final 是定稿；preliminary 是还会改的初稿或初判"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w340",
+  "term": "qualitative",
+  "pos": "adj.",
+  "ipa": "/ˈkwɑːləˌteɪtɪv/",
+  "gloss_zh": "定性的；讲机制和性质，不靠一张表定案",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The [[qualitative]] story is ahead of the numbers."
+  ],
+  "examples_stage_b": [
+   "I trust the [[qualitative]] notes from the nurses more than the satisfaction score.",
+   "A [[qualitative]] edge in how they reach buyers can beat a small lead on a benchmark.",
+   "Don't hide a weak cohort behind a [[qualitative]] paragraph about the mission.",
+   "The [[qualitative]] piece I still need is who owns the budget, not how the demo felt.",
+   "We have [[qualitative]] comfort on the team and almost none on the repeat purchase."
+  ],
+  "contrast": [
+   {
+    "vs": "quantitative",
+    "note_zh": "qualitative 讲性质、机制、人家怎么说；quantitative 用数字。会上两个都要，不要用一个代替另一个"
+   },
+   {
+    "vs": "anecdotal",
+    "note_zh": "anecdotal 是拿个例当证据；qualitative 可以是成系统的访谈和判断，只是还没落成表"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w341",
+  "term": "quantitative",
+  "pos": "adj.",
+  "ipa": "/ˈkwɑːntəˌteɪtɪv/",
+  "gloss_zh": "定量的；用数字把判断钉住",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I need this [[quantitative]], not another adjective."
+  ],
+  "examples_stage_b": [
+   "The [[quantitative]] case is payback under eighteen months in two plants.",
+   "A [[quantitative]] claim with no cohort behind it is a sentence.",
+   "Make retention [[quantitative]]: what percent, over what window, on which logos.",
+   "Be [[quantitative]] on margin and humble on the total market.",
+   "The [[quantitative]] gap is pipeline coverage, not a mood about the quarter."
+  ],
+  "contrast": [
+   {
+    "vs": "qualitative",
+    "note_zh": "quantitative 要数字；qualitative 要机制和买方怎么说。缺数字就别装 quantitative"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w342",
+  "term": "structural",
+  "pos": "adj.",
+  "ipa": "/ˈstrʌktʃərəl/",
+  "gloss_zh": "写进结构里的；不是一次性的，也不会自己弹回去",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The margin lift looks [[structural]], not a one-quarter mix."
+  ],
+  "examples_stage_b": [
+   "Losing a champion hurts. A [[structural]] change in how hospitals buy is worse.",
+   "Call it [[structural]] only if the cost stays out after the promotion ends.",
+   "The [[structural]] issue is a single supplier for the chip, not last month's scrap.",
+   "A reorg is not [[structural]] until the new owner has shipped something.",
+   "Pricing power that survives a dull year is [[structural]]. A discount week is not."
+  ],
+  "contrast": [
+   {
+    "vs": "one-off",
+    "note_zh": "one-off 是就这一次；structural 是底层变了，下一季还在"
+   },
+   {
+    "vs": "secular",
+    "note_zh": "中文都容易说成「结构性」。secular 是多年趋势、不跟短周期走；structural 是这件变化写进了结构，不会自己消失"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w343",
+  "term": "cyclical",
+  "pos": "adj.",
+  "ipa": "/ˈsɪklɪkəl/",
+  "gloss_zh": "周期性的；跟着景气上下，不是那条多年趋势",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Some of this demand is [[cyclical]]."
+  ],
+  "examples_stage_b": [
+   "Fab orders look [[cyclical]]. The software seat beside the tool looks steadier.",
+   "I don't want a peak multiple on a [[cyclical]] upswing in factory spending.",
+   "A [[cyclical]] downturn can still kill a company with eighteen months of cash.",
+   "Separate [[cyclical]] revenue from the part tied to the installed base.",
+   "A rebound can be [[cyclical]] without proving that buyers can't live without the product."
+  ],
+  "contrast": [
+   {
+    "vs": "secular",
+    "note_zh": "secular 是多年的方向，不靠这一轮热度；cyclical 跟着景气上下，热会来，冷也会来"
+   },
+   {
+    "vs": "seasonal",
+    "note_zh": "seasonal 是一年里的淡旺季；cyclical 是跨年的景气循环，比如资本开支、库存、信贷"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w344",
+  "term": "disciplined",
+  "pos": "adj.",
+  "ipa": "/ˈdɪsəplɪnd/",
+  "gloss_zh": "有纪律的；价格、节奏或储备定了就照做",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Stay [[disciplined]] on price."
+  ],
+  "examples_stage_b": [
+   "A [[disciplined]] pass at a hot dinner is part of the job.",
+   "We were [[disciplined]] on reserves and sloppy on entry ownership.",
+   "I want a [[disciplined]] rollout: two plants, a written kill line, then the rest.",
+   "[[Disciplined]] does not mean slow. It means you don't invent a new rule for one logo.",
+   "The partnership is [[disciplined]] when Friday's hurdle matches Monday's."
+  ],
+  "contrast": [
+   {
+    "vs": "careful",
+    "note_zh": "careful 是小心别出错；disciplined 是规矩已经定了（价格、节奏、储备）就执行，不因为热闹破例"
+   },
+   {
+    "vs": "selective",
+    "note_zh": "selective 是挑哪些做；disciplined 是挑定之后按规则走。可以 selective 而执行很松"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w345",
+  "term": "selective",
+  "pos": "adj.",
+  "ipa": "/səˈlektɪv/",
+  "gloss_zh": "挑剔着挑的；不是来者不拒",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "We can afford to be [[selective]] this year."
+  ],
+  "examples_stage_b": [
+   "A [[selective]] pipeline is twenty real conversations, not two hundred names in a CRM.",
+   "Be [[selective]] on sector instead of busy in every thin wrapper.",
+   "They were [[selective]] about design partners, which is why the references sound alike and true.",
+   "[[Selective]] on price and loose on the team is not a strategy.",
+   "The fund feels [[selective]] when unspent capital is the point, and frantic when it is not."
+  ],
+  "contrast": [
+   {
+    "vs": "picky",
+    "note_zh": "picky 常带挑剔、难伺候；selective 是有标准地挑，不什么都做"
+   },
+   {
+    "vs": "disciplined",
+    "note_zh": "selective 决定进哪些；disciplined 是进了以后价格和节奏不破例"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w346",
+  "term": "defensive",
+  "pos": "adj.",
+  "ipa": "/dɪˈfensɪv/",
+  "gloss_zh": "防守型的；先护住下行，不一定看空",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I want a [[defensive]] structure if we are not leading."
+  ],
+  "examples_stage_b": [
+   "A [[defensive]] check keeps us in the round without betting the reserves.",
+   "The terms I'd accept are [[defensive]]: 1x non-participating, and real information rights.",
+   "[[Defensive]] is not bearish. I still like the company.",
+   "Be [[defensive]] on governance rather than pretending we run a founder-controlled board.",
+   "A [[defensive]] book still needs a few names that can return the fund."
+  ],
+  "contrast": [
+   {
+    "vs": "bearish",
+    "note_zh": "bearish 是看空；defensive 是仓位或条款上先护住下行，可以对公司仍然看好"
+   },
+   {
+    "vs": "opportunistic",
+    "note_zh": "opportunistic 是看到窗口就上；defensive 是先把下行护住，不追这个窗口"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w347",
+  "term": "opportunistic",
+  "pos": "adj.",
+  "ipa": "/ˌɑːpərtuːˈnɪstɪk/",
+  "gloss_zh": "抓窗口的；不按原剧本，看到合适的就上",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "This would be an [[opportunistic]] check, not a new theme."
+  ],
+  "examples_stage_b": [
+   "An [[opportunistic]] add makes sense if the price resets and the thesis does not.",
+   "I don't want a habit of [[opportunistic]] chases after every founder who had a bad quarter.",
+   "The round is [[opportunistic]] for us: a known team, a lower price, a short process.",
+   "[[Opportunistic]] money that vanishes after one check is not a lead.",
+   "We can be [[opportunistic]] on this name and still keep the price rule on everything else."
+  ],
+  "contrast": [
+   {
+    "vs": "disciplined",
+    "note_zh": "disciplined 按既定规则走；opportunistic 是为了一个具体窗口加快或破例。窗口要说得清，不然就是没纪律"
+   },
+   {
+    "vs": "defensive",
+    "note_zh": "defensive 先护下行；opportunistic 是窗口来了就上，姿势更主动"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w348",
+  "term": "single-threaded",
+  "pos": "adj.",
+  "ipa": "/ˌsɪŋɡəl ˈθredɪd/",
+  "gloss_zh": "单线的；只靠一个人或一条关系撑着",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The relationship is [[single-threaded]] through one engineer."
+  ],
+  "examples_stage_b": [
+   "A [[single-threaded]] pipeline can print a great quarter and still be fragile.",
+   "I get nervous when security review is [[single-threaded]] to a champion with no budget.",
+   "Multi-site rollouts fail when implementation stays [[single-threaded]] on the founder.",
+   "Don't call it coverage if every account is still [[single-threaded]].",
+   "She is interviewing elsewhere. That is what [[single-threaded]] looks like on a Tuesday."
+  ],
+  "contrast": [
+   {
+    "vs": "bottleneck",
+    "note_zh": "bottleneck 是整条流程卡在一个点；single-threaded 是只靠一条线（一个人、一个买家），线断了事就断"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w349",
+  "term": "wedge",
+  "pos": "n.",
+  "ipa": "/wedʒ/",
+  "gloss_zh": "楔子；用来打进客户的那个窄切口",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The [[wedge]] is maintenance scheduling, not a whole factory system."
+  ],
+  "examples_stage_b": [
+   "A [[wedge]] a plant manager can buy without IT is how they get in the door.",
+   "If the [[wedge]] never expands, we own a feature.",
+   "I like the [[wedge]] into quality teams. I don't yet see the budget next to it.",
+   "The [[wedge]] produced three logos, and none of them has a second module.",
+   "Leave the platform for later. Show a [[wedge]] a buyer can approve this quarter."
+  ],
+  "contrast": [
+   {
+    "vs": "beachhead",
+    "note_zh": "wedge 是打进去的那个窄产品或切口；beachhead 是你先占住的那块市场"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w350",
+  "term": "beachhead",
+  "pos": "n.",
+  "ipa": "/ˈbiːtʃˌhed/",
+  "gloss_zh": "滩头；先占住、再向外扩的第一块市场",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The [[beachhead]] is regional hospital labs."
+  ],
+  "examples_stage_b": [
+   "A [[beachhead]] in two health systems is a start, not a national motion.",
+   "Define the [[beachhead]] as a buyer and a budget, not as a vertical adjective.",
+   "They took the [[beachhead]] on service speed. The incumbent still owns the install base.",
+   "If every [[beachhead]] logo needs a custom deployment, it will not travel.",
+   "Name the [[beachhead]] we are underwriting, and which segment is explicitly later."
+  ],
+  "contrast": [
+   {
+    "vs": "wedge",
+    "note_zh": "beachhead 是先占住的那块市场；wedge 是打进那块市场用的窄产品"
+   },
+   {
+    "vs": "market",
+    "note_zh": "market 可以是整片；beachhead 只是你先拿下、用来站稳的第一块"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w351",
+  "term": "land-and-expand",
+  "pos": "n.",
+  "ipa": "/ˌlænd ənd ɪkˈspænd/",
+  "gloss_zh": "先落地再扩张；同一个客户里从小单做到大",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Is [[land-and-expand]] real, or just a second meeting?"
+  ],
+  "examples_stage_b": [
+   "[[Land-and-expand]] counts only if the next purchase order has a different budget owner.",
+   "They say [[land-and-expand]], but every site still needs the founder in the room.",
+   "I like [[land-and-expand]] inside one hospital chain and dislike it when each clinic is a fresh hunt.",
+   "The board asked whether [[land-and-expand]] shows up in net retention or only in a story.",
+   "A pilot that never invoices is not [[land-and-expand]]."
+  ],
+  "contrast": [
+   {
+    "vs": "wedge",
+    "note_zh": "wedge 是产品切口；land-and-expand 是销售打法：先落一小单，再在同一个客户里做大"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w352",
+  "term": "flywheel",
+  "pos": "n.",
+  "ipa": "/ˈflaɪˌwiːl/",
+  "gloss_zh": "飞轮；转起来会自己越转越快的正循环",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Where is the [[flywheel]], in one sentence?"
+  ],
+  "examples_stage_b": [
+   "More routes make dispatch smarter, which wins more routes. That loop is the [[flywheel]].",
+   "A loop drawn in a box is not a [[flywheel]] until one turn shows up in a cohort.",
+   "Usage from every install is supposed to feed the [[flywheel]], and nobody trusts the labels yet.",
+   "I don't fund a [[flywheel]] that starts only after they are already huge.",
+   "Hiring more sellers to hire more sellers is a cost, not a [[flywheel]]."
+  ],
+  "contrast": [
+   {
+    "vs": "network effect",
+    "note_zh": "network effect 是用的人越多、对每个人越值钱；flywheel 是整圈正循环，网络效应可以只是其中一环"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w353",
+  "term": "network effect",
+  "pos": "n.",
+  "ipa": "/ˈnetwɝːk ɪˌfekt/",
+  "gloss_zh": "网络效应；用的人越多，对每个人越值钱",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I don't see a [[network effect]]. Each plant can buy this alone."
+  ],
+  "examples_stage_b": [
+   "A [[network effect]] inside one hospital chain is real, and it is also narrow.",
+   "Data from every line making the next install smarter is the [[network effect]] they should prove.",
+   "Without a [[network effect]], a cheaper sensor wins on price within a year.",
+   "The slide says [[network effect]]. The interviews describe pain when switching, which is a different claim.",
+   "A marketplace with no second side yet does not have a [[network effect]]. It has a hope."
+  ],
+  "contrast": [
+   {
+    "vs": "scale",
+    "note_zh": "scale 是你自己变大、成本下来；network effect 是用户之间互相让产品更值钱"
+   },
+   {
+    "vs": "flywheel",
+    "note_zh": "flywheel 是整圈循环；network effect 是一种具体机制，可以驱动飞轮，也可以单独被拿来吹"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w354",
+  "term": "switching cost",
+  "pos": "n.",
+  "ipa": "/ˈswɪtʃɪŋ ˌkɔːst/",
+  "gloss_zh": "转换成本；客户换掉你要付的代价",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "[[Switching cost]] is high once auditors know the system."
+  ],
+  "examples_stage_b": [
+   "A long contract is not [[switching cost]] if the buyer can leave at renewal without pain.",
+   "Put [[switching cost]] in hours of retraining, not in a metaphor.",
+   "Low [[switching cost]] is why the pilot felt easy and the renewal felt optional.",
+   "Ask the plant manager what [[switching cost]] she would actually eat to leave.",
+   "Data trapped in their format is [[switching cost]]. A logo on a slide is not."
+  ],
+  "contrast": [
+   {
+    "vs": "moat",
+    "note_zh": "moat 是护城河的总称；switching cost 是客户换掉你要付的代价，常常是护城河的一块，不是全部"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w355",
+  "term": "compounding",
+  "pos": "n.",
+  "ipa": "/kəmˈpaʊndɪŋ/",
+  "gloss_zh": "复利式累积；加上去的东西还会再生出下一轮",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The [[compounding]] is in the data, not the logo count."
+  ],
+  "examples_stage_b": [
+   "I underwrite [[compounding]] when each install makes the next deploy cheaper.",
+   "Without [[compounding]], a good year is a spike we should not capitalize.",
+   "[[Compounding]] inside one hospital chain beats fifty cold logos.",
+   "What looks small in year one is [[compounding]] if the account actually expands.",
+   "There is no [[compounding]] in a services shop that resets every statement of work."
+  ],
+  "contrast": [
+   {
+    "vs": "incremental",
+    "note_zh": "incremental 是在已有的上面再加一截；compounding 是加进去的东西还会再生出下一轮"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w356",
+  "term": "second-order",
+  "pos": "adj.",
+  "ipa": "/ˌsekənd ˈɔːrdər/",
+  "gloss_zh": "二阶的；不是直接后果，是后果的后果",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The [[second-order]] effect is every other hospital asking for the same discount."
+  ],
+  "examples_stage_b": [
+   "I care about the [[second-order]] hit to references if this logo churns.",
+   "The hiring plan ignores the [[second-order]] load on a founder who still closes every deal.",
+   "A cheap API is not the risk. The [[second-order]] risk is becoming a feature inside someone else's suite.",
+   "Separate the direct savings from [[second-order]] behavior, like nurses working around the tool.",
+   "Cutting price looks fine until you count the [[second-order]] damage to the next negotiation."
+  ],
+  "contrast": [
+   {
+    "vs": "implication",
+    "note_zh": "implication 是这件事直接带出的含义；second-order 是后果的后果，不是第一眼那条"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w357",
+  "term": "devil's advocate",
+  "pos": "n.",
+  "ipa": "/ˌdevəlz ˈædvəkət/",
+  "gloss_zh": "故意唱反调；把对面的漏洞问出来",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Let me play [[devil's advocate]] on the champion leaving."
+  ],
+  "examples_stage_b": [
+   "I want someone at the partner meeting to be [[devil's advocate]] on the payback slide.",
+   "Playing [[devil's advocate]] is not the same as talking yourself out of a company you respect.",
+   "She took the [[devil's advocate]] seat on price and still voted yes.",
+   "Ask the associate for a [[devil's advocate]] note before we fall in love with the demo.",
+   "I'll be [[devil's advocate]]: if the installer quits, what is left of the rollout?"
+  ],
+  "contrast": [
+   {
+    "vs": "push back (on)",
+    "note_zh": "push back 是你不同意；devil's advocate 是你故意站到对面把漏洞问出来，哪怕你可能其实赞成"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w358",
+  "term": "immaterial",
+  "pos": "adj.",
+  "ipa": "/ˌɪməˈtɪriəl/",
+  "gloss_zh": "不重大的；小到不该改变判断",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "That variance is [[immaterial]] to the vote."
+  ],
+  "examples_stage_b": [
+   "A rounding gap on the cap table is [[immaterial]]. A missing note is not.",
+   "Counsel called the side arrangement [[immaterial]], and I still want it listed.",
+   "If the miss is [[immaterial]] to cash and to the cohort, don't relitigate the quarter.",
+   "The footnote treats the related-party balance as [[immaterial]] to a reader of the statements.",
+   "Please keep [[immaterial]] bugs out of the IC note."
+  ],
+  "contrast": [
+   {
+    "vs": "material",
+    "note_zh": "material 是大到该改判断或该披露；immaterial 是小到不改判断。书面和审计里更常见 immaterial，开口多半说 not material"
+   },
+   {
+    "vs": "trivial",
+    "note_zh": "trivial 带点「不值一提」的轻视；immaterial 是一个门槛：读者或投票不会因此改看法"
+   }
+  ],
+  "usage": "rw",
+  "sayInstead": [
+   "not material",
+   "too small to matter"
+  ]
+ },
+ {
+  "id": "w359",
+  "term": "nominal",
+  "pos": "adj.",
+  "ipa": "/ˈnɑːmənəl/",
+  "gloss_zh": "名义上的；或小到几乎可以当没有",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The license fee is [[nominal]]. Services are the business."
+  ],
+  "examples_stage_b": [
+   "They paid a [[nominal]] sum for the IP and booked it like a market price.",
+   "A [[nominal]] observer seat still costs hours. Don't describe it as free.",
+   "[[Nominal]] rent from the parent is why that margin will not survive on its own.",
+   "I read a [[nominal]] option grant as a signal, not as retention.",
+   "The title is [[nominal]]. Someone else signs the purchase order."
+  ],
+  "contrast": [
+   {
+    "vs": "small",
+    "note_zh": "small 是不大；nominal 要么小到可以当没有，要么只是名头，不是实权或真实经济"
+   }
+  ],
+  "usage": "rw",
+  "sayInstead": [
+   "tiny",
+   "in name only"
+  ]
+ },
+ {
+  "id": "w360",
+  "term": "onerous",
+  "pos": "adj.",
+  "ipa": "/ˈɑːnərəs/",
+  "gloss_zh": "负担沉重的；条件苛，压在人身上",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Those covenants look [[onerous]]."
+  ],
+  "examples_stage_b": [
+   "An [[onerous]] information right annoys the company every quarter and barely protects us.",
+   "Exclusivity this broad is [[onerous]] if it blocks a small sale we would actually want.",
+   "I won't sign an [[onerous]] personal rep just to join a crowded round.",
+   "The lease is [[onerous]] next to the headcount they really need.",
+   "[[Onerous]] language in a side letter has a way of becoming the real deal."
+  ],
+  "contrast": [
+   {
+    "vs": "hard",
+    "note_zh": "hard 是难；onerous 是负担重、条件苛，压在人身上。开口多半说 heavy 或 harsh"
+   }
+  ],
+  "usage": "rw",
+  "sayInstead": [
+   "heavy",
+   "harsh"
+  ]
+ },
+ {
+  "id": "w361",
+  "term": "specious",
+  "pos": "adj.",
+  "ipa": "/ˈspiːʃəs/",
+  "gloss_zh": "似是而非的；表面说得通，其实站不住",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "That market slide is [[specious]]."
+  ],
+  "examples_stage_b": [
+   "A [[specious]] comparison to a public multiple is how price gets silly.",
+   "The logic sounds tight and is [[specious]]: it treats pipeline as revenue.",
+   "Don't shout at it. Show why the claim is [[specious]].",
+   "[[Specious]] precision — two decimals on a guess — should come out of the note.",
+   "The operating-system analogy is [[specious]] once you notice the buyer does not switch platforms."
+  ],
+  "contrast": [
+   {
+    "vs": "plausible",
+    "note_zh": "plausible 是说得通、可能为真；specious 是表面像那么回事，其实站不住。开口可以说 sounds right but isn't"
+   }
+  ],
+  "usage": "rw",
+  "sayInstead": [
+   "sounds right but isn't",
+   "slick but wrong"
+  ]
+ },
+ {
+  "id": "w362",
+  "term": "perfunctory",
+  "pos": "adj.",
+  "ipa": "/pərˈfʌŋktəri/",
+  "gloss_zh": "敷衍的；走了过场，没有真正做进去",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The reference calls felt [[perfunctory]]."
+  ],
+  "examples_stage_b": [
+   "A [[perfunctory]] board pack hides the one metric that moved.",
+   "Don't do a [[perfunctory]] pass on security because the logo is famous.",
+   "His answer on churn was [[perfunctory]], so we booked another call.",
+   "A [[perfunctory]] customer quote has no budget owner and no before-and-after.",
+   "A [[perfunctory]] conflicts check is how a side letter surprises you at signing."
+  ],
+  "contrast": [
+   {
+    "vs": "quick",
+    "note_zh": "quick 是快；perfunctory 是走过场，动作做了，心没在上面"
+   },
+   {
+    "vs": "superficial",
+    "note_zh": "superficial 是停在表面；perfunctory 是敷衍地完成这个动作。开口可以说 going through the motions"
+   }
+  ],
+  "usage": "rw",
+  "sayInstead": [
+   "going through the motions",
+   "just for show"
+  ]
  }
 ]
