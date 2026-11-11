@@ -1,11 +1,12 @@
 /**
- * New/review mix and 生疏列表 helpers for English Coach.
+ * New/review mix, 生疏列表, and 沉睡清单 helpers for English Coach.
  * Vanilla UMD so node tests can require it and the H5 can load it as a script.
  *
  * mix 0 = only 新词 (status empty / unmarked, same unseen pool as before).
  * mix 1 = only 复习 (weak + reinforce, same pool as the old 复习 mode).
  * Middle: P(review) = mix, then existing weights inside the chosen pool.
- * dropped never enters either pool.
+ * dropped never enters either pool. 沉睡清单 is a separate scan of dropped
+ * words whose log already has weak or reinforce; it is not a third pool.
  */
 (function (root, factory) {
   const api = factory();
@@ -87,6 +88,46 @@
     return { weak, reinforce };
   }
 
+  /**
+   * Longer-horizon scan. A word is included only when its current status is
+   * dropped AND its log has at least one weak or reinforce action.
+   * First-sight drops stay out, including needed words and seen >= 2.
+   * Membership is computed; nothing new is stored on the item.
+   */
+  function struggleIds(log) {
+    const ids = new Set();
+    if (!Array.isArray(log)) return ids;
+    for (const e of log) {
+      if (!e || e.id == null) continue;
+      if (e.action === 'weak' || e.action === 'reinforce') ids.add(e.id);
+    }
+    return ids;
+  }
+
+  function sleepingList(words, items, log) {
+    const list = Array.isArray(words) ? words : [];
+    const src = items && typeof items === 'object' ? items : {};
+    const struggled = struggleIds(log);
+    const rows = [];
+    for (const w of list) {
+      if (!w || !w.id) continue;
+      const r = src[w.id] || {};
+      const st = r.status ?? null;
+      if (st !== 'dropped') continue;
+      if (!struggled.has(w.id)) continue;
+      rows.push({
+        id: w.id,
+        term: w.term || '',
+        gloss_zh: w.gloss_zh || '',
+        usage: w.usage === 'speak' || w.usage === 'rw' ? w.usage : '',
+        needed: !!r.needed,
+        status: 'dropped'
+      });
+    }
+    rows.sort((a, b) => String(a.term).localeCompare(String(b.term)) || String(a.id).localeCompare(String(b.id)));
+    return rows;
+  }
+
   function pickWeighted(cand, weightFn, rng) {
     if (!cand || !cand.length) return null;
     const rand = typeof rng === 'function' ? rng : Math.random;
@@ -145,6 +186,7 @@
     isNewStatus,
     splitPools,
     listGroups,
+    sleepingList,
     pickWeighted,
     narrowRecent,
     choosePool,

@@ -60,6 +60,7 @@ button:disabled{opacity:.55;cursor:default}
 }
 .mix-row input[type=range]::-moz-range-track{height:6px;border-radius:999px;background:#d6dbe6;border:0}
 .mix-row input[type=range]::-moz-range-thumb{width:24px;height:24px;border:0;border-radius:50%;background:#3b5bfd;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+button.sleep-entry{align-self:flex-start;min-height:44px;padding:0 2px;border:0;border-radius:0;background:transparent;color:#667;font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .weak-list-body{max-height:60vh;overflow:auto;display:flex;flex-direction:column;gap:8px}
 .weak-h{font-size:12px;color:#667;letter-spacing:.04em;font-weight:700;margin:6px 0 0}
 .weak-row{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;min-height:52px;padding:10px 12px;border:0;border-radius:12px;background:#f6f7fb;text-align:left}

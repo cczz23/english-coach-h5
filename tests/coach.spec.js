@@ -498,3 +498,129 @@ test('生疏列表 is empty, then groups 还不熟 / 再巩固 and opens that ca
   await expect(page.getByTestId('card-a')).toBeVisible();
 });
 
+function seedSleepingList() {
+  return () => {
+    localStorage.setItem('ec_state_v4', JSON.stringify({
+      v: 4, mode: 'all', mix: 0.5,
+      items: {
+        w293: { status: 'dropped', seen: 3, needed: true, updated: 1 },
+        w338: { status: 'dropped', seen: 3, needed: false, updated: 1 },
+        w208: { status: 'dropped', seen: 3, needed: false, updated: 1 },
+        w209: { status: 'dropped', seen: 2, needed: true, updated: 1 },
+        w226: { status: 'dropped', seen: 2, needed: true, updated: 1 },
+        w235: { status: 'dropped', seen: 1, needed: true, updated: 1 }
+      },
+      recent: [],
+      log: [
+        { id: 'w293', term: 'secular', action: 'reinforce', ts: 1, seen: 1 },
+        { id: 'w293', term: 'secular', action: 'reinforce', ts: 2, seen: 2 },
+        { id: 'w293', term: 'secular', action: 'drop', ts: 3, seen: 3 },
+        { id: 'w338', term: 'directional', action: 'reinforce', ts: 1, seen: 2 },
+        { id: 'w338', term: 'directional', action: 'drop', ts: 2, seen: 3 },
+        { id: 'w208', term: 'tenuous', action: 'reinforce', ts: 1, seen: 2 },
+        { id: 'w208', term: 'tenuous', action: 'drop', ts: 2, seen: 3 },
+        { id: 'w209', term: 'inherent', action: 'reinforce', ts: 1, seen: 1 },
+        { id: 'w209', term: 'inherent', action: 'drop', ts: 2, seen: 2 },
+        { id: 'w226', term: 'unprecedented', action: 'needed_on', ts: 1, seen: 2 },
+        { id: 'w226', term: 'unprecedented', action: 'drop', ts: 2, seen: 2 },
+        { id: 'w235', term: 'advocate', action: 'needed_on', ts: 1, seen: 1 },
+        { id: 'w235', term: 'advocate', action: 'drop', ts: 2, seen: 1 }
+      ],
+      undo: []
+    }));
+  };
+}
+
+test('沉睡清单 is empty until a struggled word is dropped', async ({ page }) => {
+  await boot(page);
+  await expect(page.getByTestId('sleep-list-open')).toBeVisible();
+  await expect(page.getByTestId('sleep-list-open')).toHaveText('沉睡清单');
+  await page.getByTestId('sleep-list-open').click();
+  await expect(page.getByTestId('sleep-list')).toBeVisible();
+  await expect(page.getByTestId('sleep-list-hint')).toHaveText('看过多次后再放掉的词，偶尔拿出来复习。');
+  await expect(page.getByTestId('sleep-list-empty')).toBeVisible();
+  await page.getByTestId('sleep-list-close').click();
+  await expect(page.getByTestId('sleep-list')).toBeHidden();
+});
+
+test('沉睡清单 shows struggled-then-dropped words and opens that card', async ({ page }) => {
+  await page.addInitScript(seedSleepingList());
+  await page.goto('/');
+  await expect(page.getByTestId('term')).toBeVisible();
+  await page.getByTestId('mode-review').click();
+  await expect(page.getByTestId('empty-review')).toBeVisible();
+  await page.getByTestId('back-all').click();
+  await expect(page.getByTestId('term')).toBeVisible();
+
+  await page.getByTestId('sleep-list-open').click();
+  await expect(page.getByTestId('sleep-list')).toBeVisible();
+  await expect(page.getByTestId('sleep-row')).toHaveCount(4);
+  const ids = await page.getByTestId('sleep-row').evaluateAll(rows => rows.map(r => r.getAttribute('data-id')));
+  expect(ids).toEqual(['w338', 'w209', 'w293', 'w208']);
+  await expect(page.getByTestId('sleep-list')).toContainText('directional');
+  await expect(page.getByTestId('sleep-list')).toContainText('inherent');
+  await expect(page.getByTestId('sleep-list')).toContainText('secular');
+  await expect(page.getByTestId('sleep-list')).toContainText('tenuous');
+  await expect(page.getByTestId('sleep-list')).not.toContainText('unprecedented');
+  await expect(page.getByTestId('sleep-list')).not.toContainText('advocate');
+  await expect(page.locator('[data-testid=sleep-row][data-id=w293]')).toContainText('★');
+  await expect(page.locator('[data-testid=sleep-row][data-id=w209]')).toContainText('★');
+  await expect(page.locator('[data-testid=sleep-row][data-id=w338]')).not.toContainText('★');
+  await expect(page.locator('[data-testid=sleep-row][data-id=w293] [data-testid=sleep-usage]')).toHaveText('说');
+  await expect(page.locator('[data-testid=sleep-row][data-id=w208] [data-testid=sleep-usage]')).toHaveText('读写');
+  await expect(page.locator('[data-testid=sleep-row][data-id=w209] [data-testid=sleep-usage]')).toHaveText('读写');
+
+  await page.locator('[data-testid=sleep-row][data-id=w293]').click();
+  await expect(page.getByTestId('sleep-list')).toBeHidden();
+  await expect(page.getByTestId('term')).toContainText('secular');
+  await expect(page.getByTestId('stage')).toHaveText('STAGE A');
+  await expect(page.getByTestId('needed-dot')).toBeVisible();
+  await expect(page.getByTestId('card-a')).toBeVisible();
+});
+
+test('还不熟 leaves 沉睡清单 for 生疏列表; 先放掉 stays; undo restores', async ({ page }) => {
+  await page.addInitScript(seedSleepingList());
+  await page.goto('/');
+  await expect(page.getByTestId('term')).toBeVisible();
+  await page.getByTestId('sleep-list-open').click();
+  await page.locator('[data-testid=sleep-row][data-id=w293]').click();
+  await page.getByTestId('reveal').click();
+  await expect(page.getByTestId('stage')).toHaveText('STAGE B');
+  await page.getByTestId('weak').click();
+  await expect(page.getByTestId('n-weak')).toHaveText('1');
+
+  await page.getByTestId('sleep-list-open').click();
+  await expect(page.getByTestId('sleep-row')).toHaveCount(3);
+  await expect(page.getByTestId('sleep-list')).not.toContainText('secular');
+  await page.getByTestId('sleep-list-close').click();
+
+  await page.getByTestId('weak-list-open').click();
+  await expect(page.locator('[data-testid=weak-row][data-id=w293]')).toContainText('secular');
+  await expect(page.locator('[data-testid=weak-row][data-id=w293]')).toContainText('★');
+  await page.getByTestId('weak-list-close').click();
+
+  await page.getByTestId('undo').click();
+  await expect(page.getByTestId('term')).toContainText('secular');
+  await expect(page.getByTestId('n-weak')).toHaveText('0');
+  await expect(page.getByTestId('needed-dot')).toBeVisible();
+  await page.getByTestId('sleep-list-open').click();
+  await expect(page.getByTestId('sleep-row')).toHaveCount(4);
+  await expect(page.locator('[data-testid=sleep-row][data-id=w293]')).toBeVisible();
+  await page.getByTestId('sleep-list-close').click();
+  await page.getByTestId('weak-list-open').click();
+  await expect(page.getByTestId('weak-list-empty')).toBeVisible();
+  await page.getByTestId('weak-list-close').click();
+
+  await page.getByTestId('sleep-list-open').click();
+  await page.locator('[data-testid=sleep-row][data-id=w208]').click();
+  await expect(page.getByTestId('term')).toContainText('tenuous');
+  await page.getByTestId('reveal').click();
+  await expect(page.getByTestId('say-instead')).toContainText('weak / thin');
+  await expect(page.getByTestId('contrast')).toBeVisible();
+  await page.getByTestId('drop').click();
+  await page.getByTestId('sleep-list-open').click();
+  await expect(page.getByTestId('sleep-row')).toHaveCount(4);
+  await expect(page.locator('[data-testid=sleep-row][data-id=w208]')).toContainText('tenuous');
+  await expect(page.locator('[data-testid=sleep-row][data-id=w208] [data-testid=sleep-usage]')).toHaveText('读写');
+});
+
