@@ -26,12 +26,13 @@ GitHub Pages `https://cczz23.github.io/english-coach-h5/` 仍能打开页面，�
 | **用法标签 说 / 读写**（`usage` + `sayInstead`） | **本 PR 实现** |
 | **词库按进度缺口再扩 50 条**（`w263`–`w312`） | **2026-11-06** |
 | **词库第三批：开口能用的中高阶词**（`w313`–`w362`） | **2026-11-08 本批** |
+| **词库第四批：判断、立场、因果**（`w363`–`w412`） | **2026-11-11 本批** |
 
 ---
 
 ## 词库
 
-- 数据：`words.json`。当前 226 词（2026-11-06 加了 `w263`–`w312`；2026-11-08 加了 `w313`–`w362`）。
+- 数据：`words.json`。当前 276 词（2026-11-06 加了 `w263`–`w312`；2026-11-08 加了 `w313`–`w362`；2026-11-11 加了 `w363`–`w412`）。
 - `track`：`business` / `advanced` / `life`。`domain` 可为 `business` / `life` / `both`。商务轨 `domain` 用 `business`；高级轨用 `both`。
 - 每词：`id`, `term`, `pos`, `ipa`, `gloss_zh`, `examples_stage_a`, `examples_stage_b`，`usage`（`speak` | `rw`），以及可选 `important_suggest`, `contrast`, `sayInstead`。
 - 不删旧词，不改旧 id。用法标签只排练习优先级。同步那次改动本身不加词条；扩词是单独决定，见下。易混对比是可选字段，新旧词都可以有。
@@ -67,6 +68,27 @@ Chris 说上一批到 `w312` 已经练完。这一批**不回加**旧词，包�
 全库 226：business 97、advanced 117、life 12；speak 185、rw 41。
 
 刻意没加：upside case / downside case（和已有的 upside、downside 太近；情形用 base / bull / bear）、frank（candid 的对比里已经有）、indicative（留 directional：「treat it as directional」）、provisional（靠近 tentative / preliminary）、actionable（太泛，不单列）、aggressive（投资语境有用，但容易听成没礼貌；defensive / opportunistic / assertive 把姿势分开了）、steelman / strawman（不如 devil's advocate 像他会说的）、first-principles（口号）、illustrative（靠近 anecdotal）、attach rate / mix shift / price realization（这一批已经有 gross margin、contribution margin、payback、take rate，不再堆指标）、workstream（靠近 ownership）、multi-threaded（用 single-threaded 带出反面）、locked-in / captive（switching cost 是他真会说的那句）、accretive（容易说不清 accretive to 什么）、albeit / pursuant（连接词和法律套话，这一批的读写名额给了 immaterial、nominal、onerous、specious、perfunctory）。上一批没加的 hard commit、momentum、defensibility、deep dive、call out、alignment 仍然不加。
+
+### 2026-11-11 扩批（判断、立场、因果；避开他已经秒过的财务套话）
+
+Chris 把当时的 226 词都见过了。2026-11-11 09:29（Asia/Shanghai）CloudBase：226/226 有记录。第一次就放掉 133。当时还不熟 17、再巩固 72。
+
+秒过的一簇是课本式的 VC / 财务 / SaaS 行话和常见开会词（contribution margin、gross margin、pre-money / post-money、unit economics、dry powder、flywheel、network effect、GTM、bull / bear / base case 等）。第三批 50 条里有 32 条第一次就过，大多是这一类。他要求别再往这个方向推。
+
+还在卡的是判断、立场、因果上的形容词和动词：specious、blunt、measured、exacerbate、circumvent，以及 qualify 这一类说法，加上少量比喻（wedge）。
+
+这一批**不回加**旧词。不加俚语，不加 life。没有 SRS，没有改 `EX_MAX`，不改滑条、状态机或旧词的 id、例句和用法。50 条全是 advanced，`domain` 用 `both`。例句放在讨论、会议、备忘、判断里，不写条款和指标教程。
+
+| 轨 / 用法 | 条数 | 选词口径 |
+| --- | --- | --- |
+| advanced / speak | 45 | 会上能开口用的判断和讨论。立场和分寸：warranted、unwarranted、overstated、understated、premature、overdue、qualified、emphatic、pointed、diplomatic、noncommittal、far-fetched、telling、muted、irreversible、instrumental、rigorous、airtight、reluctant、granular。因果和推进：qualify、walk back、reframe、erode、derail、stall、backfire、outweigh、undercut、constrain、surface、tee up、pin down、overreach、distill。讨论里的名词：crux、friction、inertia、leeway、tension、mismatch、impasse、straw man、blind spot、red herring。容易和近义词或基础词搅在一起的，写了 `contrast`。qualified / qualify 只作「有保留 / 给说法加限定」，不作「有资格」 |
+| advanced / rw | 5 | 邮件和备忘里要认得、开口会换说法：ostensibly、unsubstantiated、cursory、commensurate、corollary。每条 1–2 个 `sayInstead` |
+
+全库 276：business 97、advanced 167、life 12；speak 230、rw 46。
+
+`important_suggest` 只给特别值得开口练的判断动词和形容词，以及 crux、inertia、impasse、straw man、red herring。较容易的说词标 false：premature、overdue、diplomatic、instrumental、reluctant、stall、outweigh、friction、leeway、tension、mismatch、blind spot。5 条读写也是 false。
+
+刻意没加财务和条款行话，也不回加他已经秒过的指标词。red herring 对着已有的 red flag：red flag 是危险信号，red herring 是岔开的假线索。
 
 ## 学习流 Stage A → B
 

@@ -149,3 +149,28 @@ Membership is derived from the existing `ec_state_v4` log and items. CloudBase s
 Marking 再巩固 or 还不熟 leaves the sleeping list and returns the word to 生疏列表 / the review pool. Marking 先放掉 again, or skipping on Stage A, leaves it on the sleeping list because status is still `dropped` and the earlier weak/reinforce log row is still there. 恢复上一个 is unchanged. Undoing a mark from this list restores the previous status; if that status is `dropped` and the log still has weak/reinforce, the word is back on 沉睡清单. ★特别需要, 说 / 读写, and 想说时用 stay on the card.
 
 UI: a text link 「沉睡清单」 under the header row, quieter than the 生疏列表 button. The sheet title is 沉睡清单, with the hint 「看过多次后再放掉的词，偶尔拿出来复习。」 Rows match the short-term list: term, usage badge, gloss, ★ when needed. Empty copy: 「还没有看过多次后再放掉的词。」 Tap a row to open Stage A, same as 生疏列表. `dropped` weight stays 0, so the slider never deals these cards.
+
+## 2026-11-11 — Lexicon batch 4: judgment, stance, and cause-effect
+
+Chris had seen all 226 words. CloudBase record from 2026-11-11 09:29 Asia/Shanghai: 226/226 seen. Instant first-sight drops: 133. At that moment, weak 17, reinforce 72.
+
+The instant-pass cluster is textbook VC / finance / SaaS jargon and common meeting words (contribution margin, gross margin, pre-money / post-money, unit economics, dry powder, flywheel, network effect, GTM, bull / bear / base case, and the like). Batch 3 had 32 of 50 instant passes, mostly of this type. He asked to stop pushing these.
+
+The struggle cluster is precise judgment, stance, and cause-effect adjectives and verbs he can use in a meeting: specious, blunt, measured, exacerbate, circumvent, qualify-like language, plus a few metaphors (wedge).
+
+Decision: do not re-add any existing term. Add 50 new entries, ids `w363`–`w412`, all `track: advanced`, `domain: both`. 45 speak, 5 rw. No slang. No new life entries. No SRS. `EX_MAX` stays 5. No slider, state-machine, or UI change. Old ids, sentences, and usage tags stay as they were. Example scenes are discussion, meetings, memos, and judgment calls, not term sheets or metric tutorials.
+
+Each new entry has one Stage A line and five distinct Stage B scenes. Every entry has `contrast` against a near-synonym and a basic word. Every rw entry has 1–2 `sayInstead` lines.
+
+| track / usage | count | why these |
+| --- | --- | --- |
+| advanced / speak | 45 | Judgment and discussion he can say out loud. Stance and degree: warranted, unwarranted, overstated, understated, premature, overdue, qualified, emphatic, pointed, diplomatic, noncommittal, far-fetched, telling, muted, irreversible, instrumental, rigorous, airtight, reluctant, granular. Cause and next step: qualify, walk back, reframe, erode, derail, stall, backfire, outweigh, undercut, constrain, surface, tee up, pin down, overreach, distill. Nouns for the discussion: crux, friction, inertia, leeway, tension, mismatch, impasse, straw man, blind spot, red herring. |
+| advanced / rw | 5 | Recognize in a mail or memo, and say something simpler: ostensibly, unsubstantiated, cursory, commensurate, corollary. |
+
+`qualified` means a yes with a reservation (有保留的). `qualify` means to narrow a statement (给说法加上限定). Neither means 有资格 / qualify for a role. `red herring` is set against `red flag`: a red flag is a danger signal; a red herring pulls attention onto a false trail.
+
+`important_suggest` is true only for the speak words that are especially useful as judgment verbs or adjectives, plus crux, inertia, impasse, straw man, and red herring. False on the easier speak items (premature, overdue, diplomatic, instrumental, reluctant, stall, outweigh, friction, leeway, tension, mismatch, blind spot) and on all five rw entries.
+
+Lexicon after this batch: 276 words. Tracks: business 97, advanced 167, life 12. Usage: speak 230, rw 46.
+
+Consciously left out: more finance and term-sheet jargon, and any repeat of the metric words he already passes on sight. No hosting deploy with this batch.

@@ -6088,5 +6088,1574 @@
    "going through the motions",
    "just for show"
   ]
+ },
+ {
+  "id": "w363",
+  "term": "warranted",
+  "pos": "adj.",
+  "ipa": "/ˈwɔːrəntɪd/",
+  "gloss_zh": "有理由的；说得过去的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "A follow-up question was [[warranted]]."
+  ],
+  "examples_stage_b": [
+   "The extra review was [[warranted]]; the draft hid the exception.",
+   "A public apology is not [[warranted]] for a typo in an internal note.",
+   "Her skepticism was [[warranted]] after the date slipped twice.",
+   "Pausing the rollout is [[warranted]] until someone owns the handoff.",
+   "That sharp email was not [[warranted]] by a scheduling miss."
+  ],
+  "contrast": [
+   {
+    "vs": "justified",
+    "note_zh": "justified 是这件事正当、站得住；warranted 是眼下这个反应或追问有理由，不是过头"
+   },
+   {
+    "vs": "fair",
+    "note_zh": "fair 是公道、不偏；warranted 是有依据、说得过去。一件事可以 fair，仍不 warrant 这么重的说法"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w364",
+  "term": "unwarranted",
+  "pos": "adj.",
+  "ipa": "/ˌʌnˈwɔːrəntɪd/",
+  "gloss_zh": "没有依据的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The accusation was [[unwarranted]]."
+  ],
+  "examples_stage_b": [
+   "Blame in the postmortem felt [[unwarranted]]; the vendor missed the window.",
+   "An [[unwarranted]] guess about motive turned a scheduling note into a fight.",
+   "Calling the pilot a failure is [[unwarranted]] when three sites have not reported.",
+   "I cut the [[unwarranted]] adjective before the note went to the chair.",
+   "His confidence was [[unwarranted]] given how thin the interviews were."
+  ],
+  "contrast": [
+   {
+    "vs": "baseless",
+    "note_zh": "baseless 是完全没有根据；unwarranted 是这个力度或结论站不住，未必是凭空捏造"
+   },
+   {
+    "vs": "unfair",
+    "note_zh": "unfair 是不公道；unwarranted 是没有依据，指责或反应过了头"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w365",
+  "term": "overstated",
+  "pos": "adj.",
+  "ipa": "/ˌoʊvərˈsteɪtɪd/",
+  "gloss_zh": "说满了；夸大了",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The memo [[overstated]] how ready we are."
+  ],
+  "examples_stage_b": [
+   "We [[overstated]] interest because three friendly users sounded like a crowd.",
+   "The headline [[overstated]] the outage; only the export failed.",
+   "A polished demo can [[overstate]] what the operator still does by hand.",
+   "Her note [[overstated]] agreement. Two people were still unconvinced.",
+   "The risk section is fair. The opening [[overstates]] how sure we are."
+  ],
+  "contrast": [
+   {
+    "vs": "exaggerated",
+    "note_zh": "exaggerated 是夸张、添油加醋；overstated 是把程度说满了，方向可能对，判断偏高"
+   },
+   {
+    "vs": "wrong",
+    "note_zh": "wrong 是错了；overstated 不一定方向错，是说得太满"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w366",
+  "term": "understated",
+  "pos": "adj.",
+  "ipa": "/ˌʌndərˈsteɪtɪd/",
+  "gloss_zh": "说保守了；语气收着的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "He [[understated]] how messy the migration was."
+  ],
+  "examples_stage_b": [
+   "The summary [[understated]] the delay. It was six weeks, not a few days.",
+   "An [[understated]] tone landed better than a victory paragraph.",
+   "She [[understated]] her role, and the room almost missed who fixed it.",
+   "The appendix [[understates]] the exception by burying it under a calm chart.",
+   "Keep the note [[understated]]. The concern is real, and the drama is not."
+  ],
+  "contrast": [
+   {
+    "vs": "modest",
+    "note_zh": "modest 是人谦；understated 是把事情说小了，或语气故意收着"
+   },
+   {
+    "vs": "quiet",
+    "note_zh": "quiet 是声音小、话少；understated 是内容上没把分量说满"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w367",
+  "term": "premature",
+  "pos": "adj.",
+  "ipa": "/ˌpriːməˈtʃʊr/",
+  "gloss_zh": "为时尚早的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "A yes today would be [[premature]]."
+  ],
+  "examples_stage_b": [
+   "Announcing a date is [[premature]] until the second site confirms.",
+   "I marked the recommendation [[premature]] and asked for the missing interviews.",
+   "Judging the new editor after one draft is [[premature]].",
+   "The celebration note felt [[premature]]. Legal had not signed off.",
+   "It is [[premature]] to retire the old checklist while the new one still drops requests."
+  ],
+  "contrast": [
+   {
+    "vs": "hasty",
+    "note_zh": "hasty 是赶、没想清楚；premature 是时机未到，哪怕你已经想得很细"
+   },
+   {
+    "vs": "early",
+    "note_zh": "early 只是时间早；premature 是现在下结论或动手还太早"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w368",
+  "term": "overdue",
+  "pos": "adj.",
+  "ipa": "/ˌoʊvərˈduː/",
+  "gloss_zh": "早该做了的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "This decision is [[overdue]]."
+  ],
+  "examples_stage_b": [
+   "A written recap is [[overdue]]. People are still working off hallway comments.",
+   "The performance conversation is [[overdue]], and silence is starting to look like avoidance.",
+   "That security review was [[overdue]] before the incident, not because of it.",
+   "An [[overdue]] reply is now the story, more than the original question.",
+   "The roster is [[overdue]] for a name next to customer escalations."
+  ],
+  "contrast": [
+   {
+    "vs": "delayed",
+    "note_zh": "delayed 是被推迟了；overdue 是早该交、期限已过，还拖着"
+   },
+   {
+    "vs": "late",
+    "note_zh": "late 是迟了；overdue 是这件事早该做，拖着本身就是问题"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w369",
+  "term": "qualified",
+  "pos": "adj.",
+  "ipa": "/ˈkwɑːləfaɪd/",
+  "gloss_zh": "有保留的；yes 带条件，不是「有资格」",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I can give a [[qualified]] yes."
+  ],
+  "examples_stage_b": [
+   "Support is [[qualified]]. We proceed only if the open questions are listed.",
+   "Her [[qualified]] endorsement still left the timeline open.",
+   "Put the [[qualified]] part in the first line, not in a footnote.",
+   "A [[qualified]] agreement still has a condition. It is not a full yes.",
+   "I heard a [[qualified]] no: open to revisiting, not open to this plan."
+  ],
+  "contrast": [
+   {
+    "vs": "unequivocal",
+    "note_zh": "unequivocal 是不含糊、不留口子；qualified 是有保留的 yes 或判断，条件还在。不是「有资格」"
+   },
+   {
+    "vs": "sure",
+    "note_zh": "sure 是你确定；qualified 是大体同意，但保留还在。不要理解成 qualified for a role"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w370",
+  "term": "emphatic",
+  "pos": "adj.",
+  "ipa": "/ɪmˈfætɪk/",
+  "gloss_zh": "说得很确定；口气很重",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "She was [[emphatic]]: the date will not move."
+  ],
+  "examples_stage_b": [
+   "The reply was [[emphatic]] where the earlier note had been soft.",
+   "Be [[emphatic]] about the boundary, and quiet about the blame.",
+   "An [[emphatic]] no in the room saved us from another vague maybe.",
+   "He turned [[emphatic]] only when someone suggested skipping the review.",
+   "The last line is too [[emphatic]] for a draft that still has open questions."
+  ],
+  "contrast": [
+   {
+    "vs": "unequivocal",
+    "note_zh": "unequivocal 是内容上没有但书；emphatic 是口气很重、把这句说得很死，句子里仍可以有条件"
+   },
+   {
+    "vs": "strong",
+    "note_zh": "strong 是力度大；emphatic 是说得很确定，听得出你不打算再软"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w371",
+  "term": "pointed",
+  "pos": "adj.",
+  "ipa": "/ˈpɔɪntɪd/",
+  "gloss_zh": "点得很准；话里有钉子",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The question was [[pointed]], and it landed."
+  ],
+  "examples_stage_b": [
+   "Her note was [[pointed]]. The second section answers a question nobody asked.",
+   "A [[pointed]] remark about the missing backup changed the temperature of the room.",
+   "Keep it [[pointed]] at the choice we have to make, not at who typed the slide.",
+   "The [[pointed]] line in the minutes was that we still do not know who decides.",
+   "He stayed courteous and still made a [[pointed]] remark about the missing page."
+  ],
+  "contrast": [
+   {
+    "vs": "blunt",
+    "note_zh": "blunt 是不垫软话；pointed 是点得准、对着具体的那一点，话里有钉子"
+   },
+   {
+    "vs": "sharp",
+    "note_zh": "sharp 可以是锋利或聪明；pointed 是有针对性，不是泛泛地凶"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w372",
+  "term": "diplomatic",
+  "pos": "adj.",
+  "ipa": "/ˌdɪpləˈmætɪk/",
+  "gloss_zh": "说得圆；不得罪人",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Try a more [[diplomatic]] version of that no."
+  ],
+  "examples_stage_b": [
+   "[[Diplomatic]] phrasing kept the client in the conversation.",
+   "[[Diplomatic]] is not empty. Say the constraint without the insult.",
+   "She found a [[diplomatic]] way to tell the chair the packet was late.",
+   "A [[diplomatic]] opening helps. The third paragraph still has to be clear.",
+   "He was [[diplomatic]] with the vendor and direct with us afterward."
+  ],
+  "contrast": [
+   {
+    "vs": "polite",
+    "note_zh": "polite 是有礼貌；diplomatic 是把话说圆，意思传到了，又不得罪人"
+   },
+   {
+    "vs": "careful",
+    "note_zh": "careful 是怕说错；diplomatic 是有意把棱角磨掉，让对方还能接着谈"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w373",
+  "term": "noncommittal",
+  "pos": "adj.",
+  "ipa": "/ˌnɑːnkəˈmɪtəl/",
+  "gloss_zh": "不表态的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "His reply was [[noncommittal]]."
+  ],
+  "examples_stage_b": [
+   "A [[noncommittal]] \"we'll see\" is not a plan.",
+   "She stayed [[noncommittal]] until the draft was in front of her.",
+   "The note is [[noncommittal]] on purpose. We do not have the facts.",
+   "I would rather hear a no than another [[noncommittal]] paragraph.",
+   "The chair stayed [[noncommittal]], so the decision is not made."
+  ],
+  "contrast": [
+   {
+    "vs": "vague",
+    "note_zh": "vague 是说不清；noncommittal 是听懂了，故意不给 yes 也不给 no"
+   },
+   {
+    "vs": "cautious",
+    "note_zh": "cautious 是谨慎、怕踩坑；noncommittal 是不表态，不是还在小心核对"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w374",
+  "term": "far-fetched",
+  "pos": "adj.",
+  "ipa": "/ˌfɑːrˈfetʃt/",
+  "gloss_zh": "牵强的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "That explanation sounds [[far-fetched]]."
+  ],
+  "examples_stage_b": [
+   "Blaming the outage on the new hire is [[far-fetched]].",
+   "One angry email is a [[far-fetched]] account of why the launch slipped.",
+   "I cut the [[far-fetched]] picture of every office adopting this by June.",
+   "It is not impossible. It is [[far-fetched]] without a second source.",
+   "The motive he offered is the [[far-fetched]] part. The sequence is not."
+  ],
+  "contrast": [
+   {
+    "vs": "specious",
+    "note_zh": "specious 看似有理、其实站不住；far-fetched 是牵强、离眼下事实太远，还没装成严密论证"
+   },
+   {
+    "vs": "unlikely",
+    "note_zh": "unlikely 是概率低；far-fetched 是要绕很远才连得上，听着牵强"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w375",
+  "term": "telling",
+  "pos": "adj.",
+  "ipa": "/ˈtelɪŋ/",
+  "gloss_zh": "很说明问题的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The silence after the question was [[telling]]."
+  ],
+  "examples_stage_b": [
+   "It is [[telling]] that nobody would name the approver.",
+   "The most [[telling]] sentence was buried in the last paragraph.",
+   "A [[telling]] detail: they described the buyer and never the person who uses the tool.",
+   "What she skipped was more [[telling]] than the slides she walked through.",
+   "The revision history is [[telling]]. The conclusion flipped after one comment."
+  ],
+  "contrast": [
+   {
+    "vs": "obvious",
+    "note_zh": "obvious 是谁都看得出；telling 是这一小点很说明问题，值得拿来下判断"
+   },
+   {
+    "vs": "significant",
+    "note_zh": "significant 是分量大；telling 是这一处泄露了真实情况，本身未必很大"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w376",
+  "term": "muted",
+  "pos": "adj.",
+  "ipa": "/ˈmjuːtɪd/",
+  "gloss_zh": "反应被压住的；幅度平淡的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The reaction in the room was [[muted]]."
+  ],
+  "examples_stage_b": [
+   "A [[muted]] response to a miss like that should worry us.",
+   "Keep the praise [[muted]] until the night shift has tried it.",
+   "The write-up sounds [[muted]] because the disagreement was edited out.",
+   "Interest looks [[muted]], not gone. People are waiting on the policy note.",
+   "His [[muted]] delivery did not match the deadline sitting under the calm."
+  ],
+  "contrast": [
+   {
+    "vs": "quiet",
+    "note_zh": "quiet 是安静、话少；muted 是反应或幅度被压住了，不是没发生"
+   },
+   {
+    "vs": "weak",
+    "note_zh": "weak 是本身不强；muted 是被收着、被压平，底下可以并不弱"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w377",
+  "term": "irreversible",
+  "pos": "adj.",
+  "ipa": "/ˌɪrɪˈvɝːsəbəl/",
+  "gloss_zh": "改不回去的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Once we send it, that note is [[irreversible]]."
+  ],
+  "examples_stage_b": [
+   "Taking the team off the old tool is close to [[irreversible]].",
+   "Treat the public line as [[irreversible]]. A clarification will not catch up.",
+   "A reversible trial is fine. An [[irreversible]] cut to the old process is not.",
+   "Removing the only person who knows the archive is an [[irreversible]] step.",
+   "Tell me which choices are [[irreversible]] before Thursday."
+  ],
+  "contrast": [
+   {
+    "vs": "permanent",
+    "note_zh": "permanent 是长期如此；irreversible 是这一步做了就改不回去"
+   },
+   {
+    "vs": "serious",
+    "note_zh": "serious 是严重；irreversible 是方向锁死，不是程度轻重"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w378",
+  "term": "instrumental",
+  "pos": "adj.",
+  "ipa": "/ˌɪnstrəˈmentəl/",
+  "gloss_zh": "起到关键作用的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "She was [[instrumental]] in getting the review unstuck."
+  ],
+  "examples_stage_b": [
+   "The field notes were [[instrumental]]. The slide deck was not.",
+   "He was [[instrumental]] in the first month and hard to find after that.",
+   "One interpreter was [[instrumental]] when the client workshop jammed.",
+   "Don't call the tool [[instrumental]] if people still keep a side spreadsheet.",
+   "Quiet prep the night before was [[instrumental]]. The discussion stayed on the decision."
+  ],
+  "contrast": [
+   {
+    "vs": "helpful",
+    "note_zh": "helpful 是有帮助；instrumental 是起到关键作用，没有它这件事成不了"
+   },
+   {
+    "vs": "important",
+    "note_zh": "important 是重要；instrumental 是这个人或这一步实际把结果做成了"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w379",
+  "term": "rigorous",
+  "pos": "adj.",
+  "ipa": "/ˈrɪɡərəs/",
+  "gloss_zh": "严的；经得起查的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I want a [[rigorous]] pass before this goes out."
+  ],
+  "examples_stage_b": [
+   "The argument is tidy, and it is not yet [[rigorous]].",
+   "A [[rigorous]] read asks what we never checked.",
+   "Hold the method to a [[rigorous]] standard, not a theatrical one.",
+   "Her questions were [[rigorous]] without turning hostile.",
+   "[[Rigorous]] means we can show the path from evidence to the conclusion."
+  ],
+  "contrast": [
+   {
+    "vs": "meticulous",
+    "note_zh": "meticulous 是细节一丝不苟；rigorous 是标准严，方法和结论经得起查"
+   },
+   {
+    "vs": "careful",
+    "note_zh": "careful 是小心；rigorous 是按硬标准过一遍，不是只怕出错"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w380",
+  "term": "airtight",
+  "pos": "adj.",
+  "ipa": "/ˈerˌtaɪt/",
+  "gloss_zh": "严密的；抠不进缝的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The case is not [[airtight]] yet."
+  ],
+  "examples_stage_b": [
+   "An [[airtight]] timeline still left the motive unexplained.",
+   "Don't call the note [[airtight]] while one source is unnamed.",
+   "The logic looks [[airtight]] until the timing assumption moves.",
+   "Make it [[airtight]] on who decided, not on every side detail.",
+   "An [[airtight]] reply answers the objection instead of stepping around it."
+  ],
+  "contrast": [
+   {
+    "vs": "rigorous",
+    "note_zh": "rigorous 是过程严、经得起查；airtight 是这套说法严密到抠不进缝"
+   },
+   {
+    "vs": "perfect",
+    "note_zh": "perfect 是事事完美；airtight 是逻辑或证据封住了，对方难反驳"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w381",
+  "term": "reluctant",
+  "pos": "adj.",
+  "ipa": "/rɪˈlʌktənt/",
+  "gloss_zh": "不情愿的；勉强的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I'm [[reluctant]] to promise a date."
+  ],
+  "examples_stage_b": [
+   "She was [[reluctant]], then took the assignment anyway.",
+   "A [[reluctant]] yes from the operator is a warning, not a go-ahead.",
+   "He was [[reluctant]] to put the disagreement in writing.",
+   "I'm [[reluctant]] to add another reviewer this late.",
+   "The client is [[reluctant]]. That is different from opposed."
+  ],
+  "contrast": [
+   {
+    "vs": "unwilling",
+    "note_zh": "unwilling 是不愿意做；reluctant 是不情愿、勉强，最后可能还是做了"
+   },
+   {
+    "vs": "hesitant",
+    "note_zh": "hesitant 是犹豫、还没动；reluctant 是心里别扭，动作可以已经在做"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w382",
+  "term": "granular",
+  "pos": "adj.",
+  "ipa": "/ˈɡrænjələr/",
+  "gloss_zh": "拆到很细的",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Can we get [[granular]] on where the time went?"
+  ],
+  "examples_stage_b": [
+   "The summary can stay short. The backup should be [[granular]].",
+   "A [[granular]] split by site showed the delay sitting in one city.",
+   "Don't get [[granular]] in the opening. Save the breakdown for the appendix.",
+   "I need a [[granular]] account of who signed, not a blended story.",
+   "Her update was [[granular]] on exceptions and vague on the actual decision."
+  ],
+  "contrast": [
+   {
+    "vs": "detailed",
+    "note_zh": "detailed 是细节多；granular 是拆到很细的一层，能按小块看"
+   },
+   {
+    "vs": "specific",
+    "note_zh": "specific 是具体、不笼统；granular 是颗粒度，把一整块拆开"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w383",
+  "term": "qualify",
+  "pos": "v.",
+  "ipa": "/ˈkwɑːləfaɪ/",
+  "gloss_zh": "给说法加上限定；不是「有资格」",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Let me [[qualify]] that. Only the first site."
+  ],
+  "examples_stage_b": [
+   "I [[qualify]] the yes. It holds if the exception is written down.",
+   "[[Qualify]] the sentence before it reads like a promise.",
+   "She [[qualified]] the praise. The draft is clear, and the evidence is thin.",
+   "He would not [[qualify]] the line, so we cut it.",
+   "[[Qualify]] \"ready,\" or stop using the word."
+  ],
+  "contrast": [
+   {
+    "vs": "clarify",
+    "note_zh": "clarify 是说清楚；qualify 是给说法加上限定，把刚才那句收窄。不是 qualify for，不是「有资格」"
+   },
+   {
+    "vs": "explain",
+    "note_zh": "explain 是解释；qualify 是加上条件或范围，让它不再听成满口答应"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w384",
+  "term": "walk back",
+  "pos": "phr. v.",
+  "ipa": "/ˈwɔːk ˈbæk/",
+  "gloss_zh": "收回或软化刚才的话",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "We may have to [[walk back]] the date we just gave them."
+  ],
+  "examples_stage_b": [
+   "He [[walked back]] \"final\" after counsel saw the draft.",
+   "Don't [[walk back]] a clear no just because the room went quiet.",
+   "The second email [[walked back]] the certainty of the first.",
+   "If we [[walk back]] the scope, say what is still in.",
+   "She [[walked back]] the blame and left the fact standing."
+  ],
+  "contrast": [
+   {
+    "vs": "take back",
+    "note_zh": "take back 是把那句话收回、当没说过；walk back 是收回或软化刚才的说法，常常还留一点"
+   },
+   {
+    "vs": "push back (on)",
+    "note_zh": "push back 是反对别人；walk back 是收回或放软自己刚说的"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w385",
+  "term": "reframe",
+  "pos": "v.",
+  "ipa": "/ˌriːˈfreɪm/",
+  "gloss_zh": "换一个框来看",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Can we [[reframe]] this as a sequencing problem?"
+  ],
+  "examples_stage_b": [
+   "[[Reframe]] the question. Not who failed. What we still do not know.",
+   "He [[reframed]] a personality clash as a missing right to decide.",
+   "She [[reframed]] the delay as protecting the launch, not as drift.",
+   "I [[reframed]] the ask: not more people, one person who can say yes.",
+   "[[Reframe]] it in the memo, or the old argument starts again."
+  ],
+  "contrast": [
+   {
+    "vs": "rephrase",
+    "note_zh": "rephrase 是换个说法，意思不变；reframe 是换一个框来看，问题本身被重新定义"
+   },
+   {
+    "vs": "change",
+    "note_zh": "change 是把内容改掉；reframe 是换视角，让原来的判断看得更清楚"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w386",
+  "term": "erode",
+  "pos": "v.",
+  "ipa": "/ɪˈroʊd/",
+  "gloss_zh": "慢慢侵蚀",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Small exceptions [[erode]] the rule."
+  ],
+  "examples_stage_b": [
+   "Repeated slips [[erode]] trust faster than one bad miss.",
+   "Open questions [[erode]] a recommendation even when the prose is calm.",
+   "Side agreements [[erode]] the process we just asked people to follow.",
+   "Vague updates [[erode]] the habit of writing decisions down.",
+   "Confidence [[eroded]] when the second source contradicted the first."
+  ],
+  "contrast": [
+   {
+    "vs": "undermine",
+    "note_zh": "undermine 更像削弱根基、从底下掏；erode 是一点一点被啃掉"
+   },
+   {
+    "vs": "weaken",
+    "note_zh": "weaken 是变弱；erode 强调慢慢、持续地被磨掉"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w387",
+  "term": "derail",
+  "pos": "v.",
+  "ipa": "/dɪˈreɪl/",
+  "gloss_zh": "把事情搞偏；脱轨",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Don't let a side issue [[derail]] the decision."
+  ],
+  "examples_stage_b": [
+   "A late rumor [[derailed]] a meeting that had a clear agenda.",
+   "One loud objection can [[derail]] the write-up if nobody sets it aside.",
+   "We [[derailed]] ourselves by reopening a naming question that was settled.",
+   "The demo [[derailed]] into a tour of features nobody had asked to see.",
+   "Leave the personal history out, or it will [[derail]] the feedback."
+  ],
+  "contrast": [
+   {
+    "vs": "stall",
+    "note_zh": "stall 是拖住、还在原题上动不了；derail 是整件事脱轨，方向被带偏"
+   },
+   {
+    "vs": "delay",
+    "note_zh": "delay 是时间后移；derail 是离开原来要决定的那件事"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w388",
+  "term": "stall",
+  "pos": "v.",
+  "ipa": "/stɔːl/",
+  "gloss_zh": "卡住；拖住",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The review will [[stall]] without a next draft assigned."
+  ],
+  "examples_stage_b": [
+   "Questions [[stalled]] when the only person with the file left the room.",
+   "Don't [[stall]] a call that is already late.",
+   "The thread [[stalled]] on a definition nobody wrote down.",
+   "A missing signature [[stalled]] the announcement, not the work.",
+   "We are [[stalled]] on access. Pretending otherwise wastes the week."
+  ],
+  "contrast": [
+   {
+    "vs": "delay",
+    "note_zh": "delay 是推迟到另一个时间；stall 是卡住、推不动，不一定有新日期"
+   },
+   {
+    "vs": "stop",
+    "note_zh": "stop 是停掉；stall 是还在议程上，只是动不了"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w389",
+  "term": "backfire",
+  "pos": "v.",
+  "ipa": "/ˈbækˌfaɪər/",
+  "gloss_zh": "适得其反；反噬",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "A sharp reminder can [[backfire]]."
+  ],
+  "examples_stage_b": [
+   "The public scolding [[backfired]]. People stopped raising problems.",
+   "A third approver [[backfired]] and slowed every small fix.",
+   "The joke in the memo [[backfired]] with the client.",
+   "Pushing everyone to sound certain [[backfired]] into a promise we could not keep.",
+   "Copying the whole list [[backfired]] and hid the one person who had to act."
+  ],
+  "contrast": [
+   {
+    "vs": "fail",
+    "note_zh": "fail 是没做成；backfire 是这步适得其反，反而伤到你"
+   },
+   {
+    "vs": "worsen",
+    "note_zh": "worsen 是情况变糟；backfire 是你本来想解决问题的那一步反噬了"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w390",
+  "term": "outweigh",
+  "pos": "v.",
+  "ipa": "/ˌaʊtˈweɪ/",
+  "gloss_zh": "更重要；一边压过另一边",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The risk does not [[outweigh]] the reason to go ahead."
+  ],
+  "examples_stage_b": [
+   "Clarity [[outweighs]] speed on this note.",
+   "One unhappy office does not [[outweigh]] the same pattern at six sites.",
+   "The cost of waiting [[outweighs]] the comfort of another draft.",
+   "Her objection [[outweighs]] the cosmetic edits.",
+   "Say in the memo which factor [[outweighs]] the others."
+  ],
+  "contrast": [
+   {
+    "vs": "exceed",
+    "note_zh": "exceed 是数量超过；outweigh 是这一侧更重要，一边压过另一边"
+   },
+   {
+    "vs": "more important",
+    "note_zh": "more important 是更要紧；outweigh 是你已经把两边放上天平，明确说哪边压过"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w391",
+  "term": "undercut",
+  "pos": "v.",
+  "ipa": "/ˌʌndərˈkʌt/",
+  "gloss_zh": "从下面挖掉（价格或论据）",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "That aside [[undercut]] the recommendation."
+  ],
+  "examples_stage_b": [
+   "A casual \"probably fine\" [[undercut]] an hour of careful review.",
+   "A lower quote in the hallway [[undercut]] the price the team had just stood behind.",
+   "The footnote [[undercuts]] the confident opening.",
+   "Don't [[undercut]] the written recommendation with a softer version in a side channel.",
+   "An old promise [[undercut]] the rule we stated on Monday."
+  ],
+  "contrast": [
+   {
+    "vs": "undermine",
+    "note_zh": "undermine 是削弱根基或信任；undercut 是从下面挖，把价格或论据抽掉"
+   },
+   {
+    "vs": "weaken",
+    "note_zh": "weaken 是变弱；undercut 是用更低的一档把原来的支撑拿掉"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w392",
+  "term": "constrain",
+  "pos": "v.",
+  "ipa": "/kənˈstreɪn/",
+  "gloss_zh": "把空间限住",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The deadline [[constrains]] how far we can reopen this."
+  ],
+  "examples_stage_b": [
+   "Headcount [[constrains]] the plan more than the idea does.",
+   "Say what [[constrains]] you, instead of a vague \"it's hard.\"",
+   "A shared inbox [[constrains]] how fast anyone can answer.",
+   "Last year's template should not [[constrain]] a different kind of call.",
+   "Access rules [[constrain]] who can even see the draft."
+  ],
+  "contrast": [
+   {
+    "vs": "limit",
+    "note_zh": "limit 是设一条上限；constrain 是把还能活动的空间限住，选择变少"
+   },
+   {
+    "vs": "block",
+    "note_zh": "block 是挡住；constrain 是路还在，只是框紧了"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w393",
+  "term": "surface",
+  "pos": "v.",
+  "ipa": "/ˈsɝːfɪs/",
+  "gloss_zh": "把问题提出来；浮出来",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "[[Surface]] the disagreement before we decide."
+  ],
+  "examples_stage_b": [
+   "The interviews [[surfaced]] a worry the deck never mentioned.",
+   "[[Surface]] the exception in the opening, not the appendix.",
+   "She [[surfaced]] the staffing gap without making it personal.",
+   "If we do not [[surface]] it now, it shows up as a surprise in review.",
+   "The questions [[surfaced]] a split between the two offices."
+  ],
+  "contrast": [
+   {
+    "vs": "flag",
+    "note_zh": "flag 是标出来提醒别人接；surface 是让藏着的问题浮进讨论，不一定已经是警报"
+   },
+   {
+    "vs": "raise",
+    "note_zh": "raise 是你提出一个议题；surface 是把已经在那儿、还没被说破的问题捞上来"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w394",
+  "term": "tee up",
+  "pos": "phr. v.",
+  "ipa": "/ˈtiː ˈʌp/",
+  "gloss_zh": "先把问题或材料铺好，方便下一步",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "I'll [[tee up]] the decision for Monday."
+  ],
+  "examples_stage_b": [
+   "[[Tee up]] the two options in the pre-read, not live in the room.",
+   "She [[teed up]] the disagreement so the chair did not meet it cold.",
+   "A short note can [[tee up]] the ask before the call.",
+   "Don't [[tee up]] six topics when we have time for one.",
+   "He [[teed up]] the evidence and then stopped, which helped."
+  ],
+  "contrast": [
+   {
+    "vs": "set up",
+    "note_zh": "set up 是安排好；tee up 是先把问题或材料铺好，方便下一步马上接"
+   },
+   {
+    "vs": "park that",
+    "note_zh": "park that 是先搁下；tee up 是铺好以便接着做，不是放下"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w395",
+  "term": "pin down",
+  "pos": "phr. v.",
+  "ipa": "/ˈpɪn ˈdaʊn/",
+  "gloss_zh": "把含糊的说法钉死",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Can we [[pin down]] who decides?"
+  ],
+  "examples_stage_b": [
+   "[[Pin down]] the date before the invite goes out.",
+   "She [[pinned down]] a fuzzy \"soon\" to Friday noon.",
+   "I still cannot [[pin down]] whether the client asked or we assumed.",
+   "[[Pin down]] the scope in one sentence at the top.",
+   "He would not [[pin down]] the objection, so the debate stayed foggy."
+  ],
+  "contrast": [
+   {
+    "vs": "clarify",
+    "note_zh": "clarify 是把意思说清楚；pin down 是把含糊的说法钉死，要一个具体答案"
+   },
+   {
+    "vs": "ask",
+    "note_zh": "ask 是发问；pin down 是不让它继续飘，钉成日期、人名或一句承诺"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w396",
+  "term": "overreach",
+  "pos": "v./n.",
+  "ipa": "/ˌoʊvərˈriːtʃ/",
+  "gloss_zh": "做过头；伸手过长",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "A public commitment today would be an [[overreach]]."
+  ],
+  "examples_stage_b": [
+   "The recommendation [[overreaches]] by telling another team how to staff.",
+   "I [[overreached]] in the room and narrowed it afterward.",
+   "A firm view helps. An [[overreach]] makes people stop listening.",
+   "Don't [[overreach]] on motive. We know what happened, not why.",
+   "The draft [[overreaches]] by calling a trial a new way of working."
+  ],
+  "contrast": [
+   {
+    "vs": "overdo",
+    "note_zh": "overdo 是做得过火；overreach 是伸手过长，超出自己的职权、证据或能力"
+   },
+   {
+    "vs": "ambitious",
+    "note_zh": "ambitious 是有企图心；overreach 是已经越界，会反噬"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w397",
+  "term": "distill",
+  "pos": "v.",
+  "ipa": "/dɪˈstɪl/",
+  "gloss_zh": "把长的收成几句要点",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "[[Distill]] the thread into three lines."
+  ],
+  "examples_stage_b": [
+   "She [[distilled]] an hour of argument into the actual choice.",
+   "[[Distill]] the interviews before the memo gets longer.",
+   "He can talk for twenty minutes and still not [[distill]] the point.",
+   "The appendix can stay long if the top [[distills]] the judgment.",
+   "[[Distill]] what would change your mind, not the whole history."
+  ],
+  "contrast": [
+   {
+    "vs": "summarize",
+    "note_zh": "summarize 是把内容缩短复述；distill 是收成几句真正的要点，其余丢掉"
+   },
+   {
+    "vs": "short",
+    "note_zh": "short 只是短；distill 是把长的炼成判断。concise 是说得短而清，不是这个动词"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w398",
+  "term": "crux",
+  "pos": "n.",
+  "ipa": "/krʌks/",
+  "gloss_zh": "症结；真正卡着的那一点",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The [[crux]] is whether we can support it after launch."
+  ],
+  "examples_stage_b": [
+   "We argued about tone and missed the [[crux]]. The evidence is thin.",
+   "Put the [[crux]] in the first sentence.",
+   "The [[crux]] of her objection is timing, not the idea.",
+   "If you cannot name the [[crux]], the recommendation is not ready.",
+   "A long background section hid the [[crux]]."
+  ],
+  "contrast": [
+   {
+    "vs": "bottleneck",
+    "note_zh": "bottleneck 是流程卡在那一点；crux 是论证或问题的症结，过了它判断才成立"
+   },
+   {
+    "vs": "point",
+    "note_zh": "point 是一个论点；crux 是真正卡着的那一点"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w399",
+  "term": "friction",
+  "pos": "n.",
+  "ipa": "/ˈfrɪkʃən/",
+  "gloss_zh": "阻力；别扭的摩擦",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "There is [[friction]] between drafting and approval."
+  ],
+  "examples_stage_b": [
+   "Most of the [[friction]] sits in the handoff, not in the work itself.",
+   "A shared template cut the [[friction]] without adding a meeting.",
+   "Name the [[friction]] before it hardens into a story about personalities.",
+   "The client feels the [[friction]] when we ask for the same file twice.",
+   "Some [[friction]] is useful. This kind only slows the reply."
+  ],
+  "contrast": [
+   {
+    "vs": "conflict",
+    "note_zh": "conflict 是冲突已经摆上台面；friction 是阻力、别扭的摩擦，还不一定吵起来"
+   },
+   {
+    "vs": "problem",
+    "note_zh": "problem 是一个要修的问题；friction 是两边或两步之间不顺"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w400",
+  "term": "inertia",
+  "pos": "n.",
+  "ipa": "/ɪˈnɝːʃə/",
+  "gloss_zh": "惯性；懒得动",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "[[Inertia]] is why the old checklist is still in use."
+  ],
+  "examples_stage_b": [
+   "[[Inertia]], not a real dispute, kept that weekly meeting alive.",
+   "The plan is fine, and it is still losing to [[inertia]].",
+   "You need a named person to beat [[inertia]] on a process nobody likes.",
+   "Don't confuse [[inertia]] with agreement.",
+   "After the incident, [[inertia]] stopped being an acceptable reason."
+  ],
+  "contrast": [
+   {
+    "vs": "complacency",
+    "note_zh": "complacency 是自满、觉得不用动；inertia 是惯性，没人推就沿旧轨道滑，不一定觉得自己赢了"
+   },
+   {
+    "vs": "delay",
+    "note_zh": "delay 是推迟；inertia 是根本没被推动，所以保持原样"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w401",
+  "term": "leeway",
+  "pos": "n.",
+  "ipa": "/ˈliːweɪ/",
+  "gloss_zh": "余地",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "We have some [[leeway]] on the date, and none on the facts."
+  ],
+  "examples_stage_b": [
+   "The brief leaves [[leeway]] on format and none on the question.",
+   "Give the editor [[leeway]] on tone. Be strict about facts.",
+   "There is no [[leeway]] once the client has heard a date.",
+   "I can allow [[leeway]] on sequence if the decision itself stays firm.",
+   "Leave [[leeway]] in the agenda. The first item always runs long."
+  ],
+  "contrast": [
+   {
+    "vs": "optionality",
+    "note_zh": "optionality 是以后还能另选；leeway 是眼下这一步里还留的余地"
+   },
+   {
+    "vs": "room",
+    "note_zh": "room 是还有地方；leeway 是你被允许活动的那一点空间"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w402",
+  "term": "tension",
+  "pos": "n.",
+  "ipa": "/ˈtenʃən/",
+  "gloss_zh": "两边互相拉扯的张力",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "There is a real [[tension]] between moving fast and keeping a clean record."
+  ],
+  "examples_stage_b": [
+   "The [[tension]] is not personal. Both aims are legitimate.",
+   "Name the [[tension]] in the note instead of pretending it went away.",
+   "She held the [[tension]] and refused a false choice in the room.",
+   "A hiring bar and a deadline are in [[tension]] this month.",
+   "Skip that [[tension]] and the recommendation will sound naive."
+  ],
+  "contrast": [
+   {
+    "vs": "conflict",
+    "note_zh": "conflict 是要分出赢的一边；tension 是两边互相拉着，可以并存，还没爆"
+   },
+   {
+    "vs": "problem",
+    "note_zh": "problem 是出了错要修；tension 是两种都说得通的目标在拽，不一定有错的一方"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w403",
+  "term": "mismatch",
+  "pos": "n.",
+  "ipa": "/ˈmɪsˌmætʃ/",
+  "gloss_zh": "对不上",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "There is a [[mismatch]] between the ask and the draft."
+  ],
+  "examples_stage_b": [
+   "The [[mismatch]] showed up when the client described a different problem.",
+   "Title and duties are a [[mismatch]]. The job is larger than the posting.",
+   "A [[mismatch]] in expectations caused the sharp email, not the typo.",
+   "The minutes are a [[mismatch]] with what we actually decided.",
+   "That cheerful tone is a [[mismatch]] for a note that is still unsure."
+  ],
+  "contrast": [
+   {
+    "vs": "gap",
+    "note_zh": "gap 是中间缺一块；mismatch 是本该对上的两边对不上"
+   },
+   {
+    "vs": "difference",
+    "note_zh": "difference 是不一样；mismatch 是尺寸、预期或说法错了位"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w404",
+  "term": "impasse",
+  "pos": "n.",
+  "ipa": "/ˈɪmpæs/",
+  "gloss_zh": "卡住；谈不动了",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "We are at an [[impasse]] on whether to pause."
+  ],
+  "examples_stage_b": [
+   "The [[impasse]] is about sequence, not about the goal.",
+   "Call it an [[impasse]] when another hour will not produce a decision.",
+   "A smaller question broke the [[impasse]]: what can go out without the new policy.",
+   "Don't cover an [[impasse]] with a vague action item.",
+   "The two offices hit an [[impasse]] and stopped answering."
+  ],
+  "contrast": [
+   {
+    "vs": "deadlock",
+    "note_zh": "deadlock 是双方顶死、谁也不让；impasse 是谈到半路走不动，暂时没有路。stuck 只是卡住了"
+   },
+   {
+    "vs": "non-starter",
+    "note_zh": "non-starter 是一上来就不值得谈；impasse 是谈过之后卡住了"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w405",
+  "term": "straw man",
+  "pos": "n.",
+  "ipa": "/ˈstrɔː ˌmæn/",
+  "gloss_zh": "被简化、好打的假目标",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "That summary is a [[straw man]] of what she said."
+  ],
+  "examples_stage_b": [
+   "Beating a [[straw man]] felt clever and settled nothing.",
+   "Restate her view before you attack a [[straw man]].",
+   "The slide fights a [[straw man]]. Nobody proposed skipping review.",
+   "A [[straw man]] is easier to knock over than the careful version in the memo.",
+   "If the objection only lands on a [[straw man]], it is not ready."
+  ],
+  "contrast": [
+   {
+    "vs": "devil's advocate",
+    "note_zh": "devil's advocate 是故意唱反调，把对面问严，你可能其实赞成；straw man 是把对方简化成好打的假目标"
+   },
+   {
+    "vs": "fake",
+    "note_zh": "fake 是假的；straw man 是把对方的观点换成一个更好打的版本，再拿来反驳"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w406",
+  "term": "blind spot",
+  "pos": "n.",
+  "ipa": "/ˈblaɪnd ˌspɑːt/",
+  "gloss_zh": "盲区",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "Staffing is a [[blind spot]] in this plan."
+  ],
+  "examples_stage_b": [
+   "Ask someone outside the project. We share the same [[blind spot]].",
+   "The [[blind spot]] was the night shift, which never came up in interviews.",
+   "A useful reviewer catches your [[blind spot]] instead of rewriting the prose.",
+   "Confidence can hide a [[blind spot]] about how the work actually gets done.",
+   "The review named one [[blind spot]]: nobody covered the weekend on-call."
+  ],
+  "contrast": [
+   {
+    "vs": "weakness",
+    "note_zh": "weakness 是短板，你可能知道；blind spot 是自己看不见的那一块"
+   },
+   {
+    "vs": "gap",
+    "note_zh": "gap 是缺口、缺一块；blind spot 是视野里的盲区"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w407",
+  "term": "red herring",
+  "pos": "n.",
+  "ipa": "/ˌred ˈherɪŋ/",
+  "gloss_zh": "把注意力引走的假线索",
+  "important_suggest": true,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The naming debate is a [[red herring]]."
+  ],
+  "examples_stage_b": [
+   "Blame is a [[red herring]]. The process never named a person.",
+   "One vivid anecdote became a [[red herring]] and took over the agenda.",
+   "Don't follow that [[red herring]] into the footnote.",
+   "Which tool we buy is a [[red herring]] if the handoff stays broken.",
+   "She called it a [[red herring]] and brought the room back to the decision."
+  ],
+  "contrast": [
+   {
+    "vs": "red flag",
+    "note_zh": "red flag 是危险信号，要停下来查；red herring 是把注意力引走的假线索"
+   },
+   {
+    "vs": "distraction",
+    "note_zh": "distraction 是让人分心；red herring 是看起来相关、其实把讨论带偏的那条线索"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w408",
+  "term": "ostensibly",
+  "pos": "adv.",
+  "ipa": "/ɑːˈstensəbli/",
+  "gloss_zh": "表面上看来",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The meeting was [[ostensibly]] about the timeline."
+  ],
+  "examples_stage_b": [
+   "He is [[ostensibly]] the approver. Someone else makes the call.",
+   "The note is [[ostensibly]] a recap. It reopens the decision.",
+   "We were [[ostensibly]] there to settle scope, and the hour went to old grievances.",
+   "The role is [[ostensibly]] advisory, which is why the signature surprised people.",
+   "An [[ostensibly]] small edit changed who is on the hook."
+  ],
+  "contrast": [
+   {
+    "vs": "superficial",
+    "note_zh": "superficial 是肤浅、停在表面；ostensibly 是表面上声称如此，实际可能不是"
+   },
+   {
+    "vs": "apparently",
+    "note_zh": "apparently 是看来如此；ostensibly 是对方摆出来的说法或身份，你留着怀疑。开口可以说 on the surface"
+   }
+  ],
+  "usage": "rw",
+  "sayInstead": [
+   "on the surface",
+   "apparently"
+  ]
+ },
+ {
+  "id": "w409",
+  "term": "unsubstantiated",
+  "pos": "adj.",
+  "ipa": "/ˌʌnsəbˈstænʃieɪtɪd/",
+  "gloss_zh": "没有证据撑住的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The motive in that sentence is [[unsubstantiated]]."
+  ],
+  "examples_stage_b": [
+   "An [[unsubstantiated]] claim about intent does not belong in the minutes.",
+   "The rumor is [[unsubstantiated]]. Keep it out of the recommendation.",
+   "She marked the line [[unsubstantiated]] and asked for a source.",
+   "[[Unsubstantiated]] praise is as useless as a complaint with nothing behind it.",
+   "Without the log, the outage account stays [[unsubstantiated]]."
+  ],
+  "contrast": [
+   {
+    "vs": "specious",
+    "note_zh": "specious 是表面说得通、其实错；unsubstantiated 是还没有证据撑住，不一定已经证明是错的"
+   },
+   {
+    "vs": "unproven",
+    "note_zh": "unproven 是还没证实；unsubstantiated 是没有证据把这句话撑住。substantiate 是去拿出证据，这一条是还没被撑住"
+   }
+  ],
+  "usage": "rw",
+  "sayInstead": [
+   "unsupported",
+   "no evidence"
+  ]
+ },
+ {
+  "id": "w410",
+  "term": "cursory",
+  "pos": "adj.",
+  "ipa": "/ˈkɝːsəri/",
+  "gloss_zh": "粗看一眼的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "A [[cursory]] look will miss the exception."
+  ],
+  "examples_stage_b": [
+   "The first pass was [[cursory]]. The objection is on page four.",
+   "Don't give the security pages a [[cursory]] glance because the rest looks familiar.",
+   "A [[cursory]] recap dropped the condition we had actually agreed.",
+   "He offered a [[cursory]] answer and moved on, so I asked again.",
+   "[[Cursory]] notes from the visit are not enough to judge the handoff."
+  ],
+  "contrast": [
+   {
+    "vs": "perfunctory",
+    "note_zh": "perfunctory 是敷衍、走形式；cursory 是看得粗、不细，可以是时间不够，不一定是态度敷衍"
+   },
+   {
+    "vs": "quick",
+    "note_zh": "quick 是快；cursory 是粗看一眼，容易漏掉。开口可以说 quick 或 rough"
+   }
+  ],
+  "usage": "rw",
+  "sayInstead": [
+   "quick",
+   "rough"
+  ]
+ },
+ {
+  "id": "w411",
+  "term": "commensurate",
+  "pos": "adj.",
+  "ipa": "/kəˈmenʃərət/",
+  "gloss_zh": "与之相称的",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "The response should be [[commensurate]] with the miss."
+  ],
+  "examples_stage_b": [
+   "A formal investigation is not [[commensurate]] with a typo in an internal draft.",
+   "The title is not [[commensurate]] with the calls she already makes.",
+   "Keep the tone [[commensurate]] with a process gap we can fix.",
+   "Another review is [[commensurate]] with how hard this is to undo.",
+   "The apology was not [[commensurate]] with the disruption the client felt."
+  ],
+  "contrast": [
+   {
+    "vs": "equal",
+    "note_zh": "equal 是相等；commensurate 是和另一件事相称，量级匹配，不一定同一单位"
+   },
+   {
+    "vs": "fair",
+    "note_zh": "fair 是公道；commensurate 是和这件事的大小、角色或后果相称"
+   }
+  ],
+  "usage": "rw",
+  "sayInstead": [
+   "in line with",
+   "matches"
+  ]
+ },
+ {
+  "id": "w412",
+  "term": "corollary",
+  "pos": "n.",
+  "ipa": "/ˈkɔːrəˌleri/",
+  "gloss_zh": "随之而来的推论或结果",
+  "important_suggest": false,
+  "domain": "both",
+  "track": "advanced",
+  "examples_stage_a": [
+   "A [[corollary]] of writing the decision down is fewer hallway reversals."
+  ],
+  "examples_stage_b": [
+   "The [[corollary]] is uncomfortable: the old checklist has to go.",
+   "If the date is real, the [[corollary]] is that something else slips.",
+   "One [[corollary]] of the new rule is that hallway decisions no longer count.",
+   "She stated the [[corollary]] so nobody could claim surprise.",
+   "The [[corollary]] of waiting for a second source is that Thursday may move."
+  ],
+  "contrast": [
+   {
+    "vs": "implication",
+    "note_zh": "implication 是这事的含义、会带来什么；corollary 是从前面那个判断紧跟着来的那一条推论"
+   },
+   {
+    "vs": "result",
+    "note_zh": "result 是结果；corollary 是顺着前一句几乎必然出来的推论。开口多半说 what follows"
+   }
+  ],
+  "usage": "rw",
+  "sayInstead": [
+   "what follows"
+  ]
  }
 ]
