@@ -132,3 +132,20 @@ Each new entry has one Stage A line and five distinct Stage B scenes. Ids `w313`
 Lexicon after this batch: 226 words. Tracks: business 97, advanced 117, life 12. Usage: speak 185, rw 41.
 
 Consciously skipped: upside case / downside case (too close to upside and downside; the scenario set is base / bull / bear), frank (already the neighbor on the candid card), indicative (directional is the one he would say: "treat it as directional"), provisional (near tentative / preliminary), actionable (generic), aggressive as an investing adjective (easy to hear as rude; defensive, opportunistic, and assertive split the posture), steelman / strawman (devil's advocate is the line he would actually use), first-principles (a slogan), illustrative (near anecdotal), attach rate / mix shift / price realization (gross margin, contribution margin, payback, and take rate already carry this batch's metrics), workstream (near ownership), multi-threaded (the opposite is taught from single-threaded), locked-in / captive (switching cost is the spoken line), accretive (easy to leave "accretive to what" unspecified), albeit / pursuant (connectives and legal boilerplate; the five rw slots went to immaterial, nominal, onerous, specious, perfunctory). Skips from the 2026-11-06 batch still stand: hard commit, momentum, defensibility, deep dive, call out, alignment. No hosting deploy with this batch.
+
+## 2026-11-11 — 沉睡清单（本批实现）
+
+Chris wants a second list, longer than 生疏列表. 生疏列表 stays the daily pool: current `weak` (还不熟) and `reinforce` (再巩固). 沉睡清单 is words he once struggled with, later marked 已放掉, and might still not have mastered. He opens it occasionally. It must not be mixed into the new/review slider. No SRS, no new interval fields, no new persisted status.
+
+A word is on the list only when both are true:
+
+1. Current `items[id].status` is `dropped` (先放掉 / 跳过, including `skip_drop`).
+2. `log` has at least one entry for that id whose `action` is `weak` or `reinforce`.
+
+First-sight drops stay off, even when `needed` is true or `seen` ≥ 2. Checked against the 2026-11-11 08:50 Asia/Shanghai CloudBase snapshot: the list is exactly secular (w293, reinforce twice then drop, needed), directional (w338), tenuous (w208), and inherent (w209, needed). unprecedented and advocate are needed drops with no weak/reinforce in the log, so they stay off. The snapshot is not committed and is not shipped in the page.
+
+Membership is derived from the existing `ec_state_v4` log and items. CloudBase still merges that document as today (larger `seen`, newer per-word record, union of log, local undo kept). No schema change.
+
+Marking 再巩固 or 还不熟 leaves the sleeping list and returns the word to 生疏列表 / the review pool. Marking 先放掉 again, or skipping on Stage A, leaves it on the sleeping list because status is still `dropped` and the earlier weak/reinforce log row is still there. 恢复上一个 is unchanged. Undoing a mark from this list restores the previous status; if that status is `dropped` and the log still has weak/reinforce, the word is back on 沉睡清单. ★特别需要, 说 / 读写, and 想说时用 stay on the card.
+
+UI: a text link 「沉睡清单」 under the header row, quieter than the 生疏列表 button. The sheet title is 沉睡清单, with the hint 「看过多次后再放掉的词，偶尔拿出来复习。」 Rows match the short-term list: term, usage badge, gloss, ★ when needed. Empty copy: 「还没有看过多次后再放掉的词。」 Tap a row to open Stage A, same as 生疏列表. `dropped` weight stays 0, so the slider never deals these cards.

@@ -248,9 +248,15 @@ function contrastBlock(w){
  const list=Array.isArray(w&&w.contrast)?w.contrast.filter(c=>c&&c.vs&&String(c.note_zh||'').trim()):[];
  if(!list.length)return '';
  return `<div class="contrast" data-testid="contrast"><div class="contrast-h">易混对比</div><ul data-testid="contrast-list">${list.map(c=>`<li><span class="vs">vs ${esc(c.vs)}</span> — ${esc(c.note_zh)}</li>`).join('')}</ul></div>`}
-function closeList(){const p=$('[data-testid=weak-list]');if(p)p.hidden=true}
+function closeSheets(){
+ const w=$('[data-testid=weak-list]');if(w)w.hidden=true;
+ const s=$('[data-testid=sleep-list]');if(s)s.hidden=true;
+}
+function listRow(r,rowId,usageId){
+ return `<button type="button" class="weak-row" data-testid="${rowId}" data-id="${esc(r.id)}"><span class="weak-row-term">${esc(r.term)}${usageMark(r.usage,usageId)}${r.needed?'<span class="needed-dot" title="特别需要">★</span>':''}</span><span class="weak-row-gloss">${esc(r.gloss_zh)}</span></button>`;
+}
 function openFromList(id){
- closeList();
+ closeSheets();
  const w=WORDS.find(x=>x.id===id);
  if(!w)return;
  if(cur&&cur.id===id){stage='A';render();return}
@@ -259,6 +265,7 @@ function openFromList(id){
  save();render();
 }
 function openList(){
+ closeSheets();
  const p=$('[data-testid=weak-list]');
  const body=$('[data-testid=weak-list-body]');
  if(!p||!body)return;
@@ -266,12 +273,27 @@ function openList(){
  if(!g.weak.length&&!g.reinforce.length){
   body.innerHTML=`<div class="empty-list" data-testid="weak-list-empty">还没有标为「还不熟」或「再巩固」的词。</div>`;
  }else{
-  const row=r=>`<button type="button" class="weak-row" data-testid="weak-row" data-id="${esc(r.id)}"><span class="weak-row-term">${esc(r.term)}${usageMark(r.usage,'weak-usage')}${r.needed?'<span class="needed-dot" title="特别需要">★</span>':''}</span><span class="weak-row-gloss">${esc(r.gloss_zh)}</span></button>`;
   let html='';
-  if(g.weak.length)html+=`<div class="weak-h" data-testid="weak-group-weak">还不熟</div>${g.weak.map(row).join('')}`;
-  if(g.reinforce.length)html+=`<div class="weak-h" data-testid="weak-group-reinforce">再巩固</div>${g.reinforce.map(row).join('')}`;
+  if(g.weak.length)html+=`<div class="weak-h" data-testid="weak-group-weak">还不熟</div>${g.weak.map(r=>listRow(r,'weak-row','weak-usage')).join('')}`;
+  if(g.reinforce.length)html+=`<div class="weak-h" data-testid="weak-group-reinforce">再巩固</div>${g.reinforce.map(r=>listRow(r,'weak-row','weak-usage')).join('')}`;
   body.innerHTML=html;
   body.querySelectorAll('[data-testid=weak-row]').forEach(btn=>{
+   btn.onclick=()=>openFromList(btn.getAttribute('data-id'));
+  });
+ }
+ p.hidden=false;
+}
+function openSleepList(){
+ closeSheets();
+ const p=$('[data-testid=sleep-list]');
+ const body=$('[data-testid=sleep-list-body]');
+ if(!p||!body)return;
+ const rows=Q().sleepingList(WORDS,state.items,state.log);
+ if(!rows.length){
+  body.innerHTML=`<div class="empty-list" data-testid="sleep-list-empty">还没有看过多次后再放掉的词。</div>`;
+ }else{
+  body.innerHTML=rows.map(r=>listRow(r,'sleep-row','sleep-usage')).join('');
+  body.querySelectorAll('[data-testid=sleep-row]').forEach(btn=>{
    btn.onclick=()=>openFromList(btn.getAttribute('data-id'));
   });
  }
@@ -307,12 +329,14 @@ function bindMix(){
  const nBtn=$('[data-testid=mode-new]');if(nBtn)nBtn.onclick=()=>setMix(0);
  const rBtn=$('[data-testid=mode-review]');if(rBtn)rBtn.onclick=()=>setMix(1);
  const openBtn=$('[data-testid=weak-list-open]');if(openBtn)openBtn.onclick=()=>openList();
- const closeBtn=$('[data-testid=weak-list-close]');if(closeBtn)closeBtn.onclick=()=>closeList();
+ const closeBtn=$('[data-testid=weak-list-close]');if(closeBtn)closeBtn.onclick=()=>closeSheets();
+ const sleepOpen=$('[data-testid=sleep-list-open]');if(sleepOpen)sleepOpen.onclick=()=>openSleepList();
+ const sleepClose=$('[data-testid=sleep-list-close]');if(sleepClose)sleepClose.onclick=()=>closeSheets();
 }
 load();
 const ub=$('[data-testid=undo]');if(ub)ub.onclick=()=>undo();
 bindMix();
 bindSettings();
 pullRemote();
-fetch('words.json').then(r=>r.json()).then(w=>{WORDS=w;wordsReady=true;window.__ec={words:WORDS,state:()=>state,weight,pickNext,undo,setMode,setMix,listGroups:()=>Q().listGroups(WORDS,state.items),mergeState:window.ECSync&&window.ECSync.mergeState,get mode(){return state.mode},get mix(){return state.mix},rng:null};next()});
+fetch('words.json').then(r=>r.json()).then(w=>{WORDS=w;wordsReady=true;window.__ec={words:WORDS,state:()=>state,weight,pickNext,undo,setMode,setMix,listGroups:()=>Q().listGroups(WORDS,state.items),sleepingList:()=>Q().sleepingList(WORDS,state.items,state.log),mergeState:window.ECSync&&window.ECSync.mergeState,get mode(){return state.mode},get mix(){return state.mix},rng:null};next()});
 })();

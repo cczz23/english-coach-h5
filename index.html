@@ -16,6 +16,7 @@
 <button type="button" class="undo-btn" data-testid="undo" disabled>恢复上一个</button>
 <button type="button" class="undo-btn" data-testid="settings-open">设置</button>
 </div>
+<button type="button" class="sleep-entry" data-testid="sleep-list-open">沉睡清单</button>
 </header>
 <main id="app" data-testid="app">加载中…</main>
 <footer id="history" data-testid="history"></footer>
@@ -40,6 +41,14 @@
 <h2>还不熟的词</h2>
 <div class="weak-list-body" data-testid="weak-list-body"></div>
 <button type="button" class="ghost" data-testid="weak-list-close">关闭</button>
+</div>
+</div>
+<div id="sleep-list" class="settings" data-testid="sleep-list" hidden>
+<div class="sheet-panel">
+<h2>沉睡清单</h2>
+<p class="hint" data-testid="sleep-list-hint">看过多次后再放掉的词，偶尔拿出来复习。</p>
+<div class="weak-list-body" data-testid="sleep-list-body"></div>
+<button type="button" class="ghost" data-testid="sleep-list-close">关闭</button>
 </div>
 </div>
 <script src="sync.js"></script>
