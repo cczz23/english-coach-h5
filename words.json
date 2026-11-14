@@ -7657,5 +7657,415 @@
   "sayInstead": [
    "what follows"
   ]
+ },
+ {
+  "id": "w413",
+  "term": "this brings us to",
+  "pos": "phr.",
+  "ipa": "/ðɪs ˈbrɪŋz əs tə/",
+  "gloss_zh": "接到下一点，比报序号顺",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[This brings us to]] the client timeline."
+  ],
+  "examples_stage_b": [
+   "[[This brings us to]] how support will cover the night shift.",
+   "[[This brings us to]] the hiring plan you asked to see.",
+   "[[This brings us to]] the changes you wanted after the site visit.",
+   "That closes the demo. [[This brings us to]] your questions.",
+   "Which [[brings us to]] the decision we need before Friday."
+  ],
+  "contrast": [
+   {
+    "vs": "next",
+    "note_zh": "next 是硬切到下一条；this brings us to 是顺着刚才那段，把听众接到下一点"
+   },
+   {
+    "vs": "number five",
+    "note_zh": "报 number one、number five 是在数页；this brings us to 不用报序号，把 deck 顺下去"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w414",
+  "term": "before we move on",
+  "pos": "phr.",
+  "ipa": "/bɪˈfɔːr wi muːv ɑːn/",
+  "gloss_zh": "往下走之前先收住一句",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[Before we move on]], any concern with the date?"
+  ],
+  "examples_stage_b": [
+   "[[Before we move on]], these three cities are the whole pilot.",
+   "[[Before we move on]], the open item is who owns the customer call.",
+   "[[Before we move on]], does Thursday still work for your team?",
+   "[[Before we move on]], I want the scope question settled.",
+   "[[Before we move on]], Maya still needs a yes on the office move."
+  ],
+  "contrast": [
+   {
+    "vs": "next",
+    "note_zh": "next 是已经往下走；before we move on 是先收住一句，确认这一点说完了再走"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w415",
+  "term": "the short answer is",
+  "pos": "phr.",
+  "ipa": "/ðə ʃɔːrt ˈænsər ɪz/",
+  "gloss_zh": "先给结论，再补细节",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[The short answer is]] yes, we can start in March."
+  ],
+  "examples_stage_b": [
+   "[[The short answer is]] the date on the slide still holds.",
+   "[[The short answer is]] we're keeping the current supplier.",
+   "[[The short answer is]] your staff will see the new screens next week.",
+   "[[The short answer is]] I'd wait until the second office is live.",
+   "[[The short answer is]] no. The training takes two weeks, and I can walk through why."
+  ],
+  "contrast": [
+   {
+    "vs": "it depends",
+    "note_zh": "it depends 是先不给结论；the short answer is 是 Q&A 里先把结论说出来，细节放后面"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w416",
+  "term": "that's a fair question",
+  "pos": "phr.",
+  "ipa": "/ðæts ə fer ˈkwestʃən/",
+  "gloss_zh": "接住问题，不显得在躲",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[That's a fair question]]. Let me start with the timeline."
+  ],
+  "examples_stage_b": [
+   "[[That's a fair question]]. The slip came from the supplier, not our team.",
+   "[[That's a fair question]] — I'll take it before we open the floor.",
+   "[[That's a fair question]] about onboarding. The first session is in April.",
+   "[[That's a fair question]]. I don't have the staffing numbers in this deck, so I'll send them after.",
+   "[[That's a fair question]], and I don't want to skip past it."
+  ],
+  "contrast": [
+   {
+    "vs": "that's a fair point",
+    "note_zh": "that's a fair point 是认可对方的看法再回应；that's a fair question 是接住一个提问，表示你在答，不是在躲"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w417",
+  "term": "let me take that one",
+  "pos": "phr.",
+  "ipa": "/let mi teɪk ðæt wʌn/",
+  "gloss_zh": "主动认领一个问题",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[Let me take that one]] on hiring."
+  ],
+  "examples_stage_b": [
+   "[[Let me take that one]] — I was on the customer visits.",
+   "Sarah, [[let me take that one]] so you can stay with the timeline.",
+   "[[Let me take that one]]. I spoke with the plant manager yesterday.",
+   "[[Let me take that one]]. The contract question is mine, and legal already has the draft.",
+   "Three hands went up. [[Let me take that one]] about onboarding first."
+  ],
+  "contrast": [
+   {
+    "vs": "pass",
+    "note_zh": "把问题让给别人是 pass；let me take that one 是自己举手，把这个问题认领下来"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w418",
+  "term": "I'll come back to that",
+  "pos": "phr.",
+  "ipa": "/aɪl kʌm ˈbæk tə ðæt/",
+  "gloss_zh": "先记下，同一场后面再回头讲",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[I'll come back to that]] on the timeline slide."
+  ],
+  "examples_stage_b": [
+   "[[I'll come back to that]] when we get to the rollout.",
+   "Good catch. [[I'll come back to that]] right after this chart.",
+   "[[I'll come back to that]] in the risks section, two slides from here.",
+   "[[I'll come back to that]] once we've walked through the day-to-day.",
+   "Hold that thought. [[I'll come back to that]] before we open questions."
+  ],
+  "contrast": [
+   {
+    "vs": "circle back",
+    "note_zh": "circle back 是会后或稍后再跟进；I'll come back to that 是同一场 presentation 或 Q&A 里先记下，后面再回头讲"
+   },
+   {
+    "vs": "park that",
+    "note_zh": "park that 是先把话题搁下，这场不一定再展开；I'll come back to that 是答应同一场后面还会讲到"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w419",
+  "term": "what I'm trying to get at is",
+  "pos": "phr.",
+  "ipa": "/wʌt aɪm ˈtraɪɪŋ tə ɡet æt ɪz/",
+  "gloss_zh": "把刚才说的收成一句重点",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[What I'm trying to get at is]] we should wait for the second site."
+  ],
+  "examples_stage_b": [
+   "[[What I'm trying to get at is]] every office should share one inbox.",
+   "[[What I'm trying to get at is]] the board needs a name, not a committee.",
+   "[[What I'm trying to get at is]] your people are retyping the same form.",
+   "[[What I'm trying to get at is]] the delay is on the supplier, not the product.",
+   "[[What I'm trying to get at is]] we can open the first city without waiting on the new name."
+  ],
+  "contrast": [
+   {
+    "vs": "what I'm hearing is",
+    "note_zh": "what I'm hearing is 是复述对方，确认你听懂了；what I'm trying to get at is 是把你自己刚才说的收成一句重点"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w420",
+  "term": "to put it simply",
+  "pos": "phr.",
+  "ipa": "/tə ˈpʊt ɪt ˈsɪmpli/",
+  "gloss_zh": "把复杂的再说直白一点",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[To put it simply]], the old process is too slow."
+  ],
+  "examples_stage_b": [
+   "[[To put it simply]], three teams are doing the same handoff.",
+   "[[To put it simply]], we're not ready to promise June.",
+   "[[To put it simply]], your staff keeps the checklist, and we run the setup.",
+   "[[To put it simply]], the chart means fewer late replies, not fewer people.",
+   "[[To put it simply]], I'd rather show the rough cut than wait for a polished deck."
+  ],
+  "contrast": [
+   {
+    "vs": "in plain terms",
+    "note_zh": "一对说法，不另立卡片：in plain terms 偏换成直白的词；to put it simply 偏把刚才那段收成一句简单的。开口用哪句都行"
+   },
+   {
+    "vs": "distill",
+    "note_zh": "distill 是把长的收成要点，常在备忘里；to put it simply 是当场把复杂的再说直白一点"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w421",
+  "term": "the upshot is",
+  "pos": "phr.",
+  "ipa": "/ði ˈʌpʃɑːt ɪz/",
+  "gloss_zh": "这段最后到底意味着什么",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[The upshot is]] we start with two cities, not five."
+  ],
+  "examples_stage_b": [
+   "[[The upshot is]] the launch can stay on the date we already showed you.",
+   "[[The upshot is]] I would not hire until the second office is steady.",
+   "[[The upshot is]] your team spends less time chasing status.",
+   "[[The upshot is]] we fix the handoff first and leave the naming alone.",
+   "[[The upshot is]] a yes today still needs a written owner by Friday."
+  ],
+  "contrast": [
+   {
+    "vs": "net-net",
+    "note_zh": "net-net 是正反相抵之后你站哪边；the upshot is 是这段讲完到底意味着什么，不一定是在表态"
+   },
+   {
+    "vs": "bottom line",
+    "note_zh": "bottom line 常听成最后的钱或底线；the upshot is 是这段的结果、对听众意味着什么，不是财务词"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w422",
+  "term": "that said",
+  "pos": "phr.",
+  "ipa": "/ðæt ˈsed/",
+  "gloss_zh": "前面认可，接着转折",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "The plan is solid. [[That said]], the date is tight."
+  ],
+  "examples_stage_b": [
+   "The demo landed well. [[That said]], I wouldn't promise the extra sites yet.",
+   "The hiring story is clear. [[That said]], we still need someone to own the client call.",
+   "We can meet Thursday. [[That said]], the workshop should stay at your office.",
+   "You're right about the delay. [[That said]], the cause is the supplier.",
+   "I like the simpler slide. [[That said]], the room still needs to see the exception."
+  ],
+  "contrast": [
+   {
+    "vs": "but",
+    "note_zh": "but 是直接转；that said 是先把前面认可住，再转折，不那么硬"
+   },
+   {
+    "vs": "however",
+    "note_zh": "however 偏书面；that said 是口里先点头，再把转折说出来"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w423",
+  "term": "unless I'm missing something",
+  "pos": "phr.",
+  "ipa": "/ənˈles aɪm ˈmɪsɪŋ ˈsʌmθɪŋ/",
+  "gloss_zh": "反问或保留意见时较客气",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[Unless I'm missing something]], we already agreed on the owner."
+  ],
+  "examples_stage_b": [
+   "[[Unless I'm missing something]], those three cities are the whole pilot.",
+   "[[Unless I'm missing something]], nobody has signed off on the June date.",
+   "[[Unless I'm missing something]], your operators never got the new login.",
+   "[[Unless I'm missing something]], that chart leaves out the night shift.",
+   "[[Unless I'm missing something]], we can decide without another meeting."
+  ],
+  "contrast": [
+   {
+    "vs": "I disagree",
+    "note_zh": "I disagree 是正面反对；unless I'm missing something 是留一句「也许我漏了」，反问或保留意见时不那么冲"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w424",
+  "term": "happy to go deeper if useful",
+  "pos": "phr.",
+  "ipa": "/ˈhæpi tə ɡoʊ ˈdiːpər ɪf ˈjuːsfəl/",
+  "gloss_zh": "问还要不要展开",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "That's the overview. [[Happy to go deeper if useful]]."
+  ],
+  "examples_stage_b": [
+   "[[Happy to go deeper if useful]]. I have a backup slide on the inbox.",
+   "[[Happy to go deeper if useful]]. The appendix has the hiring breakdown.",
+   "I can leave the training there. [[Happy to go deeper if useful]].",
+   "[[Happy to go deeper if useful]] — otherwise I'll stop and take the next hand.",
+   "I kept this part short on purpose. [[Happy to go deeper if useful]]."
+  ],
+  "contrast": [
+   {
+    "vs": "any questions",
+    "note_zh": "any questions 是把话筒交给全场；happy to go deeper if useful 是你已经讲完一层，问还要不要再展开"
+   },
+   {
+    "vs": "dig into",
+    "note_zh": "dig into 是你要往深里查；happy to go deeper if useful 是问对方这一层够不够"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w425",
+  "term": "let me rephrase that",
+  "pos": "phr.",
+  "ipa": "/let mi ˌriːˈfreɪz ðæt/",
+  "gloss_zh": "刚说得不清楚，换种说法",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[Let me rephrase that]]. We need one owner, not a group."
+  ],
+  "examples_stage_b": [
+   "[[Let me rephrase that]]. The slide is about who decides, not who sits in.",
+   "[[Let me rephrase that]] so the note is clear: we're pausing the supplier switch.",
+   "[[Let me rephrase that]]. You keep the checklist. We run the first month.",
+   "Sorry, that was muddy. [[Let me rephrase that]] as a yes with one condition.",
+   "[[Let me rephrase that]] without the extra words: the handoff is still breaking."
+  ],
+  "contrast": [
+   {
+    "vs": "reframe",
+    "note_zh": "reframe 是换一个框来看，问题被重新定义；let me rephrase that 是意思不变，刚说得不清楚，换种说法"
+   },
+   {
+    "vs": "walk back",
+    "note_zh": "walk back 是收回或软化刚才的话；let me rephrase that 不是改口，是同一意思换种说法"
+   }
+  ],
+  "usage": "speak"
+ },
+ {
+  "id": "w426",
+  "term": "does that answer your question?",
+  "pos": "phr.",
+  "ipa": "/dʌz ðæt ˈænsər jʊr ˈkwestʃən/",
+  "gloss_zh": "答完收口，看对方是否满意",
+  "important_suggest": true,
+  "domain": "business",
+  "track": "business",
+  "examples_stage_a": [
+   "[[Does that answer your question?]] I can stay on it."
+  ],
+  "examples_stage_b": [
+   "[[Does that answer your question?]] If not, I'll stay on the timeline.",
+   "[[Does that answer your question]] about training, or should I open the schedule?",
+   "[[Does that answer your question?]] I can put the staffing note in the appendix.",
+   "[[Does that answer your question]] on the rollout, or is the date the real worry?",
+   "[[Does that answer your question?]] I can take a follow-up if it doesn't."
+  ],
+  "contrast": [
+   {
+    "vs": "that's a fair question",
+    "note_zh": "that's a fair question 是接住问题、开始答；does that answer your question 是答完收口，看对方是否满意"
+   },
+   {
+    "vs": "any questions",
+    "note_zh": "any questions 是开放给全场；does that answer your question 是对着刚才那个提问的人收口"
+   }
+  ],
+  "usage": "speak"
  }
 ]

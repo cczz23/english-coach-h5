@@ -174,3 +174,32 @@ Each new entry has one Stage A line and five distinct Stage B scenes. Every entr
 Lexicon after this batch: 276 words. Tracks: business 97, advanced 167, life 12. Usage: speak 230, rw 46.
 
 Consciously left out: more finance and term-sheet jargon, and any repeat of the metric words he already passes on sight. No hosting deploy with this batch.
+
+## 2026-11-14 — Lexicon batch 5: presentation and Q&A spoken transitions
+
+Chris approved a new expansion type: presentation and Q&A spoken transitions (商务演示和问答里的口语衔接). He wants chunks like “this brings us to…” so he can move through a deck without “number one, number two, number three.” This sits alongside the existing tracks (business practical, advanced general) and the newer 「力度和节奏」 preference. These cards are speak-first discourse chunks, not single advanced adjectives.
+
+Decision: do not re-add any existing term. Add 14 new entries, ids `w413`–`w426`, all `track: business`, `domain: business`, `usage: speak`. No `sayInstead`. `important_suggest` is true on all of them. No slang. No new life entries. No SRS. `EX_MAX` stays 5. No slider, state-machine, sync, or UI change. Old ids, sentences, and usage tags stay as they were. Example scenes are a business presentation, a board or IC update, a client meeting, and Q&A. Spoken, not essay-like, and not loaded with the finance and VC jargon he already passes on sight.
+
+Each new entry has one Stage A line and five distinct Stage B scenes. Confusable chunks carry `contrast`.
+
+| id | term | why |
+| --- | --- | --- |
+| w413 | this brings us to | Hand the room to the next point without calling a number. Contrasted with next and with “number five.” |
+| w414 | before we move on | Close the current point in one line before continuing. |
+| w415 | the short answer is | In Q&A, give the conclusion first, then the detail. |
+| w416 | that's a fair question | Take the question instead of dodging it. Contrasted with that's a fair point, already in the file. |
+| w417 | let me take that one | Claim a question yourself. |
+| w418 | I'll come back to that | Note it and return later in the same presentation or Q&A. Contrasted with circle back (follow up after the meeting or later) and park that (set the topic aside). |
+| w419 | what I'm trying to get at is | Fold what you just said into one point. Contrasted with what I'm hearing is. |
+| w420 | to put it simply | Say the complicated part again, plainly. in plain terms is a contrast only, not its own card. Also set against distill. |
+| w421 | the upshot is | What this stretch actually means. Contrasted with net-net and with bottom line. Not a finance-term card. |
+| w422 | that said | Grant the previous point, then turn. |
+| w423 | unless I'm missing something | A polite check or reservation. |
+| w424 | happy to go deeper if useful | Ask whether to expand. |
+| w425 | let me rephrase that | The last line was unclear; say it another way. Contrasted with reframe and walk back. |
+| w426 | does that answer your question? | Close the answer and check whether it landed. |
+
+Consciously skipped: “let me just flag…”. The lexicon already has w270 flag (“标出来提醒（通常要人接）”) and w267 red flag. Do not add a near-duplicate.
+
+Lexicon after this batch: 290 words. Tracks: business 111, advanced 167, life 12. Usage: speak 244, rw 46. No hosting deploy with this batch.
