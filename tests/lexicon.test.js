@@ -14,7 +14,7 @@ function tokens(line) {
 }
 
 test('every word has usage speak or rw, and rw has 1–2 sayInstead', () => {
-  assert.equal(words.length, 276);
+  assert.equal(words.length, 290);
   const speakExamples = ['circle back', 'heads-up', 'traction', 'pragmatic', 'plausible'];
   const rwExamples = {
     precarious: ['unstable', 'shaky'],
@@ -53,6 +53,20 @@ test('every word has usage speak or rw, and rw has 1–2 sayInstead', () => {
     tally3[w.track + '/' + w.usage] = (tally3[w.track + '/' + w.usage] || 0) + 1;
   }
   assert.deepEqual(tally3, { 'business/speak': 21, 'advanced/speak': 24, 'advanced/rw': 5 });
+  const batch5 = words.filter(w => {
+    const n = Number(String(w.id).slice(1));
+    return n >= 413 && n <= 426;
+  });
+  assert.equal(batch5.length, 14);
+  assert.deepEqual(batch5.map(w => w.id), Array.from({ length: 14 }, (_, i) => 'w' + (413 + i)));
+  const tally5 = {};
+  for (const w of batch5) {
+    assert.equal(w.track, 'business', w.id);
+    assert.equal(w.domain, 'business', w.id);
+    assert.equal(w.usage, 'speak', w.id);
+    tally5[w.track + '/' + w.usage] = (tally5[w.track + '/' + w.usage] || 0) + 1;
+  }
+  assert.deepEqual(tally5, { 'business/speak': 14 });
   assert.equal(new Set(words.map(w => w.term)).size, words.length);
   for (const w of words) {
     assert.ok(w.usage === 'speak' || w.usage === 'rw', w.id + ' usage');
@@ -70,7 +84,7 @@ test('every word has usage speak or rw, and rw has 1–2 sayInstead', () => {
 });
 
 test('every word has one Stage A line and five distinct Stage B scenes', () => {
-  assert.equal(words.length, 276);
+  assert.equal(words.length, 290);
   for (const w of words) {
     assert.equal(w.examples_stage_a.length, 1, w.id + ' stage A');
     assert.equal(w.examples_stage_b.length, 5, w.id + ' stage B');

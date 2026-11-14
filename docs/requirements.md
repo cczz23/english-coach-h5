@@ -27,12 +27,13 @@ GitHub Pages `https://cczz23.github.io/english-coach-h5/` 仍能打开页面，�
 | **词库按进度缺口再扩 50 条**（`w263`–`w312`） | **2026-11-06** |
 | **词库第三批：开口能用的中高阶词**（`w313`–`w362`） | **2026-11-08 本批** |
 | **词库第四批：判断、立场、因果**（`w363`–`w412`） | **2026-11-11 本批** |
+| **词库第五批：演示和问答的口语衔接**（`w413`–`w426`） | **2026-11-14 本批** |
 
 ---
 
 ## 词库
 
-- 数据：`words.json`。当前 276 词（2026-11-06 加了 `w263`–`w312`；2026-11-08 加了 `w313`–`w362`；2026-11-11 加了 `w363`–`w412`）。
+- 数据：`words.json`。当前 290 词（2026-11-06 加了 `w263`–`w312`；2026-11-08 加了 `w313`–`w362`；2026-11-11 加了 `w363`–`w412`；2026-11-14 加了 `w413`–`w426`）。
 - `track`：`business` / `advanced` / `life`。`domain` 可为 `business` / `life` / `both`。商务轨 `domain` 用 `business`；高级轨用 `both`。
 - 每词：`id`, `term`, `pos`, `ipa`, `gloss_zh`, `examples_stage_a`, `examples_stage_b`，`usage`（`speak` | `rw`），以及可选 `important_suggest`, `contrast`, `sayInstead`。
 - 不删旧词，不改旧 id。用法标签只排练习优先级。同步那次改动本身不加词条；扩词是单独决定，见下。易混对比是可选字段，新旧词都可以有。
@@ -89,6 +90,33 @@ Chris 把当时的 226 词都见过了。2026-11-11 09:29（Asia/Shanghai）Clou
 `important_suggest` 只给特别值得开口练的判断动词和形容词，以及 crux、inertia、impasse、straw man、red herring。较容易的说词标 false：premature、overdue、diplomatic、instrumental、reluctant、stall、outweigh、friction、leeway、tension、mismatch、blind spot。5 条读写也是 false。
 
 刻意没加财务和条款行话，也不回加他已经秒过的指标词。red herring 对着已有的 red flag：red flag 是危险信号，red herring 是岔开的假线索。
+
+### 2026-11-14 扩批（演示和问答的口语衔接）
+
+Chris 批准加一批演示和 Q&A 里的口语衔接。他要的是 “this brings us to…” 这种能把 deck 顺下去的块，而不是 “number one, number two, number three”。这是新的扩词类型：**presentation / Q&A spoken transitions**（商务演示和问答里的口语衔接）。它和已有的 business 实用、advanced 通用，以及较新的「力度和节奏」偏好并列。本批是开口的话语块，不是单个高级形容词。
+
+不加俚语，不加 life。没有 SRS，没有改 `EX_MAX`，不改滑条、状态机、同步或旧词的 id、例句和用法。14 条全是 `track: business`，`domain: business`，`usage: speak`，不写 `sayInstead`。`important_suggest` 都是 true。例句放在商务演示、董事会或 IC 更新、客户会、Q&A，口语，不堆他已经会的财务套话。
+
+| id | term | 怎么用 |
+| --- | --- | --- |
+| w413 | this brings us to | 接到下一点，比报序号顺。对比 next / number five |
+| w414 | before we move on | 往下走之前先收住一句 |
+| w415 | the short answer is | Q&A 里先给结论，再补细节 |
+| w416 | that's a fair question | 接住问题，不显得在躲。对比已有的 that's a fair point |
+| w417 | let me take that one | 主动认领一个问题 |
+| w418 | I'll come back to that | 同一场后面再回头讲。对比 circle back（会后/稍后跟进）和 park that（先搁下） |
+| w419 | what I'm trying to get at is | 把刚才说的收成一句重点。对比 what I'm hearing is |
+| w420 | to put it simply | 把复杂的再说直白一点。in plain terms 只写在对比里，不单列 |
+| w421 | the upshot is | 这段最后到底意味着什么。对比 net-net，并点 bottom line。不是财务词 |
+| w422 | that said | 前面认可，接着转折 |
+| w423 | unless I'm missing something | 反问或保留意见时较客气 |
+| w424 | happy to go deeper if useful | 问还要不要展开 |
+| w425 | let me rephrase that | 刚说得不清楚，换种说法。对比 reframe / walk back |
+| w426 | does that answer your question? | 答完收口，看对方是否满意 |
+
+刻意没加 **let me just flag**：词库已有 w270 flag（标出来提醒，通常要人接）和 w267 red flag，不再做近义卡。
+
+全库 290：business 111、advanced 167、life 12；speak 244、rw 46。
 
 ## 学习流 Stage A → B
 
