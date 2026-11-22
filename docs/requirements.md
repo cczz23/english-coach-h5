@@ -28,12 +28,13 @@ GitHub Pages `https://cczz23.github.io/english-coach-h5/` 仍能打开页面，�
 | **词库第三批：开口能用的中高阶词**（`w313`–`w362`） | **2026-11-08 本批** |
 | **词库第四批：判断、立场、因果**（`w363`–`w412`） | **2026-11-11 本批** |
 | **词库第五批：演示和问答的口语衔接**（`w413`–`w426`） | **2026-11-14 本批** |
+| **词库第六批：力度和节奏、判断立场因果、会上口语**（`w427`–`w476`） | **2026-11-22 本批** |
 
 ---
 
 ## 词库
 
-- 数据：`words.json`。当前 290 词（2026-11-06 加了 `w263`–`w312`；2026-11-08 加了 `w313`–`w362`；2026-11-11 加了 `w363`–`w412`；2026-11-14 加了 `w413`–`w426`）。
+- 数据：`words.json`。当前 340 词（2026-11-06 加了 `w263`–`w312`；2026-11-08 加了 `w313`–`w362`；2026-11-11 加了 `w363`–`w412`；2026-11-14 加了 `w413`–`w426`；2026-11-22 加了 `w427`–`w476`）。
 - `track`：`business` / `advanced` / `life`。`domain` 可为 `business` / `life` / `both`。商务轨 `domain` 用 `business`；高级轨用 `both`。
 - 每词：`id`, `term`, `pos`, `ipa`, `gloss_zh`, `examples_stage_a`, `examples_stage_b`，`usage`（`speak` | `rw`），以及可选 `important_suggest`, `contrast`, `sayInstead`。
 - 不删旧词，不改旧 id。用法标签只排练习优先级。同步那次改动本身不加词条；扩词是单独决定，见下。易混对比是可选字段，新旧词都可以有。
@@ -117,6 +118,32 @@ Chris 批准加一批演示和 Q&A 里的口语衔接。他要的是 “this bri
 刻意没加 **let me just flag**：词库已有 w270 flag（标出来提醒，通常要人接）和 w267 red flag，不再做近义卡。
 
 全库 290：business 111、advanced 167、life 12；speak 244、rw 46。
+
+### 2026-11-22 扩批（力度和节奏、判断立场因果、会上口语）
+
+Chris 2026-11-22 批准这 50 条，原话是「按这批上线」。这一批接在 `w426` 后面。仓库里 2026-11-14 那 14 条演示衔接已经叫过第五批，所以这里记成第六批。不回加旧词。先对过已有 290 条的词面，包括只差连字符或空格的写法，没有撞上的，所以 50 条都加上，id `w427`–`w476`，顺序不改。
+
+不加俚语，不加 life。没有 SRS，没有改 `EX_MAX`，不改滑条、状态机、同步或旧词的 id、例句和用法。商务轨 `domain` 用 `business`，高级轨用 `both`。例句是会上能说的英文：评审、时间、建议、顶回去。不在例句里写中文，也不堆他已经会秒过的财务和 SaaS 套话。每条 Stage A 一句，Stage B 五句，目标词放在 `[[highlight]]` 里。容易混的都写了 `contrast`。
+
+`slip` 只作进度或时间点往后滑（the date has slipped），不是 slip up，也不是「失误」那个名词。`stagger` 只作把日期或上线错开（stagger the rollout）。对比里点了形容词 staggering（惊人的），例句里不用这个意思，也不作「走路不稳」。
+
+| 轨 / 用法 | 条数 | 选词口径 |
+| --- | --- | --- |
+| business / speak | 6 | 节奏和先按住：cadence、front-load、slip、stagger、let's not get ahead of ourselves、hold off。hold off 是词头，例句里带 hold off on |
+| advanced / speak | 41 | 力度和节奏，判断、立场、因果，以及会上把话接住的口语块。拿不准、他又愿意说的，标说 |
+| advanced / rw | 3 | 邮件和备忘里要认得、开口会换说法：unabated（hasn't eased / still going）、disingenuous（not being straight / talking around it）、intractable（stuck / hard to fix） |
+
+力度和节奏（17）：relentless、unrelenting、dogged、tenacious、sustained、cadence、breakneck、mounting、piecemeal、front-load、outpace、slip、stagger、overshoot、taper off、let up、unabated。
+
+判断、立场、因果（26）：untenable、defensible、counterproductive、disproportionate、reductive、orthogonal、even-handed、misplaced、belated、conflate、stem from、crowd out、amplify、dampen、bear out、downplay、gloss over、preempt、misread、overcorrect、calibrate、inconclusive、fallout、backlash、disingenuous、intractable。orthogonal 是会上说「这其实是另一件事」，不是几何，也不是财务词。
+
+会上口语（7）：let's not get ahead of ourselves、that doesn't necessarily follow、I wouldn't go that far、that cuts both ways、what would change my mind is、in hindsight、hold off。
+
+`important_suggest` 只给特别值得开口练的：relentless、cadence、mounting、piecemeal、front-load、slip、stagger、taper off、let up、untenable、defensible、counterproductive、conflate、downplay、preempt、misread、overcorrect、calibrate、let's not get ahead of ourselves、that doesn't necessarily follow、I wouldn't go that far、what would change my mind is。其余 28 条是 false，包括 3 条读写。
+
+全库 340：business 117、advanced 211、life 12；speak 291、rw 49。
+
+没有因为和旧词撞面而跳过。旧的 290 条不动。这一批不部署。
 
 ## 学习流 Stage A → B
 

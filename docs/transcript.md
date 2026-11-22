@@ -203,3 +203,29 @@ Each new entry has one Stage A line and five distinct Stage B scenes. Confusable
 Consciously skipped: “let me just flag…”. The lexicon already has w270 flag (“标出来提醒（通常要人接）”) and w267 red flag. Do not add a near-duplicate.
 
 Lexicon after this batch: 290 words. Tracks: business 111, advanced 167, life 12. Usage: speak 244, rw 46. No hosting deploy with this batch.
+
+## 2026-11-22 — Lexicon batch: force and pace, judgment, spoken lines
+
+Chris approved this exact list on 2026-11-22 (Beijing time) with “按这批上线.” Add 50 new entries, ids `w427`–`w476`, in that order. The 2026-11-14 presentation-transition set is already batch 5 in these docs (`w413`–`w426`), so this one is recorded as the next batch. Do not re-add any existing term. Checked the previous 290 terms, including hyphen and space variants. None of these 50 were already in the file, so none were skipped.
+
+No slang. No new life entries. No SRS. `EX_MAX` stays 5. No slider, state-machine, sync, or UI change. Old ids, sentences, and usage tags stay as they were. Business entries use `domain: business`. Advanced entries use `domain: both`. Example scenes are reviews, timelines, recommendations, and pushback he can say in a meeting. English only in the examples. No finance or SaaS jargon of the kind he already passes on sight. Each new entry has one Stage A line, five distinct Stage B scenes, and `contrast`.
+
+`slip` is only a date or milestone moving later (the date has slipped), not a slip-up and not the noun for a mistake. `stagger` is only the verb for spacing dates or a rollout. The adjective staggering (astonishing) is a contrast note only. The examples do not use “walk unsteadily.”
+
+| track / usage | count | why these |
+| --- | --- | --- |
+| business / speak | 6 | Pace and holding action: cadence, front-load, slip, stagger, let's not get ahead of ourselves, hold off. The headword is hold off; examples cover hold off on doing something. |
+| advanced / speak | 41 | How hard and how fast, judgment / stance / cause, and spoken lines for the room. Close calls he would say out loud are tagged speak. |
+| advanced / rw | 3 | Recognize in a mail or memo, and say something simpler: unabated (hasn't eased / still going), disingenuous (not being straight / talking around it), intractable (stuck / hard to fix). |
+
+Force and pace (17): relentless, unrelenting, dogged, tenacious, sustained, cadence, breakneck, mounting, piecemeal, front-load, outpace, slip, stagger, overshoot, taper off, let up, unabated.
+
+Judgment, stance, and cause (26): untenable, defensible, counterproductive, disproportionate, reductive, orthogonal, even-handed, misplaced, belated, conflate, stem from, crowd out, amplify, dampen, bear out, downplay, gloss over, preempt, misread, overcorrect, calibrate, inconclusive, fallout, backlash, disingenuous, intractable. orthogonal is the meeting sense (“that’s a different question”), not geometry and not a finance term.
+
+Spoken lines (7): let's not get ahead of ourselves, that doesn't necessarily follow, I wouldn't go that far, that cuts both ways, what would change my mind is, in hindsight, hold off.
+
+`important_suggest` is true only on the speak items that are especially worth saying out loud: relentless, cadence, mounting, piecemeal, front-load, slip, stagger, taper off, let up, untenable, defensible, counterproductive, conflate, downplay, preempt, misread, overcorrect, calibrate, let's not get ahead of ourselves, that doesn't necessarily follow, I wouldn't go that far, what would change my mind is. The other 28, including all three rw entries, are false.
+
+Apostrophes in the new terms are the straight apostrophe already used in this file (`let's`, `doesn't`, `wouldn't`), not a curly quote.
+
+Lexicon after this batch: 340 words. Tracks: business 117, advanced 211, life 12. Usage: speak 291, rw 49. No hosting deploy with this batch.

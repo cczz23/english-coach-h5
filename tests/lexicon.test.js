@@ -14,7 +14,7 @@ function tokens(line) {
 }
 
 test('every word has usage speak or rw, and rw has 1–2 sayInstead', () => {
-  assert.equal(words.length, 290);
+  assert.equal(words.length, 340);
   const speakExamples = ['circle back', 'heads-up', 'traction', 'pragmatic', 'plausible'];
   const rwExamples = {
     precarious: ['unstable', 'shaky'],
@@ -29,6 +29,15 @@ test('every word has usage speak or rw, and rw has 1–2 sayInstead', () => {
     assert.ok(byTerm.get(term).sayInstead == null, term + ' omits sayInstead');
   }
   for (const [term, alts] of Object.entries(rwExamples)) {
+    assert.equal(byTerm.get(term).usage, 'rw', term);
+    assert.deepEqual(byTerm.get(term).sayInstead, alts, term);
+  }
+  const batch427Rw = {
+    unabated: ["hasn't eased", 'still going'],
+    disingenuous: ['not being straight', 'talking around it'],
+    intractable: ['stuck', 'hard to fix']
+  };
+  for (const [term, alts] of Object.entries(batch427Rw)) {
     assert.equal(byTerm.get(term).usage, 'rw', term);
     assert.deepEqual(byTerm.get(term).sayInstead, alts, term);
   }
@@ -67,6 +76,19 @@ test('every word has usage speak or rw, and rw has 1–2 sayInstead', () => {
     tally5[w.track + '/' + w.usage] = (tally5[w.track + '/' + w.usage] || 0) + 1;
   }
   assert.deepEqual(tally5, { 'business/speak': 14 });
+  const batch427 = words.filter(w => {
+    const n = Number(String(w.id).slice(1));
+    return n >= 427 && n <= 476;
+  });
+  assert.equal(batch427.length, 50);
+  assert.deepEqual(batch427.map(w => w.id), Array.from({ length: 50 }, (_, i) => 'w' + (427 + i)));
+  const tally427 = {};
+  for (const w of batch427) {
+    assert.notEqual(w.track, 'life', w.id);
+    assert.equal(w.domain, w.track === 'business' ? 'business' : 'both', w.id + ' domain');
+    tally427[w.track + '/' + w.usage] = (tally427[w.track + '/' + w.usage] || 0) + 1;
+  }
+  assert.deepEqual(tally427, { 'business/speak': 6, 'advanced/speak': 41, 'advanced/rw': 3 });
   assert.equal(new Set(words.map(w => w.term)).size, words.length);
   for (const w of words) {
     assert.ok(w.usage === 'speak' || w.usage === 'rw', w.id + ' usage');
@@ -84,7 +106,7 @@ test('every word has usage speak or rw, and rw has 1–2 sayInstead', () => {
 });
 
 test('every word has one Stage A line and five distinct Stage B scenes', () => {
-  assert.equal(words.length, 290);
+  assert.equal(words.length, 340);
   for (const w of words) {
     assert.equal(w.examples_stage_a.length, 1, w.id + ' stage A');
     assert.equal(w.examples_stage_b.length, 5, w.id + ' stage B');
