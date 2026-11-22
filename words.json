@@ -9454,14 +9454,14 @@
   "domain": "both",
   "track": "advanced",
   "examples_stage_a": [
-   "They liked the demo. [[That doesn't necessarily follow]] that they will switch."
+   "They liked the demo. [[That doesn't necessarily follow]]. They have not agreed to switch."
   ],
   "examples_stage_b": [
-   "The demo went well. [[That doesn't necessarily follow]] as a reason to promise June.",
-   "People nodded. [[That doesn't necessarily follow]] that a decision was made.",
-   "Support can cover two cities. [[That doesn't necessarily follow]] for every office.",
-   "One site succeeded. [[That doesn't necessarily follow]] that the next site will.",
-   "The vendor lost a week. [[That doesn't necessarily follow]] that the product failed."
+   "The demo went well. [[That doesn't necessarily follow]]. It is not a reason to promise June.",
+   "People nodded. [[That doesn't necessarily follow]]. A decision has not been made.",
+   "Support can cover two cities. [[That doesn't necessarily follow]]. The other offices are a different story.",
+   "One site succeeded. [[That doesn't necessarily follow]]. The next site might not.",
+   "The vendor lost a week. [[That doesn't necessarily follow]]. The product itself did not fail."
   ],
   "contrast": [
    {
@@ -9489,7 +9489,7 @@
   ],
   "examples_stage_b": [
    "The draft is rough. [[I wouldn't go that far]] and scrap it.",
-   "There is a real gap. [[I wouldn't go that far]] as to blame the operators.",
+   "There is a real gap. [[I wouldn't go that far]] and blame the operators.",
    "Interest looks solid. [[I wouldn't go that far]] and hire ahead of a second office.",
    "The note was late. [[I wouldn't go that far]] and treat it as a pattern.",
    "I share the worry. [[I wouldn't go that far]] on pausing every site."
@@ -9614,7 +9614,7 @@
   "examples_stage_b": [
    "[[Hold off]] on hiring until we know which office is real.",
    "I would [[hold off]] on a company-wide note this week.",
-   "[[Hold off]] the training invite. The screens are still changing.",
+   "[[Hold off]] on the training invite. The screens are still changing.",
    "Let's [[hold off]] on promising June while we are still in this room.",
    "[[Hold off]] until legal has read the exception, then send the note."
   ],
